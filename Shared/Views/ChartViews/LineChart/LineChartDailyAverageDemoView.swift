@@ -27,10 +27,17 @@ struct LineChartDailyAverageDemoView: View {
                 .padding(.all, 24)
                 .background(
                     ZStack {
+                        #if !os(macOS)
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                             .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                             .fill(Color(.systemBackground))
+                        #elseif os(macOS)
+                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                            .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
+                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                            .fill(Color(.windowBackgroundColor))
+                        #endif
                     }
                 )
                 .padding()
@@ -87,8 +94,14 @@ extension LineChartDailyAverageDemoView {
         
         let labels      : [String]      = ["J", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"]
         
+        #if !os(macOS)
+        let gridColour = Color(.systemFill)
+        #elseif os(macOS)
+        let gridColour = Color(.gridColor)
+        #endif
+        
         let gridStyle   : GridStyle     = GridStyle(numberOfLines: 7,
-                                                    lineColour   : Color(.systemFill),
+                                                    lineColour   : gridColour,
                                                     lineWidth    : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,

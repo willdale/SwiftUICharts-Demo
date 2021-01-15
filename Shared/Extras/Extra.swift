@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CustomButton: ViewModifier {
+    
+    #if !os(macOS)
     func body(content: Content) -> some View {
         content
             .font(.headline)
@@ -18,4 +20,10 @@ struct CustomButton: ViewModifier {
                     .stroke(Color.primary, lineWidth: 2)
             )
     }
+    #else
+    
+    func body(content: Content) -> some View {
+        content
+    }
+    #endif
 }

@@ -8,8 +8,6 @@
 import SwiftUI
 import SwiftUICharts
 
-
-
 struct ContentView: View {
 
     var body: some View {
@@ -45,6 +43,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .listStyle(SidebarListStyle())
             .navigationTitle("SwiftUICharts")
         }
     }

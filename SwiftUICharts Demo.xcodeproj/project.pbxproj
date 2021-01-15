@@ -13,6 +13,8 @@
 		6C18542125AEF43700F2FAE0 /* BarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541F25AEF43700F2FAE0 /* BarChartDemoView.swift */; };
 		6C18542625AEF48D00F2FAE0 /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */; };
 		6C18542725AEF48D00F2FAE0 /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */; };
+		6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296725B1D27900F9A126 /* SwiftUICharts */; };
+		6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296B25B1D2F200F9A126 /* SwiftUICharts */; };
 		6C8A067125B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */; };
 		6C8A067225B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */; };
 		6C8A067625B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067525B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift */; };
@@ -25,8 +27,6 @@
 		6CC59B8A25AB0D7C009D405A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
 		6CC59B8B25AB0D7C009D405A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC59B7625AB0D7C009D405A /* Assets.xcassets */; };
 		6CC59B8C25AB0D7C009D405A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC59B7625AB0D7C009D405A /* Assets.xcassets */; };
-		6CC59B9C25AB0D94009D405A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6CC59B9B25AB0D94009D405A /* SwiftUICharts */; };
-		6CC59B9E25AB0D9C009D405A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6CC59B9D25AB0D9C009D405A /* SwiftUICharts */; };
 		6CEDEC5225AEF71900CD95CD /* LineChartWideDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */; };
 		6CEDEC5325AEF71900CD95CD /* LineChartWideDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */; };
 		6CEDEC5725AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5625AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift */; };
@@ -50,7 +50,6 @@
 		6CC59B8325AB0D7C009D405A /* SwiftUICharts Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC59B8525AB0D7C009D405A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC59B8625AB0D7C009D405A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		6CC59B9725AB0D8A009D405A /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../../SwiftUICharts; sourceTree = "<group>"; };
 		6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWideDemoView.swift; sourceTree = "<group>"; };
 		6CEDEC5625AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartYearAveragedDemoView.swift; sourceTree = "<group>"; };
 		6CEDEC5F25AF32C500CD95CD /* BarChartYearDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartYearDemoView.swift; sourceTree = "<group>"; };
@@ -61,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC59B9C25AB0D94009D405A /* SwiftUICharts in Frameworks */,
+				6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC59B9E25AB0D9C009D405A /* SwiftUICharts in Frameworks */,
+				6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +87,6 @@
 		6CC59B6E25AB0D7B009D405A = {
 			isa = PBXGroup;
 			children = (
-				6CC59B9725AB0D8A009D405A /* SwiftUICharts */,
 				6CC59B7325AB0D7B009D405A /* Shared */,
 				6CC59B7D25AB0D7C009D405A /* iOS */,
 				6CC59B8425AB0D7C009D405A /* macOS */,
@@ -197,7 +195,7 @@
 			);
 			name = "SwiftUICharts Demo (iOS)";
 			packageProductDependencies = (
-				6CC59B9B25AB0D94009D405A /* SwiftUICharts */,
+				6C75296725B1D27900F9A126 /* SwiftUICharts */,
 			);
 			productName = "SwiftUICharts Demo (iOS)";
 			productReference = 6CC59B7B25AB0D7C009D405A /* SwiftUICharts Demo.app */;
@@ -217,7 +215,7 @@
 			);
 			name = "SwiftUICharts Demo (macOS)";
 			packageProductDependencies = (
-				6CC59B9D25AB0D9C009D405A /* SwiftUICharts */,
+				6C75296B25B1D2F200F9A126 /* SwiftUICharts */,
 			);
 			productName = "SwiftUICharts Demo (macOS)";
 			productReference = 6CC59B8325AB0D7C009D405A /* SwiftUICharts Demo.app */;
@@ -249,6 +247,9 @@
 				Base,
 			);
 			mainGroup = 6CC59B6E25AB0D7B009D405A;
+			packageReferences = (
+				6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+			);
 			productRefGroup = 6CC59B7C25AB0D7C009D405A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -554,13 +555,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		6CC59B9B25AB0D94009D405A /* SwiftUICharts */ = {
+		6C75296725B1D27900F9A126 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
 			productName = SwiftUICharts;
 		};
-		6CC59B9D25AB0D9C009D405A /* SwiftUICharts */ = {
+		6C75296B25B1D2F200F9A126 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */

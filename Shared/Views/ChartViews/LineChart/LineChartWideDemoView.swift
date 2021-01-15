@@ -32,10 +32,17 @@ struct LineChartWideDemoView: View {
                     .padding(.all, 24)
                     .background(
                         ZStack {
+                            #if !os(macOS)
                             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                                 .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
                             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                                 .fill(Color(.systemBackground))
+                            #elseif os(macOS)
+                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
+                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .fill(Color(.windowBackgroundColor))
+                            #endif
                         }
                     )
                     .padding()
@@ -87,12 +94,18 @@ extension LineChartWideDemoView {
         
         let labels      : [String]      = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         
+        #if !os(macOS)
+        let gridColour = Color(.systemFill)
+        #elseif os(macOS)
+        let gridColour = Color(.gridColor)
+        #endif
+        
         let xGridStyle   : GridStyle     = GridStyle(numberOfLines: 11,
-                                                    lineColour  : Color(.systemFill),
+                                                    lineColour  : gridColour,
                                                     lineWidth   : 1)
         
         let yGridStyle   : GridStyle     = GridStyle(numberOfLines: 3,
-                                                    lineColour  : Color(.systemFill),
+                                                    lineColour  : gridColour,
                                                     lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,
