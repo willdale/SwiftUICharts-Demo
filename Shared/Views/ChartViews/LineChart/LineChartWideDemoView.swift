@@ -17,58 +17,112 @@ struct LineChartWideDemoView: View {
     var body: some View {
         
         VStack {
-            ScrollView(.horizontal) {
-                LineChart()
-                    .pointMarkers()
-                    .yAxisPOI(markerName: "0", markerValue: 0, lineColour: Color.primary)
-                    .xAxisGrid()
-                    .yAxisGrid()
-                    .xAxisLabels()
-                    .yAxisLabels()
-                    .headerBox()
-                    .legends()
-                    .environmentObject(data)
-                    .frame(width: 3650, height: 400)
-                    .padding(.all, 24)
-                    .background(
-                        ZStack {
-                            #if !os(macOS)
-                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
-                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                .fill(Color(.systemBackground))
-                            #elseif os(macOS)
-                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
-                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                .fill(Color(.windowBackgroundColor))
-                            #endif
-                        }
-                    )
-                    .padding()
-            }
-            Button {
-                withAnimation(Animation.linear(duration: 1)) {
-                    if data.pointStyle.borderColour == Color.primary {
-                        data.pointStyle.borderColour = Color(.systemTeal)
-                    } else if data.pointStyle.borderColour == Color(.systemTeal) {
-                        data.pointStyle.borderColour = Color.primary
-                    }
-                }
-            } label: {
-                Text("Toggle Point Colour")
-                    .modifier(CustomButton())
-            }
             Spacer()
-            Text("Change point Size")
-            Slider(value: $pointSize) {
-                Text("Point Size")
-            }.padding(.horizontal)
-            .onChange(of: pointSize) { (value) in
-                data.pointStyle.pointSize = CGFloat(value * 20)
+            LineChart()
+                .pointMarkers()
+                .yAxisPOI(markerName: "0", markerValue: 0, lineColour: Color.primary)
+                .xAxisGrid()
+                .yAxisGrid()
+                .xAxisLabels()
+                .yAxisLabels()
+                .headerBox()
+                .legends()
+                .environmentObject(data)
+                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
+                .padding(.all, 24)
+                .background(
+                    ZStack {
+                        DemoContainer()
+                    }
+                )
+                .padding()
+            Spacer()
+            #if os(iOS)
+            VStack {
+                buttonOne
+                buttonTwo
+                slider
             }
+            #elseif os(macOS)
+            VStack {
+                Spacer()
+                buttonOne
+                Spacer()
+                buttonTwo
+                Spacer()
+                slider
+                Spacer()
+            }
+            #elseif os(tvOS)
+            HStack {
+                buttonOne
+                buttonTwo
+                slider
+            }
+            #endif
+            Spacer()
         }
         .navigationTitle("Year of Data")
+    }
+    var buttonOne: some View {
+        Button {
+            withAnimation(Animation.linear(duration: 1)) {
+                if data.pointStyle.pointType == .outline {
+                    data.pointStyle.pointType = .filledOutLine
+                } else if data.pointStyle.pointType == .filledOutLine {
+                    data.pointStyle.pointType = .filled
+                } else if data.pointStyle.pointType == .filled {
+                    data.pointStyle.pointType = .outline
+                }
+            }
+        } label: {
+            Text("Toggle Point Style")
+                .modifier(CustomButton())
+        }
+    }
+    var buttonTwo: some View {
+        Button {
+            if data.pointStyle.pointShape == .circle {
+                data.pointStyle.pointShape = .roundSquare
+            } else if data.pointStyle.pointShape == .roundSquare {
+                data.pointStyle.pointShape = .square
+            } else if data.pointStyle.pointShape == .square {
+                data.pointStyle.pointShape = .circle
+            }
+        } label: {
+            Text("Toggle Point Shape")
+                .modifier(CustomButton())
+        }
+    }
+   @ViewBuilder var slider: some View {
+        #if !os(tvOS)
+        Text("Change point Size")
+        Slider(value: $pointSize) {
+            Text("Point Size")
+        }
+        .labelsHidden()
+        .frame(minWidth: 200, idealWidth: 300, maxWidth: 400)
+        .padding(.horizontal)
+        .onChange(of: pointSize) { (value) in
+            data.pointStyle.pointSize = CGFloat(value * 20)
+        }
+        #else
+        VStack {
+            Text("Point Size")
+            HStack {
+                Button(action: {
+                    data.pointStyle.pointSize += 1
+                }, label: {
+                    Image(systemName: "plus")
+                })
+                Button(action: {
+                    data.pointStyle.pointSize -= 1
+                }, label: {
+                    Image(systemName: "minus")
+                })
+            }
+        }
+        #endif
     }
 }
 
@@ -94,18 +148,12 @@ extension LineChartWideDemoView {
         
         let labels      : [String]      = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         
-        #if !os(macOS)
-        let gridColour = Color(.systemFill)
-        #elseif os(macOS)
-        let gridColour = Color(.gridColor)
-        #endif
-        
         let xGridStyle   : GridStyle     = GridStyle(numberOfLines: 11,
-                                                    lineColour  : gridColour,
+                                                    lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
         let yGridStyle   : GridStyle     = GridStyle(numberOfLines: 3,
-                                                    lineColour  : gridColour,
+                                                    lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,

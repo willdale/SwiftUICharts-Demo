@@ -43,7 +43,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .listStyle(SidebarListStyle())
+//            .listStyle(SidebarListStyle())
             .navigationTitle("SwiftUICharts")
         }
     }

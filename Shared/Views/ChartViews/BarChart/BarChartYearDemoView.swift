@@ -10,13 +10,12 @@ import SwiftUICharts
 
 struct BarChartYearDemoView: View {
     
-    var data : ChartData = yearOfData()
+    var data : ChartData = weekOfData()
     
     var body: some View {
         BarChart()
             .touchOverlay()
             .averageLine(markerName: "Average", lineColour: Color.primary, strokeStyle: StrokeStyle(lineWidth: 2, dash: [5, 10]))
-            .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(.systemBlue), strokeStyle: StrokeStyle(lineWidth: 2, dash: [5, 10]))
             .yAxisGrid()
             .xAxisLabels()
             .yAxisLabels()
@@ -27,51 +26,38 @@ struct BarChartYearDemoView: View {
             .padding(.all, 24)
             .background(
                 ZStack {
-                    #if !os(macOS)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .fill(Color(.systemBackground))
-                    #elseif os(macOS)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .fill(Color(.windowBackgroundColor))
-                    #endif
+                    DemoContainer()
                 }
             )
             .padding(.horizontal)
     }
     
-    static func yearOfData() -> ChartData {
+    static func weekOfData() -> ChartData {
         
-        var data : [ChartDataPoint] = []
-        for _ in 1...365 {
-            let value: Double = Double(Int.random(in: 0...100))
-            data.append(ChartDataPoint(value: value))
-        }
+        let data : [ChartDataPoint] = [
+            ChartDataPoint(value: 70,  xAxisLabel: "M", pointLabel: "Monday"   , colour: Color(.systemRed)),
+            ChartDataPoint(value: 40,  xAxisLabel: "T", pointLabel: "Tuesday"  , colour: Color(.systemBlue)),
+            ChartDataPoint(value: 90, xAxisLabel:  "W", pointLabel: "Wednesday", colour: Color(.systemGreen)),
+            ChartDataPoint(value: 35,  xAxisLabel: "T", pointLabel: "Thursday" , colour: Color(.systemOrange)),
+            ChartDataPoint(value: 60, xAxisLabel:  "F", pointLabel: "Friday"   , colour: Color(.systemTeal)),
+            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday" , colour: Color(.systemPurple)),
+            ChartDataPoint(value: 40,  xAxisLabel: "S", pointLabel: "Sunday"   , colour: Color(.systemYellow))
+        ]
+        
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
-                                                        subtitle    : "A years worth",
+                                                        subtitle    : "A weeks worth",
                                                         lineLegend  : "Data")
         
-        let labels      : [String]      = ["Jan", "Mar", "May", "Jul", "Sep", "Nov"]
         
-        #if !os(macOS)
-        let gridColour = Color(.systemFill)
-        #elseif os(macOS)
-        let gridColour = Color(.gridColor)
-        #endif
-        
-        let gridStyle   : GridStyle     = GridStyle(lineColour  : gridColour,
+        let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle)
         
-        let barStyle    : BarStyle      = BarStyle(barWidth: 1.0,
-                                                   cornerRadius: CornerRadius(top: 5, bottom: 5),
-                                                   colourFrom: .barStyle,
+        let barStyle    : BarStyle      = BarStyle(barWidth: 1,
+                                                   colourFrom: .dataPoints,
                                                    colours: [Color(red: 1.0, green: 0.15, blue: 0.15),
                                                              Color(red: 1.0, green: 0.35, blue: 0.35)],
                                                    startPoint: .bottom,
@@ -79,9 +65,9 @@ struct BarChartYearDemoView: View {
         
         return ChartData(dataPoints     : data,
                          metadata       : metadata,
-                         xAxisLabels: labels,
                          chartStyle     : chartStyle,
-                         barStyle  : barStyle)
+                         barStyle       : barStyle
+        )
     }
 }
 

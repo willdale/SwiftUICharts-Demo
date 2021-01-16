@@ -11,15 +11,15 @@ import SwiftUICharts
 struct LineChartDemoView: View {
     
     let data : ChartData = weekOfData()
-    
+        
     var body: some View {
         VStack {
             Spacer()
             LineChart()
                 .touchOverlay()
                 .pointMarkers()
-                .averageLine()
-                .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(.systemRed))
+                .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid()
                 .yAxisGrid()
                 .xAxisLabels()
@@ -27,72 +27,89 @@ struct LineChartDemoView: View {
                 .headerBox()
                 .legends()
                 .environmentObject(data)
-                .frame(width: 300, height: 400)
+                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
                 .padding(.all, 24)
                 .background(
                     ZStack {
-                        #if !os(macOS)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .fill(Color(.systemBackground))
-                        #elseif os(macOS)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .fill(Color(.windowBackgroundColor))
-                        #endif
+                        DemoContainer()
                     }
                 )
                 .padding(.horizontal)
-            Button {
-                if data.chartStyle.infoBoxPlacement == .floating {
-                    data.chartStyle.infoBoxPlacement = .header
-                } else if data.chartStyle.infoBoxPlacement == .header {
-                    data.chartStyle.infoBoxPlacement = .floating
-                }
-            } label: {
-                Text("Change Touch Overlay position")
-                    .modifier(CustomButton())
-            }
             Spacer()
-            Button {
-                withAnimation(Animation.linear(duration: 1)) {
-                    if data.lineStyle.colourType == .gradientColour {
-                        data.lineStyle.colourType = .colour
-                        data.lineStyle.colour = Color(.systemBlue)
-                    } else if data.lineStyle.colourType == .colour {
-                        data.lineStyle.colourType = .gradientColour
-                        data.lineStyle.colours = [Color(.systemBlue), Color(.systemRed)]
-                    }
-                }
-            } label: {
-                Text("Toggle Colour")
-                    .modifier(CustomButton())
+            #if os(iOS)
+            VStack {
+                buttonOne
+                buttonTwo
+                buttonThree
             }
+            #elseif os(macOS)
+            HStack {
+                buttonOne
+                buttonTwo
+                buttonThree
+            }
+            #elseif os(tvOS)
+            HStack {
+                buttonOne
+                buttonTwo
+                buttonThree
+            }
+            #endif
             Spacer()
-            Button {
-                withAnimation(Animation.linear(duration: 1)) {
-                    if data.chartStyle.xAxisGridStyle.numberOfLines == 10 {
-                        data.chartStyle.xAxisGridStyle.numberOfLines = 3
-                        data.chartStyle.yAxisGridStyle.numberOfLines = 6
-                    } else {
-                        data.chartStyle.xAxisGridStyle.numberOfLines = 10
-                        data.chartStyle.yAxisGridStyle.numberOfLines = 10
-                    }
-                }
-            } label: {
-                Text("Toggle Grid")
-                    .modifier(CustomButton())
-            }
         }
         .navigationTitle("Week of Data")
+    }
+    
+    var buttonOne: some View {
+        Button {
+            if data.chartStyle.infoBoxPlacement == .floating {
+                data.chartStyle.infoBoxPlacement = .header
+            } else if data.chartStyle.infoBoxPlacement == .header {
+                data.chartStyle.infoBoxPlacement = .floating
+            }
+        } label: {
+            Text("Change Touch Overlay position")
+                .modifier(CustomButton())
+        }
+    }
+    var buttonTwo: some View {
+        Button {
+            withAnimation(Animation.linear(duration: 1)) {
+                if data.lineStyle.colourType == .gradientColour {
+                    data.lineStyle.colourType = .colour
+                    data.lineStyle.colour = Color(red: 0.15, green: 0.15, blue: 1.0)
+                } else if data.lineStyle.colourType == .colour {
+                    data.lineStyle.colourType = .gradientColour
+                    data.lineStyle.colours = [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)]
+                }
+            }
+        } label: {
+            Text("Toggle Colour")
+                .modifier(CustomButton())
+        }
+    }
+    var buttonThree: some View {
+        Button {
+            withAnimation(Animation.linear(duration: 1)) {
+                if data.chartStyle.xAxisGridStyle.numberOfLines == 10 {
+                    data.chartStyle.xAxisGridStyle.numberOfLines = 3
+                    data.chartStyle.yAxisGridStyle.numberOfLines = 6
+                } else {
+                    data.chartStyle.xAxisGridStyle.numberOfLines = 10
+                    data.chartStyle.yAxisGridStyle.numberOfLines = 10
+                }
+            }
+        } label: {
+            Text("Toggle Grid")
+                .modifier(CustomButton())
+        }
     }
 }
 
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
         LineChartDemoView()
+            .preferredColorScheme(.dark)
     }
 }
 
@@ -101,13 +118,13 @@ extension LineChartDemoView {
     static func weekOfData() -> ChartData {
         
         let data : [ChartDataPoint] = [
-            ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"   , colour: Color(.systemRed)   ),
-            ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"  , colour: Color(.systemBlue)  ),
-            ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday", colour: Color(.systemGreen) ),
-            ChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday" , colour: Color(.systemOrange)),
-            ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"   , colour: Color(.systemTeal)  ),
-            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday" , colour: Color(.systemPurple)),
-            ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday"   , colour: Color(.systemYellow))
+            ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
+            ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
+            ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
+            ChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
+            ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
+            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
+            ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
         ]
         
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
@@ -115,33 +132,26 @@ extension LineChartDemoView {
                                                         lineLegend  : "Data")
         
         let labels      : [String]      = ["Mon", "Thu", "Sun"]
-        
-        #if !os(macOS)
-        let gridColour = Color(.systemFill)
-        #elseif os(macOS)
-        let gridColour = Color(.gridColor)
-        #endif
-        
-        let gridStyle   : GridStyle     = GridStyle(lineColour  : gridColour,
+
+        let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
                                                     lineWidth   : 1,
-                                                    dash        : [CGFloat](),
-                                                    dashPhase   : 0)
+                                                    dash: [CGFloat]())
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle,
-                                                     xAxisLabels: XAxisLabelSetup(labelPosition: .bottom,
-                                                                                  labelsFrom: .xAxisLabel),
-                                                     yAxisLabels: YAxisLabelSetup(labelPosition: .leading,
+                                                     xAxisLabels     : XAxisLabelSetup(labelPosition : .bottom,
+                                                                                       labelsFrom    : .xAxisLabel),
+                                                     yAxisLabels     : YAxisLabelSetup(labelPosition : .leading,
                                                                                   numberOfLabels: 7))
         
-        let lineStyle   : LineStyle     = LineStyle(colours: [Color(.systemBlue), Color(.systemRed)],
-                                                    startPoint: .bottom,
-                                                    endPoint: .top,
-                                                    lineType: .curvedLine,
-                                                    strokeStyle: StrokeStyle(lineWidth: 3,
-                                                                             lineCap: .round,
-                                                                             lineJoin: .round))
+        let lineStyle   : LineStyle     = LineStyle(colours     : [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)],
+                                                    startPoint  : .leading,
+                                                    endPoint    : .trailing,
+                                                    lineType    : .curvedLine,
+                                                    strokeStyle : StrokeStyle(lineWidth: 3,
+                                                                              lineCap: .round,
+                                                                              lineJoin: .round))
         
         let pointStyle : PointStyle     = PointStyle(pointSize: 9, borderColour: Color.primary, lineWidth: 2, pointType: .outline, pointShape: .circle)
         
@@ -154,4 +164,26 @@ extension LineChartDemoView {
         )
     }
     
+}
+
+struct DemoContainer: View {
+    
+    var body: some View {
+        #if os(iOS)
+        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+            .shadow(color: Color(.gray), radius: 12, x: 0, y: 0)
+        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+            .fill(Color(.systemBackground))
+        #elseif os(macOS)
+        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+            .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
+        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+            .fill(Color(.windowBackgroundColor))
+        #elseif os(tvOS)
+//        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+//            .shadow(color: Color(.gray), radius: 12, x: 0, y: 0)
+//        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+//            .fill(Color(.clear))
+        #endif
+    }
 }

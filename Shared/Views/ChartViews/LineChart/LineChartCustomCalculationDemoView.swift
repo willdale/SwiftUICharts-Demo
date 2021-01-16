@@ -31,17 +31,7 @@ struct LineChartCustomCalculationDemoView: View {
                 .padding(.all, 24)
                 .background(
                     ZStack {
-                        #if !os(macOS)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .fill(Color(.systemBackground))
-                        #elseif os(macOS)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .fill(Color(.windowBackgroundColor))
-                        #endif
+                        DemoContainer()
                     }
                 )
                 .padding()
@@ -97,13 +87,7 @@ extension LineChartCustomCalculationDemoView {
         
         let labels      : [String]      = ["Jan", "Feb", ""]
         
-        #if !os(macOS)
-        let gridColour = Color(.systemFill)
-        #elseif os(macOS)
-        let gridColour = Color(.gridColor)
-        #endif
-        
-        let gridStyle   : GridStyle     = GridStyle(lineColour  : gridColour,
+        let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,

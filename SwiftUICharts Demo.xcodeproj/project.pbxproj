@@ -13,6 +13,20 @@
 		6C18542125AEF43700F2FAE0 /* BarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541F25AEF43700F2FAE0 /* BarChartDemoView.swift */; };
 		6C18542625AEF48D00F2FAE0 /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */; };
 		6C18542725AEF48D00F2FAE0 /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */; };
+		6C23A46125B1FA4800BD364E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C23A46025B1FA4800BD364E /* Assets.xcassets */; };
+		6C23A46425B1FA4800BD364E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */; };
+		6C23A46D25B1FA6D00BD364E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C23A46C25B1FA6D00BD364E /* SwiftUICharts */; };
+		6C23A47A25B1FAE700BD364E /* BarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541F25AEF43700F2FAE0 /* BarChartDemoView.swift */; };
+		6C23A47B25B1FAE700BD364E /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
+		6C23A47C25B1FAE700BD364E /* BarChartYearDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5F25AF32C500CD95CD /* BarChartYearDemoView.swift */; };
+		6C23A47D25B1FAE700BD364E /* LineChartWeeklyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */; };
+		6C23A47E25B1FAE700BD364E /* LineChartMonthlyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5625AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift */; };
+		6C23A47F25B1FAE700BD364E /* LineChartDailyAverageDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067525B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift */; };
+		6C23A48025B1FAE700BD364E /* LineChartWideDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */; };
+		6C23A48125B1FAE700BD364E /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
+		6C23A48225B1FAE700BD364E /* LineChartCustomCalculationDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067C25B085190017E5A6 /* LineChartCustomCalculationDemoView.swift */; };
+		6C23A48325B1FAE700BD364E /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */; };
+		6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
 		6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296725B1D27900F9A126 /* SwiftUICharts */; };
 		6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296B25B1D2F200F9A126 /* SwiftUICharts */; };
 		6C8A067125B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */; };
@@ -29,16 +43,36 @@
 		6CC59B8C25AB0D7C009D405A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC59B7625AB0D7C009D405A /* Assets.xcassets */; };
 		6CEDEC5225AEF71900CD95CD /* LineChartWideDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */; };
 		6CEDEC5325AEF71900CD95CD /* LineChartWideDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */; };
-		6CEDEC5725AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5625AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift */; };
-		6CEDEC5825AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5625AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift */; };
+		6CEDEC5725AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5625AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift */; };
+		6CEDEC5825AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5625AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift */; };
 		6CEDEC6025AF32C500CD95CD /* BarChartYearDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5F25AF32C500CD95CD /* BarChartYearDemoView.swift */; };
 		6CEDEC6125AF32C500CD95CD /* BarChartYearDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDEC5F25AF32C500CD95CD /* BarChartYearDemoView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6C75299A25B1F37500F9A126 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6C18541A25AEF3BE00F2FAE0 /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
 		6C18541F25AEF43700F2FAE0 /* BarChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDemoView.swift; sourceTree = "<group>"; };
 		6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDemoView.swift; sourceTree = "<group>"; };
+		6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C23A45C25B1FA4700BD364E /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
+		6C23A45E25B1FA4700BD364E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C7529A525B1F41100F9A126 /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
 		6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWeeklyAveragedDemoView.swift; sourceTree = "<group>"; };
 		6C8A067525B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDailyAverageDemoView.swift; sourceTree = "<group>"; };
 		6C8A067C25B085190017E5A6 /* LineChartCustomCalculationDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartCustomCalculationDemoView.swift; sourceTree = "<group>"; };
@@ -51,11 +85,19 @@
 		6CC59B8525AB0D7C009D405A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC59B8625AB0D7C009D405A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWideDemoView.swift; sourceTree = "<group>"; };
-		6CEDEC5625AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartYearAveragedDemoView.swift; sourceTree = "<group>"; };
+		6CEDEC5625AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartMonthlyAveragedDemoView.swift; sourceTree = "<group>"; };
 		6CEDEC5F25AF32C500CD95CD /* BarChartYearDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartYearDemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C23A45725B1FA4700BD364E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C23A46D25B1FA6D00BD364E /* SwiftUICharts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC59B7825AB0D7C009D405A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,12 +126,34 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6C23A45B25B1FA4700BD364E /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				6C23A45C25B1FA4700BD364E /* SwiftUICharts_DemoApp.swift */,
+				6C23A45E25B1FA4700BD364E /* ContentView.swift */,
+				6C23A46025B1FA4800BD364E /* Assets.xcassets */,
+				6C23A46525B1FA4800BD364E /* Info.plist */,
+				6C23A46225B1FA4800BD364E /* Preview Content */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		6C23A46225B1FA4800BD364E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		6CC59B6E25AB0D7B009D405A = {
 			isa = PBXGroup;
 			children = (
+				6C7529A525B1F41100F9A126 /* SwiftUICharts */,
 				6CC59B7325AB0D7B009D405A /* Shared */,
 				6CC59B7D25AB0D7C009D405A /* iOS */,
 				6CC59B8425AB0D7C009D405A /* macOS */,
+				6C23A45B25B1FA4700BD364E /* tvOS */,
 				6CC59B7C25AB0D7C009D405A /* Products */,
 				6CC59B9A25AB0D94009D405A /* Frameworks */,
 			);
@@ -111,6 +175,7 @@
 			children = (
 				6CC59B7B25AB0D7C009D405A /* SwiftUICharts Demo.app */,
 				6CC59B8325AB0D7C009D405A /* SwiftUICharts Demo.app */,
+				6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,7 +226,7 @@
 			children = (
 				6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */,
 				6CEDEC5125AEF71900CD95CD /* LineChartWideDemoView.swift */,
-				6CEDEC5625AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift */,
+				6CEDEC5625AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift */,
 				6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */,
 				6C8A067525B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift */,
 				6C8A067C25B085190017E5A6 /* LineChartCustomCalculationDemoView.swift */,
@@ -181,6 +246,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C23A45925B1FA4700BD364E /* SwiftUICharts Demo (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C23A46825B1FA4800BD364E /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (tvOS)" */;
+			buildPhases = (
+				6C23A45625B1FA4700BD364E /* Sources */,
+				6C23A45725B1FA4700BD364E /* Frameworks */,
+				6C23A45825B1FA4700BD364E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftUICharts Demo (tvOS)";
+			packageProductDependencies = (
+				6C23A46C25B1FA6D00BD364E /* SwiftUICharts */,
+			);
+			productName = "SwiftUICharts Demo";
+			productReference = 6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */;
+			productType = "com.apple.product-type.application";
+		};
 		6CC59B7A25AB0D7C009D405A /* SwiftUICharts Demo (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CC59B8F25AB0D7C009D405A /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (iOS)" */;
@@ -188,6 +273,7 @@
 				6CC59B7725AB0D7C009D405A /* Sources */,
 				6CC59B7825AB0D7C009D405A /* Frameworks */,
 				6CC59B7925AB0D7C009D405A /* Resources */,
+				6C75299A25B1F37500F9A126 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -230,6 +316,9 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					6C23A45925B1FA4700BD364E = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					6CC59B7A25AB0D7C009D405A = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -256,11 +345,21 @@
 			targets = (
 				6CC59B7A25AB0D7C009D405A /* SwiftUICharts Demo (iOS) */,
 				6CC59B8225AB0D7C009D405A /* SwiftUICharts Demo (macOS) */,
+				6C23A45925B1FA4700BD364E /* SwiftUICharts Demo (tvOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C23A45825B1FA4700BD364E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C23A46425B1FA4800BD364E /* Preview Assets.xcassets in Resources */,
+				6C23A46125B1FA4800BD364E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC59B7925AB0D7C009D405A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,6 +379,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C23A45625B1FA4700BD364E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C23A47C25B1FAE700BD364E /* BarChartYearDemoView.swift in Sources */,
+				6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */,
+				6C23A48025B1FAE700BD364E /* LineChartWideDemoView.swift in Sources */,
+				6C23A48325B1FAE700BD364E /* LineChartDemoView.swift in Sources */,
+				6C23A48225B1FAE700BD364E /* LineChartCustomCalculationDemoView.swift in Sources */,
+				6C23A47B25B1FAE700BD364E /* Extra.swift in Sources */,
+				6C23A48125B1FAE700BD364E /* SwiftUICharts_DemoApp.swift in Sources */,
+				6C23A47F25B1FAE700BD364E /* LineChartDailyAverageDemoView.swift in Sources */,
+				6C23A47D25B1FAE700BD364E /* LineChartWeeklyAveragedDemoView.swift in Sources */,
+				6C23A47A25B1FAE700BD364E /* BarChartDemoView.swift in Sources */,
+				6C23A47E25B1FAE700BD364E /* LineChartMonthlyAveragedDemoView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC59B7725AB0D7C009D405A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,7 +410,7 @@
 				6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */,
 				6CEDEC6025AF32C500CD95CD /* BarChartYearDemoView.swift in Sources */,
 				6CC59B8725AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */,
-				6CEDEC5725AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift in Sources */,
+				6CEDEC5725AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift in Sources */,
 				6C18541B25AEF3BE00F2FAE0 /* Extra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +428,7 @@
 				6CC59B8A25AB0D7C009D405A /* ContentView.swift in Sources */,
 				6CEDEC6125AF32C500CD95CD /* BarChartYearDemoView.swift in Sources */,
 				6CC59B8825AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */,
-				6CEDEC5825AEFD9000CD95CD /* LineChartYearAveragedDemoView.swift in Sources */,
+				6CEDEC5825AEFD9000CD95CD /* LineChartMonthlyAveragedDemoView.swift in Sources */,
 				6C18541C25AEF3BE00F2FAE0 /* Extra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +436,53 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6C23A46625B1FA4800BD364E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"tvOS/Preview Content\"";
+				DEVELOPMENT_TEAM = EGJ7GMEH64;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.willdale.SwiftUICharts-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.3;
+			};
+			name = Debug;
+		};
+		6C23A46725B1FA4800BD364E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"tvOS/Preview Content\"";
+				DEVELOPMENT_TEAM = EGJ7GMEH64;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.willdale.SwiftUICharts-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.3;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		6CC59B8D25AB0D7C009D405A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -526,6 +690,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C23A46825B1FA4800BD364E /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C23A46625B1FA4800BD364E /* Debug */,
+				6C23A46725B1FA4800BD364E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6CC59B7225AB0D7B009D405A /* Build configuration list for PBXProject "SwiftUICharts Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -567,6 +740,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6C23A46C25B1FA6D00BD364E /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUICharts;
+		};
 		6C75296725B1D27900F9A126 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;

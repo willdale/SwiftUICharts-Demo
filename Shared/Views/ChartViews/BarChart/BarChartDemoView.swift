@@ -16,7 +16,6 @@ struct BarChartDemoView: View {
         BarChart()
             .touchOverlay()
             .averageLine(markerName: "Average", lineColour: Color.primary, strokeStyle: StrokeStyle(lineWidth: 2, dash: [5, 10]))
-            .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(.systemBlue), strokeStyle: StrokeStyle(lineWidth: 2, dash: [5, 10]))
             .yAxisGrid()
             .xAxisLabels()
             .yAxisLabels()
@@ -27,17 +26,7 @@ struct BarChartDemoView: View {
             .padding(.all, 24)
             .background(
                 ZStack {
-                    #if !os(macOS)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .shadow(color: Color(.systemGray3), radius: 12, x: 0, y: 0)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .fill(Color(.systemBackground))
-                    #elseif os(macOS)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .fill(Color(.windowBackgroundColor))
-                    #endif
+                    DemoContainer()
                 }
             )
             .padding(.horizontal)
@@ -46,28 +35,20 @@ struct BarChartDemoView: View {
     static func weekOfData() -> ChartData {
         
         let data : [ChartDataPoint] = [
-            ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"   , colour: Color(.systemRed)   ),
-            ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"  , colour: Color(.systemBlue)  ),
-            ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday", colour: Color(.systemGreen) ),
-            ChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday" , colour: Color(.systemOrange)),
-            ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"   , colour: Color(.systemTeal)  ),
-            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday" , colour: Color(.systemPurple)),
-            ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday"   , colour: Color(.systemYellow))
+            ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
+            ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
+            ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
+            ChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
+            ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
+            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
+            ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
         ]
         
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
                                                         subtitle    : "A weeks worth",
                                                         lineLegend  : "Data")
-        
-        let labels      : [String]      = ["Mon", "Thu", "Sun"]
-        
-        #if !os(macOS)
-        let gridColour = Color(.systemFill)
-        #elseif os(macOS)
-        let gridColour = Color(.gridColor)
-        #endif
-        
-        let gridStyle   : GridStyle     = GridStyle(lineColour  : gridColour,
+                
+        let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
@@ -83,10 +64,8 @@ struct BarChartDemoView: View {
         
         return ChartData(dataPoints     : data,
                          metadata       : metadata,
-                         xAxisLabels    : labels,
                          chartStyle     : chartStyle,
-                         barStyle       : barStyle
-        )
+                         barStyle       : barStyle)
     }
 }
 
