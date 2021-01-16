@@ -141,7 +141,7 @@ extension LineChartDemoView {
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle,
                                                      xAxisLabels     : XAxisLabelSetup(labelPosition : .bottom,
-                                                                                       labelsFrom    : .xAxisLabel),
+                                                                                       labelsFrom    : .dataPoint),
                                                      yAxisLabels     : YAxisLabelSetup(labelPosition : .leading,
                                                                                   numberOfLabels: 7))
         
@@ -157,7 +157,7 @@ extension LineChartDemoView {
         
         return ChartData(dataPoints     : data,
                          metadata       : metadata,
-                         xAxisLabels: labels,
+                         xAxisLabels    : labels,
                          chartStyle     : chartStyle,
                          lineStyle      : lineStyle,
                          pointStyle     : pointStyle

@@ -92,7 +92,7 @@ extension LineChartDailyAverageDemoView {
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle,
                                                      xAxisLabels     : XAxisLabelSetup(labelPosition: .bottom,
-                                                                                       labelsFrom: .xAxisLabels),
+                                                                                       labelsFrom: .chartData),
                                                      yAxisLabels     : YAxisLabelSetup(labelPosition: .leading,
                                                                                        numberOfLabels: 7))
         
