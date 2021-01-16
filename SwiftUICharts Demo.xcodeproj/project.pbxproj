@@ -67,8 +67,6 @@
 		6C18541F25AEF43700F2FAE0 /* BarChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDemoView.swift; sourceTree = "<group>"; };
 		6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDemoView.swift; sourceTree = "<group>"; };
 		6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C23A45C25B1FA4700BD364E /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
-		6C23A45E25B1FA4700BD364E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,8 +127,6 @@
 		6C23A45B25B1FA4700BD364E /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				6C23A45C25B1FA4700BD364E /* SwiftUICharts_DemoApp.swift */,
-				6C23A45E25B1FA4700BD364E /* ContentView.swift */,
 				6C23A46025B1FA4800BD364E /* Assets.xcassets */,
 				6C23A46525B1FA4800BD364E /* Info.plist */,
 				6C23A46225B1FA4800BD364E /* Preview Content */,
