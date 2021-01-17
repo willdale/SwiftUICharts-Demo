@@ -134,16 +134,15 @@ extension LineChartDemoView {
         let labels      : [String]      = ["Mon", "Thu", "Sun"]
 
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
-                                                    lineWidth   : 1,
-                                                    dash: [CGFloat]())
+                                                    lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle,
-                                                     xAxisLabels     : XAxisLabelSetup(labelPosition : .bottom,
-                                                                                       labelsFrom    : .dataPoint),
-                                                     yAxisLabels     : YAxisLabelSetup(labelPosition : .leading,
-                                                                                  numberOfLabels: 7))
+                                                     xAxisLabelPosition: .bottom,
+                                                     xAxisLabelsFrom: .dataPoint,
+                                                     yAxisLabelPosition: .leading,
+                                                     yAxisNumberOfLabels: 7)
         
         let lineStyle   : LineStyle     = LineStyle(colours     : [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)],
                                                     startPoint  : .leading,
@@ -154,14 +153,13 @@ extension LineChartDemoView {
                                                                               lineJoin: .round))
         
         let pointStyle : PointStyle     = PointStyle(pointSize: 9, borderColour: Color.primary, lineWidth: 2, pointType: .outline, pointShape: .circle)
-        
+                
         return ChartData(dataPoints     : data,
                          metadata       : metadata,
                          xAxisLabels    : labels,
                          chartStyle     : chartStyle,
                          lineStyle      : lineStyle,
-                         pointStyle     : pointStyle
-        )
+                         pointStyle     : pointStyle)
     }
     
 }

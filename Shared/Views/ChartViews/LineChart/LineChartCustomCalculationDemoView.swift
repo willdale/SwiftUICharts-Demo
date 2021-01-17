@@ -90,13 +90,13 @@ extension LineChartCustomCalculationDemoView {
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
-                                                     xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle,
-                                                     xAxisLabels     : XAxisLabelSetup(labelPosition: .bottom,
-                                                                                       labelsFrom: .chartData),
-                                                     yAxisLabels     : YAxisLabelSetup(labelPosition: .leading,
-                                                                                       numberOfLabels: 7))
+        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement   : .header,
+                                                     xAxisGridStyle     : gridStyle,
+                                                     yAxisGridStyle     : gridStyle,
+                                                     xAxisLabelPosition : .bottom,
+                                                     xAxisLabelsFrom    : .chartData,
+                                                     yAxisLabelPosition : .leading,
+                                                     yAxisNumberOfLabels: 7)
         
         let lineStyle   : LineStyle     = LineStyle(colours: [Color(red: 0.15, green: 0.15, blue: 1.0),
                                                               Color(red: 0.35, green: 0.35, blue: 1.0)],

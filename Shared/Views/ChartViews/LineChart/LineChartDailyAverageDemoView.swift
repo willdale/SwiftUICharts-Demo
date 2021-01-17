@@ -88,13 +88,13 @@ extension LineChartDailyAverageDemoView {
                                                     lineColour   : Color(.lightGray),
                                                     lineWidth    : 1)
         
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,
-                                                     xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle,
-                                                     xAxisLabels     : XAxisLabelSetup(labelPosition: .bottom,
-                                                                                       labelsFrom: .chartData),
-                                                     yAxisLabels     : YAxisLabelSetup(labelPosition: .leading,
-                                                                                       numberOfLabels: 7))
+        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement   : .floating,
+                                                     xAxisGridStyle     : gridStyle,
+                                                     yAxisGridStyle     : gridStyle,
+                                                     xAxisLabelPosition : .bottom,
+                                                     xAxisLabelsFrom    : .chartData,
+                                                     yAxisLabelPosition : .leading,
+                                                     yAxisNumberOfLabels: 7)
         
         let lineStyle   : LineStyle     = LineStyle(colour: Color(.blue),
                                                     lineType: .line,

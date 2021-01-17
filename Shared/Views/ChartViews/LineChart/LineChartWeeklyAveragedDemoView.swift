@@ -71,13 +71,13 @@ extension LineChartWeeklyAveragedDemoView {
                                                     dash        : [CGFloat](),
                                                     dashPhase   : 0)
         
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
-                                                     xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle,
-                                                     xAxisLabels: XAxisLabelSetup(labelPosition: .bottom,
-                                                                                  labelsFrom: .chartData),
-                                                     yAxisLabels: YAxisLabelSetup(labelPosition: .leading,
-                                                                                  numberOfLabels: 7))
+        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement   : .header,
+                                                     xAxisGridStyle     : gridStyle,
+                                                     yAxisGridStyle     : gridStyle,
+                                                     xAxisLabelPosition : .bottom,
+                                                     xAxisLabelsFrom    : .chartData,
+                                                     yAxisLabelPosition : .leading,
+                                                     yAxisNumberOfLabels: 7)
         
         let lineStyle   : LineStyle     = LineStyle(stops: [GradientStop(color: Color(red: 0.15, green: 1.0, blue: 0.25), location: 0.5),
                                                             GradientStop(color: Color(red: 0.15, green: 0.25, blue: 1.0), location: 0.5)],

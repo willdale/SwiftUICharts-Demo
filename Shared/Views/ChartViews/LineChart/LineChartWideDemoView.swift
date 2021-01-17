@@ -46,9 +46,13 @@ struct LineChartWideDemoView: View {
             #elseif os(macOS)
             VStack {
                 Spacer()
-                buttonOne
-                Spacer()
-                buttonTwo
+                HStack {
+                    Spacer()
+                    buttonOne
+                    Spacer()
+                    buttonTwo
+                    Spacer()
+                }
                 Spacer()
                 slider
                 Spacer()
@@ -152,7 +156,7 @@ extension LineChartWideDemoView {
                                                     lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
-        let yGridStyle   : GridStyle     = GridStyle(numberOfLines: 3,
+        let yGridStyle   : GridStyle    = GridStyle(numberOfLines: 3,
                                                     lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
@@ -165,11 +169,14 @@ extension LineChartWideDemoView {
                                                     strokeStyle: StrokeStyle(lineWidth: 3,
                                                                              lineCap: .round,
                                                                              lineJoin: .round))
-        let pointStyle : PointStyle = PointStyle(pointSize: 10, borderColour: Color.primary, lineWidth: 3)
+        let pointStyle : PointStyle     = PointStyle(pointSize: 10,
+                                                     borderColour: Color.primary,
+                                                     fillColour: Color.blue,
+                                                     lineWidth: 3)
 
         return ChartData(dataPoints     : data,
                          metadata       : metadata,
-                         xAxisLabels: labels,
+                         xAxisLabels    : labels,
                          chartStyle     : chartStyle,
                          lineStyle      : lineStyle,
                          pointStyle     : pointStyle)

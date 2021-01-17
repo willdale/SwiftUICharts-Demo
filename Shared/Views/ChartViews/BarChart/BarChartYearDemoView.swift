@@ -48,13 +48,13 @@ struct BarChartYearDemoView: View {
                                                         subtitle    : "A weeks worth",
                                                         lineLegend  : "Data")
         
-        
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
                                                      xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle)
+                                                     yAxisGridStyle  : gridStyle,
+                                                     xAxisLabelsFrom: .dataPoint)
         
         let barStyle    : BarStyle      = BarStyle(barWidth: 1,
                                                    colourFrom: .dataPoints,

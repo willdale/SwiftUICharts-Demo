@@ -22,7 +22,7 @@ struct BarChartDemoView: View {
             .headerBox()
             .legends()
             .environmentObject(data)
-            .frame(width: 300, height: 400)
+            .frame(width: 600, height: 400)
             .padding(.all, 24)
             .background(
                 ZStack {
