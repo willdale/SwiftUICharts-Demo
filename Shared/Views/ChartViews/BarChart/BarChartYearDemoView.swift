@@ -22,7 +22,7 @@ struct BarChartYearDemoView: View {
             .headerBox()
             .legends()
             .environmentObject(data)
-            .frame(width: 300, height: 400)
+            .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
             .padding(.all, 24)
             .background(
                 ZStack {
@@ -54,7 +54,8 @@ struct BarChartYearDemoView: View {
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle,
-                                                     xAxisLabelsFrom: .dataPoint)
+                                                     xAxisLabelsFrom: .dataPoint,
+                                                     yAxisNumberOfLabels: 5)
         
         let barStyle    : BarStyle      = BarStyle(barWidth: 1,
                                                    colourFrom: .dataPoints,

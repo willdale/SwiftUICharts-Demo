@@ -27,7 +27,7 @@ struct LineChartDemoView: View {
                 .headerBox()
                 .legends()
                 .environmentObject(data)
-                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
+                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
                 .padding(.all, 24)
                 .background(
                     ZStack {
@@ -142,7 +142,7 @@ extension LineChartDemoView {
                                                      xAxisLabelPosition: .bottom,
                                                      xAxisLabelsFrom: .dataPoint,
                                                      yAxisLabelPosition: .leading,
-                                                     yAxisNumberOfLabels: 7)
+                                                     yAxisNumberOfLabels: 5)
         
         let lineStyle   : LineStyle     = LineStyle(colours     : [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)],
                                                     startPoint  : .leading,

@@ -24,7 +24,7 @@ struct LineChartWeeklyAveragedDemoView: View {
                 .headerBox()
                 .legends()
                 .environmentObject(data)
-                .frame(width: 300, height: 400)
+                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
                 .padding(.all, 24)
                 .background(
                     ZStack {
@@ -77,7 +77,7 @@ extension LineChartWeeklyAveragedDemoView {
                                                      xAxisLabelPosition : .bottom,
                                                      xAxisLabelsFrom    : .chartData,
                                                      yAxisLabelPosition : .leading,
-                                                     yAxisNumberOfLabels: 7)
+                                                     yAxisNumberOfLabels: 5)
         
         let lineStyle   : LineStyle     = LineStyle(stops: [GradientStop(color: Color(red: 0.15, green: 1.0, blue: 0.25), location: 0.5),
                                                             GradientStop(color: Color(red: 0.15, green: 0.25, blue: 1.0), location: 0.5)],

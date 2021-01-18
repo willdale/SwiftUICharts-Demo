@@ -53,7 +53,8 @@ struct BarChartDemoView: View {
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
                                                      xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle)
+                                                     yAxisGridStyle  : gridStyle,
+                                                     yAxisNumberOfLabels: 5)
         
         let barStyle    : BarStyle      = BarStyle(barWidth: 0.5,
                                                    colourFrom: .barStyle,

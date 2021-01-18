@@ -69,7 +69,8 @@ extension LineChartMonthlyAveragedDemoView {
         let labels      : [String]      = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
-                                                     yAxisGridStyle: GridStyle(lineColour: Color.primary.opacity(0.5)))
+                                                     yAxisGridStyle: GridStyle(lineColour: Color.primary.opacity(0.5)),
+                                                     yAxisNumberOfLabels: 5)
         
         let lineStyle   : LineStyle     = LineStyle(colour: Color(red: 0.15, green: 0.15, blue: 1.0),
                                                     lineType: .curvedLine,

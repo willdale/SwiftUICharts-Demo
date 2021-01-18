@@ -160,9 +160,10 @@ extension LineChartWideDemoView {
                                                     lineColour  : Color(.lightGray),
                                                     lineWidth   : 1)
         
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,
-                                                     xAxisGridStyle  : xGridStyle,
-                                                     yAxisGridStyle  : yGridStyle)
+        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement   : .floating,
+                                                     xAxisGridStyle     : xGridStyle,
+                                                     yAxisGridStyle     : yGridStyle,
+                                                     yAxisNumberOfLabels: 5)
         
         let lineStyle   : LineStyle     = LineStyle(colour: Color(.systemGreen),
                                                     lineType: .curvedLine,

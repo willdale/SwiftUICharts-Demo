@@ -27,7 +27,7 @@ struct LineChartCustomCalculationDemoView: View {
                 .headerBox()
                 .legends()
                 .environmentObject(data)
-                .frame(width: 300, height: 400)
+                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
                 .padding(.all, 24)
                 .background(
                     ZStack {
@@ -96,7 +96,7 @@ extension LineChartCustomCalculationDemoView {
                                                      xAxisLabelPosition : .bottom,
                                                      xAxisLabelsFrom    : .chartData,
                                                      yAxisLabelPosition : .leading,
-                                                     yAxisNumberOfLabels: 7)
+                                                     yAxisNumberOfLabels: 5)
         
         let lineStyle   : LineStyle     = LineStyle(colours: [Color(red: 0.15, green: 0.15, blue: 1.0),
                                                               Color(red: 0.35, green: 0.35, blue: 1.0)],

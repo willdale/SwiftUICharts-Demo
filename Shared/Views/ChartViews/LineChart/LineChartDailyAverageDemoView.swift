@@ -23,7 +23,7 @@ struct LineChartDailyAverageDemoView: View {
                 .headerBox()
                 .legends()
                 .environmentObject(data)
-                .frame(width: 300, height: 400)
+                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
                 .padding(.all, 24)
                 .background(
                     ZStack {
@@ -94,7 +94,7 @@ extension LineChartDailyAverageDemoView {
                                                      xAxisLabelPosition : .bottom,
                                                      xAxisLabelsFrom    : .chartData,
                                                      yAxisLabelPosition : .leading,
-                                                     yAxisNumberOfLabels: 7)
+                                                     yAxisNumberOfLabels: 5)
         
         let lineStyle   : LineStyle     = LineStyle(colour: Color(.blue),
                                                     lineType: .line,
