@@ -10,23 +10,24 @@ import SwiftUICharts
 
 struct LineChartDemoView: View {
     
-    let data : ChartData = weekOfData()
+    let data : LineChartData = weekOfData()
         
     var body: some View {
         VStack {
-            Spacer()
-            LineChart()
-                .touchOverlay()
-                .pointMarkers()
-                .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid()
-                .yAxisGrid()
-                .xAxisLabels()
-                .yAxisLabels()
-                .headerBox()
-                .legends()
-                .environmentObject(data)
+//            Spacer()
+//            LineChart()
+            LineChartView(chartData: data, isFilled: false)
+                .touchOverlay(chartData: data)
+                .pointMarkers(chartData: data)
+                .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .xAxisGrid(chartData: data)
+                .yAxisGrid(chartData: data)
+                .xAxisLabels(chartData: data)
+                .yAxisLabels(chartData: data)
+                .headerBox(chartData: data)
+                .legends(chartData: data)
+//                .environmentObject(data)
                 .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
                 .padding(.all, 24)
                 .background(
@@ -35,75 +36,75 @@ struct LineChartDemoView: View {
                     }
                 )
                 .padding(.horizontal)
-            Spacer()
-            #if os(iOS)
-            VStack {
-                buttonOne
-                buttonTwo
-                buttonThree
-            }
-            #elseif os(macOS)
-            HStack {
-                buttonOne
-                buttonTwo
-                buttonThree
-            }
-            #elseif os(tvOS)
-            HStack {
-                buttonOne
-                buttonTwo
-                buttonThree
-            }
-            #endif
-            Spacer()
+//            Spacer()
+//            #if os(iOS)
+//            VStack {
+//                buttonOne
+//                buttonTwo
+//                buttonThree
+//            }
+//            #elseif os(macOS)
+//            HStack {
+//                buttonOne
+//                buttonTwo
+//                buttonThree
+//            }
+//            #elseif os(tvOS)
+//            HStack {
+//                buttonOne
+//                buttonTwo
+//                buttonThree
+//            }
+//            #endif
+//            Spacer()
         }
         .navigationTitle("Week of Data")
     }
     
-    var buttonOne: some View {
-        Button {
-            if data.chartStyle.infoBoxPlacement == .floating {
-                data.chartStyle.infoBoxPlacement = .header
-            } else if data.chartStyle.infoBoxPlacement == .header {
-                data.chartStyle.infoBoxPlacement = .floating
-            }
-        } label: {
-            Text("Change Touch Overlay position")
-                .modifier(CustomButton())
-        }
-    }
-    var buttonTwo: some View {
-        Button {
-            withAnimation(Animation.linear(duration: 1)) {
-                if data.lineStyle.colourType == .gradientColour {
-                    data.lineStyle.colourType = .colour
-                    data.lineStyle.colour = Color(red: 0.15, green: 0.15, blue: 1.0)
-                } else if data.lineStyle.colourType == .colour {
-                    data.lineStyle.colourType = .gradientColour
-                    data.lineStyle.colours = [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)]
-                }
-            }
-        } label: {
-            Text("Toggle Colour")
-                .modifier(CustomButton())
-        }
-    }
-    var buttonThree: some View {
-        Button {
-            withAnimation(Animation.linear(duration: 1)) {
-                if data.chartStyle.xAxisGridStyle.numberOfLines == 10 {
-                    data.chartStyle.xAxisGridStyle.numberOfLines = 3
-                    data.chartStyle.yAxisGridStyle.numberOfLines = 6
-                } else {
-                    data.chartStyle.xAxisGridStyle.numberOfLines = 10
-                    data.chartStyle.yAxisGridStyle.numberOfLines = 10
-                }
-            }
-        } label: {
-            Text("Toggle Grid")
-                .modifier(CustomButton())
-        }
-    }
+//    var buttonOne: some View {
+//        Button {
+//            if data.chartStyle.infoBoxPlacement == .floating {
+//                data.chartStyle.infoBoxPlacement = .header
+//            } else if data.chartStyle.infoBoxPlacement == .header {
+//                data.chartStyle.infoBoxPlacement = .floating
+//            }
+//        } label: {
+//            Text("Change Touch Overlay position")
+//                .modifier(CustomButton())
+//        }
+//    }
+//    var buttonTwo: some View {
+//        Button {
+//            withAnimation(Animation.linear(duration: 1)) {
+//                if data.lineStyle.colourType == .gradientColour {
+//                    data.lineStyle.colourType = .colour
+//                    data.lineStyle.colour = Color(red: 0.15, green: 0.15, blue: 1.0)
+//                } else if data.lineStyle.colourType == .colour {
+//                    data.lineStyle.colourType = .gradientColour
+//                    data.lineStyle.colours = [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)]
+//                }
+//            }
+//        } label: {
+//            Text("Toggle Colour")
+//                .modifier(CustomButton())
+//        }
+//    }
+//    var buttonThree: some View {
+//        Button {
+//            withAnimation(Animation.linear(duration: 1)) {
+//                if data.chartStyle.xAxisGridStyle.numberOfLines == 10 {
+//                    data.chartStyle.xAxisGridStyle.numberOfLines = 3
+//                    data.chartStyle.yAxisGridStyle.numberOfLines = 6
+//                } else {
+//                    data.chartStyle.xAxisGridStyle.numberOfLines = 10
+//                    data.chartStyle.yAxisGridStyle.numberOfLines = 10
+//                }
+//            }
+//        } label: {
+//            Text("Toggle Grid")
+//                .modifier(CustomButton())
+//        }
+//    }
 }
 
 struct LineChartView_Previews: PreviewProvider {
@@ -115,9 +116,17 @@ struct LineChartView_Previews: PreviewProvider {
 
 extension LineChartDemoView {
     
-    static func weekOfData() -> ChartData {
+    static func weekOfData() -> LineChartData {
         
-        let data : [ChartDataPoint] = [
+        let lineStyle   : LineStyle     = LineStyle(colours     : [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)],
+                                                    startPoint  : .leading,
+                                                    endPoint    : .trailing,
+                                                    lineType    : .curvedLine,
+                                                    strokeStyle : StrokeStyle(lineWidth: 3,
+                                                                              lineCap: .round,
+                                                                              lineJoin: .round))
+        
+        let data = DataPointSet(dataPoints: [
             ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
             ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
             ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
@@ -125,7 +134,8 @@ extension LineChartDemoView {
             ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
             ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
             ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
-        ]
+        ],
+        lineStyle: lineStyle)
         
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
                                                         subtitle    : "A weeks worth",
@@ -144,23 +154,19 @@ extension LineChartDemoView {
                                                      yAxisLabelPosition: .leading,
                                                      yAxisNumberOfLabels: 5)
         
-        let lineStyle   : LineStyle     = LineStyle(colours     : [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)],
-                                                    startPoint  : .leading,
-                                                    endPoint    : .trailing,
-                                                    lineType    : .curvedLine,
-                                                    strokeStyle : StrokeStyle(lineWidth: 3,
-                                                                              lineCap: .round,
-                                                                              lineJoin: .round))
+        
         
         let pointStyle : PointStyle     = PointStyle(pointSize: 9, borderColour: Color.primary, lineWidth: 2, pointType: .outline, pointShape: .circle)
                 
-        return ChartData(dataPoints     : data,
-                         metadata       : metadata,
-                         xAxisLabels    : labels,
-                         chartStyle     : chartStyle,
-                         lineStyle      : lineStyle,
-                         pointStyle     : pointStyle)
+        return LineChartData(dataSet        : data,
+                             metadata       : metadata,
+                             xAxisLabels    : labels,
+                             chartStyle     : chartStyle,
+//                             lineStyle      : lineStyle,
+                             pointStyle     : pointStyle)
+        
     }
+    
     
 }
 
