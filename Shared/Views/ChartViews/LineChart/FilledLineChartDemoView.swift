@@ -1,20 +1,20 @@
 //
-//  LineChartDemoView.swift
+//  FilledLineChartDemoView.swift
 //  SwiftUICharts Demo
 //
-//  Created by Will Dale on 23/01/2021.
+//  Created by Will Dale on 26/01/2021.
 //
 
 import SwiftUI
 import SwiftUICharts
 
-struct LineChartDemoView: View {
-    
+struct FilledLineChartDemoView: View {
+
     let data : LineChartData = weekOfData()
-        
+
     var body: some View {
         VStack {
-            LineChart(chartData: data)
+            FilledLineChart(chartData: data)
                 .touchOverlay(chartData: data)
                 .pointMarkers(chartData: data)
                 .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
@@ -38,14 +38,13 @@ struct LineChartDemoView: View {
     }
 }
 
-struct LineChartView_Previews: PreviewProvider {
+struct FilledLineChartDemoView_Previews: PreviewProvider {
     static var previews: some View {
-        LineChartDemoView()
-            .preferredColorScheme(.dark)
+        FilledLineChartDemoView()
     }
 }
 
-extension LineChartDemoView {
+extension FilledLineChartDemoView {
     
     static func weekOfData() -> LineChartData {
         
