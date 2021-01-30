@@ -12,6 +12,7 @@ struct SwiftUICharts_DemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            TabViewView()
         }
     }
 }

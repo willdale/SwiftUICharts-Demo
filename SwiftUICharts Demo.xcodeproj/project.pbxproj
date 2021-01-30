@@ -27,6 +27,7 @@
 		6C23A48225B1FAE700BD364E /* LineChartCustomCalculationDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067C25B085190017E5A6 /* LineChartCustomCalculationDemoView.swift */; };
 		6C23A48325B1FAE700BD364E /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18542525AEF48D00F2FAE0 /* LineChartDemoView.swift */; };
 		6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
+		6C73168D25C5381000989448 /* TabViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73168C25C5381000989448 /* TabViewView.swift */; };
 		6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296725B1D27900F9A126 /* SwiftUICharts */; };
 		6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296B25B1D2F200F9A126 /* SwiftUICharts */; };
 		6C8A067125B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */; };
@@ -110,6 +111,7 @@
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C73168C25C5381000989448 /* TabViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewView.swift; sourceTree = "<group>"; };
 		6C7529A525B1F41100F9A126 /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
 		6C8A067025B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWeeklyAveragedDemoView.swift; sourceTree = "<group>"; };
 		6C8A067525B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDailyAverageDemoView.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				6CEDEC5B25AF328000CD95CD /* LineChart */,
 				6CEDEC5C25AF328E00CD95CD /* BarChart */,
+				6C73168C25C5381000989448 /* TabViewView.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				6C8A067625B0616B0017E5A6 /* LineChartDailyAverageDemoView.swift in Sources */,
 				6C8A067D25B085190017E5A6 /* LineChartCustomCalculationDemoView.swift in Sources */,
 				6C18542625AEF48D00F2FAE0 /* LineChartDemoView.swift in Sources */,
+				6C73168D25C5381000989448 /* TabViewView.swift in Sources */,
 				6C8A067125B0609E0017E5A6 /* LineChartWeeklyAveragedDemoView.swift in Sources */,
 				6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */,
 				6CEDEC6025AF32C500CD95CD /* BarChartYearDemoView.swift in Sources */,
