@@ -10,9 +10,10 @@ import SwiftUICharts
 
 struct PieChartDemoView: View {
     
-    var data: PieChartData { makeData() }
+    var data: PieChartData = makeData()
     
     var body: some View {
+        VStack {
         PieChart(chartData: data)
             .touchOverlay(chartData: data)
             .headerBox(chartData: data)
@@ -25,6 +26,7 @@ struct PieChartDemoView: View {
                 }
             )
             .padding(.horizontal)
+        }
     }
 }
 
@@ -36,13 +38,13 @@ struct PieChartDemoView_Previews: PreviewProvider {
 
 extension PieChartDemoView {
     
-    func makeData() -> PieChartData {
+   static func makeData() -> PieChartData {
         
-        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 5, pointDescription: "One", colour: .blue),
-                                           PieChartDataPoint(value: 9, pointDescription: "Two", colour: .red),
-                                           PieChartDataPoint(value: 2, pointDescription: "Three", colour: .purple),
-                                           PieChartDataPoint(value: 4, pointDescription: "Four", colour: .green),
-                                           PieChartDataPoint(value: 8, pointDescription: "Five", colour: .orange)],
+        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 7, pointDescription: "One", colour: .blue),
+                                           PieChartDataPoint(value: 2, pointDescription: "Two", colour: .red),
+                                           PieChartDataPoint(value: 9, pointDescription: "Three", colour: .purple),
+                                           PieChartDataPoint(value: 6, pointDescription: "Four", colour: .green),
+                                           PieChartDataPoint(value: 4, pointDescription: "Five", colour: .orange)],
                               legendTitle: "Data",
                               pointStyle: PointStyle(),
                               style: PieStyle())
