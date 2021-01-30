@@ -14,6 +14,7 @@ struct PieChartDemoView: View {
     
     var body: some View {
         PieChart(chartData: data)
+            .touchOverlay(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data)
             .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
@@ -37,11 +38,11 @@ extension PieChartDemoView {
     
     func makeData() -> PieChartData {
         
-        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 5, colour: .blue),
-                                           PieChartDataPoint(value: 9, colour: .red),
-                                           PieChartDataPoint(value: 2, colour: .purple),
-                                           PieChartDataPoint(value: 4, colour: .green),
-                                           PieChartDataPoint(value: 8, colour: .orange)],
+        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 5, pointDescription: "One", colour: .blue),
+                                           PieChartDataPoint(value: 9, pointDescription: "Two", colour: .red),
+                                           PieChartDataPoint(value: 2, pointDescription: "Three", colour: .purple),
+                                           PieChartDataPoint(value: 4, pointDescription: "Four", colour: .green),
+                                           PieChartDataPoint(value: 8, pointDescription: "Five", colour: .orange)],
                               legendTitle: "Data",
                               pointStyle: PointStyle(),
                               style: PieStyle())
@@ -49,7 +50,7 @@ extension PieChartDemoView {
         return PieChartData(dataSets: data,
                             metadata: ChartMetadata(title: "Pie", subtitle: "mmm pie"),
 //                            xAxisLabels: [String]?,
-                            chartStyle: PieChartStyle(),
+                            chartStyle: PieChartStyle(infoBoxPlacement: .header),
                             noDataText: Text("hello")
     )
     }
