@@ -16,16 +16,16 @@ struct LineChartDemoView: View {
         VStack {
             Spacer()
             LineChart()
-//                .touchOverlay()
-//                .pointMarkers()
-//                .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-//                .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .touchOverlay()
+                .pointMarkers()
+                .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid()
                 .yAxisGrid()
                 .xAxisLabels()
                 .yAxisLabels()
-//                .headerBox()
-//                .legends()
+                .headerBox()
+                .legends()
                 .environmentObject(data)
                 .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
                 .padding(.all, 24)
@@ -150,7 +150,8 @@ extension LineChartDemoView {
                                                     lineType    : .curvedLine,
                                                     strokeStyle : StrokeStyle(lineWidth: 3,
                                                                               lineCap: .round,
-                                                                              lineJoin: .round))
+                                                                              lineJoin: .round),
+                                                    baseline: .zero)
         
         let pointStyle : PointStyle     = PointStyle(pointSize: 9, borderColour: Color.primary, lineWidth: 2, pointType: .outline, pointShape: .circle)
                 
