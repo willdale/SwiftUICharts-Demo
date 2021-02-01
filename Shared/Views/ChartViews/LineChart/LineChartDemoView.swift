@@ -68,7 +68,7 @@ extension LineChartDemoView {
         return LineChartData(dataSets: data,
                              metadata: metadata,
                              xAxisLabels: labels,
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header),
+                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .zero),
                              calculations: .none)
     }
 }

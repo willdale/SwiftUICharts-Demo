@@ -14,6 +14,7 @@ struct FilledLineChartDemoView: View {
 
     var body: some View {
         VStack {
+                        
             FilledLineChart(chartData: data)
                 .touchOverlay(chartData: data)
                 .pointMarkers(chartData: data)
@@ -67,7 +68,7 @@ extension FilledLineChartDemoView {
         return LineChartData(dataSets: data,
                              metadata: metadata,
                              xAxisLabels: labels,
-                             chartStyle: LineChartStyle(),
+                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumValue),
                              calculations: .none)
     }
 }

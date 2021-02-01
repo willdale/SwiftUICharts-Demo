@@ -1,20 +1,20 @@
 //
-//  PieChartDemoView.swift
+//  DoughnutChartDemoView.swift
 //  SwiftUICharts Demo
 //
-//  Created by Will Dale on 24/01/2021.
+//  Created by Will Dale on 01/02/2021.
 //
 
 import SwiftUI
 import SwiftUICharts
 
-struct PieChartDemoView: View {
+struct DoughnutChartDemoView: View {
     
     var data: PieChartData = makeData()
     
     var body: some View {
         VStack {
-            PieChart(chartData: data)
+            DoughnutChart(chartData: data, strokeWidth: 30)
                 .touchOverlay(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data)
@@ -30,19 +30,19 @@ struct PieChartDemoView: View {
     }
 }
 
-struct PieChartDemoView_Previews: PreviewProvider {
+struct DoughnutChartDemoView_Previews: PreviewProvider {
     static var previews: some View {
-        PieChartDemoView()
+        DoughnutChartDemoView()
     }
 }
 
-extension PieChartDemoView {
-    static func makeData() -> PieChartData {
-        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 7, pointDescription: "One", colour: .blue),
-                                           PieChartDataPoint(value: 2, pointDescription: "Two", colour: .red),
+extension DoughnutChartDemoView {
+   static func makeData() -> PieChartData {
+        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 7, pointDescription: "One",   colour: .blue),
+                                           PieChartDataPoint(value: 2, pointDescription: "Two",   colour: .red),
                                            PieChartDataPoint(value: 9, pointDescription: "Three", colour: .purple),
-                                           PieChartDataPoint(value: 6, pointDescription: "Four", colour: .green),
-                                           PieChartDataPoint(value: 4, pointDescription: "Five", colour: .orange)],
+                                           PieChartDataPoint(value: 6, pointDescription: "Four",  colour: .green),
+                                           PieChartDataPoint(value: 4, pointDescription: "Five",  colour: .orange)],
                               legendTitle: "Data",
                               pointStyle: PointStyle(),
                               style: PieSegmentStyle())
