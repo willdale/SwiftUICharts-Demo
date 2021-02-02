@@ -10,11 +10,11 @@ import SwiftUICharts
 
 struct DoughnutChartDemoView: View {
     
-    var data: PieChartData = makeData()
+    var data: DoughnutChartData = makeData()
     
     var body: some View {
         VStack {
-            DoughnutChart(chartData: data, strokeWidth: 30)
+            DoughnutChart(chartData: data)
                 .touchOverlay(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data)
@@ -37,7 +37,7 @@ struct DoughnutChartDemoView_Previews: PreviewProvider {
 }
 
 extension DoughnutChartDemoView {
-   static func makeData() -> PieChartData {
+    static func makeData() -> DoughnutChartData {
         let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 7, pointDescription: "One",   colour: .blue),
                                            PieChartDataPoint(value: 2, pointDescription: "Two",   colour: .red),
                                            PieChartDataPoint(value: 9, pointDescription: "Three", colour: .purple),
@@ -46,10 +46,10 @@ extension DoughnutChartDemoView {
                               legendTitle: "Data",
                               pointStyle: PointStyle(),
                               style: PieSegmentStyle())
-        
-        return PieChartData(dataSets: data,
-                            metadata: ChartMetadata(title: "Pie", subtitle: "mmm pie"),
-                            chartStyle: PieChartStyle(infoBoxPlacement: .header),
-                            noDataText: Text("hello"))
+    
+        return DoughnutChartData(dataSets: data,
+                                 metadata: ChartMetadata(title: "Pie", subtitle: "mmm pie"),
+                                 chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
+                                 noDataText: Text("hello"))
     }
 }
