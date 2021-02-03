@@ -49,6 +49,7 @@ struct MultiLineChartView_Previews: PreviewProvider {
 extension MultiLineChartDemoView {
     
    static func weekOfData() -> MultiLineChartData {
+    
         let data = MultiLineDataSet(dataSets: [
                                         LineDataSet(dataPoints: [
                                             LineChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),

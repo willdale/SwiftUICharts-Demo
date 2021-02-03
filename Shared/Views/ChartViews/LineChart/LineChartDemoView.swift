@@ -15,7 +15,7 @@ struct LineChartDemoView: View {
     var body: some View {
         VStack {
             LineChart(chartData: data)
-                .touchOverlay(chartData: data)
+                .touchOverlay(chartData: data, specifier: "%.0f")
                 .pointMarkers(chartData: data)
                 .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
@@ -41,7 +41,6 @@ struct LineChartDemoView: View {
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
         LineChartDemoView()
-            .preferredColorScheme(.dark)
     }
 }
 
@@ -70,5 +69,6 @@ extension LineChartDemoView {
                              xAxisLabels: labels,
                              chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .zero),
                              calculations: .none)
+        
     }
 }

@@ -35,10 +35,8 @@ struct BarChartDemoView: View {
     
     static func weekOfData() -> BarChartData {
         
-        let barStyleOne : BarStyle = BarStyle(barWidth: 0.5, cornerRadius: CornerRadius(top: 5, bottom: 0), colourFrom: .barStyle, colour: Color.blue)
-        
-//        let barStyleTwo : BarStyle = BarStyle(barWidth: 1.0, cornerRadius: CornerRadius(top: 5, bottom: 0), colourFrom: .barStyle, colour: Color.red)
-        
+        let barStyle : BarStyle = BarStyle(barWidth: 0.5, cornerRadius: CornerRadius(top: 5, bottom: 0), colourFrom: .barStyle, colour: Color.blue)
+                
         let data : BarDataSet =
             BarDataSet(dataPoints: [
                 BarChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
@@ -51,20 +49,7 @@ struct BarChartDemoView: View {
             ],
             legendTitle: "Data",
             pointStyle: PointStyle(),
-            style: barStyleOne)
-//            ,
-//            BarDataSet(dataPoints: [
-//                BarChartDataPoint(value: 90,  xAxisLabel: "M", pointLabel: "Monday"),
-//                BarChartDataPoint(value: 0,   xAxisLabel: "T", pointLabel: "Tuesday"),
-//                BarChartDataPoint(value: 120, xAxisLabel: "W", pointLabel: "Wednesday"),
-//                BarChartDataPoint(value: 85,  xAxisLabel: "T", pointLabel: "Thursday"),
-//                BarChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
-//                BarChartDataPoint(value: 10,  xAxisLabel: "S", pointLabel: "Saturday"),
-//                BarChartDataPoint(value: 0,   xAxisLabel: "S", pointLabel: "Sunday")
-//            ],
-//            legendTitle: "Data",
-//            pointStyle: PointStyle(),
-//            style: barStyleTwo)
+            style: barStyle)
         
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
                                                         subtitle    : "A weeks worth")
