@@ -76,7 +76,6 @@ extension GroupedBarChartDemoView {
                        legendTitle: "Four",
                        pointStyle: PointStyle(),
                        style: BarStyle(barWidth: 1.0, colourFrom: .dataPoints))
-            
         ])
         
         return MultiBarChartData(dataSets: data,

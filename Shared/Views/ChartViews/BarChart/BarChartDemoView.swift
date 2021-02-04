@@ -34,8 +34,6 @@ struct BarChartDemoView: View {
     }
     
     static func weekOfData() -> BarChartData {
-        
-        let barStyle : BarStyle = BarStyle(barWidth: 0.5, cornerRadius: CornerRadius(top: 5, bottom: 0), colourFrom: .barStyle, colour: Color.blue)
                 
         let data : BarDataSet =
             BarDataSet(dataPoints: [
@@ -49,7 +47,7 @@ struct BarChartDemoView: View {
             ],
             legendTitle: "Data",
             pointStyle: PointStyle(),
-            style: barStyle)
+            style: BarStyle())
         
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
                                                         subtitle    : "A weeks worth")
