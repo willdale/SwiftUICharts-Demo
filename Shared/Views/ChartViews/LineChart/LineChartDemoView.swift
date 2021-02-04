@@ -49,13 +49,13 @@ extension LineChartDemoView {
     static func weekOfData() -> LineChartData {
         
         let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
-            LineChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
+            LineChartDataPoint(value: 120, xAxisLabel: "M", pointLabel: "Monday"),
+            LineChartDataPoint(value: 190, xAxisLabel: "T", pointLabel: "Tuesday"),
             LineChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
-            LineChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
+            LineChartDataPoint(value: 175, xAxisLabel: "T", pointLabel: "Thursday"),
             LineChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
             LineChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
-            LineChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
+            LineChartDataPoint(value: 190, xAxisLabel: "S", pointLabel: "Sunday")
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
@@ -67,7 +67,7 @@ extension LineChartDemoView {
         return LineChartData(dataSets: data,
                              metadata: metadata,
                              xAxisLabels: labels,
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .zero),
+                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumWithMaximum(of: 60)),
                              calculations: .none)
         
     }

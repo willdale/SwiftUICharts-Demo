@@ -52,7 +52,7 @@ extension MultiLineChartDemoView {
     
         let data = MultiLineDataSet(dataSets: [
                                         LineDataSet(dataPoints: [
-                                            LineChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
+                                            LineChartDataPoint(value: 60,  xAxisLabel: "M", pointLabel: "Monday"),
                                             LineChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
                                             LineChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
                                             LineChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
@@ -65,12 +65,12 @@ extension MultiLineChartDemoView {
                                         style: LineStyle(colour: Color.red)),
                                         LineDataSet(dataPoints: [
                                             LineChartDataPoint(value: 90,  xAxisLabel: "M", pointLabel: "Monday"),
-                                            LineChartDataPoint(value: 20,   xAxisLabel: "T", pointLabel: "Tuesday"),
+                                            LineChartDataPoint(value: 60,   xAxisLabel: "T", pointLabel: "Tuesday"),
                                             LineChartDataPoint(value: 120, xAxisLabel: "W", pointLabel: "Wednesday"),
                                             LineChartDataPoint(value: 85,  xAxisLabel: "T", pointLabel: "Thursday"),
                                             LineChartDataPoint(value: 140, xAxisLabel: "F", pointLabel: "Friday"),
-                                            LineChartDataPoint(value: 10,  xAxisLabel: "S", pointLabel: "Saturday"),
-                                            LineChartDataPoint(value: 20,   xAxisLabel: "S", pointLabel: "Sunday")
+                                            LineChartDataPoint(value: 80,  xAxisLabel: "S", pointLabel: "Saturday"),
+                                            LineChartDataPoint(value: 50,   xAxisLabel: "S", pointLabel: "Sunday")
                                         ],
                                         legendTitle: "Test Two",
                                         pointStyle: PointStyle(),
@@ -82,7 +82,7 @@ extension MultiLineChartDemoView {
         return MultiLineChartData(dataSets: data,
                                   metadata: metadata,
                                   xAxisLabels: labels,
-                                  chartStyle: LineChartStyle(baseline: .zero),
+                                  chartStyle: LineChartStyle(baseline: .minimumWithMaximum(of: 40)),
                                   calculations: .none)
     }
 }
