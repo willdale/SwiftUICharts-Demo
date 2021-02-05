@@ -40,6 +40,9 @@ struct ContentView: View {
                     NavigationLink(destination: DoughnutChartDemoView()) {
                         Text("Doughnut Chart - Week")
                     }
+                    NavigationLink(destination: MultiLayerPieChart()) {
+                        Text("Multi Layered Pie")
+                    }
                 }
             }
 //            .listStyle(SidebarListStyle())
