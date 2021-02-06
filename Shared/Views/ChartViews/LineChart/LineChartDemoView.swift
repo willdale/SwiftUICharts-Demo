@@ -10,6 +10,8 @@ import SwiftUICharts
 
 struct LineChartDemoView: View {
     
+    @Environment(\.colorScheme) private var colorScheme
+    
     let data : ChartData = weekOfData()
         
     var body: some View {
@@ -19,7 +21,12 @@ struct LineChartDemoView: View {
                 .touchOverlay()
                 .pointMarkers()
                 .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(markerName: "50",
+                          markerValue: 50,
+                          labelPosition: .center(specifier: "%.0f"),
+                          labelBackground: colorScheme == .light ? Color(.white) : Color(.black),
+                          lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
+                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid()
                 .yAxisGrid()
                 .xAxisLabels()
@@ -136,7 +143,7 @@ extension LineChartDemoView {
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
                                                     lineWidth   : 1)
         
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
+        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,
                                                      xAxisGridStyle  : gridStyle,
                                                      yAxisGridStyle  : gridStyle,
                                                      xAxisLabelPosition: .bottom,
@@ -151,9 +158,13 @@ extension LineChartDemoView {
                                                     strokeStyle : StrokeStyle(lineWidth: 3,
                                                                               lineCap: .round,
                                                                               lineJoin: .round),
-                                                    baseline: .zero)
+                                                    baseline    : .zero)
         
-        let pointStyle : PointStyle     = PointStyle(pointSize: 9, borderColour: Color.primary, lineWidth: 2, pointType: .outline, pointShape: .circle)
+        let pointStyle : PointStyle     = PointStyle(pointSize: 9,
+                                                     borderColour: Color.primary,
+                                                     lineWidth: 2,
+                                                     pointType: .outline,
+                                                     pointShape: .circle)
                 
         return ChartData(dataPoints     : data,
                          metadata       : metadata,

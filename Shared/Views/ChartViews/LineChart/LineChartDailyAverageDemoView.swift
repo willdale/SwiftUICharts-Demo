@@ -10,13 +10,19 @@ import SwiftUICharts
 
 struct LineChartDailyAverageDemoView: View {
     
+    @Environment(\.colorScheme) private var colorScheme
+    
     var data : ChartData = monthOfDataDailyAverage()
     
     var body: some View {
         VStack {
             LineChart()
                 .touchOverlay(specifier: "%.2f")
-                .yAxisPOI(markerName: "200", markerValue: 200, lineColour: Color.primary)
+                .yAxisPOI(markerName: "500",
+                          markerValue: 500,
+                          labelPosition: .yAxis(specifier: "%.0f"),
+                          labelBackground: colorScheme == .light ? Color(.white) : Color(.black),
+                          lineColour: Color.primary)
                 .yAxisGrid()
                 .xAxisLabels()
                 .yAxisLabels()
