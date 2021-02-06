@@ -9,9 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 struct LineChartDemoView: View {
-    
-    @Environment(\.colorScheme) private var colorScheme
-    
+        
     let data : ChartData = weekOfData()
         
     var body: some View {
@@ -24,7 +22,7 @@ struct LineChartDemoView: View {
                 .yAxisPOI(markerName: "50",
                           markerValue: 50,
                           labelPosition: .center(specifier: "%.0f"),
-                          labelBackground: colorScheme == .light ? Color(.white) : Color(.black),
+                          labelBackground: Color.myBackground,
                           lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
                           strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid()
@@ -196,4 +194,18 @@ struct DemoContainer: View {
 //            .fill(Color(.clear))
         #endif
     }
+}
+
+extension Color {
+    
+    public static var myBackground: Color {
+        #if os(iOS)
+        return Color(.systemBackground)
+        #elseif os(tvOS)
+        return Color(.darkGray)
+        #elseif os(macOS)
+        return Color(.windowBackgroundColor)
+        #endif
+    }
+    
 }

@@ -9,9 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 struct LineChartDailyAverageDemoView: View {
-    
-    @Environment(\.colorScheme) private var colorScheme
-    
+        
     var data : ChartData = monthOfDataDailyAverage()
     
     var body: some View {
@@ -21,7 +19,7 @@ struct LineChartDailyAverageDemoView: View {
                 .yAxisPOI(markerName: "500",
                           markerValue: 500,
                           labelPosition: .yAxis(specifier: "%.0f"),
-                          labelBackground: colorScheme == .light ? Color(.white) : Color(.black),
+                          labelBackground: Color.myBackground,
                           lineColour: Color.primary)
                 .yAxisGrid()
                 .xAxisLabels()
