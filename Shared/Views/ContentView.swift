@@ -43,6 +43,7 @@ struct ContentView: View {
                     }
                 }
             }
+            // breaks in tvOS
 //            .listStyle(SidebarListStyle())
             .navigationTitle("SwiftUICharts")
         }
