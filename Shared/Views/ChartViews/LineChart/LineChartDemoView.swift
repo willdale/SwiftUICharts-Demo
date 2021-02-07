@@ -17,8 +17,13 @@ struct LineChartDemoView: View {
             LineChart(chartData: data)
                 .touchOverlay(chartData: data, specifier: "%.0f")
                 .pointMarkers(chartData: data)
-                .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .averageLine(chartData: data,
+                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(chartData: data,
+                          markerName: "90",
+                          markerValue: 90,
+                          lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
+                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
