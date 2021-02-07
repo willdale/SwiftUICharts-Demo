@@ -66,14 +66,25 @@ extension LineChartDemoView {
         pointStyle: PointStyle(),
         style: LineStyle(colour: Color.red))
         
-        let metadata = ChartMetadata(title: "Some Data", subtitle: "A Week")
-        let labels = ["Monday", "Thursday", "Sunday"]
+        let metadata    = ChartMetadata(title: "Some Data", subtitle: "A Week")
+        let labels      = ["Monday", "Thursday", "Sunday"]
+        let gridStyle   = GridStyle(numberOfLines: 7, lineColour: Color.red, lineWidth: 3, dash: [CGFloat](), dashPhase: 0)
         
-        return LineChartData(dataSets: data,
-                             metadata: metadata,
-                             xAxisLabels: labels,
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumWithMaximum(of: 60)),
-                             calculations: .none)
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
+                                        xAxisGridStyle      : gridStyle,
+                                        yAxisGridStyle      : gridStyle,
+                                        xAxisLabelPosition  : .bottom,
+                                        xAxisLabelsFrom     : .chartData,
+                                        yAxisLabelPosition  : .leading,
+                                        yAxisNumberOfLabels : 9,
+                                        baseline            : .minimumWithMaximum(of: 80),
+                                        globalAnimation     : .linear(duration: 1))
+        
+        return LineChartData(dataSets       : data,
+                             metadata       : metadata,
+                             xAxisLabels    : labels,
+                             chartStyle     : chartStyle,
+                             calculations   : .none)
         
     }
 }
