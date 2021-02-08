@@ -15,15 +15,26 @@ struct LineChartDemoView: View {
     var body: some View {
         VStack {
             LineChart(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f")
                 .pointMarkers(chartData: data)
                 .averageLine(chartData: data,
                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .yAxisPOI(chartData: data,
-                          markerName: "90",
-                          markerValue: 90,
-                          lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
+                          markerName: "Other thing",
+                          markerValue: 185,
+                          labelPosition: .center(specifier: "%.0f"),
+                          labelColour: Color.black,
+                          labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                          lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
                           strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(chartData: data,
+                          markerName: "Something",
+                          markerValue: 110,
+                          labelPosition: .center(specifier: "%.0f"),
+                          labelColour: Color.white,
+                          labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                          lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .touchOverlay(chartData: data, specifier: "%.0f")
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
@@ -66,14 +77,38 @@ extension LineChartDemoView {
         pointStyle: PointStyle(),
         style: LineStyle(colour: Color.red))
         
-        let metadata = ChartMetadata(title: "Some Data", subtitle: "A Week")
-        let labels = ["Monday", "Thursday", "Sunday"]
+        let metadata    = ChartMetadata(title: "Some Data", subtitle: "A Week")
         
-        return LineChartData(dataSets: data,
-                             metadata: metadata,
-                             xAxisLabels: labels,
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumWithMaximum(of: 60)),
-                             calculations: .none)
+        let labels      = ["Monday", "Thursday", "Sunday"]
+        
+        let gridStyle   = GridStyle(numberOfLines: 7,
+                                    lineColour   : Color(.lightGray),
+                                    lineWidth    : 1,
+                                    dash         : [8],
+                                    dashPhase    : 0)
+        
+        let chartStyle = LineChartStyle(infoBoxPlacement        : .floating,
+                                        infoBoxValueColour      : Color.red,
+                                        infoBoxDescriptionColor : Color.blue,
+                                        
+                                        xAxisGridStyle      : gridStyle,
+                                        xAxisLabelPosition  : .bottom,
+                                        xAxisLabelColour    : Color.primary,
+                                        xAxisLabelsFrom     : .chartData,
+                                       
+                                        yAxisGridStyle      : gridStyle,
+                                        yAxisLabelPosition  : .leading,
+                                        yAxisLabelColour    : Color.primary,
+                                        yAxisNumberOfLabels : 7,
+                                        
+                                        baseline            : .minimumWithMaximum(of: 80),
+                                        globalAnimation     : .linear(duration: 1))
+        
+        return LineChartData(dataSets       : data,
+                             metadata       : metadata,
+                             xAxisLabels    : labels,
+                             chartStyle     : chartStyle,
+                             calculations   : .none)
         
     }
 }
