@@ -39,11 +39,11 @@ struct ContentView: View {
                                     xAxisGridStyle: GridStyle(numberOfLines: 3,
                                                               lineColour: Color(.lightGray).opacity(0.5),
                                                               lineWidth: 1),
+                                    xAxisLabelPosition: .bottom,
+                                    xAxisLabelsFrom: .dataPoint,
                                     yAxisGridStyle: GridStyle(numberOfLines: 3,
                                                               lineColour: Color(.lightGray).opacity(0.5),
                                                               lineWidth: 1),
-                                    xAxisLabelPosition: .bottom,
-                                    xAxisLabelsFrom: .dataPoint,
                                     yAxisLabelPosition: .leading,
                                     yAxisNumberOfLabels: 3)
 

@@ -57,12 +57,12 @@ struct BarChartDemoView: View {
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
                                                     lineWidth   : 1)
         
-        let chartStyle  : BarChartStyle = BarChartStyle(infoBoxPlacement: .floating,
-                                                           xAxisGridStyle  : gridStyle,
-                                                           yAxisGridStyle  : gridStyle,
-                                                           xAxisLabelPosition: .bottom,
-                                                           xAxisLabelsFrom: .dataPoint,
-                                                           yAxisLabelPosition: .leading,
+        let chartStyle  : BarChartStyle = BarChartStyle(infoBoxPlacement      : .floating,
+                                                           xAxisGridStyle     : gridStyle,
+                                                           xAxisLabelPosition : .bottom,
+                                                           xAxisLabelsFrom    : .dataPoint,
+                                                           yAxisGridStyle     : gridStyle,
+                                                           yAxisLabelPosition : .leading,
                                                            yAxisNumberOfLabels: 5)
         
         return BarChartData(dataSets: data,
