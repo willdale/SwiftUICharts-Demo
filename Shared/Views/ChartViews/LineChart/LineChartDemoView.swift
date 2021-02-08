@@ -89,7 +89,7 @@ extension LineChartDemoView {
         
         let chartStyle = LineChartStyle(infoBoxPlacement        : .floating,
                                         infoBoxValueColour      : Color.red,
-                                        infoBoxDescriptionColor : Color.blue,
+                                        infoBoxDescriptionColor : Color.primary,
                                         
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
