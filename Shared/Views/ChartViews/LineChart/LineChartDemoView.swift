@@ -87,9 +87,7 @@ extension LineChartDemoView {
                                     dash         : [8],
                                     dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement        : .floating,
-                                        infoBoxValueColour      : Color.red,
-                                        infoBoxDescriptionColor : Color.primary,
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
                                         
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
