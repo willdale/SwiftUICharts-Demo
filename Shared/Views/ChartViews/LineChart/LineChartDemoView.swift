@@ -105,8 +105,7 @@ extension LineChartDemoView {
         return LineChartData(dataSets       : data,
                              metadata       : metadata,
                              xAxisLabels    : labels,
-                             chartStyle     : chartStyle,
-                             calculations   : .none)
+                             chartStyle     : chartStyle)
         
     }
 }

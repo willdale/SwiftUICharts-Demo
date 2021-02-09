@@ -50,8 +50,7 @@ struct ContentView: View {
         return BarChartData(dataSets: data,
                          metadata: metadata,
                          xAxisLabels: xAxisLabels,
-                         chartStyle: chartStyle,
-                         calculations: .none)
+                         chartStyle: chartStyle)
     }
 }
 

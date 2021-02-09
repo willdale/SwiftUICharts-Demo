@@ -82,8 +82,7 @@ extension MultiLineChartDemoView {
         return MultiLineChartData(dataSets: data,
                                   metadata: metadata,
                                   xAxisLabels: labels,
-                                  chartStyle: LineChartStyle(baseline: .minimumWithMaximum(of: 40)),
-                                  calculations: .none)
+                                  chartStyle: LineChartStyle(baseline: .minimumWithMaximum(of: 40)))
     }
 }
 

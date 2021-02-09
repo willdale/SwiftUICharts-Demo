@@ -68,7 +68,6 @@ extension FilledLineChartDemoView {
         return LineChartData(dataSets: data,
                              metadata: metadata,
                              xAxisLabels: labels,
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumValue),
-                             calculations: .none)
+                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumValue))
     }
 }
