@@ -81,7 +81,6 @@ extension GroupedBarChartDemoView {
         return MultiBarChartData(dataSets: data,
                                  metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                  xAxisLabels: ["Hello"],
-                                 chartStyle: BarChartStyle(),
-                                 calculations: .none)
+                                 chartStyle: BarChartStyle())
     }
 }

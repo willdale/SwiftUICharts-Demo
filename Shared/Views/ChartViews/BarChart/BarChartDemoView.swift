@@ -68,8 +68,7 @@ struct BarChartDemoView: View {
         return BarChartData(dataSets: data,
                             metadata: metadata,
                             xAxisLabels: labels,
-                            chartStyle: chartStyle,
-                            calculations: .none)
+                            chartStyle: chartStyle)
     }
 }
 
