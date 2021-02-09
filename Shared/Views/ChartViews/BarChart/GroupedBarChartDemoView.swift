@@ -13,7 +13,7 @@ struct GroupedBarChartDemoView: View {
     let data = makeData()
     
     var body: some View {
-        GroupedBarChart(chartData: data)
+        GroupedBarChart(chartData: data, groupSpacing: 50)
             .touchOverlay(chartData: data)
             .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
