@@ -77,7 +77,7 @@ extension LineChartDemoView {
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(colour: Color.red))
+        style: LineStyle(colour: Color.red, lineType: .curvedLine))
         
         let metadata    = ChartMetadata(title: "Some Data", subtitle: "A Week")
         
