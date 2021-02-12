@@ -13,7 +13,7 @@ struct GroupedBarChartDemoView: View {
     let data = makeData()
     
     var body: some View {
-        GroupedBarChart(chartData: data, groupSpacing: 50)
+        GroupedBarChart(chartData: data, groupSpacing: 25)
             .touchOverlay(chartData: data)
             .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
@@ -56,7 +56,7 @@ extension GroupedBarChartDemoView {
                         BarChartDataPoint(value: 50, xAxisLabel: "2.1", pointLabel: "Two One"  , colour: .blue),
                         BarChartDataPoint(value: 10, xAxisLabel: "2.2", pointLabel: "Two Two"  , colour: .yellow),
                         BarChartDataPoint(value: 40, xAxisLabel: "2.3", pointLabel: "Two Three", colour: .purple),
-                        BarChartDataPoint(value: 60, xAxisLabel: "2.3", pointLabel: "Two Three", colour: .green)],
+                        BarChartDataPoint(value: 60, xAxisLabel: "2.3", pointLabel: "Two Four", colour: .green)],
                        legendTitle: "Two",
                        pointStyle: PointStyle(),
                        style: BarStyle(barWidth: 1.0, colourFrom: .dataPoints)),
@@ -72,7 +72,7 @@ extension GroupedBarChartDemoView {
                         BarChartDataPoint(value: 80, xAxisLabel: "4.1", pointLabel: "Four One"  , colour: .blue),
                         BarChartDataPoint(value: 10, xAxisLabel: "4.2", pointLabel: "Four Two"  , colour: .yellow),
                         BarChartDataPoint(value: 20, xAxisLabel: "4.3", pointLabel: "Four Three", colour: .purple),
-                        BarChartDataPoint(value: 50, xAxisLabel: "4.3", pointLabel: "Four Three", colour: .green)],
+                        BarChartDataPoint(value: 50, xAxisLabel: "4.3", pointLabel: "Four Four", colour: .green)],
                        legendTitle: "Four",
                        pointStyle: PointStyle(),
                        style: BarStyle(barWidth: 1.0, colourFrom: .dataPoints))
@@ -81,6 +81,6 @@ extension GroupedBarChartDemoView {
         return MultiBarChartData(dataSets: data,
                                  metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                  xAxisLabels: ["Hello"],
-                                 chartStyle: BarChartStyle())
+                                 chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint))
     }
 }
