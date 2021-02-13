@@ -44,7 +44,6 @@ extension PieChartDemoView {
                                            PieChartDataPoint(value: 6, pointDescription: "Four", colour: .green),
                                            PieChartDataPoint(value: 4, pointDescription: "Five", colour: .orange)],
                               legendTitle: "Data",
-                              pointStyle: PointStyle(),
                               style: PieSegmentStyle())
         
         return PieChartData(dataSets: data,
