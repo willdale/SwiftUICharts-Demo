@@ -1,28 +1,28 @@
 //
-//  GroupedBarChartDemoView.swift
+//  StackedBarChartDemoView.swift
 //  SwiftUICharts Demo
 //
-//  Created by Will Dale on 25/01/2021.
+//  Created by Will Dale on 12/02/2021.
 //
 
 import SwiftUI
 import SwiftUICharts
 
-struct GroupedBarChartDemoView: View {
+struct StackedBarChartDemoView: View {
     
     let data = makeData()
     
     var body: some View {
-        GroupedBarChart(chartData: data, groupSpacing: 25)
+        StackedBarChart(chartData: data)
             .touchOverlay(chartData: data)
-            .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
-            .headerBox(chartData: data)
-            .legends(chartData: data)
+//            .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .xAxisGrid(chartData: data)
+//            .yAxisGrid(chartData: data)
+//            .xAxisLabels(chartData: data)
+//            .yAxisLabels(chartData: data)
+//            .headerBox(chartData: data)
+//            .legends(chartData: data)
             .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
             .background(
@@ -34,19 +34,20 @@ struct GroupedBarChartDemoView: View {
     }
 }
 
-struct GroupedBarChartDemoView_Previews: PreviewProvider {
+struct StackedBarChartDemoView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupedBarChartDemoView()
+        StackedBarChartDemoView()
+            .frame(height: 100)
     }
 }
 
-extension GroupedBarChartDemoView {
-    static func makeData() -> GroupedBarChartData {
+extension StackedBarChartDemoView {
+    static func makeData() -> StackedBarChartData {
         
         let data = MultiBarDataSet(dataSets: [
             BarDataSet(dataPoints: [
                         BarChartDataPoint(value: 10, xAxisLabel: "1.1", pointLabel: "One One"  , colour: .blue),
-                        BarChartDataPoint(value: 20, xAxisLabel: "1.2", pointLabel: "One Two"  , colour: .yellow),
+                        BarChartDataPoint(value: 10, xAxisLabel: "1.2", pointLabel: "One Two"  , colour: .yellow),
                         BarChartDataPoint(value: 30, xAxisLabel: "1.3", pointLabel: "One Three", colour: .purple),
                         BarChartDataPoint(value: 40, xAxisLabel: "1.4", pointLabel: "One Four" , colour: .green)],
                        legendTitle: "One",
@@ -78,7 +79,7 @@ extension GroupedBarChartDemoView {
                        style: BarStyle(barWidth: 1.0, colourFrom: .dataPoints))
         ])
         
-        return GroupedBarChartData(dataSets: data,
+        return StackedBarChartData(dataSets: data,
                                  metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                  xAxisLabels: ["Hello"],
                                  chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint))

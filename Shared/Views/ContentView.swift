@@ -32,6 +32,10 @@ struct ContentView: View {
                     NavigationLink(destination: GroupedBarChartDemoView()) {
                         Text("Grouped Bar Chart")
                     }
+                    NavigationLink(destination: StackedBarChartDemoView()) {
+                        Text("Stacked Bar Chart")
+                    }
+                    
                 }
                 Section(header: Text("Pie Chart")) {
                     NavigationLink(destination: PieChartDemoView()) {
