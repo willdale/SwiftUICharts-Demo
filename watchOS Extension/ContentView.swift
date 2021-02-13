@@ -29,7 +29,9 @@ struct ContentView: View {
             BarChartDataPoint(value: 50, xAxisLabel: "B"),
             BarChartDataPoint(value: 30, xAxisLabel: "C"),
             BarChartDataPoint(value: 60, xAxisLabel: "D")
-        ], legendTitle: "Data", pointStyle: PointStyle(), style: BarStyle())
+        ],
+        legendTitle: "Data",
+        style: BarStyle())
         
         let metadata = ChartMetadata(title: "Something", subtitle: "Some data")
 

@@ -46,7 +46,6 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
             ],
             legendTitle: "Data",
-            pointStyle: PointStyle(),
             style: BarStyle())
         
         let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
