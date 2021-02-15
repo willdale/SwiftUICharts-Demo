@@ -45,10 +45,9 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
                 BarChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
             ],
-            legendTitle: "Data",
-            style: BarStyle())
+            legendTitle: "Data")
         
-        let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
+        let metadata    : ChartMetadata = ChartMetadata(title       : "Test Data",
                                                         subtitle    : "A weeks worth")
         
         let labels      : [String]      = ["Mon", "Thu", "Sun"]
@@ -67,6 +66,7 @@ struct BarChartDemoView: View {
         return BarChartData(dataSets: data,
                             metadata: metadata,
                             xAxisLabels: labels,
+                            barStyle: BarStyle(barWidth: 0.5, colourFrom: .barStyle, colour: .blue),
                             chartStyle: chartStyle)
     }
 }
