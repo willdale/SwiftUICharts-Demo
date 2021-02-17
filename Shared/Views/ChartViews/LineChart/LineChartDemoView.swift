@@ -103,7 +103,7 @@ extension LineChartDemoView {
                                         yAxisNumberOfLabels : 7,
                                         
                                         baseline            : .minimumWithMaximum(of: 80),
-                                        globalAnimation     : .linear(duration: 1))
+                                        globalAnimation     : .easeOut(duration: 1))
         
         return LineChartData(dataSets       : data,
                              metadata       : metadata,
