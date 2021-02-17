@@ -16,7 +16,7 @@ struct LineChartDemoView: View {
         VStack {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
-                
+                .touchOverlay(chartData: data, specifier: "%.0f")
                 .yAxisPOI(chartData: data,
                           markerName: "Other thing",
                           markerValue: 185,
@@ -36,13 +36,14 @@ struct LineChartDemoView: View {
                 
                 .averageLine(chartData: data,
                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .touchOverlay(chartData: data, specifier: "%.0f")
+                
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
+                .infoBox(chartData: data)
                 .headerBox(chartData: data)
-                .legends(chartData: data)
+                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
                 .padding(.all, 24)
                 .background(

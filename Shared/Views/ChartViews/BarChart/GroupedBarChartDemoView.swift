@@ -21,6 +21,7 @@ struct GroupedBarChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
+            .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data)
             .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
@@ -89,7 +90,7 @@ extension GroupedBarChartDemoView {
         return GroupedBarChartData(dataSets: data,
                                    metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                    xAxisLabels: ["Hello"],
-                                   chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint),
+                                   chartStyle: BarChartStyle(infoBoxPlacement: .floating, xAxisLabelsFrom: .dataPoint),
                                    groupLegends: groupLegends)
     }
 }
