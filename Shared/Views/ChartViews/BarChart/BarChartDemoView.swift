@@ -22,7 +22,7 @@ struct BarChartDemoView: View {
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
             .headerBox(chartData: data)
-            .legends(chartData: data)
+            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
             .background(
@@ -37,13 +37,13 @@ struct BarChartDemoView: View {
                 
         let data : BarDataSet =
             BarDataSet(dataPoints: [
-                BarChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
-                BarChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
-                BarChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
-                BarChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
-                BarChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
-                BarChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
-                BarChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
+                BarChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"     , colour: .purple),
+                BarChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"    , colour: .blue),
+                BarChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"  , colour: Color(.cyan)),
+                BarChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"   , colour: .green),
+                BarChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"     , colour: .yellow),
+                BarChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"   , colour: .orange),
+                BarChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday"     , colour: .red)
             ],
             legendTitle: "Data")
         
@@ -66,7 +66,7 @@ struct BarChartDemoView: View {
         return BarChartData(dataSets: data,
                             metadata: metadata,
                             xAxisLabels: labels,
-                            barStyle: BarStyle(barWidth: 0.5, colourFrom: .barStyle, colour: .blue),
+                            barStyle: BarStyle(barWidth: 0.5, colourFrom: .dataPoints, colour: .blue),
                             chartStyle: chartStyle)
     }
 }
