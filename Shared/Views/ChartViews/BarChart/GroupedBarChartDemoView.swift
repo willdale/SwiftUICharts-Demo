@@ -88,61 +88,9 @@ extension GroupedBarChartDemoView {
                             GroupedBarLegend(title: "Four" , colour: .green)]
         
         return GroupedBarChartData(dataSets: data,
+                                   groupLegends: groupLegends,
                                    metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                    xAxisLabels: ["Hello"],
-                                   chartStyle: BarChartStyle(infoBoxPlacement: .floating, xAxisLabelsFrom: .dataPoint),
-                                   groupLegends: groupLegends)
+                                   chartStyle: BarChartStyle(infoBoxPlacement: .floating, xAxisLabelsFrom: .dataPoint))
     }
 }
-//extension GroupedBarChartDemoView {
-//    static func makeData() -> GroupedBarChartData {
-//
-//        let data = GroupedBarDataSets(dataSets: [
-//            GroupedBarDataSet(dataPoints: [
-//                GroupedBarChartDataPoint(value: 10, xAxisLabel: "1.1", pointLabel: "One One"  , colour: .blue),
-//                GroupedBarChartDataPoint(value: 20, xAxisLabel: "2.1", pointLabel: "Two One"  , colour: .blue),
-//                GroupedBarChartDataPoint(value: 30, xAxisLabel: "3.1", pointLabel: "Three One", colour: .blue),
-//                GroupedBarChartDataPoint(value: 40, xAxisLabel: "4.1", pointLabel: "Four One" , colour: .blue)
-//            ],
-//
-//            legendTitle : "One",
-//            colour: .blue),
-//
-//            GroupedBarDataSet(dataPoints: [
-//                GroupedBarChartDataPoint(value: 50, xAxisLabel: "1.2", pointLabel: "One Two"  , colour: .red),
-//                GroupedBarChartDataPoint(value: 60, xAxisLabel: "2.2", pointLabel: "Two Two"  , colour: .red),
-//                GroupedBarChartDataPoint(value: 70, xAxisLabel: "3.2", pointLabel: "Three Two", colour: .red),
-//                GroupedBarChartDataPoint(value: 80, xAxisLabel: "4.2", pointLabel: "Four Two" , colour: .red)
-//            ],
-//
-//            legendTitle : "Two",
-//            colour: .red),
-//
-//            GroupedBarDataSet(dataPoints: [
-//                GroupedBarChartDataPoint(value: 30, xAxisLabel: "1.3", pointLabel: "One Three"  , colour: .yellow),
-//                GroupedBarChartDataPoint(value: 40, xAxisLabel: "2.3", pointLabel: "Two Three"  , colour: .yellow),
-//                GroupedBarChartDataPoint(value: 30, xAxisLabel: "3.3", pointLabel: "Three Three", colour: .yellow),
-//                GroupedBarChartDataPoint(value: 20, xAxisLabel: "4.3", pointLabel: "Four Three" , colour: .yellow)
-//            ],
-//
-//            legendTitle : "Three",
-//            colour: .yellow),
-//
-//            GroupedBarDataSet(dataPoints: [
-//                GroupedBarChartDataPoint(value: 40, xAxisLabel: "1.4", pointLabel: "One Four"  , colour: .green),
-//                GroupedBarChartDataPoint(value: 60, xAxisLabel: "2.3", pointLabel: "Two Four"  , colour: .green),
-//                GroupedBarChartDataPoint(value: 90, xAxisLabel: "3.4", pointLabel: "Three Four", colour: .green),
-//                GroupedBarChartDataPoint(value: 50, xAxisLabel: "4.3", pointLabel: "Four Four" , colour: .green)
-//            ],
-//
-//            legendTitle : "Four",
-//            colour: .green)
-//           ])
-//
-//        return GroupedBarChartData(dataSets: data,
-//                                 metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
-//                                 xAxisLabels: ["Hello"],
-//                                 chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint))
-//    }
-//}
-
