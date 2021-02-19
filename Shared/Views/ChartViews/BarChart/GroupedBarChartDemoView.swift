@@ -23,7 +23,7 @@ struct GroupedBarChartDemoView: View {
             .yAxisLabels(chartData: data)
             .infoBox(chartData: data)
             .headerBox(chartData: data)
-            .legends(chartData: data)
+            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
             .background(

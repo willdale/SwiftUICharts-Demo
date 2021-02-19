@@ -68,6 +68,8 @@ extension FilledLineChartDemoView {
         return LineChartData(dataSets: data,
                              metadata: metadata,
                              xAxisLabels: labels,
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header, baseline: .minimumValue))
+                             chartStyle: LineChartStyle(infoBoxPlacement: .header,
+                                                        markerType: .full(attachment: .point),
+                                                        baseline: .minimumValue))
     }
 }

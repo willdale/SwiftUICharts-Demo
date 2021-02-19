@@ -55,9 +55,9 @@ extension MultiLineChartDemoView {
                          LineDataSet(dataPoints: [
                              LineChartDataPoint(value: 60,  xAxisLabel: "M", pointLabel: "Monday"),
                              LineChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
-//                             LineChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
+                             LineChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
                              LineChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
-//                             LineChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
+                             LineChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
                              LineChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
                              LineChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
                          ],
@@ -84,6 +84,7 @@ extension MultiLineChartDemoView {
                                   metadata: metadata,
                                   xAxisLabels: labels,
                                   chartStyle: LineChartStyle(infoBoxPlacement: .floating,
+                                                             markerType: .full(attachment: .line),
                                                              baseline: .minimumWithMaximum(of: 40)))
     }
 }
