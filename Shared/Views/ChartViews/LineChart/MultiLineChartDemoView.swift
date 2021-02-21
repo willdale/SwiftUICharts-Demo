@@ -83,7 +83,7 @@ extension MultiLineChartDemoView {
         return MultiLineChartData(dataSets: data,
                                   metadata: metadata,
                                   xAxisLabels: labels,
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .floating,
+                                  chartStyle: LineChartStyle(infoBoxPlacement: .fixed,
                                                              markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              baseline: .minimumWithMaximum(of: 40)))
     }

@@ -44,7 +44,7 @@ struct ContentView: View {
                     NavigationLink(destination: DoughnutChartDemoView()) {
                         Text("Doughnut Chart - Week")
                     }
-                    NavigationLink(destination: MultiLayerPieChart()) {
+                    NavigationLink(destination: MultilayerPieChartDemoView()) {
                         Text("Multi Layered Pie")
                     }
                 }
