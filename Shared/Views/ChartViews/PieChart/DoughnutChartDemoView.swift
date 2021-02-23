@@ -16,6 +16,7 @@ struct DoughnutChartDemoView: View {
         VStack {
             DoughnutChart(chartData: data)
                 .touchOverlay(chartData: data)
+                .infoBox(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data)
                 .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
@@ -38,16 +39,16 @@ struct DoughnutChartDemoView_Previews: PreviewProvider {
 
 extension DoughnutChartDemoView {
     static func makeData() -> DoughnutChartData {
-        let data = PieDataSet(dataPoints: [PieChartDataPoint(value: 7, pointDescription: "One",   colour: .blue),
-                                           PieChartDataPoint(value: 2, pointDescription: "Two",   colour: .red),
-                                           PieChartDataPoint(value: 9, pointDescription: "Three", colour: .purple),
-                                           PieChartDataPoint(value: 6, pointDescription: "Four",  colour: .green),
-                                           PieChartDataPoint(value: 4, pointDescription: "Five",  colour: .orange)],
-                              legendTitle: "Data",
-                              style: PieSegmentStyle())
-    
+        let data = PieDataSet(dataPoints: [
+                                PieChartDataPoint(value: 7, pointDescription: "One",   colour: .blue),
+                                PieChartDataPoint(value: 2, pointDescription: "Two",   colour: .red),
+                                PieChartDataPoint(value: 9, pointDescription: "Three", colour: .purple),
+                                PieChartDataPoint(value: 6, pointDescription: "Four",  colour: .green),
+                                PieChartDataPoint(value: 4, pointDescription: "Five",  colour: .orange)],
+                              legendTitle: "Data")
+        
         return DoughnutChartData(dataSets: data,
-                                 metadata: ChartMetadata(title: "Pie", subtitle: "mmm pie"),
+                                 metadata: ChartMetadata(title: "Pie", subtitle: "mmm doughnuts"),
                                  chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
                                  noDataText: Text("hello"))
     }

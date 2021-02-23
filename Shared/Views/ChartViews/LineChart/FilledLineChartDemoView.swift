@@ -18,12 +18,18 @@ struct FilledLineChartDemoView: View {
             FilledLineChart(chartData: data)
                 .touchOverlay(chartData: data)
                 .pointMarkers(chartData: data)
-                .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .averageLine(chartData: data,
+                             strokeStyle: StrokeStyle(lineWidth: 3,dash: [5,10]))
+                .yAxisPOI(chartData: data,
+                          markerName: "50",
+                          markerValue: 50,
+                          lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
+                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
+                .infoBox(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data)
                 .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)

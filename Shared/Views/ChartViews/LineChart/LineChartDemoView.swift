@@ -66,7 +66,7 @@ struct LineChartView_Previews: PreviewProvider {
 extension LineChartDemoView {
     
     static func weekOfData() -> LineChartData {
-        
+
         let data = LineDataSet(dataPoints: [
             LineChartDataPoint(value: 120, xAxisLabel: "M", pointLabel: "Monday"),
             LineChartDataPoint(value: 190, xAxisLabel: "T", pointLabel: "Tuesday"),
@@ -113,4 +113,5 @@ extension LineChartDemoView {
                              chartStyle     : chartStyle)
         
     }
+    
 }
