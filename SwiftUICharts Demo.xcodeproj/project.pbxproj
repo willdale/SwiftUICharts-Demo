@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C18541B25AEF3BE00F2FAE0 /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
 		6C18541C25AEF3BE00F2FAE0 /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
+		6C23833A25E80DB10001B310 /* SwiftUIChartsDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23833925E80DB10001B310 /* SwiftUIChartsDemoUITests.swift */; };
 		6C23A46125B1FA4800BD364E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C23A46025B1FA4800BD364E /* Assets.xcassets */; };
 		6C23A46425B1FA4800BD364E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */; };
 		6C23A46D25B1FA6D00BD364E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C23A46C25B1FA6D00BD364E /* SwiftUICharts */; };
@@ -64,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6C23833C25E80DB10001B310 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC59B6F25AB0D7B009D405A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CC59B7A25AB0D7C009D405A;
+			remoteInfo = "SwiftUICharts Demo (iOS)";
+		};
 		6CDF288525B30C9100ADA785 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6CC59B6F25AB0D7B009D405A /* Project object */;
@@ -107,6 +115,9 @@
 
 /* Begin PBXFileReference section */
 		6C18541A25AEF3BE00F2FAE0 /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
+		6C23833725E80DB10001B310 /* SwiftUIChartsDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIChartsDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C23833925E80DB10001B310 /* SwiftUIChartsDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChartsDemoUITests.swift; sourceTree = "<group>"; };
+		6C23833B25E80DB10001B310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -145,6 +156,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C23833425E80DB10001B310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C23A45725B1FA4700BD364E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +207,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6C23833825E80DB10001B310 /* SwiftUIChartsDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6C23833925E80DB10001B310 /* SwiftUIChartsDemoUITests.swift */,
+				6C23833B25E80DB10001B310 /* Info.plist */,
+			);
+			path = SwiftUIChartsDemoUITests;
+			sourceTree = "<group>";
+		};
 		6C23A45B25B1FA4700BD364E /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +254,7 @@
 				6C23A45B25B1FA4700BD364E /* tvOS */,
 				6CDF287B25B30C9000ADA785 /* watchOS */,
 				6CDF288725B30C9100ADA785 /* watchOS Extension */,
+				6C23833825E80DB10001B310 /* SwiftUIChartsDemoUITests */,
 				6CC59B7C25AB0D7C009D405A /* Products */,
 				6CC59B9A25AB0D94009D405A /* Frameworks */,
 			);
@@ -251,6 +279,7 @@
 				6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */,
 				6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */,
 				6CDF288325B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex */,
+				6C23833725E80DB10001B310 /* SwiftUIChartsDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,6 +382,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C23833625E80DB10001B310 /* SwiftUIChartsDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C23834025E80DB10001B310 /* Build configuration list for PBXNativeTarget "SwiftUIChartsDemoUITests" */;
+			buildPhases = (
+				6C23833325E80DB10001B310 /* Sources */,
+				6C23833425E80DB10001B310 /* Frameworks */,
+				6C23833525E80DB10001B310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C23833D25E80DB10001B310 /* PBXTargetDependency */,
+			);
+			name = SwiftUIChartsDemoUITests;
+			productName = SwiftUIChartsDemoUITests;
+			productReference = 6C23833725E80DB10001B310 /* SwiftUIChartsDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6C23A45925B1FA4700BD364E /* SwiftUICharts Demo (tvOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C23A46825B1FA4800BD364E /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (tvOS)" */;
@@ -458,9 +505,13 @@
 		6CC59B6F25AB0D7B009D405A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					6C23833625E80DB10001B310 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6CC59B7A25AB0D7C009D405A;
+					};
 					6C23A45925B1FA4700BD364E = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -499,11 +550,19 @@
 				6C23A45925B1FA4700BD364E /* SwiftUICharts Demo (tvOS) */,
 				6CDF287925B30C9000ADA785 /* SwiftUICharts Demo (watchOS) */,
 				6CDF288225B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension */,
+				6C23833625E80DB10001B310 /* SwiftUIChartsDemoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C23833525E80DB10001B310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C23A45825B1FA4700BD364E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,6 +608,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C23833325E80DB10001B310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C23833A25E80DB10001B310 /* SwiftUIChartsDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C23A45625B1FA4700BD364E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -621,6 +688,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6C23833D25E80DB10001B310 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CC59B7A25AB0D7C009D405A /* SwiftUICharts Demo (iOS) */;
+			targetProxy = 6C23833C25E80DB10001B310 /* PBXContainerItemProxy */;
+		};
 		6CDF288625B30C9100ADA785 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6CDF288225B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension */;
@@ -634,6 +706,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6C23833E25E80DB10001B310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EGJ7GMEH64;
+				INFOPLIST_FILE = SwiftUIChartsDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.willdale.SwiftUIChartsDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SwiftUICharts Demo (iOS)";
+			};
+			name = Debug;
+		};
+		6C23833F25E80DB10001B310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EGJ7GMEH64;
+				INFOPLIST_FILE = SwiftUIChartsDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.willdale.SwiftUIChartsDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SwiftUICharts Demo (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		6C23A46625B1FA4800BD364E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -980,6 +1095,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C23834025E80DB10001B310 /* Build configuration list for PBXNativeTarget "SwiftUIChartsDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C23833E25E80DB10001B310 /* Debug */,
+				6C23833F25E80DB10001B310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6C23A46825B1FA4800BD364E /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (tvOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

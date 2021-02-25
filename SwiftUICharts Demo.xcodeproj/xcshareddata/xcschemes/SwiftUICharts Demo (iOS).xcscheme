@@ -38,6 +38,21 @@
                ReferencedContainer = "container:../SwiftUICharts">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C23833625E80DB10001B310"
+               BuildableName = "SwiftUIChartsDemoUITests.xctest"
+               BlueprintName = "SwiftUIChartsDemoUITests"
+               ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "SwiftUIChartsDemoUITests/testLaunchPerformance()">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
