@@ -55,7 +55,7 @@ struct BarChartDemoView: View {
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
                                                     lineWidth   : 1)
         
-        let chartStyle  : BarChartStyle = BarChartStyle(infoBoxPlacement      : .floating,
+        let chartStyle  : BarChartStyle = BarChartStyle(infoBoxPlacement      : .header,
                                                            xAxisGridStyle     : gridStyle,
                                                            xAxisLabelPosition : .bottom,
                                                            xAxisLabelsFrom    : .dataPoint,

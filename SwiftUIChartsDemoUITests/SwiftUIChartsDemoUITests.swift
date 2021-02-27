@@ -31,10 +31,30 @@ class SwiftUIChartsDemoUITests: XCTestCase {
         let label = app.staticTexts["Thursday"]
         let exists = NSPredicate(format: "exists == 1")
 
-        let draggestureElement = app.otherElements["DragGesture"]
+//        let draggestureElement = app.otherElements["DragGesture"]
+        let draggestureElement = app.otherElements["Line Chart"]
         draggestureElement.tap()
         draggestureElement.press(forDuration: 5);
         
+        expectation(for: exists, evaluatedWith: label, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+
+    }
+    
+    func testBarTouch() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        app.tables.buttons["Bar Chart - Week"].tap()
+  
+        let label = app.staticTexts["Thursday"]
+        let exists = NSPredicate(format: "exists == 1")
+
+//        let draggestureElement = app.otherElements["DragGesture"]
+        let draggestureElement = app.otherElements["Bar Chart"]
+        draggestureElement.tap()
+        draggestureElement.press(forDuration: 5);
+                
         expectation(for: exists, evaluatedWith: label, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
 
