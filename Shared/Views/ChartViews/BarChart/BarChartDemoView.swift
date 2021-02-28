@@ -61,7 +61,9 @@ struct BarChartDemoView: View {
                                                            xAxisLabelsFrom    : .dataPoint,
                                                            yAxisGridStyle     : gridStyle,
                                                            yAxisLabelPosition : .leading,
-                                                           yAxisNumberOfLabels: 5)
+                                                           yAxisNumberOfLabels: 5,
+                                                           baseline: .minimumWithMaximum(of: 10),
+                                                           topLine: .maximum(of: 200))
         
         return BarChartData(dataSets: data,
                             metadata: metadata,

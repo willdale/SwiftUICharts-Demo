@@ -99,6 +99,8 @@ extension StackedBarChartDemoView {
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                    xAxisLabels: ["Hello"],
-                                   chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint))
+                                   chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint,
+                                                             baseline: .minimumWithMaximum(of: 5),
+                                                             topLine: .maximum(of: 120)))
     }
 }
