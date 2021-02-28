@@ -90,7 +90,8 @@ extension MultiLineChartDemoView {
                                   xAxisLabels: labels,
                                   chartStyle: LineChartStyle(infoBoxPlacement: .fixed,
                                                              markerType: .full(attachment: .line(dot: .style(DotStyle()))),
-                                                             baseline: .minimumWithMaximum(of: 40)))
+                                                             baseline: .minimumWithMaximum(of: 40),
+                                                             topLine: .maximum(of: 180)))
     }
 }
 

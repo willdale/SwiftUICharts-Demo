@@ -55,13 +55,15 @@ struct BarChartDemoView: View {
         let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
                                                     lineWidth   : 1)
         
-        let chartStyle  : BarChartStyle = BarChartStyle(infoBoxPlacement      : .floating,
+        let chartStyle  : BarChartStyle = BarChartStyle(infoBoxPlacement      : .header,
                                                            xAxisGridStyle     : gridStyle,
                                                            xAxisLabelPosition : .bottom,
                                                            xAxisLabelsFrom    : .dataPoint,
                                                            yAxisGridStyle     : gridStyle,
                                                            yAxisLabelPosition : .leading,
-                                                           yAxisNumberOfLabels: 5)
+                                                           yAxisNumberOfLabels: 5,
+                                                           baseline: .minimumWithMaximum(of: 10),
+                                                           topLine: .maximum(of: 200))
         
         return BarChartData(dataSets: data,
                             metadata: metadata,

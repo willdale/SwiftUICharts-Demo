@@ -100,6 +100,9 @@ extension GroupedBarChartDemoView {
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                    xAxisLabels: ["Hello"],
-                                   chartStyle: BarChartStyle(infoBoxPlacement: .floating, xAxisLabelsFrom: .dataPoint))
+                                   chartStyle: BarChartStyle(infoBoxPlacement: .floating,
+                                                             xAxisLabelsFrom: .dataPoint,
+                                                             baseline: .minimumWithMaximum(of: 5),
+                                                             topLine: .maximum(of: 100)))
     }
 }

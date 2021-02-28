@@ -26,18 +26,43 @@ class SwiftUIChartsDemoUITests: XCTestCase {
 
         let app = XCUIApplication()
         app.launch()
-        app.tables.buttons["Line Chart - Week"].tap()
-  
-        let label = app.staticTexts["Thursday"]
-        let exists = NSPredicate(format: "exists == 1")
-
-        let draggestureElement = app.otherElements["DragGesture"]
-        draggestureElement.tap()
-        draggestureElement.press(forDuration: 5);
         
-        expectation(for: exists, evaluatedWith: label, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        app.tables.buttons["Line Chart - Week"].tap()
+
+        let normalized = app.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+        let coordinate = normalized.withOffset(CGVector(dx: app.frame.midX, dy: app.frame.midY))
+        coordinate.press(forDuration: 5)
+                
+    }
+    
+    func testFilledLineTouch() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.tables.buttons["Filled Line Chart - Week"].tap()
+        
+        let normalized = app.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+        let coordinate = normalized.withOffset(CGVector(dx: app.frame.midX, dy: app.frame.midY))
+        coordinate.press(forDuration: 6)
 
     }
+    
+    
+    func testBarTouch() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.tables.buttons["Bar Chart - Week"].tap()
+        
+        let normalized = app.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+        let coordinate = normalized.withOffset(CGVector(dx: app.frame.midX, dy: app.frame.midY))
+        coordinate.press(forDuration: 6)
+    }
+    
+        
+    
+    
 
 }
