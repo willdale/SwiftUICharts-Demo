@@ -16,7 +16,7 @@ struct FilledLineChartDemoView: View {
         VStack {
                         
             FilledLineChart(chartData: data)
-                .touchOverlay(chartData: data)
+                .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
                 .pointMarkers(chartData: data)
                 .averageLine(chartData: data,
                              strokeStyle: StrokeStyle(lineWidth: 3,dash: [5,10]))
