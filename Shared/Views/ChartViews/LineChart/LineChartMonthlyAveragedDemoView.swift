@@ -13,11 +13,11 @@ struct LineChartMonthlyAveragedDemoView: View {
     var data : ChartData = yearOfDataMonthlyAverage()
     
     @State private var pointSize: Double = 0.5
-    
+ 
     var body: some View {
         VStack {
             LineChart()
-                .touchOverlay(specifier: "%.2f", units: .prefix(of: "USD"))
+                .touchOverlay(specifier: "%.2f", units: .suffix(of: "USD"))
                 .yAxisGrid()
                 .xAxisLabels()
                 .yAxisLabels()
@@ -35,8 +35,6 @@ struct LineChartMonthlyAveragedDemoView: View {
         }
         .navigationTitle("Monthly Average")
     }
-    
-    
 }
 
 struct LineChartMonthlyAveragedDemoView_Previews: PreviewProvider {
@@ -69,7 +67,8 @@ extension LineChartMonthlyAveragedDemoView {
         let labels      : [String]      = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"]
         
         let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
-                                                     yAxisGridStyle: GridStyle(lineColour: Color.primary.opacity(0.5)))
+                                                     yAxisGridStyle: GridStyle(lineColour: Color.primary.opacity(0.5)),
+                                                     xAxisLabelsFrom: .chartData)
         
         let lineStyle   : LineStyle     = LineStyle(colour: Color(red: 0.15, green: 0.15, blue: 1.0),
                                                     lineType: .curvedLine,
