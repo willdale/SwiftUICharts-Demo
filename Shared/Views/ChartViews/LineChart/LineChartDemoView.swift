@@ -16,7 +16,7 @@ struct LineChartDemoView: View {
         VStack {
             Spacer()
             LineChart()
-                .touchOverlay()
+                .touchOverlay(units: .prefix(of: "USD"))
                 .pointMarkers()
                 .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .yAxisPOI(markerName: "50",

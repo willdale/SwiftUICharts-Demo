@@ -17,7 +17,7 @@ struct LineChartMonthlyAveragedDemoView: View {
     var body: some View {
         VStack {
             LineChart()
-                .touchOverlay(specifier: "%.2f")
+                .touchOverlay(specifier: "%.2f", units: .prefix(of: "USD"))
                 .yAxisGrid()
                 .xAxisLabels()
                 .yAxisLabels()
