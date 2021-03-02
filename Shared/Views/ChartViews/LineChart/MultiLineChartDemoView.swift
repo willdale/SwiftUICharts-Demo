@@ -68,7 +68,7 @@ extension MultiLineChartDemoView {
                          ],
                          legendTitle: "Test One",
                          pointStyle: PointStyle(),
-                         style: LineStyle(colour: Color.red)),
+                         style: LineStyle(lineColour: ColourStyle(colour: .red))),
                          LineDataSet(dataPoints: [
                              LineChartDataPoint(value: 90,  xAxisLabel: "M", pointLabel: "Monday"),
                              LineChartDataPoint(value: 60,  xAxisLabel: "T", pointLabel: "Tuesday"),
@@ -80,7 +80,8 @@ extension MultiLineChartDemoView {
                          ],
                          legendTitle: "Test Two",
                          pointStyle: PointStyle(),
-                         style: LineStyle(colour: Color.blue))])
+                         style: LineStyle(lineColour: ColourStyle(colour: .blue)))
+                         ])
         
         let metadata = ChartMetadata(title: "Some Data", subtitle: "A Week")
         let labels = ["Monday", "Thursday", "Sunday"]

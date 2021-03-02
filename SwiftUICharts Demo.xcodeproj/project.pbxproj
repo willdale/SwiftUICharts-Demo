@@ -16,6 +16,12 @@
 		6C23A47B25B1FAE700BD364E /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
 		6C23A48125B1FAE700BD364E /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
+		6C4A82BA25EC0650008BD233 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4A82B925EC0650008BD233 /* TestView.swift */; };
+		6C4A82BB25EC0650008BD233 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4A82B925EC0650008BD233 /* TestView.swift */; };
+		6C4A82BC25EC0650008BD233 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4A82B925EC0650008BD233 /* TestView.swift */; };
+		6C4E2E7825ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E2E7725ED02F70008F4CD /* RangedLineChartDemoView.swift */; };
+		6C4E2E7925ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E2E7725ED02F70008F4CD /* RangedLineChartDemoView.swift */; };
+		6C4E2E7A25ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E2E7725ED02F70008F4CD /* RangedLineChartDemoView.swift */; };
 		6C5E42B925C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42B725C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift */; };
 		6C5E42BA25C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42B725C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift */; };
 		6C5E42BB25C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42B725C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift */; };
@@ -122,6 +128,8 @@
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C4A82B925EC0650008BD233 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		6C4E2E7725ED02F70008F4CD /* RangedLineChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangedLineChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42B725C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedBarChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42B825C1FF4B00FAB3D8 /* BarChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42C425C1FF5900FAB3D8 /* FilledLineChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilledLineChartDemoView.swift; sourceTree = "<group>"; };
@@ -314,6 +322,7 @@
 				6CEDEC5B25AF328000CD95CD /* LineChart */,
 				6CEDEC5C25AF328E00CD95CD /* BarChart */,
 				6C5E42D525C1FF6300FAB3D8 /* PieChart */,
+				6C4A82B925EC0650008BD233 /* TestView.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -365,6 +374,7 @@
 				6C5E42C525C1FF5900FAB3D8 /* LineChartDemoView.swift */,
 				6C5E42C425C1FF5900FAB3D8 /* FilledLineChartDemoView.swift */,
 				6C5E42C625C1FF5900FAB3D8 /* MultiLineChartDemoView.swift */,
+				6C4E2E7725ED02F70008F4CD /* RangedLineChartDemoView.swift */,
 			);
 			path = LineChart;
 			sourceTree = "<group>";
@@ -623,7 +633,9 @@
 				6CC0339725CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */,
 				6C5E42C925C1FF5900FAB3D8 /* FilledLineChartDemoView.swift in Sources */,
 				6CD59BD425D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */,
+				6C4E2E7A25ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */,
 				6C5E42D925C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */,
+				6C4A82BC25EC0650008BD233 /* TestView.swift in Sources */,
 				6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */,
 				6C5E42CC25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A325C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,
@@ -642,7 +654,9 @@
 				6CC0339525CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */,
 				6C5E42C725C1FF5900FAB3D8 /* FilledLineChartDemoView.swift in Sources */,
 				6CD59BD225D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */,
+				6C4E2E7825ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */,
 				6C5E42D725C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */,
+				6C4A82BA25EC0650008BD233 /* TestView.swift in Sources */,
 				6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */,
 				6C5E42CA25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A125C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,
@@ -661,7 +675,9 @@
 				6CC0339625CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */,
 				6C5E42C825C1FF5900FAB3D8 /* FilledLineChartDemoView.swift in Sources */,
 				6CD59BD325D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */,
+				6C4E2E7925ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */,
 				6C5E42D825C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */,
+				6C4A82BB25EC0650008BD233 /* TestView.swift in Sources */,
 				6CC59B8A25AB0D7C009D405A /* ContentView.swift in Sources */,
 				6C5E42CB25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A225C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,

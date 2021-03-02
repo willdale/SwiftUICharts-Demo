@@ -33,10 +33,8 @@ struct LineChartDemoView: View {
                           labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
                           lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
                           strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                
                 .averageLine(chartData: data,
                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
@@ -78,7 +76,7 @@ extension LineChartDemoView {
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
-        style: LineStyle(colour: Color.red, lineType: .curvedLine))
+        style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
         
         let metadata    = ChartMetadata(title: "Step Count", subtitle: "Over a Week")
                 

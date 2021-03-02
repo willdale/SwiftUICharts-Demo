@@ -66,7 +66,7 @@ extension FilledLineChartDemoView {
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(colour: Color.red))
+        style: LineStyle(lineColour: ColourStyle(colour: .red)))
         
         let metadata = ChartMetadata(title: "Some Data", subtitle: "A Week")
         let labels = ["Monday", "Thursday", "Sunday"]
