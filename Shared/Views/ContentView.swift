@@ -24,6 +24,9 @@ struct ContentView: View {
                     NavigationLink(destination: MultiLineChartDemoView()) {
                         Text("Multi Line Chart - Week")
                     }
+                    NavigationLink(destination: RangedLineChartDemoView()) {
+                        Text("Ranged Line Chart - Week")
+                    }
                 }
                 Section(header: Text("Bar Chart")) {
                     NavigationLink(destination: BarChartDemoView()) {
@@ -46,6 +49,11 @@ struct ContentView: View {
                     }
                     NavigationLink(destination: MultilayerPieChartDemoView()) {
                         Text("Multi Layered Pie")
+                    }
+                }
+                Section(header: Text("Test")) {
+                    NavigationLink(destination: TestMainView()) {
+                        Text("Test")
                     }
                 }
             }
