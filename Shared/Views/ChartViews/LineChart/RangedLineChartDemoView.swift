@@ -69,6 +69,7 @@ extension RangedLineChartDemoView {
             RangedLineChartDataPoint(value: 20, upperValue: 30, lowerValue: 10, xAxisLabel: "S", pointLabel: "Sunday")
         ],
         legendTitle: "Steps",
+        legendFillTitle: "Range",
         pointStyle: PointStyle(),
         style: RangedLineStyle(lineColour: ColourStyle(colour: .red),
                                fillColour: ColourStyle(colour: Color(.blue).opacity(0.25)),
