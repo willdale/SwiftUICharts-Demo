@@ -42,9 +42,6 @@
 		6C5E42D925C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
 		6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296725B1D27900F9A126 /* SwiftUICharts */; };
 		6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296B25B1D2F200F9A126 /* SwiftUICharts */; };
-		6CC0339525CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0339425CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift */; };
-		6CC0339625CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0339425CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift */; };
-		6CC0339725CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0339425CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift */; };
 		6CC59B8725AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6CC59B8825AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
@@ -137,7 +134,6 @@
 		6C5E42C625C1FF5900FAB3D8 /* MultiLineChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartDemoView.swift; sourceTree = "<group>"; };
 		6C7529A525B1F41100F9A126 /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
-		6CC0339425CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLayerPieChartDemoView.swift; sourceTree = "<group>"; };
 		6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
 		6CC59B7525AB0D7B009D405A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CC59B7625AB0D7C009D405A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -247,7 +243,6 @@
 			children = (
 				6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */,
 				6CCE39A025C7F9BB00148163 /* DoughnutChartDemoView.swift */,
-				6CC0339425CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift */,
 			);
 			path = PieChart;
 			sourceTree = "<group>";
@@ -630,7 +625,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC0339725CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */,
 				6C5E42C925C1FF5900FAB3D8 /* FilledLineChartDemoView.swift in Sources */,
 				6CD59BD425D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */,
 				6C4E2E7A25ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */,
@@ -651,7 +645,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC0339525CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */,
 				6C5E42C725C1FF5900FAB3D8 /* FilledLineChartDemoView.swift in Sources */,
 				6CD59BD225D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */,
 				6C4E2E7825ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */,
@@ -672,7 +665,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC0339625CD643F00E1BD9F /* MultiLayerPieChartDemoView.swift in Sources */,
 				6C5E42C825C1FF5900FAB3D8 /* FilledLineChartDemoView.swift in Sources */,
 				6CD59BD325D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */,
 				6C4E2E7925ED02F70008F4CD /* RangedLineChartDemoView.swift in Sources */,
