@@ -76,6 +76,7 @@ extension FilledLineChartDemoView {
                              xAxisLabels: labels,
                              chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                         markerType: .full(attachment: .point),
+                                                        xAxisLabelsFrom: .chartData,
                                                         baseline: .minimumValue))
     }
 }

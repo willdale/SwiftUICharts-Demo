@@ -18,7 +18,7 @@ struct RangedLineChartDemoView: View {
                 .touchOverlay(chartData: data, specifier: "%.0f")
                 .yAxisPOI(chartData: data,
                           markerName: "Step Count Aim",
-                          markerValue: 10,
+                          markerValue: 100,
                           labelPosition: .center(specifier: "%.0f"),
                           labelColour: Color.black,
                           labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
@@ -26,7 +26,7 @@ struct RangedLineChartDemoView: View {
                           strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .yAxisPOI(chartData: data,
                           markerName: "Minimum Recommended",
-                          markerValue: 40,
+                          markerValue: 140,
                           labelPosition: .center(specifier: "%.0f"),
                           labelColour: Color.white,
                           labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
@@ -60,13 +60,13 @@ extension RangedLineChartDemoView {
     static func weekOfData() -> RangedLineChartData {
 
         let data = RangedLineDataSet(dataPoints: [
-            RangedLineChartDataPoint(value: 10, upperValue: 20, lowerValue: 0 , xAxisLabel: "M", pointLabel: "Monday"),
-            RangedLineChartDataPoint(value: 25, upperValue: 35, lowerValue: 15, xAxisLabel: "T", pointLabel: "Tuesday"),
-            RangedLineChartDataPoint(value: 13, upperValue: 23, lowerValue: 3 , xAxisLabel: "W", pointLabel: "Wednesday"),
-            RangedLineChartDataPoint(value: 24, upperValue: 34, lowerValue: 14, xAxisLabel: "T", pointLabel: "Thursday"),
-            RangedLineChartDataPoint(value: 36, upperValue: 46, lowerValue: 26, xAxisLabel: "F", pointLabel: "Friday"),
-            RangedLineChartDataPoint(value: 14, upperValue: 24, lowerValue: 4 , xAxisLabel: "S", pointLabel: "Saturday"),
-            RangedLineChartDataPoint(value: 20, upperValue: 30, lowerValue: 10, xAxisLabel: "S", pointLabel: "Sunday")
+            RangedLineChartDataPoint(value: 110, upperValue: 120, lowerValue: 100 , xAxisLabel: "M", pointLabel: "Monday"),
+            RangedLineChartDataPoint(value: 125, upperValue: 135, lowerValue: 115, xAxisLabel: "T", pointLabel: "Tuesday"),
+            RangedLineChartDataPoint(value: 113, upperValue: 123, lowerValue: 103 , xAxisLabel: "W", pointLabel: "Wednesday"),
+            RangedLineChartDataPoint(value: 124, upperValue: 134, lowerValue: 114, xAxisLabel: "T", pointLabel: "Thursday"),
+            RangedLineChartDataPoint(value: 136, upperValue: 146, lowerValue: 126, xAxisLabel: "F", pointLabel: "Friday"),
+            RangedLineChartDataPoint(value: 114, upperValue: 124, lowerValue: 104 , xAxisLabel: "S", pointLabel: "Saturday"),
+            RangedLineChartDataPoint(value: 120, upperValue: 130, lowerValue: 110, xAxisLabel: "S", pointLabel: "Sunday")
         ],
         legendTitle: "Steps",
         legendFillTitle: "Range",
@@ -96,6 +96,10 @@ extension RangedLineChartDemoView {
                                         yAxisLabelPosition  : .leading,
                                         yAxisLabelColour    : Color.primary,
                                         yAxisNumberOfLabels : 7,
+                                        
+                                        baseline: .minimumWithMaximum(of: 80),
+                                        topLine: .maximum(of: 200),
+        
                                         
                                         globalAnimation     : .easeOut(duration: 1))
         
