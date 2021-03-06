@@ -16,18 +16,21 @@ struct ContentView: View {
             List {
                 Section(header: Text("Line Chart")) {
                     NavigationLink(destination: LineChartDemoView()) {
-                        Text("Line Chart - Week")
+                        Text("Line Chart")
                     }
                     NavigationLink(destination: FilledLineChartDemoView()) {
-                        Text("Filled Line Chart - Week")
+                        Text("Filled Line Chart")
                     }
                     NavigationLink(destination: MultiLineChartDemoView()) {
-                        Text("Multi Line Chart - Week")
+                        Text("Multi Line Chart")
+                    }
+                    NavigationLink(destination: RangedLineChartDemoView()) {
+                        Text("Ranged Line Chart")
                     }
                 }
                 Section(header: Text("Bar Chart")) {
                     NavigationLink(destination: BarChartDemoView()) {
-                        Text("Bar Chart - Week")
+                        Text("Bar Chart")
                     }
                     NavigationLink(destination: GroupedBarChartDemoView()) {
                         Text("Grouped Bar Chart")
@@ -35,7 +38,9 @@ struct ContentView: View {
                     NavigationLink(destination: StackedBarChartDemoView()) {
                         Text("Stacked Bar Chart")
                     }
-                    
+                    NavigationLink(destination: RangedBarChartDemoView()) {
+                        Text("Ranged Bar Chart")
+                    }
                 }
                 Section(header: Text("Pie Chart")) {
                     NavigationLink(destination: PieChartDemoView()) {
@@ -44,8 +49,10 @@ struct ContentView: View {
                     NavigationLink(destination: DoughnutChartDemoView()) {
                         Text("Doughnut Chart - Week")
                     }
-                    NavigationLink(destination: MultilayerPieChartDemoView()) {
-                        Text("Multi Layered Pie")
+                }
+                Section(header: Text("Test")) {
+                    NavigationLink(destination: TestMainView()) {
+                        Text("Test")
                     }
                 }
             }

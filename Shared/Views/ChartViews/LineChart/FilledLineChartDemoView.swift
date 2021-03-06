@@ -16,7 +16,7 @@ struct FilledLineChartDemoView: View {
         VStack {
                         
             FilledLineChart(chartData: data)
-                .touchOverlay(chartData: data)
+                .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
                 .pointMarkers(chartData: data)
                 .averageLine(chartData: data,
                              strokeStyle: StrokeStyle(lineWidth: 3,dash: [5,10]))
@@ -66,7 +66,7 @@ extension FilledLineChartDemoView {
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(colour: Color.red))
+        style: LineStyle(lineColour: ColourStyle(colour: .red)))
         
         let metadata = ChartMetadata(title: "Some Data", subtitle: "A Week")
         let labels = ["Monday", "Thursday", "Sunday"]
@@ -76,6 +76,7 @@ extension FilledLineChartDemoView {
                              xAxisLabels: labels,
                              chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                         markerType: .full(attachment: .point),
+                                                        xAxisLabelsFrom: .chartData,
                                                         baseline: .minimumValue))
     }
 }
