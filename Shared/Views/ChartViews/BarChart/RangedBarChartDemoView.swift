@@ -14,7 +14,7 @@ struct RangedBarChartDemoView: View {
     
     var body: some View {
         RangedBarChart(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
+            .touchOverlay(chartData: data, specifier: "%.0f", unit: .suffix(of: "BPM"))
             .yAxisPOI(chartData: data,
                       markerName: "Upper Limit",
                       markerValue: 100,

@@ -61,6 +61,7 @@ struct FilterView: View {
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
+            .id(data.id)
     }
     
     init(startDate : Date, title: String, subtitle: String) {
