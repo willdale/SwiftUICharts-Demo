@@ -15,13 +15,15 @@ struct TestMainView : View {
     
     var body: some View {
         VStack {
-            DatePicker("Select Date", selection: $startDate)
-                .datePickerStyle(WheelDatePickerStyle())
-                .labelsHidden()
+            
+//            DatePicker("Select Date", selection: $startDate)
+//                .datePickerStyle(WheelDatePickerStyle())
+//                .labelsHidden()
             
             FilterView(startDate: startDate, title: "Hello", subtitle: "World")
             
         }
+        .navigationTitle(Text("Date Picker"))
     }
     
 }
@@ -74,7 +76,7 @@ struct FilterView: View {
         let myDataPoints = MyData().data.filter({ $0.date >= startDate && $0.date <= endDate })
         
         let chartDataPoints : [LineChartDataPoint] = myDataPoints.map { (myData) in
-            LineChartDataPoint(value: myData.value, xAxisLabel: myData.xAxisLabel, pointLabel: myData.pointLabel)
+            LineChartDataPoint(value: myData.value, xAxisLabel: myData.xAxisLabel, description: myData.description)
         }
         
         let baseline = chartDataPoints.min(by: { $0.value < $1.value })?.value ?? 1
@@ -84,7 +86,7 @@ struct FilterView: View {
                                   metadata  : ChartMetadata(title: title, subtitle: subtitle),
                                   chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                              markerType: .vertical(attachment: .point),
-                                                             xAxisLabelsFrom: .dataPoint,
+                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
                                                              yAxisNumberOfLabels: 3,
                                                              baseline: .minimumWithMaximum(of: baseline - 20),
                                                              topLine: .maximum(of: topline + 20)))
@@ -95,44 +97,44 @@ struct FilterView: View {
 struct MyDataModel {
     var value       : Double
     let xAxisLabel  : String
-    let pointLabel  : String
+    let description : String
     let date        : Date
 }
 
 struct MyData {
     
     var data = [
-        MyDataModel(value: 140, xAxisLabel: "1",  pointLabel: "One",   date: Calendar.current.date(byAdding: .day, value: 1,  to: Date())!),
-        MyDataModel(value: 150, xAxisLabel: "2",  pointLabel: "Two",   date: Calendar.current.date(byAdding: .day, value: 2,  to: Date())!),
-        MyDataModel(value: 190, xAxisLabel: "3",  pointLabel: "Three", date: Calendar.current.date(byAdding: .day, value: 3,  to: Date())!),
-        MyDataModel(value: 110, xAxisLabel: "4",  pointLabel: "Four",  date: Calendar.current.date(byAdding: .day, value: 4,  to: Date())!),
-        MyDataModel(value: 100, xAxisLabel: "5",  pointLabel: "Five",  date: Calendar.current.date(byAdding: .day, value: 5,  to: Date())!),
-        MyDataModel(value: 190, xAxisLabel: "6",  pointLabel: "Six",   date: Calendar.current.date(byAdding: .day, value: 6,  to: Date())!),
-        MyDataModel(value: 130, xAxisLabel: "7",  pointLabel: "Seven", date: Calendar.current.date(byAdding: .day, value: 7,  to: Date())!),
+        MyDataModel(value: 140, xAxisLabel: "1",  description: "One",   date: Calendar.current.date(byAdding: .day, value: 1,  to: Date())!),
+        MyDataModel(value: 150, xAxisLabel: "2",  description: "Two",   date: Calendar.current.date(byAdding: .day, value: 2,  to: Date())!),
+        MyDataModel(value: 190, xAxisLabel: "3",  description: "Three", date: Calendar.current.date(byAdding: .day, value: 3,  to: Date())!),
+        MyDataModel(value: 110, xAxisLabel: "4",  description: "Four",  date: Calendar.current.date(byAdding: .day, value: 4,  to: Date())!),
+        MyDataModel(value: 100, xAxisLabel: "5",  description: "Five",  date: Calendar.current.date(byAdding: .day, value: 5,  to: Date())!),
+        MyDataModel(value: 190, xAxisLabel: "6",  description: "Six",   date: Calendar.current.date(byAdding: .day, value: 6,  to: Date())!),
+        MyDataModel(value: 130, xAxisLabel: "7",  description: "Seven", date: Calendar.current.date(byAdding: .day, value: 7,  to: Date())!),
         
-        MyDataModel(value: 160, xAxisLabel: "8",  pointLabel: "One",   date: Calendar.current.date(byAdding: .day, value: 8,  to: Date())!),
-        MyDataModel(value: 120, xAxisLabel: "9",  pointLabel: "Two",   date: Calendar.current.date(byAdding: .day, value: 9,  to: Date())!),
-        MyDataModel(value: 110, xAxisLabel: "10", pointLabel: "Three", date: Calendar.current.date(byAdding: .day, value: 10, to: Date())!),
-        MyDataModel(value: 190, xAxisLabel: "11", pointLabel: "Four",  date: Calendar.current.date(byAdding: .day, value: 11, to: Date())!),
-        MyDataModel(value: 150, xAxisLabel: "12", pointLabel: "Five",  date: Calendar.current.date(byAdding: .day, value: 12, to: Date())!),
-        MyDataModel(value: 130, xAxisLabel: "13", pointLabel: "Six",   date: Calendar.current.date(byAdding: .day, value: 13, to: Date())!),
-        MyDataModel(value: 120, xAxisLabel: "14", pointLabel: "Seven", date: Calendar.current.date(byAdding: .day, value: 14, to: Date())!),
+        MyDataModel(value: 160, xAxisLabel: "8",  description: "One",   date: Calendar.current.date(byAdding: .day, value: 8,  to: Date())!),
+        MyDataModel(value: 120, xAxisLabel: "9",  description: "Two",   date: Calendar.current.date(byAdding: .day, value: 9,  to: Date())!),
+        MyDataModel(value: 110, xAxisLabel: "10", description: "Three", date: Calendar.current.date(byAdding: .day, value: 10, to: Date())!),
+        MyDataModel(value: 190, xAxisLabel: "11", description: "Four",  date: Calendar.current.date(byAdding: .day, value: 11, to: Date())!),
+        MyDataModel(value: 150, xAxisLabel: "12", description: "Five",  date: Calendar.current.date(byAdding: .day, value: 12, to: Date())!),
+        MyDataModel(value: 130, xAxisLabel: "13", description: "Six",   date: Calendar.current.date(byAdding: .day, value: 13, to: Date())!),
+        MyDataModel(value: 120, xAxisLabel: "14", description: "Seven", date: Calendar.current.date(byAdding: .day, value: 14, to: Date())!),
         
-        MyDataModel(value: 190, xAxisLabel: "16", pointLabel: "One",   date: Calendar.current.date(byAdding: .day, value: 16, to: Date())!),
-        MyDataModel(value: 180, xAxisLabel: "17", pointLabel: "Two",   date: Calendar.current.date(byAdding: .day, value: 17, to: Date())!),
-        MyDataModel(value: 170, xAxisLabel: "18", pointLabel: "Three", date: Calendar.current.date(byAdding: .day, value: 18, to: Date())!),
-        MyDataModel(value: 160, xAxisLabel: "19", pointLabel: "Four",  date: Calendar.current.date(byAdding: .day, value: 19, to: Date())!),
-        MyDataModel(value: 150, xAxisLabel: "19", pointLabel: "Five",  date: Calendar.current.date(byAdding: .day, value: 19, to: Date())!),
-        MyDataModel(value: 140, xAxisLabel: "20", pointLabel: "Six",   date: Calendar.current.date(byAdding: .day, value: 20, to: Date())!),
-        MyDataModel(value: 130, xAxisLabel: "21", pointLabel: "Seven", date: Calendar.current.date(byAdding: .day, value: 21, to: Date())!),
+        MyDataModel(value: 190, xAxisLabel: "16", description: "One",   date: Calendar.current.date(byAdding: .day, value: 16, to: Date())!),
+        MyDataModel(value: 180, xAxisLabel: "17", description: "Two",   date: Calendar.current.date(byAdding: .day, value: 17, to: Date())!),
+        MyDataModel(value: 170, xAxisLabel: "18", description: "Three", date: Calendar.current.date(byAdding: .day, value: 18, to: Date())!),
+        MyDataModel(value: 160, xAxisLabel: "19", description: "Four",  date: Calendar.current.date(byAdding: .day, value: 19, to: Date())!),
+        MyDataModel(value: 150, xAxisLabel: "19", description: "Five",  date: Calendar.current.date(byAdding: .day, value: 19, to: Date())!),
+        MyDataModel(value: 140, xAxisLabel: "20", description: "Six",   date: Calendar.current.date(byAdding: .day, value: 20, to: Date())!),
+        MyDataModel(value: 130, xAxisLabel: "21", description: "Seven", date: Calendar.current.date(byAdding: .day, value: 21, to: Date())!),
         
-        MyDataModel(value: 120, xAxisLabel: "22", pointLabel: "One",   date: Calendar.current.date(byAdding: .day, value: 22, to: Date())!),
-        MyDataModel(value: 110, xAxisLabel: "23", pointLabel: "Two",   date: Calendar.current.date(byAdding: .day, value: 23, to: Date())!),
-        MyDataModel(value: 120, xAxisLabel: "24", pointLabel: "Three", date: Calendar.current.date(byAdding: .day, value: 24, to: Date())!),
-        MyDataModel(value: 130, xAxisLabel: "25", pointLabel: "Four",  date: Calendar.current.date(byAdding: .day, value: 25, to: Date())!),
-        MyDataModel(value: 140, xAxisLabel: "26", pointLabel: "Five",  date: Calendar.current.date(byAdding: .day, value: 26, to: Date())!),
-        MyDataModel(value: 150, xAxisLabel: "27", pointLabel: "Six",   date: Calendar.current.date(byAdding: .day, value: 27, to: Date())!),
-        MyDataModel(value: 160, xAxisLabel: "28", pointLabel: "Seven", date: Calendar.current.date(byAdding: .day, value: 28, to: Date())!)
+        MyDataModel(value: 120, xAxisLabel: "22", description: "One",   date: Calendar.current.date(byAdding: .day, value: 22, to: Date())!),
+        MyDataModel(value: 110, xAxisLabel: "23", description: "Two",   date: Calendar.current.date(byAdding: .day, value: 23, to: Date())!),
+        MyDataModel(value: 120, xAxisLabel: "24", description: "Three", date: Calendar.current.date(byAdding: .day, value: 24, to: Date())!),
+        MyDataModel(value: 130, xAxisLabel: "25", description: "Four",  date: Calendar.current.date(byAdding: .day, value: 25, to: Date())!),
+        MyDataModel(value: 140, xAxisLabel: "26", description: "Five",  date: Calendar.current.date(byAdding: .day, value: 26, to: Date())!),
+        MyDataModel(value: 150, xAxisLabel: "27", description: "Six",   date: Calendar.current.date(byAdding: .day, value: 27, to: Date())!),
+        MyDataModel(value: 160, xAxisLabel: "28", description: "Seven", date: Calendar.current.date(byAdding: .day, value: 28, to: Date())!)
     ]
    
 }

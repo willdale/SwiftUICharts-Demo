@@ -41,7 +41,7 @@ struct ContentView: View {
                                                               lineColour: Color(.lightGray).opacity(0.5),
                                                               lineWidth: 1),
                                     xAxisLabelPosition: .bottom,
-                                    xAxisLabelsFrom: .dataPoint,
+                                    xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
                                     yAxisGridStyle: GridStyle(numberOfLines: 3,
                                                               lineColour: Color(.lightGray).opacity(0.5),
                                                               lineWidth: 1),

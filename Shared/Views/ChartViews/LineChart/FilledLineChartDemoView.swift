@@ -10,39 +10,95 @@ import SwiftUICharts
 
 struct FilledLineChartDemoView: View {
 
-    let data : LineChartData = weekOfData()
-
+    @State var data : LineChartData = weekOfData()
+    
     var body: some View {
         VStack {
-                        
-            FilledLineChart(chartData: data)
-                .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
-                .pointMarkers(chartData: data)
-                .averageLine(chartData: data,
-                             strokeStyle: StrokeStyle(lineWidth: 3,dash: [5,10]))
-                .yAxisPOI(chartData: data,
-                          markerName: "50",
-                          markerValue: 50,
-                          lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data)
-                .infoBox(chartData: data)
-                .headerBox(chartData: data)
-                .legends(chartData: data)
-                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
+            
+//            infoView
+//                .frame(minWidth: 300, maxWidth: 900, minHeight: 60, alignment: .center)
+//                .padding(.all, 8)
+//                .background(
+//                    ZStack {
+//                        DemoContainer()
+//                    }
+//                )
+//                .padding(.horizontal)
+            
+            
+            chartView
+                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 400, alignment: .center)
                 .padding(.all, 24)
-                .background(
-                    ZStack {
-                        DemoContainer()
-                    }
-                )
+//                .background(
+//                    ZStack {
+//                        DemoContainer()
+//                    }
+//                )
                 .padding(.horizontal)
+            
+//            legendsView
+//                .frame(minWidth: 300, maxWidth: 900, alignment: .center)
+//                .padding(.all, 24)
+//                .background(
+//                    ZStack {
+//                        DemoContainer()
+//                    }
+//                )
+//                .padding(.horizontal)
         }
-        .navigationTitle("Week of Data")
+        .navigationTitle("Filled Line")
     }
+    
+    var infoView: some View {
+        HStack {
+            Spacer()
+            InfoValue(chartData: data)
+                .font(.subheadline)
+            InfoExtra(chartData: data, text: "on")
+            InfoDescription(chartData: data)
+                .font(.subheadline)
+            Spacer()
+        }
+    }
+    
+    var chartView: some View {
+        FilledLineChart(chartData: data)
+            .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
+            .pointMarkers(chartData: data)
+            .yAxisPOI(chartData: data,
+                      markerName: "Step Count Aim",
+                      markerValue: 15_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.black,
+                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .yAxisPOI(chartData: data,
+                      markerName: "Minimum Recommended",
+                      markerValue: 10_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.white,
+                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .averageLine(chartData: data,
+                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .xAxisGrid(chartData: data)
+            .yAxisGrid(chartData: data)
+            .xAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data)
+            .headerBox(chartData: data)
+            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+    }
+    
+    var legendsView: some View {
+        VStack(alignment: .leading) {
+            ForEach(data.legends, id: \.self) { legend in
+                legend.getLegend(textColor: .primary)
+            }
+        }
+    }
+    
 }
 
 struct FilledLineChartDemoView_Previews: PreviewProvider {
@@ -56,13 +112,13 @@ extension FilledLineChartDemoView {
     static func weekOfData() -> LineChartData {
         
         let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
-            LineChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
-            LineChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
-            LineChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
-            LineChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
-            LineChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
-            LineChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
+            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
+            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
+            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
@@ -77,10 +133,6 @@ extension FilledLineChartDemoView {
                              chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                         markerType: .full(attachment: .point),
                                                         xAxisLabelsFrom: .chartData,
-                                                        baseline: .minimumValue))
+                                                        baseline: .zero))
     }
 }
-
-/*
- , dot: .style(DotStyle())
- */

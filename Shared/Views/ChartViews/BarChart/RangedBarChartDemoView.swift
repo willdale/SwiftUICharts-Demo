@@ -41,13 +41,13 @@ struct RangedBarChartDemoView: View {
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 600, alignment: .center)
-            .padding(.all, 24)
-            .background(
-                ZStack {
-                    DemoContainer()
-                }
-            )
-            .padding(.horizontal)
+//            .padding(.all, 24)
+//            .background(
+//                ZStack {
+//                    DemoContainer()
+//                }
+//            )
+//            .padding(.horizontal)
             .navigationTitle("Week of Data")
     }
     
@@ -56,28 +56,28 @@ struct RangedBarChartDemoView: View {
         let data : RangedBarDataSet =
             RangedBarDataSet(dataPoints: [
                 
-                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , pointLabel: "00:00 - 01:00"),
-                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , pointLabel: "01:00 - 02:00"),
-                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , pointLabel: "02:00 - 03:00"),
-                RangedBarDataPoint(lowerValue: 60, upperValue: 130, pointLabel: "03:00 - 04:00"),
-                RangedBarDataPoint(lowerValue: 70, upperValue: 84 , pointLabel: "04:00 - 05:00"),
-                RangedBarDataPoint(lowerValue: 63, upperValue: 119, pointLabel: "05:00 - 06:00"),
-                RangedBarDataPoint(lowerValue: 57, upperValue: 98 , pointLabel: "06:00 - 07:00"),
-                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , pointLabel: "07:00 - 08:00"),
-                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , pointLabel: "08:00 - 09:00"),
-                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , pointLabel: "09:00 - 10:00"),
-                RangedBarDataPoint(lowerValue: 60, upperValue: 130, pointLabel: "10:00 - 11:00"),
-                RangedBarDataPoint(lowerValue: 70, upperValue: 84 , pointLabel: "11:00 - 12:00"),
-                RangedBarDataPoint(lowerValue: 63, upperValue: 119, pointLabel: "12:00 - 13:00"),
-                RangedBarDataPoint(lowerValue: 57, upperValue: 98 , pointLabel: "13:00 - 14:00"),
-                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , pointLabel: "15:00 - 16:00"),
-                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , pointLabel: "16:00 - 17:00"),
-                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , pointLabel: "17:00 - 18:00"),
-                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , pointLabel: "18:00 - 19:00"),
-                RangedBarDataPoint(lowerValue: 63, upperValue: 119, pointLabel: "19:00 - 20:00"),
-                RangedBarDataPoint(lowerValue: 57, upperValue: 98 , pointLabel: "20:00 - 21:00"),
-                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , pointLabel: "22:00 - 23:00"),
-                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , pointLabel: "23:00 - 24:00")
+                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , description: "00:00 - 01:00"),
+                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , description: "01:00 - 02:00"),
+                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , description: "02:00 - 03:00"),
+                RangedBarDataPoint(lowerValue: 60, upperValue: 130, description: "03:00 - 04:00"),
+                RangedBarDataPoint(lowerValue: 70, upperValue: 84 , description: "04:00 - 05:00"),
+                RangedBarDataPoint(lowerValue: 63, upperValue: 119, description: "05:00 - 06:00"),
+                RangedBarDataPoint(lowerValue: 57, upperValue: 98 , description: "06:00 - 07:00"),
+                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , description: "07:00 - 08:00"),
+                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , description: "08:00 - 09:00"),
+                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , description: "09:00 - 10:00"),
+                RangedBarDataPoint(lowerValue: 60, upperValue: 130, description: "10:00 - 11:00"),
+                RangedBarDataPoint(lowerValue: 70, upperValue: 84 , description: "11:00 - 12:00"),
+                RangedBarDataPoint(lowerValue: 63, upperValue: 119, description: "12:00 - 13:00"),
+                RangedBarDataPoint(lowerValue: 57, upperValue: 98 , description: "13:00 - 14:00"),
+                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , description: "15:00 - 16:00"),
+                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , description: "16:00 - 17:00"),
+                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , description: "17:00 - 18:00"),
+                RangedBarDataPoint(lowerValue: 55, upperValue: 79 , description: "18:00 - 19:00"),
+                RangedBarDataPoint(lowerValue: 63, upperValue: 119, description: "19:00 - 20:00"),
+                RangedBarDataPoint(lowerValue: 57, upperValue: 98 , description: "20:00 - 21:00"),
+                RangedBarDataPoint(lowerValue: 66, upperValue: 75 , description: "22:00 - 23:00"),
+                RangedBarDataPoint(lowerValue: 60, upperValue: 90 , description: "23:00 - 24:00")
             ],
             legendTitle: "Data")
                         
@@ -101,7 +101,7 @@ struct RangedBarChartDemoView: View {
                                   barStyle: BarStyle(barWidth: 0.75,
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,
-                                                     fillColour: ColourStyle(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
+                                                     colour: ColourStyle(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
                                                                                        Color.init(red: 1, green: 0.5, blue: 0.5)],
                                                                              startPoint: .bottom, endPoint: .top)),
                                   chartStyle: chartStyle)

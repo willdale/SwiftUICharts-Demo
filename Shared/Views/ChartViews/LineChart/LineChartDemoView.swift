@@ -11,12 +11,12 @@ import SwiftUICharts
 struct LineChartDemoView: View {
     
     let data : LineChartData = weekOfData()
-        
+    
     var body: some View {
         VStack {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f")
+                .touchOverlay(chartData: data, specifier: "%.0f", unit: .suffix(of: "Steps"))
                 .yAxisPOI(chartData: data,
                           markerName: "Step Count Aim",
                           markerValue: 15_000,
@@ -42,49 +42,39 @@ struct LineChartDemoView: View {
                 .infoBox(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 600, alignment: .center)
-                .padding(.all, 24)
-                .background(
-                    ZStack {
-                        DemoContainer()
-                    }
-                )
+                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 400, alignment: .center)
+//                .padding(.all, 24)
+//                .background(
+//                    ZStack {
+//                        DemoContainer()
+//                    }
+//                )
                 .padding(.horizontal)
         }
         .navigationTitle("Week of Data")
     }
-}
-
-struct LineChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        LineChartDemoView()
-    }
-}
-
-extension LineChartDemoView {
     
     static func weekOfData() -> LineChartData {
-
         let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", pointLabel: "Monday"),
-            LineChartDataPoint(value: 10000, xAxisLabel: "T", pointLabel: "Tuesday"),
-            LineChartDataPoint(value: 8000,  xAxisLabel: "W", pointLabel: "Wednesday"),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", pointLabel: "Thursday"),
-            LineChartDataPoint(value: 16000, xAxisLabel: "F", pointLabel: "Friday"),
-            LineChartDataPoint(value: 11000, xAxisLabel: "S", pointLabel: "Saturday"),
-            LineChartDataPoint(value: 9000,  xAxisLabel: "S", pointLabel: "Sunday")
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
+            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
+            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
+            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
         style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
         
-        let metadata    = ChartMetadata(title: "Step Count", subtitle: "Over a Week")
-                
-        let gridStyle   = GridStyle(numberOfLines: 7,
-                                    lineColour   : Color(.lightGray).opacity(0.5),
-                                    lineWidth    : 1,
-                                    dash         : [8],
-                                    dashPhase    : 0)
+        let metadata   = ChartMetadata(title: "Step Count", subtitle: "Over a Week")
+        
+        let gridStyle  = GridStyle(numberOfLines: 7,
+                                   lineColour   : Color(.lightGray).opacity(0.5),
+                                   lineWidth    : 1,
+                                   dash         : [8],
+                                   dashPhase    : 0)
         
         let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
                                         
@@ -93,8 +83,8 @@ extension LineChartDemoView {
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
                                         xAxisLabelColour    : Color.primary,
-                                        xAxisLabelsFrom     : .dataPoint,
-                                       
+                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
+                                        
                                         yAxisGridStyle      : gridStyle,
                                         yAxisLabelPosition  : .leading,
                                         yAxisLabelColour    : Color.primary,
@@ -110,5 +100,10 @@ extension LineChartDemoView {
                              chartStyle     : chartStyle)
         
     }
-    
+}
+
+struct LineChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        LineChartDemoView()
+    }
 }
