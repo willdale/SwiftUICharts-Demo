@@ -16,7 +16,7 @@ struct LineChartDemoView: View {
         VStack {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f", unit: .suffix(of: "Steps"))
+                .touchOverlay(chartData: data, specifier: "%.0f")
                 .yAxisPOI(chartData: data,
                           markerName: "Step Count Aim",
                           markerValue: 15_000,
@@ -50,6 +50,7 @@ struct LineChartDemoView: View {
 //                    }
 //                )
                 .padding(.horizontal)
+            Spacer()
         }
         .navigationTitle("Week of Data")
     }

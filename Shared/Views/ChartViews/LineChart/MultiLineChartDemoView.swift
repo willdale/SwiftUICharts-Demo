@@ -15,15 +15,16 @@ struct MultiLineChartDemoView: View {
     var body: some View {
         VStack {
             MultiLineChart(chartData: data)
-                .touchOverlay(chartData: data, unit: .suffix(of: "ºC"))
+                .touchOverlay(chartData: data, specifier: "%.01f", unit: .suffix(of: "ºC"))
                 .pointMarkers(chartData: data)
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data)
+                .yAxisLabels(chartData: data, specifier: "%.01f")
+                .infoBox(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
-                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 400, alignment: .center)
+                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 350, maxHeight: 400, alignment: .center)
 //                .padding(.all, 24)
 //                .background(
 //                    ZStack {
@@ -113,7 +114,7 @@ struct MultiLineChartDemoView: View {
         return MultiLineChartData(dataSets: data,
                                   metadata: ChartMetadata(title: "Average Temperature", subtitle: "Monthly"),
                                   xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .fixed,
+                                  chartStyle: LineChartStyle(infoBoxPlacement: .floating,
                                                              markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              xAxisGridStyle: GridStyle(numberOfLines: 12),
                                                              xAxisTitle: "Month",
