@@ -22,7 +22,6 @@ struct StackedBarChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
-            .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
@@ -99,7 +98,8 @@ extension StackedBarChartDemoView {
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
                                    xAxisLabels: ["Hello"],
-                                   chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint(rotation: .degrees(-90)),
+                                   chartStyle: BarChartStyle(infoBoxPlacement: .header,
+                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(-90)),
                                                              baseline: .minimumWithMaximum(of: 5),
                                                              topLine: .maximum(of: 120)))
     }

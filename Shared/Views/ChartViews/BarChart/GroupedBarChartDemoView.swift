@@ -18,7 +18,6 @@ struct GroupedBarChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
-            .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 400, alignment: .center)
@@ -62,27 +61,27 @@ extension GroupedBarChartDemoView {
 
         let data = MultiBarDataSets(dataSets: [
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 100, group: Group.england.data),
-                MultiBarChartDataPoint(value: 500, group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 300, group: Group.wales.data),
+                MultiBarChartDataPoint(value: 100, description: "Q1 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
             ], setTitle: "Q1"),
             
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 200, group: Group.england.data),
-                MultiBarChartDataPoint(value: 600, group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 400, group: Group.wales.data),
+                MultiBarChartDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
             ], setTitle: "Q2"),
             
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 300, group: Group.england.data),
-                MultiBarChartDataPoint(value: 700, group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 300, group: Group.wales.data),
+                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
             ], setTitle: "Q3"),
             
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 400, group: Group.england.data),
-                MultiBarChartDataPoint(value: 800, group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 200, group: Group.wales.data),
+                MultiBarChartDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
             ], setTitle: "Q4")
         ])
         
@@ -90,7 +89,7 @@ extension GroupedBarChartDemoView {
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Year"),
                                    xAxisLabels: [],
-                                   chartStyle: BarChartStyle(infoBoxPlacement: .floating,
+                                   chartStyle: BarChartStyle(infoBoxPlacement: .header,
                                                              xAxisLabelsFrom: .chartData,
                                                              yAxisGridStyle: GridStyle(numberOfLines: 7),
                                                              yAxisNumberOfLabels: 7,

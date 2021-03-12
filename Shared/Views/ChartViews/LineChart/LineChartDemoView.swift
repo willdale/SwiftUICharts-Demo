@@ -77,7 +77,7 @@ struct LineChartDemoView: View {
                                    dash         : [8],
                                    dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
                                         
                                         markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         
