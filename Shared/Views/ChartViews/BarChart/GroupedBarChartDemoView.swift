@@ -87,7 +87,7 @@ extension GroupedBarChartDemoView {
         
         return GroupedBarChartData(dataSets: data,
                                    groups: groups,
-                                   metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Year"),
+                                   metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
                                    xAxisLabels: [],
                                    chartStyle: BarChartStyle(infoBoxPlacement: .header,
                                                              xAxisLabelsFrom: .chartData,

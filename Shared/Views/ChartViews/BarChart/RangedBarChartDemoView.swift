@@ -79,7 +79,7 @@ struct RangedBarChartDemoView: View {
                 RangedBarDataPoint(lowerValue: 66, upperValue: 75 , description: "22:00 - 23:00"),
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , description: "23:00 - 24:00")
             ],
-            legendTitle: "Data")
+            legendTitle: "BPM")
                         
         let gridStyle  = GridStyle(numberOfLines: 11,
                                    lineColour  : Color(.lightGray).opacity(0.25),
@@ -96,7 +96,7 @@ struct RangedBarChartDemoView: View {
                                        topLine: .maximum(of: 160))
         
         return RangedBarChartData(dataSets: data,
-                                  metadata: ChartMetadata(title: "Test Data", subtitle: "A weeks worth"),
+                                  metadata: ChartMetadata(title: "Heart Rate", subtitle: "Over 24 Hours"),
                                   xAxisLabels: ["00:00", "12:00", "00:00"],
                                   barStyle: BarStyle(barWidth: 0.75,
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),

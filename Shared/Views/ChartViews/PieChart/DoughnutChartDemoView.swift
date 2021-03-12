@@ -16,17 +16,16 @@ struct DoughnutChartDemoView: View {
         VStack {
             DoughnutChart(chartData: data)
                 .touchOverlay(chartData: data)
-                .infoBox(chartData: data)
                 .headerBox(chartData: data)
-                .legends(chartData: data)
-                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
-                .padding(.all, 24)
-                .background(
-                    ZStack {
-                        DemoContainer()
-                    }
-                )
-                .padding(.horizontal)
+                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
+                .frame(minWidth: 150, maxWidth: 300, minHeight: 150, idealHeight: 350, maxHeight: 500, alignment: .center)
+//                .padding(.all, 24)
+//                .background(
+//                    ZStack {
+//                        DemoContainer()
+//                    }
+//                )
+//                .padding(.horizontal)
         }
     }
 }

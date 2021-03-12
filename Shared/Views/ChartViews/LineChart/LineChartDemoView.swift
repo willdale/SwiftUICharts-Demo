@@ -50,7 +50,6 @@ struct LineChartDemoView: View {
 //                    }
 //                )
                 .padding(.horizontal)
-            Spacer()
         }
         .navigationTitle("Week of Data")
     }
@@ -78,6 +77,8 @@ struct LineChartDemoView: View {
                                    dashPhase    : 0)
         
         let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
+                                        infoBoxBorderColour : Color.primary,
+                                        infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
                                         
                                         markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         

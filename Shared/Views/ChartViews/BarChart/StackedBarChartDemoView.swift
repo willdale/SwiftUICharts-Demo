@@ -16,22 +16,19 @@ struct StackedBarChartDemoView: View {
             
         StackedBarChart(chartData: data)
             .touchOverlay(chartData: data)
-            .averageLine(chartData: data, strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data, markerName: "50", markerValue: 50, lineColour: Color(red: 0.25, green: 0.25, blue: 1.0), strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 450, maxHeight: 600, alignment: .center)
-            .padding(.all, 24)
-            .background(
-                ZStack {
-                    DemoContainer()
-                }
-            )
-            .padding(.horizontal)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 400, alignment: .center)
+//            .padding(.all, 24)
+//            .background(
+//                ZStack {
+//                    DemoContainer()
+//                }
+//            )
+//            .padding(.horizontal)
     }
 }
 
@@ -45,62 +42,63 @@ extension StackedBarChartDemoView {
     static func makeData() -> StackedBarChartData {
         
         enum Group {
-            case one
-            case two
-            case three
-            case four
+            case england
+            case scotland
+            case wales
             
             var data : GroupingData {
                 switch self {
-                case .one:
-                    return GroupingData(title: "One"  , colour: ColourStyle(colour: .blue))
-                case .two:
-                    return GroupingData(title: "Two"  , colour: ColourStyle(colour: .red))
-                case .three:
-                    return GroupingData(title: "Three", colour: ColourStyle(colour: .yellow))
-                case .four:
-                    return GroupingData(title: "Four" , colour: ColourStyle(colour: .green))
+                case .england:
+                    return GroupingData(title: "England" , colour: ColourStyle(colour: .red))
+                case .scotland:
+                    return GroupingData(title: "Scotland", colour: ColourStyle(colour: .blue))
+                case .wales:
+                    return GroupingData(title: "Wales"   , colour: ColourStyle(colour: .green))
                 }
             }
         }
         
-        let groups : [GroupingData] = [Group.one.data, Group.two.data, Group.three.data, Group.four.data]
+        let groups : [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
 
         let data = MultiBarDataSets(dataSets: [
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 10,  description: "One One"    , group: Group.one.data),
-                MultiBarChartDataPoint(value: 10,  description: "One Two"    , group: Group.two.data),
-                MultiBarChartDataPoint(value: 30,  description: "One Three"  , group: Group.three.data),
-                MultiBarChartDataPoint(value: 40,  description: "One Four"   , group: Group.four.data)
-            ]),
+                MultiBarChartDataPoint(value: 100, description: "Q1 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
+            ], setTitle: "Q1"),
+            
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 50,  description: "Two One"    , group: Group.one.data),
-                MultiBarChartDataPoint(value: 10,  description: "Two Two"    , group: Group.two.data),
-                MultiBarChartDataPoint(value: 40,  description: "Two Three"  , group: Group.three.data),
-                MultiBarChartDataPoint(value: 60,  description: "Two Four"   , group: Group.four.data)
-            ]),
+                MultiBarChartDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
+            ], setTitle: "Q2"),
+            
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 10,  description: "Three One"  , group: Group.one.data),
-                MultiBarChartDataPoint(value: 50,  description: "Three Two"  , group: Group.two.data),
-                MultiBarChartDataPoint(value: 30,  description: "Three Three", group: Group.three.data),
-                MultiBarChartDataPoint(value: 100, description: "Three Four" , group: Group.four.data)
-            ]),
+                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
+            ], setTitle: "Q3"),
+            
             MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 80,  description: "Four One"   , group: Group.one.data),
-                MultiBarChartDataPoint(value: 10,  description: "Four Two"   , group: Group.two.data),
-                MultiBarChartDataPoint(value: 20,  description: "Four Three" , group: Group.three.data),
-                MultiBarChartDataPoint(value: 50,  description: "Four Four"  , group: Group.four.data)
-            ])
+                MultiBarChartDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
+                MultiBarChartDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
+                MultiBarChartDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
+            ], setTitle: "Q4")
         ])
 
         
         return StackedBarChartData(dataSets: data,
                                    groups: groups,
-                                   metadata: ChartMetadata(title: "Hello", subtitle: "Bob"),
-                                   xAxisLabels: ["Hello"],
+                                   metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
+                                   barStyle: BarStyle(barWidth: 0.5),
                                    chartStyle: BarChartStyle(infoBoxPlacement: .header,
-                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(-90)),
-                                                             baseline: .minimumWithMaximum(of: 5),
-                                                             topLine: .maximum(of: 120)))
+                                                             xAxisGridStyle: GridStyle(numberOfLines: 5,
+                                                                                       lineColour: Color.gray.opacity(0.25)),
+                                                             xAxisLabelsFrom: .chartData,
+                                                             yAxisGridStyle: GridStyle(numberOfLines: 5,
+                                                                                       lineColour: Color.gray.opacity(0.25)),
+                                                             yAxisNumberOfLabels: 5,
+                                                             baseline: .zero,
+                                                             topLine: .maximum(of: 900)))
     }
 }
