@@ -67,7 +67,7 @@ extension RangedLineChartDemoView {
                                     dash         : [8],
                                     dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement    : .fixed,
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
                                         
                                         markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         

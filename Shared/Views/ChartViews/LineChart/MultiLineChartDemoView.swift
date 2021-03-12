@@ -21,7 +21,7 @@ struct MultiLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data, specifier: "%.01f")
-                .infoBox(chartData: data)
+                .floatingInfoBox(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 350, maxHeight: 400, alignment: .center)
