@@ -47,7 +47,7 @@ extension DoughnutChartDemoView {
                               legendTitle: "Data")
         
         return DoughnutChartData(dataSets: data,
-                                 metadata: ChartMetadata(title: "Pie", subtitle: "mmm doughnuts"),
+                                 metadata: ChartMetadata(title: "Doughnut", subtitle: "mmm doughnuts"),
                                  chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
                                  noDataText: Text("hello"))
     }
