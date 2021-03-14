@@ -10,15 +10,14 @@ import SwiftUICharts
 
 struct TestMainView : View {
     
-    
     @State private var startDate : Date = Date()
     
     var body: some View {
         VStack {
             
-//            DatePicker("Select Date", selection: $startDate)
-//                .datePickerStyle(WheelDatePickerStyle())
-//                .labelsHidden()
+            DatePicker("Select Date", selection: $startDate)
+                .datePickerStyle(WheelDatePickerStyle())
+                .labelsHidden()
             
             FilterView(startDate: startDate, title: "Hello", subtitle: "World")
             
