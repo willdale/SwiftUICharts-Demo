@@ -2,13 +2,14 @@
 //  LineChartDemoView.swift
 //  SwiftUICharts Demo
 //
-//  Created by Will Dale on 13/01/2021.
+//  Created by Will Dale on 23/01/2021.
 //
 
 import SwiftUI
 import SwiftUICharts
 
 struct LineChartDemoView: View {
+<<<<<<< HEAD
         
     let data : ChartData = weekOfData()
         
@@ -39,89 +40,63 @@ struct LineChartDemoView: View {
                         DemoContainer()
                     }
                 )
+=======
+    
+    let data : LineChartData = weekOfData()
+    
+    var body: some View {
+        VStack {
+            LineChart(chartData: data)
+                .pointMarkers(chartData: data)
+                .touchOverlay(chartData: data, specifier: "%.0f")
+                .yAxisPOI(chartData: data,
+                          markerName: "Step Count Aim",
+                          markerValue: 15_000,
+                          labelPosition: .center(specifier: "%.0f"),
+                          labelColour: Color.black,
+                          labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                          lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .yAxisPOI(chartData: data,
+                          markerName: "Minimum Recommended",
+                          markerValue: 10_000,
+                          labelPosition: .center(specifier: "%.0f"),
+                          labelColour: Color.white,
+                          labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                          lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .averageLine(chartData: data,
+                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .xAxisGrid(chartData: data)
+                .yAxisGrid(chartData: data)
+                .xAxisLabels(chartData: data)
+                .yAxisLabels(chartData: data)
+                .infoBox(chartData: data)
+                .headerBox(chartData: data)
+                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+                .id(data.id)
+                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+>>>>>>> version-2
                 .padding(.horizontal)
-            Spacer()
-            #if os(iOS)
-            VStack {
-                buttonOne
-                buttonTwo
-                buttonThree
-            }
-            #elseif os(macOS)
-            HStack {
-                buttonOne
-                buttonTwo
-                buttonThree
-            }
-            #elseif os(tvOS)
-            HStack {
-                buttonOne
-                buttonTwo
-                buttonThree
-            }
-            #endif
-            Spacer()
         }
         .navigationTitle("Week of Data")
     }
     
-    var buttonOne: some View {
-        Button {
-            if data.chartStyle.infoBoxPlacement == .floating {
-                data.chartStyle.infoBoxPlacement = .header
-            } else if data.chartStyle.infoBoxPlacement == .header {
-                data.chartStyle.infoBoxPlacement = .floating
-            }
-        } label: {
-            Text("Change Touch Overlay position")
-                .modifier(CustomButton())
-        }
-    }
-    var buttonTwo: some View {
-        Button {
-            withAnimation(Animation.linear(duration: 1)) {
-                if data.lineStyle.colourType == .gradientColour {
-                    data.lineStyle.colourType = .colour
-                    data.lineStyle.colour = Color(red: 0.15, green: 0.15, blue: 1.0)
-                } else if data.lineStyle.colourType == .colour {
-                    data.lineStyle.colourType = .gradientColour
-                    data.lineStyle.colours = [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)]
-                }
-            }
-        } label: {
-            Text("Toggle Colour")
-                .modifier(CustomButton())
-        }
-    }
-    var buttonThree: some View {
-        Button {
-            withAnimation(Animation.linear(duration: 1)) {
-                if data.chartStyle.xAxisGridStyle.numberOfLines == 10 {
-                    data.chartStyle.xAxisGridStyle.numberOfLines = 3
-                    data.chartStyle.yAxisGridStyle.numberOfLines = 6
-                } else {
-                    data.chartStyle.xAxisGridStyle.numberOfLines = 10
-                    data.chartStyle.yAxisGridStyle.numberOfLines = 10
-                }
-            }
-        } label: {
-            Text("Toggle Grid")
-                .modifier(CustomButton())
-        }
-    }
-}
-
-struct LineChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        LineChartDemoView()
-            .preferredColorScheme(.dark)
-    }
-}
-
-extension LineChartDemoView {
-    
-    static func weekOfData() -> ChartData {
+    static func weekOfData() -> LineChartData {
+        let data = LineDataSet(dataPoints: [
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
+            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
+            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
+            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
+        ],
+        legendTitle: "Steps",
+        pointStyle: PointStyle(),
+        style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
         
+<<<<<<< HEAD
         let data : [ChartDataPoint] = [
             ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
             ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
@@ -170,29 +145,45 @@ extension LineChartDemoView {
                          chartStyle     : chartStyle,
                          lineStyle      : lineStyle,
                          pointStyle     : pointStyle)
+=======
+        let gridStyle  = GridStyle(numberOfLines: 7,
+                                   lineColour   : Color(.lightGray).opacity(0.5),
+                                   lineWidth    : 1,
+                                   dash         : [8],
+                                   dashPhase    : 0)
+        
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
+                                        infoBoxBorderColour : Color.primary,
+                                        infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
+                                        
+                                        markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
+                                        
+                                        xAxisGridStyle      : gridStyle,
+                                        xAxisLabelPosition  : .bottom,
+                                        xAxisLabelColour    : Color.primary,
+                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
+                                        
+                                        yAxisGridStyle      : gridStyle,
+                                        yAxisLabelPosition  : .leading,
+                                        yAxisLabelColour    : Color.primary,
+                                        yAxisNumberOfLabels : 7,
+                                        
+                                        baseline            : .minimumWithMaximum(of: 5000),
+                                        topLine             : .maximum(of: 20000),
+                                        
+                                        globalAnimation     : .easeOut(duration: 1))
+        
+        return LineChartData(dataSets       : data,
+                             metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
+                             chartStyle     : chartStyle)
+        
+>>>>>>> version-2
     }
-    
 }
 
-struct DemoContainer: View {
-    
-    var body: some View {
-        #if os(iOS)
-        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-            .shadow(color: Color(.gray), radius: 12, x: 0, y: 0)
-        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-            .fill(Color(.systemBackground))
-        #elseif os(macOS)
-        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-            .shadow(color: Color(.lightGray), radius: 12, x: 0, y: 0)
-        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-            .fill(Color(.windowBackgroundColor))
-        #elseif os(tvOS)
-//        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-//            .shadow(color: Color(.gray), radius: 12, x: 0, y: 0)
-//        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-//            .fill(Color(.clear))
-        #endif
+struct LineChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        LineChartDemoView()
     }
 }
 

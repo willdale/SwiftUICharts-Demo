@@ -4,68 +4,65 @@
 //
 //  Created by Will Dale on 13/01/2021.
 //
-
+//
 import SwiftUI
 import SwiftUICharts
 
 struct BarChartDemoView: View {
     
-    let data : ChartData = weekOfData()
+    let data : BarChartData = weekOfData()
     
     var body: some View {
-        BarChart()
-            .touchOverlay()
-            .averageLine(markerName: "Average", lineColour: Color.primary, strokeStyle: StrokeStyle(lineWidth: 2, dash: [5, 10]))
-            .yAxisGrid()
-            .xAxisLabels()
-            .yAxisLabels()
-            .headerBox()
-            .legends()
-            .environmentObject(data)
-            .frame(width: 600, height: 400)
-            .padding(.all, 24)
-            .background(
-                ZStack {
-                    DemoContainer()
-                }
-            )
+        BarChart(chartData: data)
+            .touchOverlay(chartData: data)
+            .yAxisGrid(chartData: data)
+            .xAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data)
+            .headerBox(chartData: data)
+            .id(data.id)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
     }
     
-    static func weekOfData() -> ChartData {
-        
-        let data : [ChartDataPoint] = [
-            ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
-            ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
-            ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
-            ChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
-            ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
-            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
-            ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
-        ]
-        
-        let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
-                                                        subtitle    : "A weeks worth",
-                                                        lineLegend  : "Data")
+    static func weekOfData() -> BarChartData {
                 
-        let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray),
-                                                    lineWidth   : 1)
+        let data : BarDataSet =
+            BarDataSet(dataPoints: [
+                BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: ColourStyle(colour: .purple)),
+                BarChartDataPoint(value: 90,  xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
+                BarChartDataPoint(value: 700, xAxisLabel: "Phones"    , description: "Phones"    , colour: ColourStyle(colour: .green)),
+                BarChartDataPoint(value: 175, xAxisLabel: "Tablets"   , description: "Tablets"   , colour: ColourStyle(colour: .yellow)),
+                BarChartDataPoint(value: 60,  xAxisLabel: "Watches"   , description: "Watches"   , colour: ColourStyle(colour: .yellow)),
+                BarChartDataPoint(value: 100, xAxisLabel: "Monitors"  , description: "Monitors"  , colour: ColourStyle(colour: .orange)),
+                BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
+            ],
+            legendTitle: "Data")
         
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .header,
-                                                     xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle)
+        let metadata   = ChartMetadata(title: "Units Sold", subtitle: "Last year")
         
-        let barStyle    : BarStyle      = BarStyle(barWidth: 0.5,
-                                                   colourFrom: .barStyle,
-                                                   colours: [Color(red: 1.0, green: 0.15, blue: 0.15),
-                                                             Color(red: 1.0, green: 0.35, blue: 0.35)],
-                                                   startPoint: .bottom,
-                                                   endPoint: .top)
+        let gridStyle  = GridStyle(numberOfLines: 7,
+                                   lineColour   : Color(.lightGray).opacity(0.25),
+                                   lineWidth    : 1)
         
-        return ChartData(dataPoints     : data,
-                         metadata       : metadata,
-                         chartStyle     : chartStyle,
-                         barStyle       : barStyle)
+        let chartStyle = BarChartStyle(infoBoxPlacement   : .header,
+                                       markerType         : .bottomLeading,
+                                       xAxisGridStyle     : gridStyle,
+                                       xAxisLabelPosition : .bottom,
+                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(-90)),
+                                       xAxisTitle         : "Categories",
+                                       yAxisGridStyle     : gridStyle,
+                                       yAxisLabelPosition : .leading,
+                                       yAxisNumberOfLabels: 5,
+                                       yAxisTitle         : "Units sold (x 1000)",
+                                       baseline           : .zero,
+                                       topLine            : .maximumValue)
+        
+        return BarChartData(dataSets  : data,
+                            metadata  : metadata,
+                            barStyle  : BarStyle(barWidth: 0.5,
+                                            colourFrom: .dataPoints,
+                                            colour: ColourStyle(colour: .blue)),
+                            chartStyle: chartStyle)
     }
 }
 

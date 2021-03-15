@@ -16,30 +16,46 @@ struct ContentView: View {
             List {
                 Section(header: Text("Line Chart")) {
                     NavigationLink(destination: LineChartDemoView()) {
-                        Text("Line Chart - Week")
+                        Text("Line Chart")
                     }
-                    NavigationLink(destination: LineChartWideDemoView()) {
-                        Text("Line Chart - Year")
+                    NavigationLink(destination: FilledLineChartDemoView()) {
+                        Text("Filled Line Chart")
                     }
-                    NavigationLink(destination: LineChartMonthlyAveragedDemoView()) {
-                        Text("Line Chart - Month Average")
+                    NavigationLink(destination: MultiLineChartDemoView()) {
+                        Text("Multi Line Chart")
                     }
-                    NavigationLink(destination: LineChartWeeklyAveragedDemoView()) {
-                        Text("Line Chart - Week Average")
-                    }
-                    NavigationLink(destination: LineChartDailyAverageDemoView()) {
-                        Text("Line Chart - Day Average")
-                    }
-                    NavigationLink(destination: LineChartCustomCalculationDemoView()) {
-                        Text("Line Chart - Day Total")
+                    NavigationLink(destination: RangedLineChartDemoView()) {
+                        Text("Ranged Line Chart")
                     }
                 }
                 Section(header: Text("Bar Chart")) {
                     NavigationLink(destination: BarChartDemoView()) {
-                        Text("Bar Chart - Week")
+                        Text("Bar Chart")
                     }
-                    NavigationLink(destination: BarChartYearDemoView()) {
-                        Text("Bar Chart - Year")
+                    NavigationLink(destination: GroupedBarChartDemoView()) {
+                        Text("Grouped Bar Chart")
+                    }
+                    NavigationLink(destination: StackedBarChartDemoView()) {
+                        Text("Stacked Bar Chart")
+                    }
+                    NavigationLink(destination: RangedBarChartDemoView()) {
+                        Text("Ranged Bar Chart")
+                    }
+                }
+                Section(header: Text("Pie Chart")) {
+                    NavigationLink(destination: PieChartDemoView()) {
+                        Text("Pie Chart")
+                    }
+                    NavigationLink(destination: DoughnutChartDemoView()) {
+                        Text("Doughnut Chart")
+                    }
+                }
+                Section(header: Text("Other")) {
+                    NavigationLink(destination: FilteredDemo()) {
+                        Text("Filtered Demo")
+                    }
+                    NavigationLink(destination: SplitLegendAndInfoDemoView()) {
+                        Text("Split Legend and Info Demo")
                     }
                 }
             }
