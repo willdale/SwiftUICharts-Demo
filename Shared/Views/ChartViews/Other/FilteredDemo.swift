@@ -1,5 +1,5 @@
 //
-//  TestView.swift
+//  FilteredDemo.swift
 //  SwiftUICharts Demo
 //
 //  Created by Will Dale on 28/02/2021.
@@ -8,17 +8,23 @@
 import SwiftUI
 import SwiftUICharts
 
-struct TestMainView : View {
+struct FilteredDemo: View {
     
     @State private var startDate : Date = Date()
     
     var body: some View {
         VStack {
-            
+            #if os(iOS)
             DatePicker("Select Date", selection: $startDate)
                 .datePickerStyle(WheelDatePickerStyle())
                 .labelsHidden()
-            
+            #elseif os(macOS)
+            DatePicker("Select Date", selection: $startDate)
+                .datePickerStyle(DefaultDatePickerStyle())
+                .labelsHidden()
+                .frame(minWidth: 150, maxWidth: 900)
+                .padding(.all, 24)
+            #endif
             FilterView(startDate: startDate, title: "Hello", subtitle: "World")
             
         }
@@ -60,7 +66,7 @@ struct FilterView: View {
             .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 600, alignment: .center)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
             .id(data.id)
     }

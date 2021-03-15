@@ -1,53 +1,73 @@
 //
-//  LineChartDemoView.swift
+//  SplitLegendAndInfoDemoView.swift
 //  SwiftUICharts Demo
 //
-//  Created by Will Dale on 23/01/2021.
+//  Created by Will Dale on 15/03/2021.
 //
 
 import SwiftUI
 import SwiftUICharts
 
-struct LineChartDemoView: View {
+struct SplitLegendAndInfoDemoView: View {
     
     let data : LineChartData = weekOfData()
     
     var body: some View {
         VStack {
-            LineChart(chartData: data)
-                .pointMarkers(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f")
-                .yAxisPOI(chartData: data,
-                          markerName: "Step Count Aim",
-                          markerValue: 15_000,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelColour: Color.black,
-                          labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                          lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(chartData: data,
-                          markerName: "Minimum Recommended",
-                          markerValue: 10_000,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelColour: Color.white,
-                          labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                          lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .averageLine(chartData: data,
-                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data)
-                .infoBox(chartData: data)
-                .headerBox(chartData: data)
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-                .id(data.id)
-                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
-                .padding(.horizontal)
+            infoView
+            chart
+            legends
         }
-        .navigationTitle("Week of Data")
+        .navigationTitle("Step Count")
     }
+    
+    var infoView: some View {
+        HStack {
+            InfoValue(chartData: data)
+            InfoExtra(chartData: data, text: "steps on")
+            InfoDescription(chartData: data)
+        }
+    }
+    
+    var chart: some View {
+        LineChart(chartData: data)
+            .pointMarkers(chartData: data)
+            .touchOverlay(chartData: data, specifier: "%.0f")
+            .yAxisPOI(chartData: data,
+                      markerName: "Step Count Aim",
+                      markerValue: 15_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.black,
+                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .yAxisPOI(chartData: data,
+                      markerName: "Minimum Recommended",
+                      markerValue: 10_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.white,
+                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .averageLine(chartData: data,
+                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .xAxisGrid(chartData: data)
+            .yAxisGrid(chartData: data)
+            .xAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data)
+            .id(data.id)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 350, maxHeight: 400, alignment: .center)
+            .padding(.horizontal)
+    }
+    
+    var legends: some View {
+        VStack(alignment: .leading) {
+            ForEach(data.legends, id: \.id) { legend in
+                legend.getLegend(textColor: .primary)
+            }
+        }
+    }
+    
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
@@ -97,8 +117,8 @@ struct LineChartDemoView: View {
     }
 }
 
-struct LineChartView_Previews: PreviewProvider {
+struct SplitLegendAndInfoDemoView_Previews: PreviewProvider {
     static var previews: some View {
-        LineChartDemoView()
+        SplitLegendAndInfoDemoView()
     }
 }

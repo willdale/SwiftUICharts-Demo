@@ -21,14 +21,9 @@ struct StackedBarChartDemoView: View {
             .yAxisLabels(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 250, maxHeight: 400, alignment: .center)
-//            .padding(.all, 24)
-//            .background(
-//                ZStack {
-//                    DemoContainer()
-//                }
-//            )
-//            .padding(.horizontal)
+            .id(data.id)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+            .padding(.horizontal)
     }
 }
 

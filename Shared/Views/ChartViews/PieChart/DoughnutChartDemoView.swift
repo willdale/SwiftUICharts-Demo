@@ -18,14 +18,9 @@ struct DoughnutChartDemoView: View {
                 .touchOverlay(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
-                .frame(minWidth: 150, maxWidth: 300, minHeight: 150, idealHeight: 350, maxHeight: 500, alignment: .center)
-//                .padding(.all, 24)
-//                .background(
-//                    ZStack {
-//                        DemoContainer()
-//                    }
-//                )
-//                .padding(.horizontal)
+                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+                .id(data.id)
+                .padding(.horizontal)
         }
     }
 }

@@ -44,15 +44,18 @@ struct ContentView: View {
                 }
                 Section(header: Text("Pie Chart")) {
                     NavigationLink(destination: PieChartDemoView()) {
-                        Text("Pie Chart - Week")
+                        Text("Pie Chart")
                     }
                     NavigationLink(destination: DoughnutChartDemoView()) {
-                        Text("Doughnut Chart - Week")
+                        Text("Doughnut Chart")
                     }
                 }
-                Section(header: Text("Test")) {
-                    NavigationLink(destination: TestMainView()) {
-                        Text("Test")
+                Section(header: Text("Other")) {
+                    NavigationLink(destination: FilteredDemo()) {
+                        Text("Filtered Demo")
+                    }
+                    NavigationLink(destination: SplitLegendAndInfoDemoView()) {
+                        Text("Split Legend and Info Demo")
                     }
                 }
             }
