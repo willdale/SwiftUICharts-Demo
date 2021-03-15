@@ -9,38 +9,6 @@ import SwiftUI
 import SwiftUICharts
 
 struct LineChartDemoView: View {
-<<<<<<< HEAD
-        
-    let data : ChartData = weekOfData()
-        
-    var body: some View {
-        VStack {
-            Spacer()
-            LineChart()
-                .touchOverlay(units: .prefix(of: "USD"))
-                .pointMarkers()
-                .averageLine(strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(markerName: "50",
-                          markerValue: 50,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelBackground: Color.myBackground,
-                          lineColour: Color(red: 0.25, green: 0.25, blue: 1.0),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid()
-                .yAxisGrid()
-                .xAxisLabels()
-                .yAxisLabels()
-                .headerBox()
-                .legends()
-                .environmentObject(data)
-                .frame(minWidth: 300, maxWidth: 900, minHeight: 300, idealHeight: 400, maxHeight: 500, alignment: .center)
-                .padding(.all, 24)
-                .background(
-                    ZStack {
-                        DemoContainer()
-                    }
-                )
-=======
     
     let data : LineChartData = weekOfData()
     
@@ -76,7 +44,6 @@ struct LineChartDemoView: View {
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
->>>>>>> version-2
                 .padding(.horizontal)
         }
         .navigationTitle("Week of Data")
@@ -96,56 +63,7 @@ struct LineChartDemoView: View {
         pointStyle: PointStyle(),
         style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
         
-<<<<<<< HEAD
-        let data : [ChartDataPoint] = [
-            ChartDataPoint(value: 20,  xAxisLabel: "M", pointLabel: "Monday"),
-            ChartDataPoint(value: 90,  xAxisLabel: "T", pointLabel: "Tuesday"),
-            ChartDataPoint(value: 100, xAxisLabel: "W", pointLabel: "Wednesday"),
-            ChartDataPoint(value: 75,  xAxisLabel: "T", pointLabel: "Thursday"),
-            ChartDataPoint(value: 160, xAxisLabel: "F", pointLabel: "Friday"),
-            ChartDataPoint(value: 110, xAxisLabel: "S", pointLabel: "Saturday"),
-            ChartDataPoint(value: 90,  xAxisLabel: "S", pointLabel: "Sunday")
-        ]
-        
-        let metadata   : ChartMetadata  = ChartMetadata(title       : "Test Data",
-                                                        subtitle    : "A weeks worth",
-                                                        lineLegend  : "Data")
-        
-        let labels      : [String]      = ["Mon", /*"Thu",*/ "Sun"]
 
-        let gridStyle   : GridStyle     = GridStyle(lineColour  : Color(.lightGray).opacity(0.25),
-                                                    lineWidth   : 1)
-        
-        let chartStyle  : ChartStyle    = ChartStyle(infoBoxPlacement: .floating,
-                                                     xAxisGridStyle  : gridStyle,
-                                                     yAxisGridStyle  : gridStyle,
-                                                     xAxisLabelPosition: .bottom,
-                                                     xAxisLabelsFrom: .chartData,
-                                                     yAxisLabelPosition: .leading,
-                                                     yAxisNumberOfLabels: 7)
-        
-        let lineStyle   : LineStyle     = LineStyle(colours     : [Color(red: 1.0, green: 0.15, blue: 0.15), Color(red: 1.0, green: 0.35, blue: 0.35)],
-                                                    startPoint  : .leading,
-                                                    endPoint    : .trailing,
-                                                    lineType    : .curvedLine,
-                                                    strokeStyle : StrokeStyle(lineWidth: 3,
-                                                                              lineCap: .round,
-                                                                              lineJoin: .round),
-                                                    baseline    : .zero)
-        
-        let pointStyle : PointStyle     = PointStyle(pointSize: 9,
-                                                     borderColour: Color.primary,
-                                                     lineWidth: 2,
-                                                     pointType: .outline,
-                                                     pointShape: .circle)
-                
-        return ChartData(dataPoints     : data,
-                         metadata       : metadata,
-                         xAxisLabels    : labels,
-                         chartStyle     : chartStyle,
-                         lineStyle      : lineStyle,
-                         pointStyle     : pointStyle)
-=======
         let gridStyle  = GridStyle(numberOfLines: 7,
                                    lineColour   : Color(.lightGray).opacity(0.5),
                                    lineWidth    : 1,
@@ -177,7 +95,6 @@ struct LineChartDemoView: View {
                              metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
                              chartStyle     : chartStyle)
         
->>>>>>> version-2
     }
 }
 
