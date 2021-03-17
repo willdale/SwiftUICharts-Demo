@@ -15,64 +15,40 @@ struct LineChartDemoView: View {
     @State private var isActive = false
     
     var body: some View {
-
-        ScrollView(.vertical) {
-            
-            LineChart(chartData: data)
-                .pointMarkers(chartData: data)
-                .delayedTouchOverlay(chartData: data, specifier: "%.0f")
-                .yAxisPOI(chartData: data,
-                          markerName: "Step Count Aim",
-                          markerValue: 15_000,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelColour: Color.black,
-                          labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                          lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(chartData: data,
-                          markerName: "Minimum Recommended",
-                          markerValue: 10_000,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelColour: Color.white,
-                          labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                          lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .averageLine(chartData: data,
-                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data)
-                .infoBox(chartData: data)
-                .headerBox(chartData: data)
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-                .id(data.id)
-                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
-                .padding(.horizontal)
-            
-            Button(action: {
-                data.infoView.test = .gesture
-            }, label: {
-                Text("Interaction")
-            })
-            
-            Divider()
-            ForEach(1..<50) { _ in
-                Text("Hello")
-            }
-        }
+        
+        LineChart(chartData: data)
+            .pointMarkers(chartData: data)
+            .touchOverlay(chartData: data, specifier: "%.0f")
+            .yAxisPOI(chartData: data,
+                      markerName: "Step Count Aim",
+                      markerValue: 15_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.black,
+                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .yAxisPOI(chartData: data,
+                      markerName: "Minimum Recommended",
+                      markerValue: 10_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.white,
+                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .averageLine(chartData: data,
+                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .xAxisGrid(chartData: data)
+            .yAxisGrid(chartData: data)
+            .xAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data)
+            .infoBox(chartData: data)
+            .headerBox(chartData: data)
+            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+            .id(data.id)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+            .padding(.horizontal)
+        
         .navigationTitle("Week of Data")
-        .onChange(of: data.infoView.test) { value in
-            print(data.infoView.test)
-            if value == .gesture {
-                print(value)
-                isActive = true
-            }
-            if value == .none {
-                print(value)
-                isActive = false
-            }
-        }
     }
     
     static func weekOfData() -> LineChartData {
