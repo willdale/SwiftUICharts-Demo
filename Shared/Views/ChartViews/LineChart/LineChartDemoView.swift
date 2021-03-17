@@ -12,11 +12,15 @@ struct LineChartDemoView: View {
     
     let data : LineChartData = weekOfData()
     
+    @State private var isActive = false
+    
     var body: some View {
-        VStack {
+
+        ScrollView(.vertical) {
+            
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f")
+                .delayedTouchOverlay(chartData: data, specifier: "%.0f")
                 .yAxisPOI(chartData: data,
                           markerName: "Step Count Aim",
                           markerValue: 15_000,
@@ -45,8 +49,30 @@ struct LineChartDemoView: View {
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)
+            
+            Button(action: {
+                data.infoView.test = .gesture
+            }, label: {
+                Text("Interaction")
+            })
+            
+            Divider()
+            ForEach(1..<50) { _ in
+                Text("Hello")
+            }
         }
         .navigationTitle("Week of Data")
+        .onChange(of: data.infoView.test) { value in
+            print(data.infoView.test)
+            if value == .gesture {
+                print(value)
+                isActive = true
+            }
+            if value == .none {
+                print(value)
+                isActive = false
+            }
+        }
     }
     
     static func weekOfData() -> LineChartData {
