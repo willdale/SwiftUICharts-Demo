@@ -70,7 +70,7 @@ struct FilledLineChartDemoView: View {
                              xAxisLabels: ["Monday", "Thursday", "Sunday"],
                              chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                         markerType: .full(attachment: .point),
-                                                        xAxisLabelsFrom: .chartData,
+                                                        xAxisLabelsFrom: .chartData(rotation: .degrees(-90)),
                                                         baseline: .zero))
     }
 }

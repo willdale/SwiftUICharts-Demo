@@ -85,7 +85,7 @@ extension GroupedBarChartDemoView {
                                    metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
                                    xAxisLabels: [],
                                    chartStyle: BarChartStyle(infoBoxPlacement: .header,
-                                                             xAxisLabelsFrom: .chartData,
+                                                             xAxisLabelsFrom: .chartData(),
                                                              yAxisGridStyle: GridStyle(numberOfLines: 7),
                                                              yAxisNumberOfLabels: 7,
                                                              baseline: .zero,
