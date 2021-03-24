@@ -53,11 +53,11 @@ struct LineChartDemoView: View {
         let data = LineDataSet(dataPoints: [
             LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
             LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
-            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
+            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday"),
             LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
             LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
             LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
-            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
+            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday")
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
@@ -70,7 +70,7 @@ struct LineChartDemoView: View {
                                    dash         : [8],
                                    dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
                                         infoBoxBorderColour : Color.primary,
                                         infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
                                         
