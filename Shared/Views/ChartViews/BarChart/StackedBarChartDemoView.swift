@@ -89,7 +89,7 @@ extension StackedBarChartDemoView {
                                    chartStyle: BarChartStyle(infoBoxPlacement: .header,
                                                              xAxisGridStyle: GridStyle(numberOfLines: 5,
                                                                                        lineColour: Color.gray.opacity(0.25)),
-                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
+                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(45)),
                                                              yAxisGridStyle: GridStyle(numberOfLines: 5,
                                                                                        lineColour: Color.gray.opacity(0.25)),
                                                              yAxisNumberOfLabels: 5,

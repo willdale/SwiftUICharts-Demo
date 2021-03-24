@@ -11,9 +11,7 @@ import SwiftUICharts
 struct LineChartDemoView: View {
     
     let data : LineChartData = weekOfData()
-    
-    @State private var isActive = false
-    
+        
     var body: some View {
         
         LineChart(chartData: data)
@@ -72,7 +70,7 @@ struct LineChartDemoView: View {
                                    dash         : [8],
                                    dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
                                         infoBoxBorderColour : Color.primary,
                                         infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
                                         
