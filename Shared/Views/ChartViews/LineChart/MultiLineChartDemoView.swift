@@ -25,7 +25,8 @@ struct MultiLineChartDemoView: View {
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
-                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)                .padding(.horizontal)
+                .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+                .padding(.horizontal)
         }
         .navigationTitle("Week of Data")
     }
@@ -108,7 +109,7 @@ struct MultiLineChartDemoView: View {
         return MultiLineChartData(dataSets: data,
                                   metadata: ChartMetadata(title: "Average Temperature", subtitle: "Monthly"),
                                   xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .floating,
+                                  chartStyle: LineChartStyle(infoBoxPlacement: .infoBox(isStatic: false),
                                                              markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              xAxisGridStyle: GridStyle(numberOfLines: 12),
                                                              xAxisTitle: "Month",
