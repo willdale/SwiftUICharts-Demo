@@ -109,7 +109,7 @@ struct MultiLineChartDemoView: View {
         return MultiLineChartData(dataSets: data,
                                   metadata: ChartMetadata(title: "Average Temperature", subtitle: "Monthly"),
                                   xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .infoBox(isStatic: false),
+                                  chartStyle: LineChartStyle(infoBoxPlacement: .floating,
                                                              markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              xAxisGridStyle: GridStyle(numberOfLines: 12),
                                                              xAxisTitle: "Month",

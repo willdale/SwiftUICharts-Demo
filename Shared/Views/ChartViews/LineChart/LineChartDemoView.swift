@@ -71,6 +71,7 @@ struct LineChartDemoView: View {
                                    dashPhase    : 0)
         
         let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
+                                        infoBoxContentAlignment: .horizontal,
                                         infoBoxBorderColour : Color.primary,
                                         infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
                                         
