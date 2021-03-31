@@ -15,6 +15,9 @@ struct FilledLineChartDemoView: View {
     var body: some View {
         VStack {
             FilledLineChart(chartData: data)
+                .filledTopLine(chartData: data,
+                               lineColour: ColourStyle(colour: .red),
+                               strokeStyle: StrokeStyle(lineWidth: 3))
                 .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
                 .pointMarkers(chartData: data)
                 .yAxisPOI(chartData: data,
@@ -51,7 +54,7 @@ struct FilledLineChartDemoView: View {
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
             LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
-            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
+            LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"),
             LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
             LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
             LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
@@ -60,10 +63,11 @@ struct FilledLineChartDemoView: View {
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: ColourStyle(colours: [Color.red,
-                                                           Color.red.opacity(0.25)],
+        style: LineStyle(lineColour: ColourStyle(colours: [Color.red.opacity(0.50),
+                                                           Color.red.opacity(0.00)],
                                                  startPoint: .top,
-                                                 endPoint: .bottom)))
+                                                 endPoint: .bottom),
+                         lineType: .line))
         
         return LineChartData(dataSets: data,
                              metadata: ChartMetadata(title: "Some Data", subtitle: "A Week"),
@@ -71,7 +75,7 @@ struct FilledLineChartDemoView: View {
                              chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                         markerType: .full(attachment: .point),
                                                         xAxisLabelsFrom: .chartData(rotation: .degrees(-90)),
-                                                        baseline: .zero))
+                                                        baseline: .minimumWithMaximum(of: 5000)))
     }
 }
 
