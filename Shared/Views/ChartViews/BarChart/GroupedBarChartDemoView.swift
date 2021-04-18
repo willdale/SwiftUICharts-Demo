@@ -54,29 +54,29 @@ extension GroupedBarChartDemoView {
         
         let groups : [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
 
-        let data = MultiBarDataSets(dataSets: [
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 100, description: "Q1 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
+        let data = GroupedBarDataSets(dataSets: [
+            GroupedBarDataSet(dataPoints: [
+                GroupedBarDataPoint(value: 100, description: "Q1 Sales", group: Group.england.data),
+                GroupedBarDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
+                GroupedBarDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
             ], setTitle: "Q1"),
             
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
+            GroupedBarDataSet(dataPoints: [
+                GroupedBarDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
+                GroupedBarDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
+                GroupedBarDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
             ], setTitle: "Q2"),
             
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
+            GroupedBarDataSet(dataPoints: [
+                GroupedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
+                GroupedBarDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
+                GroupedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
             ], setTitle: "Q3"),
             
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
+            GroupedBarDataSet(dataPoints: [
+                GroupedBarDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
+                GroupedBarDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
+                GroupedBarDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
             ], setTitle: "Q4")
         ])
         

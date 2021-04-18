@@ -55,29 +55,29 @@ extension StackedBarChartDemoView {
         
         let groups : [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
 
-        let data = MultiBarDataSets(dataSets: [
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 100, description: "Q1 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
+        let data = StackedBarDataSets(dataSets: [
+            StackedBarDataSet(dataPoints: [
+                StackedBarDataPoint(value: 100, description: "Q1 Sales", group: Group.england.data),
+                StackedBarDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
+                StackedBarDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
             ], setTitle: "Q1"),
             
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
+            StackedBarDataSet(dataPoints: [
+                StackedBarDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
+                StackedBarDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
+                StackedBarDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
             ], setTitle: "Q2"),
             
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
+            StackedBarDataSet(dataPoints: [
+                StackedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
+                StackedBarDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
+                StackedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
             ], setTitle: "Q3"),
             
-            MultiBarDataSet(dataPoints: [
-                MultiBarChartDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
-                MultiBarChartDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
-                MultiBarChartDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
+            StackedBarDataSet(dataPoints: [
+                 StackedBarDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
+                 StackedBarDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
+                 StackedBarDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
             ], setTitle: "Q4")
         ])
 
@@ -94,6 +94,6 @@ extension StackedBarChartDemoView {
                                                                                        lineColour: Color.gray.opacity(0.25)),
                                                              yAxisNumberOfLabels: 5,
                                                              baseline: .zero,
-                                                             topLine: .maximum(of: 900)))
+                                                             topLine: .maximum(of: 1600)))
     }
 }
