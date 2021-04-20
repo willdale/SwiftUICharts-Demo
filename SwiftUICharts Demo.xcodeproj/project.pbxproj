@@ -45,6 +45,8 @@
 		6C5E42D725C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
 		6C5E42D825C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
 		6C5E42D925C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
+		6C636811262EC255007C024C /* oalansariTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C636810262EC255007C024C /* oalansariTest.swift */; };
+		6C636818262EC368007C024C /* TabViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C636817262EC368007C024C /* TabViewView.swift */; };
 		6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296725B1D27900F9A126 /* SwiftUICharts */; };
 		6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296B25B1D2F200F9A126 /* SwiftUICharts */; };
 		6CC59B8725AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
@@ -130,6 +132,8 @@
 		6C5E42C525C1FF5900FAB3D8 /* LineChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42C625C1FF5900FAB3D8 /* MultiLineChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartDemoView.swift; sourceTree = "<group>"; };
+		6C636810262EC255007C024C /* oalansariTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oalansariTest.swift; sourceTree = "<group>"; };
+		6C636817262EC368007C024C /* TabViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewView.swift; sourceTree = "<group>"; };
 		6C7529A525B1F41100F9A126 /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
 		6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
 		6CC59B7525AB0D7B009D405A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				6CC59B7525AB0D7B009D405A /* ContentView.swift */,
+				6C636817262EC368007C024C /* TabViewView.swift */,
 				6CDC4C6025AEF57D00E1FF40 /* ChartViews */,
 			);
 			path = Views;
@@ -306,6 +311,7 @@
 				6CEDEC5C25AF328E00CD95CD /* BarChart */,
 				6C5E42D525C1FF6300FAB3D8 /* PieChart */,
 				6C4F258625FF513C00FFDB89 /* Other */,
+				6C636810262EC255007C024C /* oalansariTest.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -606,6 +612,8 @@
 				6C4F258825FF517600FFDB89 /* SplitLegendAndInfoDemoView.swift in Sources */,
 				6C17FF2E25F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */,
 				6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */,
+				6C636811262EC255007C024C /* oalansariTest.swift in Sources */,
+				6C636818262EC368007C024C /* TabViewView.swift in Sources */,
 				6C5E42CA25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A125C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,
 				6C5E42B925C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift in Sources */,
