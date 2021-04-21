@@ -33,13 +33,14 @@ struct DoughnutChartDemoView_Previews: PreviewProvider {
 
 extension DoughnutChartDemoView {
     static func makeData() -> DoughnutChartData {
-        let data = PieDataSet(dataPoints: [
-                                PieChartDataPoint(value: 7, description: "One",   colour: .blue),
-                                PieChartDataPoint(value: 2, description: "Two",   colour: .red),
-                                PieChartDataPoint(value: 9, description: "Three", colour: .purple),
-                                PieChartDataPoint(value: 6, description: "Four",  colour: .green),
-                                PieChartDataPoint(value: 4, description: "Five",  colour: .orange)],
-                              legendTitle: "Data")
+        let data = PieDataSet(
+            dataPoints: [
+                PieChartDataPoint(value: 7, description: "One"  , colour: .blue  , label: .label(text: "One"  , rFactor: 0.8)),
+                PieChartDataPoint(value: 2, description: "Two"  , colour: .red   , label: .label(text: "Two"  , rFactor: 0.8)),
+                PieChartDataPoint(value: 9, description: "Three", colour: .purple, label: .label(text: "Three", rFactor: 0.8)),
+                PieChartDataPoint(value: 6, description: "Four" , colour: .green , label: .label(text: "Four" , rFactor: 0.8)),
+                PieChartDataPoint(value: 4, description: "Five" , colour: .orange, label: .label(text: "Five" , rFactor: 0.8))],
+            legendTitle: "Data")
         
         return DoughnutChartData(dataSets: data,
                                  metadata: ChartMetadata(title: "Doughnut", subtitle: "mmm doughnuts"),
