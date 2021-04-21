@@ -36,11 +36,11 @@ extension PieChartDemoView {
    
         let data = PieDataSet(
             dataPoints: [
-                PieChartDataPoint(value: 7, description: "One",   colour: .blue  , labelColour: .white),
-                PieChartDataPoint(value: 2, description: "Two",   colour: .red   , labelColour: .white),
-                PieChartDataPoint(value: 9, description: "Three", colour: .purple, labelColour: .white),
-                PieChartDataPoint(value: 6, description: "Four",  colour: .green , labelColour: .white),
-                PieChartDataPoint(value: 4, description: "Five",  colour: .orange, labelColour: .white)
+                PieChartDataPoint(value: 7, description: "One",   colour: .blue  , label: .icon(systemName: "person")),
+                PieChartDataPoint(value: 2, description: "Two",   colour: .red   , label: .icon(systemName: "person")),
+                PieChartDataPoint(value: 9, description: "Three", colour: .purple, label: .icon(systemName: "person")),
+                PieChartDataPoint(value: 6, description: "Four",  colour: .green , label: .icon(systemName: "person")),
+                PieChartDataPoint(value: 4, description: "Five",  colour: .orange, label: .icon(systemName: "person"))
             ],
             legendTitle: "Data")
         
