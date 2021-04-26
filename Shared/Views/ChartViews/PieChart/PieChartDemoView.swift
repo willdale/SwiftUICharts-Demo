@@ -34,13 +34,15 @@ struct PieChartDemoView_Previews: PreviewProvider {
 extension PieChartDemoView {
     static func makeData() -> PieChartData {
    
-        let data = PieDataSet(dataPoints: [
-                                PieChartDataPoint(value: 7, description: "One",   colour: .blue),
-                                PieChartDataPoint(value: 2, description: "Two",   colour: .red),
-                                PieChartDataPoint(value: 9, description: "Three", colour: .purple),
-                                PieChartDataPoint(value: 6, description: "Four",  colour: .green),
-                                PieChartDataPoint(value: 4, description: "Five",  colour: .orange)],
-                              legendTitle: "Data")
+        let data = PieDataSet(
+            dataPoints: [
+                PieChartDataPoint(value: 7, description: "One",   colour: .blue  , label: .icon(systemName: "1.square", colour: .white, size: 30)),
+                PieChartDataPoint(value: 2, description: "Two",   colour: .red   , label: .icon(systemName: "2.square", colour: .white, size: 30)),
+                PieChartDataPoint(value: 9, description: "Three", colour: .purple, label: .icon(systemName: "3.square", colour: .white, size: 30)),
+                PieChartDataPoint(value: 6, description: "Four",  colour: .green , label: .icon(systemName: "4.square", colour: .white, size: 30)),
+                PieChartDataPoint(value: 4, description: "Five",  colour: .orange, label: .icon(systemName: "5.square", colour: .white, size: 30))
+            ],
+            legendTitle: "Data")
         
         return PieChartData(dataSets: data,
                             metadata: ChartMetadata(title: "Pie", subtitle: "mmm pie"),

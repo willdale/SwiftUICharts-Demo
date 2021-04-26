@@ -60,8 +60,9 @@ struct BarChartDemoView: View {
         return BarChartData(dataSets  : data,
                             metadata  : metadata,
                             barStyle  : BarStyle(barWidth: 0.5,
-                                            colourFrom: .dataPoints,
-                                            colour: ColourStyle(colour: .blue)),
+                                                 cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                                 colourFrom: .dataPoints,
+                                                 colour: ColourStyle(colour: .blue)),
                             chartStyle: chartStyle)
     }
 }
