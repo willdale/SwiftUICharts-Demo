@@ -48,7 +48,7 @@ struct BarChartDemoView: View {
                                        markerType         : .bottomLeading(),
                                        xAxisGridStyle     : gridStyle,
                                        xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(-90)),
+                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(45)),
                                        xAxisTitle         : "Categories",
                                        yAxisGridStyle     : gridStyle,
                                        yAxisLabelPosition : .leading,
@@ -59,6 +59,7 @@ struct BarChartDemoView: View {
         
         return BarChartData(dataSets  : data,
                             metadata  : metadata,
+                            xAxisLabels: ["One", "Two", "Three"],
                             barStyle  : BarStyle(barWidth: 0.5,
                                                  cornerRadius: CornerRadius(top: 50, bottom: 0),
                                                  colourFrom: .dataPoints,

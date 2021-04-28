@@ -45,7 +45,7 @@ struct HorizontalBarChartDemoView: View {
                                    lineWidth    : 1)
         
         let chartStyle = BarChartStyle(infoBoxPlacement   : .header,
-                                       markerType         : .bottomLeading(),
+                                       markerType         : .full(),
                                        xAxisGridStyle     : gridStyle,
                                        xAxisLabelPosition : .bottom,
                                        xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
