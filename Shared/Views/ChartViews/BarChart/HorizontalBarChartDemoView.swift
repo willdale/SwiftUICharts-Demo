@@ -15,6 +15,25 @@ struct HorizontalBarChartDemoView: View {
     var body: some View {
         HorizontalBarChart(chartData: data)
             .touchOverlay(chartData: data)
+            .yAxisPOI(chartData: data,
+                      markerName: "Step Count Aim",
+                      markerValue: 600,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.black,
+                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .yAxisPOI(chartData: data,
+                      markerName: "Minimum Recommended",
+                      markerValue: 100,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.white,
+                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .averageLine(chartData: data,
+                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
@@ -48,7 +67,7 @@ struct HorizontalBarChartDemoView: View {
                                        markerType         : .full(),
                                        xAxisGridStyle     : gridStyle,
                                        xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
+                                       xAxisLabelsFrom    : .chartData(rotation: .degrees(0)),
                                        xAxisTitle         : "Units sold (x 1000)",
                                        yAxisGridStyle     : gridStyle,
                                        yAxisLabelPosition : .leading,

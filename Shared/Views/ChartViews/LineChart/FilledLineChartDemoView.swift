@@ -74,7 +74,7 @@ struct FilledLineChartDemoView: View {
                              xAxisLabels: ["Monday", "Thursday", "Sunday"],
                              chartStyle: LineChartStyle(infoBoxPlacement: .header,
                                                         markerType: .full(attachment: .point),
-                                                        xAxisLabelsFrom: .chartData(rotation: .degrees(-90)),
+                                                        xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
                                                         baseline: .minimumWithMaximum(of: 5000)))
     }
 }

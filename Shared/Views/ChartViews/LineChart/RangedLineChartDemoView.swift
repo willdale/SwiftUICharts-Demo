@@ -78,13 +78,12 @@ extension RangedLineChartDemoView {
                                         
                                         baseline: .minimumValue,
                                         topLine: .maximumValue,
-        
                                         
                                         globalAnimation     : .easeOut(duration: 1))
         
         return RangedLineChartData(dataSets       : data,
-                             metadata       : metadata,
-                             chartStyle     : chartStyle)
+                                   metadata       : metadata,
+                                   chartStyle     : chartStyle)
         
     }
     
