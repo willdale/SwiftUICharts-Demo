@@ -371,9 +371,9 @@
 			children = (
 				6C5E42B825C1FF4B00FAB3D8 /* BarChartDemoView.swift */,
 				6C5E42B725C1FF4B00FAB3D8 /* GroupedBarChartDemoView.swift */,
+				6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */,
 				6CD59BD125D6879E007D79D1 /* StackedBarChartDemoView.swift */,
 				6C17FF2D25F0DCE100E8F11D /* RangedBarChartDemoView.swift */,
-				6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */,
 			);
 			path = BarChart;
 			sourceTree = "<group>";

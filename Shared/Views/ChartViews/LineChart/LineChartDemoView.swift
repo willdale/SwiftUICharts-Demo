@@ -80,7 +80,7 @@ struct LineChartDemoView: View {
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
                                         xAxisLabelColour    : Color.primary,
-                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
+                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(40)),
                                         xAxisTitle: "xAxisTitle",
                                         
                                         yAxisGridStyle      : gridStyle,
