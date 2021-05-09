@@ -10,11 +10,28 @@ import SwiftUICharts
 
 struct LineChartDemoView: View {
     
-    let data : LineChartData = weekOfData()
+    let data: LineChartData = weekOfData()
         
     var body: some View {
         
         LineChart(chartData: data)
+            
+            .extraLine(chartData: data) {
+                ExtraLineData(dataSets: ExtraLineDataSet(
+                                dataPoints:
+                                    [
+                                        ExtraLineDataPoint(value: 8000),
+                                        ExtraLineDataPoint(value: 10000),
+                                        ExtraLineDataPoint(value: 15000),
+                                        ExtraLineDataPoint(value: 9000)
+                                    ],
+                                legendTitle: "Bob",
+                                style: ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+                                                      lineType: .line,
+                                                      yAxisTitle: "Another Axis")
+                ))
+            }
+            
             .pointMarkers(chartData: data)
             .touchOverlay(chartData: data, specifier: "%.0f")
             .yAxisPOI(chartData: data,
@@ -38,7 +55,8 @@ struct LineChartDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
@@ -80,7 +98,7 @@ struct LineChartDemoView: View {
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
                                         xAxisLabelColour    : Color.primary,
-                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(40)),
+                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
                                         xAxisTitle: "xAxisTitle",
                                         
                                         yAxisGridStyle      : gridStyle,
