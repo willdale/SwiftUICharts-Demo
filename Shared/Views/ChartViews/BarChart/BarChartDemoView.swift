@@ -14,26 +14,10 @@ struct BarChartDemoView: View {
     
     var body: some View {
         BarChart(chartData: data)
-            .extraLine(chartData: data) {
-                ExtraLineData(dataSets: ExtraLineDataSet(
-                                dataPoints:
-                                    [
-                                        ExtraLineDataPoint(value: 200),
-                                        ExtraLineDataPoint(value: 90 ),
-                                        ExtraLineDataPoint(value: 700),
-                                        ExtraLineDataPoint(value: 175),
-                                        ExtraLineDataPoint(value: 60 ),
-                                        ExtraLineDataPoint(value: 100),
-                                        ExtraLineDataPoint(value: 600)
-                                    ],
-                                legendTitle: "Bob",
-                                style: ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
-                                                      lineType: .curvedLine,
-                                                      spacingType: .bar,
-                                                      yAxisTitle: "Bob",
-                                                      yAxisNumberOfLabels: 7,
-                                                      baseline: .zero)
-                ))
+            .extraLine(chartData: data, legendTitle: "Test") {
+                extraLineData
+            } style: {
+                extraLineStyle
             }
             .touchOverlay(chartData: data)
             .yAxisPOI(chartData: data,
@@ -63,6 +47,24 @@ struct BarChartDemoView: View {
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
+    }
+    
+    private var extraLineData: [ExtraLineDataPoint] {
+        [ExtraLineDataPoint(value: 200),
+         ExtraLineDataPoint(value: 90),
+         ExtraLineDataPoint(value: 700),
+         ExtraLineDataPoint(value: 175),
+         ExtraLineDataPoint(value: 60),
+         ExtraLineDataPoint(value: 100),
+         ExtraLineDataPoint(value: 600)]
+    }
+    private var extraLineStyle: ExtraLineStyle {
+        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+                       lineType: .curvedLine,
+                       lineSpacing: .bar,
+                       yAxisTitle: "Bob",
+                       yAxisNumberOfLabels: 7,
+                       baseline: .zero)
     }
     
     static func weekOfData() -> BarChartData {

@@ -11,27 +11,15 @@ import SwiftUICharts
 struct LineChartDemoView: View {
     
     let data: LineChartData = weekOfData()
-        
+    
     var body: some View {
         
         LineChart(chartData: data)
-            
-            .extraLine(chartData: data) {
-                ExtraLineData(dataSets: ExtraLineDataSet(
-                                dataPoints:
-                                    [
-                                        ExtraLineDataPoint(value: 8000),
-                                        ExtraLineDataPoint(value: 10000),
-                                        ExtraLineDataPoint(value: 15000),
-                                        ExtraLineDataPoint(value: 9000)
-                                    ],
-                                legendTitle: "Bob",
-                                style: ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
-                                                      lineType: .line,
-                                                      yAxisTitle: "Another Axis")
-                ))
+            .extraLine(chartData: data, legendTitle: "Test") {
+                extraLineData
+            } style: {
+                extraLineStyle
             }
-            
             .pointMarkers(chartData: data)
             .touchOverlay(chartData: data, specifier: "%.0f")
             .yAxisPOI(chartData: data,
@@ -65,6 +53,19 @@ struct LineChartDemoView: View {
             .padding(.horizontal)
         
         .navigationTitle("Week of Data")
+    }
+    
+    
+    private var extraLineData: [ExtraLineDataPoint] {
+        [ExtraLineDataPoint(value: 8000),
+         ExtraLineDataPoint(value: 10000),
+         ExtraLineDataPoint(value: 15000),
+         ExtraLineDataPoint(value: 9000)]
+    }
+    private var extraLineStyle: ExtraLineStyle {
+        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+                       lineType: .line,
+                       yAxisTitle: "Another Axis")
     }
     
     static func weekOfData() -> LineChartData {
