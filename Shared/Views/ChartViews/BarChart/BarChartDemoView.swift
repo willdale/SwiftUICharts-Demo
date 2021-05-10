@@ -64,6 +64,7 @@ struct BarChartDemoView: View {
                        lineSpacing: .bar,
                        yAxisTitle: "Bob",
                        yAxisNumberOfLabels: 7,
+                       animationType: .raise,
                        baseline: .zero)
     }
     
