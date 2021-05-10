@@ -32,6 +32,9 @@ struct ContentView: View {
                     NavigationLink(destination: BarChartDemoView()) {
                         Text("Bar Chart")
                     }
+                    NavigationLink(destination: HorizontalBarChartDemoView()) {
+                        Text("Horizontal Bar Chart")
+                    }
                     NavigationLink(destination: GroupedBarChartDemoView()) {
                         Text("Grouped Bar Chart")
                     }

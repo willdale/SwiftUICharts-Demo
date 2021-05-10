@@ -10,11 +10,16 @@ import SwiftUICharts
 
 struct LineChartDemoView: View {
     
-    let data : LineChartData = weekOfData()
-        
+    let data: LineChartData = weekOfData()
+    
     var body: some View {
         
         LineChart(chartData: data)
+            .extraLine(chartData: data, legendTitle: "Test") {
+                extraLineData
+            } style: {
+                extraLineStyle
+            }
             .pointMarkers(chartData: data)
             .touchOverlay(chartData: data, specifier: "%.0f")
             .yAxisPOI(chartData: data,
@@ -38,7 +43,8 @@ struct LineChartDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
@@ -47,6 +53,19 @@ struct LineChartDemoView: View {
             .padding(.horizontal)
         
         .navigationTitle("Week of Data")
+    }
+    
+    
+    private var extraLineData: [ExtraLineDataPoint] {
+        [ExtraLineDataPoint(value: 8000),
+         ExtraLineDataPoint(value: 10000),
+         ExtraLineDataPoint(value: 15000),
+         ExtraLineDataPoint(value: 9000)]
+    }
+    private var extraLineStyle: ExtraLineStyle {
+        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+                       lineType: .line,
+                       yAxisTitle: "Another Axis")
     }
     
     static func weekOfData() -> LineChartData {
@@ -81,11 +100,13 @@ struct LineChartDemoView: View {
                                         xAxisLabelPosition  : .bottom,
                                         xAxisLabelColour    : Color.primary,
                                         xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
+                                        xAxisTitle: "xAxisTitle",
                                         
                                         yAxisGridStyle      : gridStyle,
                                         yAxisLabelPosition  : .leading,
                                         yAxisLabelColour    : Color.primary,
                                         yAxisNumberOfLabels : 7,
+                                        yAxisTitle: "yAxisTitle",
                                         
                                         baseline            : .minimumWithMaximum(of: 5000),
                                         topLine             : .maximum(of: 20000),

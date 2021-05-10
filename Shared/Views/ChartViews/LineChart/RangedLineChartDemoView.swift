@@ -41,11 +41,11 @@ extension RangedLineChartDemoView {
     static func weekOfData() -> RangedLineChartData {
 
         let data = RangedLineDataSet(dataPoints: [
-            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_0000, lowerValue: 10_0000, xAxisLabel: "16", description: "2016"),
-            RangedLineChartDataPoint(value: 13_5000, upperValue: 13_5000, lowerValue: 11_5000, xAxisLabel: "17", description: "2017"),
-            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_3000, lowerValue: 10_3000, xAxisLabel: "18", description: "2018"),
-            RangedLineChartDataPoint(value: 12_4000, upperValue: 13_4000, lowerValue: 11_4000, xAxisLabel: "19", description: "2019"),
-            RangedLineChartDataPoint(value: 12_8000, upperValue: 14_6000, lowerValue: 12_6000, xAxisLabel: "20", description: "2020")
+            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_0000, lowerValue: 10_0000, xAxisLabel: "2016", description: "2016"),
+            RangedLineChartDataPoint(value: 13_5000, upperValue: 13_5000, lowerValue: 11_5000, xAxisLabel: "2017", description: "2017"),
+            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_3000, lowerValue: 10_3000, xAxisLabel: "2018", description: "2018"),
+            RangedLineChartDataPoint(value: 12_4000, upperValue: 13_4000, lowerValue: 11_4000, xAxisLabel: "2019", description: "2019"),
+            RangedLineChartDataPoint(value: 12_8000, upperValue: 14_6000, lowerValue: 12_6000, xAxisLabel: "2020", description: "2020")
         ],
         legendTitle: "Profits",
         legendFillTitle: "Expected",
@@ -78,13 +78,12 @@ extension RangedLineChartDemoView {
                                         
                                         baseline: .minimumValue,
                                         topLine: .maximumValue,
-        
                                         
                                         globalAnimation     : .easeOut(duration: 1))
         
         return RangedLineChartData(dataSets       : data,
-                             metadata       : metadata,
-                             chartStyle     : chartStyle)
+                                   metadata       : metadata,
+                                   chartStyle     : chartStyle)
         
     }
     

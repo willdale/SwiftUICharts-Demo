@@ -1,24 +1,19 @@
 //
-//  BarDemoChart.swift
+//  HorizontalBarChartDemoView.swift
 //  SwiftUICharts Demo
 //
-//  Created by Will Dale on 13/01/2021.
+//  Created by Will Dale on 26/04/2021.
 //
-//
+
 import SwiftUI
 import SwiftUICharts
 
-struct BarChartDemoView: View {
+struct HorizontalBarChartDemoView: View {
     
-    let data : BarChartData = weekOfData()
+    let data: HorizontalBarChartData = weekOfData()
     
     var body: some View {
-        BarChart(chartData: data)
-            .extraLine(chartData: data, legendTitle: "Test") {
-                extraLineData
-            } style: {
-                extraLineStyle
-            }
+        HorizontalBarChart(chartData: data)
             .touchOverlay(chartData: data)
             .yAxisPOI(chartData: data,
                       markerName: "Step Count Aim",
@@ -41,42 +36,22 @@ struct BarChartDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, colourIndicator: .custom(colour: ColourStyle(colour: .red), size: 12))
-            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+            .yAxisLabels(chartData: data)
             .headerBox(chartData: data)
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
     }
     
-    private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 200),
-         ExtraLineDataPoint(value: 90),
-         ExtraLineDataPoint(value: 700),
-         ExtraLineDataPoint(value: 175),
-         ExtraLineDataPoint(value: 60),
-         ExtraLineDataPoint(value: 100),
-         ExtraLineDataPoint(value: 600)]
-    }
-    private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
-                       lineType: .curvedLine,
-                       lineSpacing: .bar,
-                       yAxisTitle: "Bob",
-                       yAxisNumberOfLabels: 7,
-                       animationType: .raise,
-                       baseline: .zero)
-    }
-    
-    static func weekOfData() -> BarChartData {
+    static func weekOfData() -> HorizontalBarChartData {
                 
         let data : BarDataSet =
             BarDataSet(dataPoints: [
                 BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: ColourStyle(colour: .purple)),
-                BarChartDataPoint(value: 90 , xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
+                BarChartDataPoint(value: 90,  xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
                 BarChartDataPoint(value: 700, xAxisLabel: "Phones"    , description: "Phones"    , colour: ColourStyle(colour: .green)),
                 BarChartDataPoint(value: 175, xAxisLabel: "Tablets"   , description: "Tablets"   , colour: ColourStyle(colour: .yellow)),
-                BarChartDataPoint(value: 60 , xAxisLabel: "Watches"   , description: "Watches"   , colour: ColourStyle(colour: .yellow)),
+                BarChartDataPoint(value: 60,  xAxisLabel: "Watches"   , description: "Watches"   , colour: ColourStyle(colour: .yellow)),
                 BarChartDataPoint(value: 100, xAxisLabel: "Monitors"  , description: "Monitors"  , colour: ColourStyle(colour: .orange)),
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
             ],
@@ -89,31 +64,30 @@ struct BarChartDemoView: View {
                                    lineWidth    : 1)
         
         let chartStyle = BarChartStyle(infoBoxPlacement   : .header,
-                                       markerType         : .bottomLeading(),
+                                       markerType         : .full(),
                                        xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(-90)),
-                                       xAxisTitle         : "Categories",
+                                       xAxisLabelPosition : .top,
+                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
+                                       xAxisTitle         : "Units sold (x 1000)",
                                        yAxisGridStyle     : gridStyle,
                                        yAxisLabelPosition : .leading,
                                        yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Units sold (x 1000)",
+                                       yAxisTitle         : "Categories",
                                        baseline           : .zero,
                                        topLine            : .maximumValue)
         
-        return BarChartData(dataSets  : data,
-                            metadata  : metadata,
-                            xAxisLabels: ["One", "Two", "Three"],
-                            barStyle  : BarStyle(barWidth: 0.5,
-                                                 cornerRadius: CornerRadius(top: 50, bottom: 0),
-                                                 colourFrom: .dataPoints,
-                                                 colour: ColourStyle(colour: .blue)),
-                            chartStyle: chartStyle)
+        return HorizontalBarChartData(dataSets  : data,
+                                      metadata  : metadata,
+                                      barStyle  : BarStyle(barWidth: 0.5,
+                                                           cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                                           colourFrom: .dataPoints,
+                                                           colour: ColourStyle(colour: .blue)),
+                                      chartStyle: chartStyle)
     }
 }
 
-struct BarChartView_Previews: PreviewProvider {
+struct HorizontalBarChartDemoView_Previews: PreviewProvider {
     static var previews: some View {
-        BarChartDemoView()
+        HorizontalBarChartDemoView()
     }
 }
