@@ -83,7 +83,7 @@ struct RangedBarChartDemoView: View {
         let chartStyle = BarChartStyle(infoBoxPlacement   : .infoBox(isStatic: false),
                                        xAxisGridStyle     : gridStyle,
                                        xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
+                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(90)),
                                        yAxisGridStyle     : gridStyle,
                                        yAxisLabelPosition : .leading,
                                        yAxisNumberOfLabels: 11,
