@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUICharts
+import Combine
 
 struct LineChartDemoView: View {
     
@@ -70,20 +71,19 @@ struct LineChartDemoView: View {
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
-            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
-            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday"),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
-            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
-            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
-            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday")
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday", pointColour: PointColour(border: .red, fill: .primary)),
+            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday", pointColour: PointColour(border: .blue, fill: .primary)),
+            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday", pointColour: PointColour(border: .green, fill: .primary)),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday", pointColour: PointColour(border: .blue, fill: .primary)),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday", pointColour: PointColour(border: .red, fill: .primary)),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday", pointColour: PointColour(border: .blue, fill: .primary)),
+            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday", pointColour: PointColour(border: .green, fill: .primary))
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
         style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
         
-
-        let gridStyle  = GridStyle(numberOfLines: 7,
+        let gridStyle = GridStyle(numberOfLines: 7,
                                    lineColour   : Color(.lightGray).opacity(0.5),
                                    lineWidth    : 1,
                                    dash         : [8],
@@ -106,18 +106,39 @@ struct LineChartDemoView: View {
                                         yAxisLabelPosition  : .leading,
                                         yAxisLabelColour    : Color.primary,
                                         yAxisNumberOfLabels : 7,
-                                        yAxisTitle: "yAxisTitle",
+//                                        yAxisTitle: "yAxisTitle",
                                         
                                         baseline            : .minimumWithMaximum(of: 5000),
                                         topLine             : .maximum(of: 20000),
                                         
                                         globalAnimation     : .easeOut(duration: 1))
         
-        return LineChartData(dataSets       : data,
-                             metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
-                             chartStyle     : chartStyle)
+        defer {
+            chartData.touchedDataPointPublisher
+                .map(\.value)
+                .sink { value in
+                    var dotStyle: DotStyle
+                    if value < 10_000 {
+                        dotStyle = DotStyle(fillColour: .red)
+                    } else if value >= 10_000 && value <= 15_000 {
+                        dotStyle = DotStyle(fillColour: .blue)
+                    } else {
+                        dotStyle = DotStyle(fillColour: .green)
+                    }
+                    withAnimation(.linear(duration: 0.5)) {
+                        chartData.chartStyle.markerType = .vertical(attachment: .line(dot: .style(dotStyle)))
+                    }
+                }
+                .store(in: &chartData.subscription)
+        }
+        
+        let chartData = LineChartData(dataSets       : data,
+                                      metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
+                                      chartStyle     : chartStyle)
+        return chartData
         
     }
+    
 }
 
 struct LineChartView_Previews: PreviewProvider {
@@ -127,7 +148,6 @@ struct LineChartView_Previews: PreviewProvider {
 }
 
 extension Color {
-    
     public static var myBackground: Color {
         #if os(iOS)
         return Color(.systemBackground)
@@ -137,5 +157,4 @@ extension Color {
         return Color(.windowBackgroundColor)
         #endif
     }
-    
 }
