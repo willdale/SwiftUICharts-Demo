@@ -50,6 +50,9 @@
 		6C8C40652636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */; };
 		6C8C40662636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */; };
 		6C8C40672636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */; };
+		6CB9EC3E26734BA400B1588A /* IgnoreZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB9EC3D26734BA400B1588A /* IgnoreZeroView.swift */; };
+		6CB9EC3F26734BA400B1588A /* IgnoreZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB9EC3D26734BA400B1588A /* IgnoreZeroView.swift */; };
+		6CB9EC4026734BA400B1588A /* IgnoreZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB9EC3D26734BA400B1588A /* IgnoreZeroView.swift */; };
 		6CC59B8725AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6CC59B8825AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
@@ -135,6 +138,7 @@
 		6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartDemoView.swift; sourceTree = "<group>"; };
 		6C7529A525B1F41100F9A126 /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
 		6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBarChartDemoView.swift; sourceTree = "<group>"; };
+		6CB9EC3D26734BA400B1588A /* IgnoreZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IgnoreZeroView.swift; sourceTree = "<group>"; };
 		6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
 		6CC59B7525AB0D7B009D405A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CC59B7625AB0D7C009D405A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				6CC59B7525AB0D7B009D405A /* ContentView.swift */,
+				6CB9EC3D26734BA400B1588A /* IgnoreZeroView.swift */,
 				6CDC4C6025AEF57D00E1FF40 /* ChartViews */,
 			);
 			path = Views;
@@ -596,6 +601,7 @@
 				6C5E42CF25C1FF5900FAB3D8 /* MultiLineChartDemoView.swift in Sources */,
 				6C23A47B25B1FAE700BD364E /* Extra.swift in Sources */,
 				6C23A48125B1FAE700BD364E /* SwiftUICharts_DemoApp.swift in Sources */,
+				6CB9EC4026734BA400B1588A /* IgnoreZeroView.swift in Sources */,
 				6C5E42BE25C1FF4B00FAB3D8 /* BarChartDemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +625,7 @@
 				6C5E42CD25C1FF5900FAB3D8 /* MultiLineChartDemoView.swift in Sources */,
 				6CC59B8725AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */,
 				6C18541B25AEF3BE00F2FAE0 /* Extra.swift in Sources */,
+				6CB9EC3E26734BA400B1588A /* IgnoreZeroView.swift in Sources */,
 				6C5E42BC25C1FF4B00FAB3D8 /* BarChartDemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,6 +649,7 @@
 				6C5E42CE25C1FF5900FAB3D8 /* MultiLineChartDemoView.swift in Sources */,
 				6CC59B8825AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */,
 				6C18541C25AEF3BE00F2FAE0 /* Extra.swift in Sources */,
+				6CB9EC3F26734BA400B1588A /* IgnoreZeroView.swift in Sources */,
 				6C5E42BD25C1FF4B00FAB3D8 /* BarChartDemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

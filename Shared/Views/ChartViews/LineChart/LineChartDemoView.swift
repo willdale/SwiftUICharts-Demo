@@ -113,6 +113,12 @@ struct LineChartDemoView: View {
                                         
                                         globalAnimation     : .easeOut(duration: 1))
         
+        
+        
+        let chartData = LineChartData(dataSets       : data,
+                                      metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
+                                      chartStyle     : chartStyle)
+        
         defer {
             chartData.touchedDataPointPublisher
                 .map(\.value)
@@ -132,9 +138,6 @@ struct LineChartDemoView: View {
                 .store(in: &chartData.subscription)
         }
         
-        let chartData = LineChartData(dataSets       : data,
-                                      metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
-                                      chartStyle     : chartStyle)
         return chartData
         
     }
