@@ -71,13 +71,13 @@ struct LineChartDemoView: View {
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"    ), //, pointColour: PointColour(border: .red, fill: .primary)),
-            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"   ), //, pointColour: PointColour(border: .blue, fill: .primary)),
-            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday" ), //, pointColour: PointColour(border: .green, fill: .primary)),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"  ), //, pointColour: PointColour(border: .blue, fill: .primary)),
-            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday "   ), //, pointColour: PointColour(border: .red, fill: .primary)),
-            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"  ), //, pointColour: PointColour(border: .blue, fill: .primary)),
-            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"    )  //, pointColour: PointColour(border: .green, fill: .primary))
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"   , pointColour: PointColour(border: .red, fill: .primary)),
+            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"  , pointColour: PointColour(border: .green, fill: .primary)),
+            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday", pointColour: PointColour(border: .blue, fill: .primary)),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday" , pointColour: PointColour(border: .red, fill: .primary)),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"   , pointColour: PointColour(border: .green, fill: .primary)),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , pointColour: PointColour(border: .blue, fill: .primary)),
+            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , pointColour: PointColour(border: .red, fill: .primary)),
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
