@@ -39,6 +39,10 @@ struct LineChartDemoView: View {
                           labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
                           lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
                           strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+                .xAxisPOI(chartData: data,
+                          markerName: "Bob",
+                          markerValue: 5,
+                          dataPointCount: data.dataSets.dataPoints.count)
                 .averageLine(chartData: data,
                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid(chartData: data)

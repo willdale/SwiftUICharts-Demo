@@ -33,6 +33,11 @@ struct HorizontalBarChartDemoView: View {
                       strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .averageLine(chartData: data,
                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .xAxisPOI(chartData: data,
+                      markerName: "Bob",
+                      markerValue: 2,
+                      dataPointCount: data.dataSets.dataPoints.count,
+                      labelPosition: .yAxis(specifier: ""))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
