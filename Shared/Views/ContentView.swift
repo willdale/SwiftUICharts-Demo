@@ -54,6 +54,9 @@ struct ContentView: View {
                     }
                 }
                 Section(header: Text("Other")) {
+                    NavigationLink(destination: LineChartInScrollView()) {
+                        Text("Line Chart in Scroll View")
+                    }
                     NavigationLink(destination: FilteredDemo()) {
                         Text("Filtered Demo")
                     }
