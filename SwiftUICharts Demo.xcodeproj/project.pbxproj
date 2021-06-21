@@ -235,9 +235,9 @@
 		6C4F258625FF513C00FFDB89 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */,
 				6C4A82B925EC0650008BD233 /* FilteredDemo.swift */,
 				6C4F258725FF517600FFDB89 /* SplitLegendAndInfoDemoView.swift */,
-				6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
