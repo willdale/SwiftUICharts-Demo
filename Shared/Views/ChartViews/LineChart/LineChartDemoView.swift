@@ -104,13 +104,12 @@ struct LineChartDemoView: View {
                                         xAxisLabelPosition  : .bottom,
                                         xAxisLabelColour    : Color.primary,
                                         xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
-                                        xAxisTitle: "xAxisTitle",
+                                        xAxisTitle          : "xAxisTitle",
                                         
                                         yAxisGridStyle      : gridStyle,
                                         yAxisLabelPosition  : .leading,
                                         yAxisLabelColour    : Color.primary,
                                         yAxisNumberOfLabels : 7,
-//                                        yAxisTitle: "yAxisTitle",
                                         
                                         baseline            : .minimumWithMaximum(of: 5000),
                                         topLine             : .maximum(of: 20000),
