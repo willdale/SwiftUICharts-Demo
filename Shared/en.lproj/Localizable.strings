@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  SwiftUICharts Demo
+
+  Created by Will Dale on 17/07/2021.
+  
+*/
+
+// MARK: - LocalizationDemoView
+
+// Header
+"Local_Title" = "Step Count";
+"Local_Subtitle" = "Over a Week";
+
+// X Axis
+"Local_xAxisTitle" = "x Axis Title";
+"Local_Mo" = "M";
+"Local_Tu" = "T";
+"Local_We" = "W";
+"Local_Th" = "T";
+"Local_Fr" = "F";
+"Local_Sa" = "S";
+"Local_Su" = "S";
+
+// Y Axis
+"Local_yAxisTitle" = "yAxisTitle";
+"Local_extraYAxisTitle" = "Another Axis";
+
+// Info Box
+"Local_Monday" = "Monday";
+"Local_Tuesday" = "Tuesday";
+"Local_Wednesday" = "Wednesday";
+"Local_Thursday" = "Thursday";
+"Local_Friday" = "Friday";
+"Local_Saturday" = "Saturday";
+"Local_Sunday" = "Sunday";
+
+// Legends
+"Local_LegendTitle" = "Steps";
+"Local_SecondLine" = "Second Line";
+
+"Local_StepCountAim" = "Step Count Aim";
+"Local_MinimumRecommended" = "Minimum Recommended";
+"Local_Worst" = "Worst";
+
+// Accessibility
+"%@ Local_Monday" = "%@, Monday";
+"%@ Local_Tuesday" = "%@, Tuesday";
+"%@ Local_Wednesday" = "%@, Wednesday";
+"%@ Local_Thursday" = "%@, Thursday";
+"%@ Local_Friday" = "%@, Friday";
+"%@ Local_Saturday" = "%@, Saturday";
+"%@ Local_Sunday" = "%@, Sunday";
+
+"X-Axis-Label" = "X Axis Label";
+"Y-Axis-Label" = "Y Axis Label";
+"P-O-I-Marker" = "P O I Marker";
+
+"Average" = "Average";
+"Local_StepCountAim %@" = "Step Count Aim, %@";
+"Local_MinimumRecommended %@" = "Minimum Recommended, %@";
+"Local_Worst %@" = "Worst, %@";
+
+"Line-Chart-Legend" = "Line Chart Legend";
+"P-O-I-Marker-Legend" = "P O I Marker Legend";
+"Bar-Chart-Legend" = "Bar Chart Legend";
+"P-O-I-Marker-Legend" = "P O I Marker Legend";
+"Pie-Chart-Legend" = "Pie Chart Legend";
+"P-O-I-Marker-Legend" = "P O I Marker Legend";
