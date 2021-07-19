@@ -54,6 +54,9 @@ struct ContentView: View {
                     }
                 }
                 Section(header: Text("Other")) {
+                    NavigationLink(destination: LocalizationDemoView()) {
+                        Text("Localization View")
+                    }
                     NavigationLink(destination: LineChartInScrollView()) {
                         Text("Line Chart in Scroll View")
                     }

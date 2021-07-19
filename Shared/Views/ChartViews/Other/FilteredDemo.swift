@@ -71,7 +71,7 @@ struct FilterView: View {
             .id(data.id)
     }
     
-    init(startDate : Date, title: String, subtitle: String) {
+    init(startDate: Date, title: String, subtitle: String) {
         
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
