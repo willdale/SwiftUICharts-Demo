@@ -124,6 +124,7 @@ struct LineChartDemoView: View {
         
         defer {
             chartData.touchedDataPointPublisher
+                .map(\.datapoint)
                 .map(\.value)
                 .sink { value in
                     var dotStyle: DotStyle
