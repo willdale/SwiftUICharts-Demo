@@ -113,7 +113,7 @@ struct LineChartDemoView: View {
                                         baseline            : .minimumWithMaximum(of: 5000),
                                         topLine             : .maximum(of: 20000),
                                         
-                                        globalAnimation     : .easeOut(duration: 10))
+                                        globalAnimation     : .easeOut(duration: 1))
         
         
         

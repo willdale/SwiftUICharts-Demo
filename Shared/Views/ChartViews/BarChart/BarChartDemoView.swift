@@ -14,11 +14,10 @@ struct BarChartDemoView: View {
     
     var body: some View {
         BarChart(chartData: data)
-            .extraLine(chartData: data, legendTitle: "Test") {
-                extraLineData
-            } style: {
-                extraLineStyle
-            }
+            .extraLine(chartData: data,
+                       legendTitle: "Test",
+                       datapoints: extraLineData,
+                       style: extraLineStyle)
             .touchOverlay(chartData: data)
             .yAxisPOI(chartData: data,
                       markerName: "Step Count Aim",
