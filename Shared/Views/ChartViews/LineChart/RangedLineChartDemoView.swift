@@ -10,11 +10,16 @@ import SwiftUICharts
 
 struct RangedLineChartDemoView: View {
     let data : RangedLineChartData = weekOfData()
-        
+
     var body: some View {
         VStack {
-            
+
             RangedLineChart(chartData: data)
+                .extraLine(chartData: data, legendTitle: "Test", datapoints: {
+                    extraLineData
+                }, style: {
+                    extraLineStyle
+                })
                 .pointMarkers(chartData: data)
                 .touchOverlay(chartData: data, specifier: "%.0f", unit: .prefix(of: "$"))
                 .averageLine(chartData: data,
@@ -24,6 +29,7 @@ struct RangedLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
+                .extraYAxisLabels(chartData: data)
                 .infoBox(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
@@ -33,11 +39,24 @@ struct RangedLineChartDemoView: View {
         }
         .navigationTitle("Week of Data")
     }
+
+    private var extraLineData: [ExtraLineDataPoint] {
+        [ExtraLineDataPoint(value: 8000),
+         ExtraLineDataPoint(value: 10000),
+         ExtraLineDataPoint(value: 15000),
+         ExtraLineDataPoint(value: 9000)]
+    }
+    private var extraLineStyle: ExtraLineStyle {
+        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+                       lineType: .line,
+                       pointStyle: PointStyle(),
+                       yAxisTitle: "Another Axis")
+    }
 }
 
 
 extension RangedLineChartDemoView {
-    
+
     static func weekOfData() -> RangedLineChartData {
 
         let data = RangedLineDataSet(dataPoints: [
@@ -53,40 +72,40 @@ extension RangedLineChartDemoView {
         style: RangedLineStyle(lineColour: ColourStyle(colour: .red),
                                fillColour: ColourStyle(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))
-        
+
         let metadata    = ChartMetadata(title: "Profits", subtitle: "with Expected")
-                
+
         let gridStyle   = GridStyle(numberOfLines: 7,
                                     lineColour   : Color(.lightGray).opacity(0.5),
                                     lineWidth    : 1,
                                     dash         : [8],
                                     dashPhase    : 0)
-        
+
         let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
-                                        
+
                                         markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
-                                        
+
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
                                         xAxisLabelColour    : Color.primary,
                                         xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
-                                       
+
                                         yAxisGridStyle      : gridStyle,
                                         yAxisLabelPosition  : .leading,
                                         yAxisLabelColour    : Color.primary,
                                         yAxisNumberOfLabels : 7,
-                                        
+
                                         baseline: .minimumValue,
                                         topLine: .maximumValue,
-                                        
+
                                         globalAnimation     : .easeOut(duration: 1))
-        
+
         return RangedLineChartData(dataSets       : data,
                                    metadata       : metadata,
                                    chartStyle     : chartStyle)
-        
+
     }
-    
+
 }
 
 struct RangedLineChartDemoView_Previews: PreviewProvider {

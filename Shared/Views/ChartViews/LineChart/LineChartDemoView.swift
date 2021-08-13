@@ -15,11 +15,10 @@ struct LineChartDemoView: View {
     
     var body: some View {
         LineChart(chartData: data)
-            .extraLine(chartData: data, legendTitle: "Test") {
-                extraLineData
-            } style: {
-                extraLineStyle
-            }
+            .extraLine(chartData: data,
+                       legendTitle: "Test", 
+                       datapoints: extraLineData, 
+                       style: extraLineStyle)
             .pointMarkers(chartData: data)
             .touchOverlay(chartData: data, specifier: "%.0f")
             .yAxisPOI(chartData: data,
