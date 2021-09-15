@@ -121,25 +121,25 @@ struct LineChartDemoView: View {
                                       metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
                                       chartStyle     : chartStyle)
         
-        defer {
-            chartData.touchedDataPointPublisher
-                .map(\.datapoint)
-                .map(\.value)
-                .sink { value in
-                    var dotStyle: DotStyle
-                    if value < 10_000 {
-                        dotStyle = DotStyle(fillColour: .red)
-                    } else if value >= 10_000 && value <= 15_000 {
-                        dotStyle = DotStyle(fillColour: .blue)
-                    } else {
-                        dotStyle = DotStyle(fillColour: .green)
-                    }
-                    withAnimation(.linear(duration: 0.5)) {
-                        chartData.chartStyle.markerType = .vertical(attachment: .line(dot: .style(dotStyle)))
-                    }
-                }
-                .store(in: &chartData.subscription)
-        }
+//        defer {
+//            chartData.touchedDataPointPublisher
+//                .map(\.datapoint)
+//                .map(\.value)
+//                .sink { value in
+//                    var dotStyle: DotStyle
+//                    if value < 10_000 {
+//                        dotStyle = DotStyle(fillColour: .red)
+//                    } else if value >= 10_000 && value <= 15_000 {
+//                        dotStyle = DotStyle(fillColour: .blue)
+//                    } else {
+//                        dotStyle = DotStyle(fillColour: .green)
+//                    }
+//                    withAnimation(.linear(duration: 0.5)) {
+//                        chartData.chartStyle.markerType = .vertical(attachment: .line(dot: .style(dotStyle)))
+//                    }
+//                }
+//                .store(in: &chartData.subscription)
+//        }
         
         return chartData
         
