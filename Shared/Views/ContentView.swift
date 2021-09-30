@@ -27,6 +27,9 @@ struct ContentView: View {
                     NavigationLink(destination: RangedLineChartDemoView()) {
                         Text("Ranged Line Chart")
                     }
+                    NavigationLink(destination: LineChartWithExtraLineDemoView()) {
+                        Text("Line Chart With Extra Line Demo")
+                    }
                 }
                 Section(header: Text("Bar Chart")) {
                     NavigationLink(destination: BarChartDemoView()) {
@@ -62,9 +65,6 @@ struct ContentView: View {
                     }
                     NavigationLink(destination: FilteredDemo()) {
                         Text("Filtered Demo")
-                    }
-                    NavigationLink(destination: SplitLegendAndInfoDemoView()) {
-                        Text("Split Legend and Info Demo")
                     }
                 }
             }

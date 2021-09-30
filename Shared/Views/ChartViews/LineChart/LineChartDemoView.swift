@@ -15,10 +15,6 @@ struct LineChartDemoView: View {
     
     var body: some View {
         LineChart(chartData: data)
-            .extraLine(chartData: data,
-                       legendTitle: "Test",
-                       datapoints: extraLineData,
-                       style: extraLineStyle)
             .pointMarkers(chartData: data)
             .touchOverlay(chartData: data, specifier: "%.0f")
             .yAxisPOI(chartData: data,
@@ -48,28 +44,14 @@ struct LineChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoBox(chartData: data)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+            .animation(.none, value: data.id)
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
-            
             .navigationTitle("Week of Data")
-    }
-    
-    
-    private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 8000),
-         ExtraLineDataPoint(value: 10000),
-         ExtraLineDataPoint(value: 15000),
-         ExtraLineDataPoint(value: 9000)]
-    }
-    private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
-                       lineType: .line,
-                       yAxisTitle: "Another Axis")
     }
     
     static func weekOfData() -> LineChartData {
