@@ -84,6 +84,7 @@ extension GroupedBarChartDemoView {
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
                                    xAxisLabels: ["One", "Two", "Three"],
+                                   barStyle: BarStyle(cornerRadius: CornerRadius(top: 5, bottom: 0)),
                                    chartStyle: BarChartStyle(infoBoxPlacement: .header,
                                                              xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
                                                              yAxisGridStyle: GridStyle(numberOfLines: 7),
