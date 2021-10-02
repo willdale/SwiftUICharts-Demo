@@ -84,7 +84,7 @@ struct HorizontalBarChartDemoView: View {
         return HorizontalBarChartData(dataSets  : data,
                                       metadata  : metadata,
                                       barStyle  : BarStyle(barWidth: 0.5,
-                                                           cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                                           cornerRadius: CornerRadius(leading: 0, trailing: 50),
                                                            colourFrom: .dataPoints,
                                                            colour: ColourStyle(colour: .blue)),
                                       chartStyle: chartStyle)

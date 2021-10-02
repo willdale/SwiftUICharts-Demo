@@ -86,7 +86,7 @@ extension StackedBarChartDemoView {
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
                                    xAxisLabels: ["One", "Two", "Three"],
-                                   barStyle: BarStyle(barWidth: 0.5),
+                                   barStyle: BarStyle(barWidth: 0.5, cornerRadius: CornerRadius(top: 50, bottom: 0)),
                                    chartStyle: BarChartStyle(infoBoxPlacement: .header,
                                                              xAxisGridStyle: GridStyle(numberOfLines: 5,
                                                                                        lineColour: Color.gray.opacity(0.25)),
