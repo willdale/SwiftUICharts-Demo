@@ -80,8 +80,7 @@ struct RangedBarChartDemoView: View {
                                    lineColour  : Color(.lightGray).opacity(0.25),
                                    lineWidth   : 1)
         
-        let chartStyle = BarChartStyle(infoBoxPlacement   : .infoBox(isStatic: false),
-                                       xAxisGridStyle     : gridStyle,
+        let chartStyle = BarChartStyle(xAxisGridStyle     : gridStyle,
                                        xAxisLabelPosition : .bottom,
                                        xAxisLabelsFrom    : .dataPoint(rotation: .degrees(90)),
                                        yAxisGridStyle     : gridStyle,
