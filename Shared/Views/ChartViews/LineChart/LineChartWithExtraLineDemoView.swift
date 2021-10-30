@@ -25,7 +25,7 @@ struct LineChartWithExtraLineDemoView: View {
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .infoBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data), style: .bordered)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)

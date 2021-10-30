@@ -22,12 +22,8 @@ struct MultiLineChartDemoView: View {
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data, specifier: "%.01f")
             
-//                .infoDisplaySpacer(height: 75)
-//                .infoDisplay(.verticle(chartData: data), style: .bordered, shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
-                .infoDisplay(chartData: data, infoView: GridInfoBoxView(chartData: data, style: .borderless), position: { _, chartSize in
-                    CGPoint(x: chartSize.midY, y: 0)
-                })
-//                .floatingInfoBox(chartData: data)
+                .infoDisplay(.verticle(chartData: data), style: .bordered, shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
+            
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
@@ -115,8 +111,7 @@ struct MultiLineChartDemoView: View {
         return MultiLineChartData(dataSets: data,
                                   metadata: ChartMetadata(title: "Average Temperature", subtitle: "Monthly"),
                                   xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .floating,
-                                                             markerType: .full(attachment: .line(dot: .style(DotStyle()))),
+                                  chartStyle: LineChartStyle(markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              xAxisGridStyle: GridStyle(numberOfLines: 12),
                                                              xAxisTitle: "Month",
                                                              yAxisGridStyle: GridStyle(numberOfLines: 5),

@@ -12,44 +12,15 @@ struct BarChartDemoView: View {
     
     let data: BarChartData = weekOfData()
     
-    @State var size: CGRect = .zero
-    
     var body: some View {
         BarChart(chartData: data)
             .touchOverlay(chartData: data)
-//            .yAxisPOI(chartData: data,
-//                      markerName: "Step Count Aim",
-//                      markerValue: 600,
-//                      labelPosition: .center(specifier: "%.0f"),
-//                      labelColour: Color.black,
-//                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-//                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-//            .yAxisPOI(chartData: data,
-//                      markerName: "Minimum Recommended",
-//                      markerValue: 100,
-//                      labelPosition: .center(specifier: "%.0f"),
-//                      labelColour: Color.white,
-//                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-//                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-//            .xAxisPOI(chartData: data,
-//                      markerName: "Bob",
-//                      markerValue: 6,
-//                      dataPointCount: data.dataSets.dataPoints.count)
-            .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data, colourIndicator: .custom(colour: ColourStyle(colour: .red), size: 12))
-//            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            
             .infoDisplaySpacer(height: 75)
             .infoDisplay(.verticle(chartData: data), style: .bordered, shape: Rectangle())
             .headerBox(chartData: data)
-        
-        
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
@@ -103,8 +74,6 @@ struct BarChartView_Previews: PreviewProvider {
         BarChartDemoView()
     }
 }
-
-
 
 /*
 .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }

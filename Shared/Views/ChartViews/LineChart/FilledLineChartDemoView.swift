@@ -42,6 +42,7 @@ struct FilledLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
+                .infoDisplay(.horizontal(chartData: data), style: .bordered)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
@@ -72,8 +73,7 @@ struct FilledLineChartDemoView: View {
         return LineChartData(dataSets: data,
                              metadata: ChartMetadata(title: "Some Data", subtitle: "A Week"),
                              xAxisLabels: ["Monday", "Thursday", "Sunday"],
-                             chartStyle: LineChartStyle(infoBoxPlacement: .header,
-                                                        markerType: .full(attachment: .point),
+                             chartStyle: LineChartStyle(markerType: .full(attachment: .point),
                                                         xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
                                                         baseline: .minimumWithMaximum(of: 5000)))
     }

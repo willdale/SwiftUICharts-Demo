@@ -44,7 +44,7 @@ struct LineChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .infoBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data))
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .animation(.none, value: data.id)
@@ -74,12 +74,7 @@ struct LineChartDemoView: View {
                                    dash         : [8],
                                    dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
-                                        infoBoxContentAlignment: .vertical,
-                                        infoBoxBorderColour : Color.primary,
-                                        infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
-                                        
-                                        markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
+        let chartStyle = LineChartStyle(markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,

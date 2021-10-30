@@ -9,8 +9,11 @@ import SwiftUI
 import SwiftUICharts
 
 struct RangedLineChartDemoView: View {
-    let data : RangedLineChartData = weekOfData()
-        
+    
+    let data: RangedLineChartData = weekOfData()
+    
+    @State var size: CGRect = .zero
+    
     var body: some View {
         VStack {
             
@@ -24,7 +27,8 @@ struct RangedLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
-                .infoBox(chartData: data)
+
+                .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
@@ -32,6 +36,16 @@ struct RangedLineChartDemoView: View {
                 .padding(.horizontal)
         }
         .navigationTitle("Week of Data")
+    }
+    
+    private var customInfoBox: some InfoDisplayable {
+        RangedLineCustomInfoBox(chartData: data, boxFrame: $size)
+    }
+    private func setBoxLocation(_ touchLocation: CGPoint, _ chartSize: CGRect) -> CGPoint {
+        CGPoint(x: data.setBoxLocation(touchLocation: touchLocation.x,
+                                       boxFrame: size,
+                                       chartSize: chartSize),
+                y: 35)
     }
 }
 
@@ -62,9 +76,7 @@ extension RangedLineChartDemoView {
                                     dash         : [8],
                                     dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement    : .infoBox(isStatic: false),
-                                        
-                                        markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
+        let chartStyle = LineChartStyle(markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         
                                         xAxisGridStyle      : gridStyle,
                                         xAxisLabelPosition  : .bottom,
@@ -86,11 +98,51 @@ extension RangedLineChartDemoView {
                                    chartStyle     : chartStyle)
         
     }
-    
 }
 
 struct RangedLineChartDemoView_Previews: PreviewProvider {
     static var previews: some View {
         RangedLineChartDemoView()
+    }
+}
+
+struct RangedLineCustomInfoBox: InfoDisplayable {
+    
+    @ObservedObject var chartData: RangedLineChartData
+    @Binding var boxFrame: CGRect
+    
+    @ViewBuilder
+    var content: some View {
+        if chartData.infoView.isTouchCurrent {
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(chartData.touchPointData, id: \.id) { point in
+                    chartData.infoDescription(info: point)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    chartData.infoMainValue(info: point)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                    chartData.infoValueUnit(info: point)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                    chartData.infoLegend(info: point)
+                        .foregroundColor(.primary)
+                }
+            }
+            .padding()
+            .border(Color.primary, width: 1)
+            .background(Color.systemsBackground)
+            .background(
+                GeometryReader { geo in
+                    EmptyView()
+                        .onAppear {
+                            self.boxFrame = geo.frame(in: .local)
+                        }
+                        .onChange(of: geo.frame(in: .local)) { frame in
+                            self.boxFrame = frame
+                        }
+                }
+            )
+        }
     }
 }

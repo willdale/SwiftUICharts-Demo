@@ -37,7 +37,7 @@ struct RangedBarChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
-            .infoBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data), style: .bordered)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
@@ -50,7 +50,6 @@ struct RangedBarChartDemoView: View {
         
         let data : RangedBarDataSet =
             RangedBarDataSet(dataPoints: [
-                
                 RangedBarDataPoint(lowerValue: 66, upperValue: 75 , xAxisLabel: "00:00 - 01:00", description: "00:00 - 01:00"),
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , xAxisLabel: "01:00 - 02:00", description: "01:00 - 02:00"),
                 RangedBarDataPoint(lowerValue: 55, upperValue: 79 , xAxisLabel: "02:00 - 03:00", description: "02:00 - 03:00"),
@@ -96,8 +95,8 @@ struct RangedBarChartDemoView: View {
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,
                                                      colour: ColourStyle(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
-                                                                                       Color.init(red: 1, green: 0.5, blue: 0.5)],
-                                                                             startPoint: .bottom, endPoint: .top)),
+                                                                                   Color.init(red: 1, green: 0.5, blue: 0.5)],
+                                                                         startPoint: .bottom, endPoint: .top)),
                                   chartStyle: chartStyle)
     }
 }

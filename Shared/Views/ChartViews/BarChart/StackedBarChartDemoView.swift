@@ -13,12 +13,12 @@ struct StackedBarChartDemoView: View {
     let data = makeData()
     
     var body: some View {
-            
         StackedBarChart(chartData: data)
             .touchOverlay(chartData: data)
             .xAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
+            .infoDisplay(.verticle(chartData: data), style: .bordered)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)

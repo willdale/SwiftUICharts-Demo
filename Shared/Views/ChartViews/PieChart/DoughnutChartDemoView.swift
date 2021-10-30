@@ -16,6 +16,7 @@ struct DoughnutChartDemoView: View {
         VStack {
             DoughnutChart(chartData: data)
                 .touchOverlay(chartData: data)
+                .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -44,7 +45,7 @@ extension DoughnutChartDemoView {
         
         return DoughnutChartData(dataSets: data,
                                  metadata: ChartMetadata(title: "Doughnut", subtitle: "mmm doughnuts"),
-                                 chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
+                                 chartStyle: DoughnutChartStyle(),
                                  noDataText: Text("hello"))
     }
 }
