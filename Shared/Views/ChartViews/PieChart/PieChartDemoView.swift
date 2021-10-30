@@ -17,7 +17,9 @@ struct PieChartDemoView: View {
             PieChart(chartData: data)
                 .touchOverlay(chartData: data)
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
-                .headerBox(chartData: data)
+                .titleBox(chartData: data,
+                          title: HeaderBoxText(text: "Pie"),
+                          subtitle: HeaderBoxText(text: "mmm pie"))
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .id(data.id)
@@ -46,7 +48,6 @@ extension PieChartDemoView {
             legendTitle: "Data")
         
         return PieChartData(dataSets: data,
-                            metadata: ChartMetadata(title: "Pie", subtitle: "mmm pie"),
                             chartStyle: PieChartStyle())
     }
 }

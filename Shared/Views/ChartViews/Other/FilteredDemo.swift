@@ -35,7 +35,9 @@ struct FilteredDemo: View {
 
 struct FilterView: View {
     
-    let data : LineChartData
+    let data: LineChartData
+    let title: HeaderBoxText
+    let subtitle: HeaderBoxText
         
     var body: some View {
         LineChart(chartData: data)
@@ -63,8 +65,10 @@ struct FilterView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
-            .infoBox(chartData: data)
-            .headerBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data), style: .bordered)
+            .titleBox(chartData: data,
+                      title: title,
+                      subtitle: subtitle)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
@@ -87,14 +91,14 @@ struct FilterView: View {
         let baseline = chartDataPoints.min(by: { $0.value < $1.value })?.value ?? 1
         let topline  = chartDataPoints.max(by: { $0.value < $1.value })?.value ?? 1
         
-        self.data = LineChartData(dataSets  : LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"),
-                                  metadata  : ChartMetadata(title: title, subtitle: subtitle),
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .header,
-                                                             markerType: .vertical(attachment: .point),
+        self.data = LineChartData(dataSets : LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"),
+                                  chartStyle: LineChartStyle(markerType: .vertical(attachment: .point),
                                                              xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
                                                              yAxisNumberOfLabels: 3,
                                                              baseline: .minimumWithMaximum(of: baseline - 20),
                                                              topLine: .maximum(of: topline + 20)))
+        self.title = HeaderBoxText(text: title)
+        self.subtitle = HeaderBoxText(text: subtitle)
     }
 }
 

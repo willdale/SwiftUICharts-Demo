@@ -13,22 +13,28 @@ struct BarChartDemoView: View {
     let data: BarChartData = weekOfData()
     
     var body: some View {
+        VStack {
         BarChart(chartData: data)
             .touchOverlay(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, colourIndicator: .custom(colour: ColourStyle(colour: .red), size: 12))
+            .yAxisLabels(chartData: data,
+                         colourIndicator: .custom(colour: ColourStyle(colour: .red), size: 12))
             .infoDisplaySpacer(height: 75)
-            .infoDisplay(.verticle(chartData: data), style: .bordered, shape: Rectangle())
-            .headerBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data),
+                         style: .bordered,
+                         shape: Rectangle())
+            .titleBox(chartData: data,
+                       title: HeaderBoxText(text: "Units Sold", font: .title),
+                       subtitle: HeaderBoxText(text: "Last year", font: .body))
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
+        }
     }
     
     static func weekOfData() -> BarChartData {
-                
-        let data : BarDataSet =
+        let data: BarDataSet =
             BarDataSet(dataPoints: [
                 BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: ColourStyle(colour: .purple)),
                 BarChartDataPoint(value: 90 , xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
@@ -39,9 +45,7 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
             ],
             legendTitle: "Data")
-        
-        let metadata   = ChartMetadata(title: "Units Sold", subtitle: "Last year")
-        
+                
         let gridStyle  = GridStyle(numberOfLines: 7,
                                    lineColour   : Color(.lightGray).opacity(0.25),
                                    lineWidth    : 1)
@@ -58,13 +62,12 @@ struct BarChartDemoView: View {
                                        baseline           : .zero,
                                        topLine            : .maximumValue)
         
-        return BarChartData(dataSets  : data,
-                            metadata  : metadata,
+        return BarChartData(dataSets: data,
                             xAxisLabels: ["One", "Two", "Three"],
-                            barStyle  : BarStyle(barWidth: 0.5,
-                                                 cornerRadius: CornerRadius(top: 50, bottom: 0),
-                                                 colourFrom: .dataPoints,
-                                                 colour: ColourStyle(colour: .blue)),
+                            barStyle: BarStyle(barWidth: 0.5,
+                                               cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                               colourFrom: .dataPoints,
+                                               colour: ColourStyle(colour: .blue)),
                             chartStyle: chartStyle)
     }
 }

@@ -26,7 +26,9 @@ struct LineChartWithExtraLineDemoView: View {
             .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .headerBox(chartData: data)
+            .titleBox(chartData: data,
+                      title: HeaderBoxText(text: "Step Count"),
+                      subtitle: HeaderBoxText(text: "Over a Week"))
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -69,12 +71,7 @@ struct LineChartWithExtraLineDemoView: View {
                                    dash: [8],
                                    dashPhase: 0)
         
-        let chartStyle = LineChartStyle(infoBoxPlacement: .infoBox(isStatic: false),
-                                        infoBoxContentAlignment: .vertical,
-                                        infoBoxBorderColour: Color.primary,
-                                        infoBoxBorderStyle: StrokeStyle(lineWidth: 1),
-                                        
-                                        markerType: .vertical(attachment: .line(dot: .style(DotStyle()))),
+        let chartStyle = LineChartStyle(markerType: .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         
                                         xAxisGridStyle: gridStyle,
                                         xAxisLabelPosition: .bottom,
@@ -95,7 +92,6 @@ struct LineChartWithExtraLineDemoView: View {
         
         
         let chartData = LineChartData(dataSets: data,
-                                      metadata: ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
                                       chartStyle: chartStyle)
         
         return chartData

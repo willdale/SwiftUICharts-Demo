@@ -43,7 +43,9 @@ struct HorizontalBarChartDemoView: View {
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
-//            .headerBox(chartData: data)
+            .titleBox(chartData: data,
+                      title: HeaderBoxText(text: "Units Sold"),
+                      subtitle: HeaderBoxText(text: "Last year"))
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
@@ -62,9 +64,7 @@ struct HorizontalBarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
             ],
             legendTitle: "Data")
-        
-        let metadata   = ChartMetadata(title: "Units Sold", subtitle: "Last year")
-        
+                
         let gridStyle  = GridStyle(numberOfLines: 7,
                                    lineColour   : Color(.lightGray).opacity(0.25),
                                    lineWidth    : 1)
@@ -82,7 +82,6 @@ struct HorizontalBarChartDemoView: View {
                                        topLine            : .maximumValue)
         
         return HorizontalBarChartData(dataSets  : data,
-                                      metadata  : metadata,
                                       barStyle  : BarStyle(barWidth: 0.5,
                                                            cornerRadius: CornerRadius(leading: 0, trailing: 50),
                                                            colourFrom: .dataPoints,

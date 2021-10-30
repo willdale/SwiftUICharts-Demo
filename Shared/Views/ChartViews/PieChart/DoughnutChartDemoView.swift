@@ -17,7 +17,9 @@ struct DoughnutChartDemoView: View {
             DoughnutChart(chartData: data)
                 .touchOverlay(chartData: data)
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
-                .headerBox(chartData: data)
+                .titleBox(chartData: data,
+                          title: HeaderBoxText(text: "Doughnut"),
+                          subtitle: HeaderBoxText(text: "mmm doughnuts"))
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .id(data.id)
@@ -44,7 +46,6 @@ extension DoughnutChartDemoView {
             legendTitle: "Data")
         
         return DoughnutChartData(dataSets: data,
-                                 metadata: ChartMetadata(title: "Doughnut", subtitle: "mmm doughnuts"),
                                  chartStyle: DoughnutChartStyle(),
                                  noDataText: Text("hello"))
     }

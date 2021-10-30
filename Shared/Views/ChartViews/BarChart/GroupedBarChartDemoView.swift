@@ -19,7 +19,9 @@ struct GroupedBarChartDemoView: View {
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .headerBox(chartData: data)
+            .titleBox(chartData: data,
+                       title: HeaderBoxText(text: "Haggis Sales", font: .title),
+                       subtitle: HeaderBoxText(text: "Per Quarter", font: .body))
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -83,7 +85,6 @@ extension GroupedBarChartDemoView {
         
         return GroupedBarChartData(dataSets: data,
                                    groups: groups,
-                                   metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
                                    xAxisLabels: ["One", "Two", "Three"],
                                    barStyle: BarStyle(cornerRadius: CornerRadius(top: 5, bottom: 0)),
                                    chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),

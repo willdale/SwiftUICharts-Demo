@@ -29,7 +29,9 @@ struct RangedLineChartDemoView: View {
                 .yAxisLabels(chartData: data)
 
                 .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
-                .headerBox(chartData: data)
+                .titleBox(chartData: data,
+                          title: HeaderBoxText(text: "Profits"),
+                          subtitle: HeaderBoxText(text: "with Expected"))
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -67,9 +69,7 @@ extension RangedLineChartDemoView {
         style: RangedLineStyle(lineColour: ColourStyle(colour: .red),
                                fillColour: ColourStyle(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))
-        
-        let metadata    = ChartMetadata(title: "Profits", subtitle: "with Expected")
-                
+                        
         let gridStyle   = GridStyle(numberOfLines: 7,
                                     lineColour   : Color(.lightGray).opacity(0.5),
                                     lineWidth    : 1,
@@ -93,9 +93,8 @@ extension RangedLineChartDemoView {
                                         
                                         globalAnimation     : .easeOut(duration: 1))
         
-        return RangedLineChartData(dataSets       : data,
-                                   metadata       : metadata,
-                                   chartStyle     : chartStyle)
+        return RangedLineChartData(dataSets: data,
+                                   chartStyle: chartStyle)
         
     }
 }

@@ -45,7 +45,9 @@ struct LineChartDemoView: View {
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoDisplay(.verticle(chartData: data))
-            .headerBox(chartData: data)
+            .titleBox(chartData: data,
+                      title: HeaderBoxText(text: "Step Count"),
+                      subtitle: HeaderBoxText(text: "Over a Week"))
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .animation(.none, value: data.id)
             .id(data.id)
@@ -94,9 +96,8 @@ struct LineChartDemoView: View {
         
         
         
-        let chartData = LineChartData(dataSets       : data,
-                                      metadata       : ChartMetadata(title: "Step Count", subtitle: "Over a Week"),
-                                      chartStyle     : chartStyle)
+        let chartData = LineChartData(dataSets: data,
+                                      chartStyle: chartStyle)
         
 //        defer {
 //            chartData.touchedDataPointPublisher

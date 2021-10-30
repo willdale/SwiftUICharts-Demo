@@ -24,7 +24,9 @@ struct MultiLineChartDemoView: View {
             
                 .infoDisplay(.verticle(chartData: data), style: .bordered, shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
             
-                .headerBox(chartData: data)
+                .titleBox(chartData: data,
+                          title: HeaderBoxText(text: "Average Temperature"),
+                          subtitle: HeaderBoxText(text: "Monthly"))
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -109,7 +111,6 @@ struct MultiLineChartDemoView: View {
         ])
         
         return MultiLineChartData(dataSets: data,
-                                  metadata: ChartMetadata(title: "Average Temperature", subtitle: "Monthly"),
                                   xAxisLabels: ["January", "December"],
                                   chartStyle: LineChartStyle(markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              xAxisGridStyle: GridStyle(numberOfLines: 12),
