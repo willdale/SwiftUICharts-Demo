@@ -13,13 +13,15 @@ struct StackedBarChartDemoView: View {
     let data = makeData()
     
     var body: some View {
-            
         StackedBarChart(chartData: data)
             .touchOverlay(chartData: data)
             .xAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
-            .headerBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data), style: .bordered)
+            .titleBox(chartData: data,
+                      title: HeaderBoxText(text: "Haggis Sales"),
+                      subtitle: HeaderBoxText(text: "Per Quarter"))
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -84,11 +86,9 @@ extension StackedBarChartDemoView {
         
         return StackedBarChartData(dataSets: data,
                                    groups: groups,
-                                   metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
                                    xAxisLabels: ["One", "Two", "Three"],
                                    barStyle: BarStyle(barWidth: 0.5, cornerRadius: CornerRadius(top: 50, bottom: 0)),
-                                   chartStyle: BarChartStyle(infoBoxPlacement: .header,
-                                                             xAxisGridStyle: GridStyle(numberOfLines: 5,
+                                   chartStyle: BarChartStyle(xAxisGridStyle: GridStyle(numberOfLines: 5,
                                                                                        lineColour: Color.gray.opacity(0.25)),
                                                              xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
                                                              yAxisGridStyle: GridStyle(numberOfLines: 5,

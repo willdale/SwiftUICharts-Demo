@@ -37,8 +37,10 @@ struct RangedBarChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data)
-            .infoBox(chartData: data)
-            .headerBox(chartData: data)
+            .infoDisplay(.verticle(chartData: data), style: .bordered)
+            .titleBox(chartData: data,
+                      title: HeaderBoxText(text: "Heart Rate"),
+                      subtitle: HeaderBoxText(text: "Over 24 Hours"))
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -50,7 +52,6 @@ struct RangedBarChartDemoView: View {
         
         let data : RangedBarDataSet =
             RangedBarDataSet(dataPoints: [
-                
                 RangedBarDataPoint(lowerValue: 66, upperValue: 75 , xAxisLabel: "00:00 - 01:00", description: "00:00 - 01:00"),
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , xAxisLabel: "01:00 - 02:00", description: "01:00 - 02:00"),
                 RangedBarDataPoint(lowerValue: 55, upperValue: 79 , xAxisLabel: "02:00 - 03:00", description: "02:00 - 03:00"),
@@ -80,8 +81,7 @@ struct RangedBarChartDemoView: View {
                                    lineColour  : Color(.lightGray).opacity(0.25),
                                    lineWidth   : 1)
         
-        let chartStyle = BarChartStyle(infoBoxPlacement   : .infoBox(isStatic: false),
-                                       xAxisGridStyle     : gridStyle,
+        let chartStyle = BarChartStyle(xAxisGridStyle     : gridStyle,
                                        xAxisLabelPosition : .bottom,
                                        xAxisLabelsFrom    : .dataPoint(rotation: .degrees(90)),
                                        yAxisGridStyle     : gridStyle,
@@ -91,14 +91,13 @@ struct RangedBarChartDemoView: View {
                                        topLine: .maximum(of: 160))
         
         return RangedBarChartData(dataSets: data,
-                                  metadata: ChartMetadata(title: "Heart Rate", subtitle: "Over 24 Hours"),
                                   xAxisLabels: ["00:00", "12:00", "00:00"],
                                   barStyle: BarStyle(barWidth: 0.75,
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,
                                                      colour: ColourStyle(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
-                                                                                       Color.init(red: 1, green: 0.5, blue: 0.5)],
-                                                                             startPoint: .bottom, endPoint: .top)),
+                                                                                   Color.init(red: 1, green: 0.5, blue: 0.5)],
+                                                                         startPoint: .bottom, endPoint: .top)),
                                   chartStyle: chartStyle)
     }
 }

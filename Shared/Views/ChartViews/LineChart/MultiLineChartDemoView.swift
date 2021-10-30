@@ -21,8 +21,12 @@ struct MultiLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data, specifier: "%.01f")
-                .floatingInfoBox(chartData: data)
-                .headerBox(chartData: data)
+            
+                .infoDisplay(.verticle(chartData: data), style: .bordered, shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
+            
+                .titleBox(chartData: data,
+                          title: HeaderBoxText(text: "Average Temperature"),
+                          subtitle: HeaderBoxText(text: "Monthly"))
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
@@ -107,10 +111,8 @@ struct MultiLineChartDemoView: View {
         ])
         
         return MultiLineChartData(dataSets: data,
-                                  metadata: ChartMetadata(title: "Average Temperature", subtitle: "Monthly"),
                                   xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(infoBoxPlacement: .floating,
-                                                             markerType: .full(attachment: .line(dot: .style(DotStyle()))),
+                                  chartStyle: LineChartStyle(markerType: .full(attachment: .line(dot: .style(DotStyle()))),
                                                              xAxisGridStyle: GridStyle(numberOfLines: 12),
                                                              xAxisTitle: "Month",
                                                              yAxisGridStyle: GridStyle(numberOfLines: 5),
@@ -125,5 +127,65 @@ struct MultiLineChartView_Previews: PreviewProvider {
     static var previews: some View {
         MultiLineChartDemoView()
             .preferredColorScheme(.dark)
+    }
+}
+
+struct GridInfoBoxView<ChartData>: InfoDisplayable where ChartData: InfoData {
+
+    @ObservedObject internal var chartData: ChartData
+    private var style: InfoBoxStyle
+    
+    internal init(
+        chartData: ChartData,
+        style: InfoBoxStyle
+    ) {
+        self.chartData = chartData
+        self.style = style
+    }
+    
+    internal var content: some View {
+        VStack {
+            if chartData.infoView.isTouchCurrent {
+                chartData.infoDescription(info: chartData.touchPointData[0])
+                    .font(style.descriptionFont)
+                    .foregroundColor(style.descriptionColour)
+            }
+            LazyHGrid(rows: [GridItem(.adaptive(minimum: 40, maximum: 100)), GridItem(.adaptive(minimum: 40, maximum: 100))]) {
+                ForEach(chartData.touchPointData, id: \.id) { point in
+                    VStack {
+                        chartData.infoValueUnit(info: point)
+                            .font(style.valueFont)
+                            .foregroundColor(style.valueColour)
+                        chartData.infoLegend(info: point)
+                            .foregroundColor(style.descriptionColour)
+                    }
+                    .background(colour(point))
+                }
+                .padding(.all, 10)
+            }
+        }
+        .frame(height: 260)
+        .padding(.all, 8)
+        .background(
+            GeometryReader { geo in
+                if chartData.infoView.isTouchCurrent {
+                    Rectangle()
+                        .fill(style.backgroundColour)
+                        .overlay(
+                            Rectangle()
+                                .stroke(style.borderColour, style: style.borderStyle)
+                        )
+                }
+            }
+        )
+                           }
+    
+    func colour(_ point: ChartData.DataPoint) -> Color {
+        let value = Double(point.valueAsString(specifier: "%.f")) ?? 18
+        if value > 13 {
+            return Color(.red)
+        } else {
+            return Color(.blue)
+        }
     }
 }

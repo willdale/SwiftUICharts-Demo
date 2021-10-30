@@ -29,29 +29,24 @@ struct ContentView: View {
             BarChartDataPoint(value: 50, xAxisLabel: "B"),
             BarChartDataPoint(value: 30, xAxisLabel: "C"),
             BarChartDataPoint(value: 60, xAxisLabel: "D")
-        ],
-        legendTitle: "Data")
-        
-        let metadata = ChartMetadata(title: "Something", subtitle: "Some data")
-
+        ],legendTitle: "Data")
+                
         let xAxisLabels = [""]
-
-        let chartStyle = BarChartStyle(infoBoxPlacement: .floating,
-                                    xAxisGridStyle: GridStyle(numberOfLines: 3,
-                                                              lineColour: Color(.lightGray).opacity(0.5),
-                                                              lineWidth: 1),
-                                    xAxisLabelPosition: .bottom,
-                                    xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                    yAxisGridStyle: GridStyle(numberOfLines: 3,
-                                                              lineColour: Color(.lightGray).opacity(0.5),
-                                                              lineWidth: 1),
-                                    yAxisLabelPosition: .leading,
-                                    yAxisNumberOfLabels: 3)
+        
+        let grid = GridStyle(numberOfLines: 3,
+                             lineColour: Color(.lightGray).opacity(0.5),
+                             lineWidth: 1)
+        
+        let chartStyle = BarChartStyle(xAxisGridStyle: grid,
+                                       xAxisLabelPosition: .bottom,
+                                       xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
+                                       yAxisGridStyle: grid,
+                                       yAxisLabelPosition: .leading,
+                                       yAxisNumberOfLabels: 3)
 
         return BarChartData(dataSets: data,
-                         metadata: metadata,
-                         xAxisLabels: xAxisLabels,
-                         chartStyle: chartStyle)
+                            xAxisLabels: xAxisLabels,
+                            chartStyle: chartStyle)
     }
 }
 
