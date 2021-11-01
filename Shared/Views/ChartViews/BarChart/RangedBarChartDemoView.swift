@@ -95,7 +95,7 @@ struct RangedBarChartDemoView: View {
                                   barStyle: BarStyle(barWidth: 0.75,
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,
-                                                     colour: ColourStyle(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
+                                                     colour: .gradient(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
                                                                                    Color.init(red: 1, green: 0.5, blue: 0.5)],
                                                                          startPoint: .bottom, endPoint: .top)),
                                   chartStyle: chartStyle)
