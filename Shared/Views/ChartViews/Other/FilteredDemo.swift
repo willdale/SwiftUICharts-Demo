@@ -91,7 +91,7 @@ struct FilterView: View {
         let baseline = chartDataPoints.min(by: { $0.value < $1.value })?.value ?? 1
         let topline  = chartDataPoints.max(by: { $0.value < $1.value })?.value ?? 1
         
-        self.data = LineChartData(dataSets : LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"),
+        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"),
                                   chartStyle: LineChartStyle(markerType: .vertical(attachment: .point),
                                                              xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
                                                              yAxisNumberOfLabels: 3,
