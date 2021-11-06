@@ -47,7 +47,9 @@ struct LineChartDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+            .yAxisLabels(chartData: data,
+                         formatter: numberFormatter,
+                         colourIndicator: .style(size: 12))
             .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoBox(chartData: data)
             .headerBox(chartData: data)
@@ -59,6 +61,14 @@ struct LineChartDemoView: View {
             .navigationTitle("Week of Data")
     }
     
+    private var numberFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.generatesDecimalNumbers = true
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }
     
     private var extraLineData: [ExtraLineDataPoint] {
         [ExtraLineDataPoint(value: 8000),
