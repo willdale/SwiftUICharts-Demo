@@ -17,14 +17,16 @@ struct LineChartDemoView: View {
         LineChart(chartData: data)
             .extraLine(chartData: data,
                        legendTitle: "Test", 
-                       datapoints: extraLineData, 
+                       datapoints: extraLineData,
                        style: extraLineStyle)
             .pointMarkers(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
+            .touchOverlay(chartData: data,
+                          formatter: numberFormatter)
             .yAxisPOI(chartData: data,
                       markerName: "Step Count Aim",
                       markerValue: 15_000,
-                      labelPosition: .center(specifier: "%.0f"),
+                      labelPosition: .center(specifier: "%.0f",
+                                             formatter: numberFormatter),
                       labelColour: Color.black,
                       labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
                       lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
@@ -32,7 +34,8 @@ struct LineChartDemoView: View {
             .yAxisPOI(chartData: data,
                       markerName: "Minimum Recommended",
                       markerValue: 10_000,
-                      labelPosition: .center(specifier: "%.0f"),
+                      labelPosition: .center(specifier: "%.0f",
+                                             formatter: numberFormatter),
                       labelColour: Color.white,
                       labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
                       lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
@@ -43,6 +46,8 @@ struct LineChartDemoView: View {
                       dataPointCount: data.dataSets.dataPoints.count,
                       lineColour: .red)
             .averageLine(chartData: data,
+                         labelPosition: .yAxis(specifier: "",
+                                               formatter: numberFormatter),
                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
