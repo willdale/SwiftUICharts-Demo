@@ -69,7 +69,7 @@ struct LocalizationDemoView: View {
          ExtraLineDataPoint(value: 9000)]
     }
     private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+        ExtraLineStyle(lineColour: .colour(colour: .blue),
                        lineType: .line,
                        yAxisTitle: "Local_extraYAxisTitle")
     }
@@ -86,7 +86,7 @@ struct LocalizationDemoView: View {
         ],
         legendTitle: "Local_LegendTitle",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
+        style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         let gridStyle = GridStyle(numberOfLines: 7,
                                   lineColour   : Color(.lightGray).opacity(0.5),

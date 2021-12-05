@@ -53,7 +53,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "London",
             pointStyle: PointStyle(pointType: .outline, pointShape: .circle),
-            style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .red), lineType: .line)),
             
             LineDataSet(dataPoints: [
                 LineChartDataPoint(value: 16.9, xAxisLabel: "J", description: "January"),
@@ -71,7 +71,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "Wellington",
             pointStyle: PointStyle(pointType: .outline, pointShape: .square),
-            style: LineStyle(lineColour: ColourStyle(colour: .blue), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .blue), lineType: .line)),
             
             LineDataSet(dataPoints: [
                 LineChartDataPoint(value: 14.6, xAxisLabel: "J", description: "January"),
@@ -89,7 +89,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "Mexico City",
             pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
-            style: LineStyle(lineColour: ColourStyle(colour: .green), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .green), lineType: .line)),
             
             LineDataSet(dataPoints: [
                 LineChartDataPoint(value: -4.5, xAxisLabel: "J", description: "January"),
@@ -107,7 +107,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "St. John's",
             pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
-            style: LineStyle(lineColour: ColourStyle(colour: .primary), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .primary), lineType: .line)),
         ])
         
         return MultiLineChartData(dataSets: data,

@@ -19,7 +19,7 @@ struct BarChartDemoView: View {
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
             .yAxisLabels(chartData: data,
-                         colourIndicator: .custom(colour: ColourStyle(colour: .red), size: 12))
+                         colourIndicator: .custom(colour: .colour(colour: .red), size: 12))
             .infoDisplaySpacer(height: 75)
             .infoDisplay(.verticle(chartData: data),
                          style: .bordered,

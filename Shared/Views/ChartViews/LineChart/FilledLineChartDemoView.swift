@@ -66,10 +66,10 @@ struct FilledLineChartDemoView: View {
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: ColourStyle(colours: [Color.red.opacity(0.50),
-                                                           Color.red.opacity(0.00)],
-                                                 startPoint: .top,
-                                                 endPoint: .bottom),
+        style: LineStyle(lineColour: .gradient(colours: [Color.red.opacity(0.50),
+                                                         Color.red.opacity(0.00)],
+                                               startPoint: .top,
+                                               endPoint: .bottom),
                          lineType: .line))
         
         return LineChartData(dataSets: data,

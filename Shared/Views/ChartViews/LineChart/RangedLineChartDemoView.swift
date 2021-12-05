@@ -66,8 +66,8 @@ extension RangedLineChartDemoView {
         legendTitle: "Profits",
         legendFillTitle: "Expected",
         pointStyle: PointStyle(),
-        style: RangedLineStyle(lineColour: ColourStyle(colour: .red),
-                               fillColour: ColourStyle(colour: Color(.blue).opacity(0.25)),
+        style: RangedLineStyle(lineColour: .colour(colour: .red),
+                               fillColour: .colour(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))
                         
         let gridStyle   = GridStyle(numberOfLines: 7,

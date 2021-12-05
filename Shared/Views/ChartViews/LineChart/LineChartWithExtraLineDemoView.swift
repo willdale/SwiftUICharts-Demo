@@ -46,7 +46,7 @@ struct LineChartWithExtraLineDemoView: View {
     }
     
     private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+        ExtraLineStyle(lineColour: .colour(colour: .blue),
                        lineType: .line,
                        yAxisTitle: "Another Axis")
     }
@@ -63,7 +63,7 @@ struct LineChartWithExtraLineDemoView: View {
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
+        style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         let gridStyle = GridStyle(numberOfLines: 7,
                                    lineColour: Color(.lightGray).opacity(0.5),
