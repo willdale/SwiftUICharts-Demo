@@ -39,10 +39,10 @@ struct LineChartWithExtraLineDemoView: View {
     
     
     private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 8000, pointDescription: "Something 1"),
-         ExtraLineDataPoint(value: 10000, pointDescription: "Something 2"),
-         ExtraLineDataPoint(value: 15000, pointDescription: "Something 3"),
-         ExtraLineDataPoint(value: 9000, pointDescription: "Something 4")]
+        [ExtraLineDataPoint(value: 8000, description: "Something 1"),
+         ExtraLineDataPoint(value: 10000, description: "Something 2"),
+         ExtraLineDataPoint(value: 15000, description: "Something 3"),
+         ExtraLineDataPoint(value: 9000, description: "Something 4")]
     }
     
     private var extraLineStyle: ExtraLineStyle {
