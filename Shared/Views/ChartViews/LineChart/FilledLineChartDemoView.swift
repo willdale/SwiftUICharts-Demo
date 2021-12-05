@@ -52,7 +52,7 @@ struct FilledLineChartDemoView: View {
     }
     
     static func weekOfData() -> FilledLineChartData {
-        let data = LineDataSet(dataPoints: [
+        let data = FilledLineDataSet(dataPoints: [
             LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
             LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"),
             LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
@@ -63,11 +63,7 @@ struct FilledLineChartDemoView: View {
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: .gradient(colours: [Color.red.opacity(0.50),
-                                                         Color.red.opacity(0.00)],
-                                               startPoint: .top,
-                                               endPoint: .bottom),
-                         lineType: .line))
+        style: FilledLineStyle())
         
         return FilledLineChartData(dataSets: data,
                                    xAxisLabels: ["Monday", "Thursday", "Sunday"],
