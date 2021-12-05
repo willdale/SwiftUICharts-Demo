@@ -10,14 +10,11 @@ import SwiftUICharts
 
 struct FilledLineChartDemoView: View {
     
-    @State var data : LineChartData = weekOfData()
+    @State var data : FilledLineChartData = weekOfData()
     
     var body: some View {
         VStack {
             FilledLineChart(chartData: data)
-                .filledTopLine(chartData: data,
-                               lineColour: ColourStyle(colour: .red),
-                               strokeStyle: StrokeStyle(lineWidth: 3))
                 .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
                 .pointMarkers(chartData: data)
                 .yAxisPOI(chartData: data,
@@ -54,7 +51,7 @@ struct FilledLineChartDemoView: View {
         .navigationTitle("Filled Line")
     }
     
-    static func weekOfData() -> LineChartData {
+    static func weekOfData() -> FilledLineChartData {
         let data = LineDataSet(dataPoints: [
             LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
             LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"),
@@ -72,11 +69,11 @@ struct FilledLineChartDemoView: View {
                                                endPoint: .bottom),
                          lineType: .line))
         
-        return LineChartData(dataSets: data,
-                             xAxisLabels: ["Monday", "Thursday", "Sunday"],
-                             chartStyle: LineChartStyle(markerType: .full(attachment: .point),
-                                                        xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
-                                                        baseline: .minimumWithMaximum(of: 5000)))
+        return FilledLineChartData(dataSets: data,
+                                   xAxisLabels: ["Monday", "Thursday", "Sunday"],
+                                   chartStyle: LineChartStyle(markerType: .full(attachment: .point),
+                                                              xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
+                                                              baseline: .minimumWithMaximum(of: 5000)))
     }
 }
 
