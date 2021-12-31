@@ -39,7 +39,7 @@ struct FilledLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
-                .infoDisplay(.horizontal(chartData: data), style: .bordered)
+                .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Some Data"),
                           subtitle: HeaderBoxText(text: "A Week"))
@@ -53,13 +53,13 @@ struct FilledLineChartDemoView: View {
     
     static func weekOfData() -> FilledLineChartData {
         let data = FilledLineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
-            LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"),
-            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
-            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
-            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
-            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"     , ignore: true),
+            LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"    , ignore: true),
+            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"  , ignore: false),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"   , ignore: true),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"     , ignore: false),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"   , ignore: true),
+            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday"     , ignore: true)
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
