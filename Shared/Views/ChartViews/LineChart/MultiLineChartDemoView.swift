@@ -53,7 +53,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "London",
             pointStyle: PointStyle(pointType: .outline, pointShape: .circle),
-            style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .red), lineType: .line)),
             
             LineDataSet(dataPoints: [
                 LineChartDataPoint(value: 16.9, xAxisLabel: "J", description: "January"),
@@ -71,7 +71,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "Wellington",
             pointStyle: PointStyle(pointType: .outline, pointShape: .square),
-            style: LineStyle(lineColour: ColourStyle(colour: .blue), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .blue), lineType: .line)),
             
             LineDataSet(dataPoints: [
                 LineChartDataPoint(value: 14.6, xAxisLabel: "J", description: "January"),
@@ -89,7 +89,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "Mexico City",
             pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
-            style: LineStyle(lineColour: ColourStyle(colour: .green), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .green), lineType: .line)),
             
             LineDataSet(dataPoints: [
                 LineChartDataPoint(value: -4.5, xAxisLabel: "J", description: "January"),
@@ -107,7 +107,7 @@ struct MultiLineChartDemoView: View {
             ],
             legendTitle: "St. John's",
             pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
-            style: LineStyle(lineColour: ColourStyle(colour: .primary), lineType: .line)),
+            style: LineStyle(lineColour: .colour(colour: .primary), lineType: .line)),
         ])
         
         return MultiLineChartData(dataSets: data,
@@ -127,65 +127,5 @@ struct MultiLineChartView_Previews: PreviewProvider {
     static var previews: some View {
         MultiLineChartDemoView()
             .preferredColorScheme(.dark)
-    }
-}
-
-struct GridInfoBoxView<ChartData>: InfoDisplayable where ChartData: InfoData {
-
-    @ObservedObject internal var chartData: ChartData
-    private var style: InfoBoxStyle
-    
-    internal init(
-        chartData: ChartData,
-        style: InfoBoxStyle
-    ) {
-        self.chartData = chartData
-        self.style = style
-    }
-    
-    internal var content: some View {
-        VStack {
-            if chartData.infoView.isTouchCurrent {
-                chartData.infoDescription(info: chartData.touchPointData[0])
-                    .font(style.descriptionFont)
-                    .foregroundColor(style.descriptionColour)
-            }
-            LazyHGrid(rows: [GridItem(.adaptive(minimum: 40, maximum: 100)), GridItem(.adaptive(minimum: 40, maximum: 100))]) {
-                ForEach(chartData.touchPointData, id: \.id) { point in
-                    VStack {
-                        chartData.infoValueUnit(info: point)
-                            .font(style.valueFont)
-                            .foregroundColor(style.valueColour)
-                        chartData.infoLegend(info: point)
-                            .foregroundColor(style.descriptionColour)
-                    }
-                    .background(colour(point))
-                }
-                .padding(.all, 10)
-            }
-        }
-        .frame(height: 260)
-        .padding(.all, 8)
-        .background(
-            GeometryReader { geo in
-                if chartData.infoView.isTouchCurrent {
-                    Rectangle()
-                        .fill(style.backgroundColour)
-                        .overlay(
-                            Rectangle()
-                                .stroke(style.borderColour, style: style.borderStyle)
-                        )
-                }
-            }
-        )
-                           }
-    
-    func colour(_ point: ChartData.DataPoint) -> Color {
-        let value = Double(point.valueAsString(specifier: "%.f")) ?? 18
-        if value > 13 {
-            return Color(.red)
-        } else {
-            return Color(.blue)
-        }
     }
 }

@@ -46,11 +46,11 @@ extension GroupedBarChartDemoView {
             var data : GroupingData {
                 switch self {
                 case .england:
-                    return GroupingData(title: "England" , colour: ColourStyle(colour: .red))
+                    return GroupingData(title: "England" , colour: .colour(colour: .red))
                 case .scotland:
-                    return GroupingData(title: "Scotland", colour: ColourStyle(colour: .blue))
+                    return GroupingData(title: "Scotland", colour: .colour(colour: .blue))
                 case .wales:
-                    return GroupingData(title: "Wales"   , colour: ColourStyle(colour: .green))
+                    return GroupingData(title: "Wales"   , colour: .colour(colour: .green))
                 }
             }
         }

@@ -39,14 +39,14 @@ struct LineChartWithExtraLineDemoView: View {
     
     
     private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 8000, pointDescription: "Something 1"),
-         ExtraLineDataPoint(value: 10000, pointDescription: "Something 2"),
-         ExtraLineDataPoint(value: 15000, pointDescription: "Something 3"),
-         ExtraLineDataPoint(value: 9000, pointDescription: "Something 4")]
+        [ExtraLineDataPoint(value: 8000, description: "Something 1"),
+         ExtraLineDataPoint(value: 10000, description: "Something 2"),
+         ExtraLineDataPoint(value: 15000, description: "Something 3"),
+         ExtraLineDataPoint(value: 9000, description: "Something 4")]
     }
     
     private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
+        ExtraLineStyle(lineColour: .colour(colour: .blue),
                        lineType: .line,
                        yAxisTitle: "Another Axis")
     }
@@ -63,7 +63,7 @@ struct LineChartWithExtraLineDemoView: View {
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
+        style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         let gridStyle = GridStyle(numberOfLines: 7,
                                    lineColour: Color(.lightGray).opacity(0.5),

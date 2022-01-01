@@ -41,7 +41,7 @@ struct RangedLineChartDemoView: View {
     }
     
     private var customInfoBox: some InfoDisplayable {
-        RangedLineCustomInfoBox(chartData: data, boxFrame: $size)
+        RangedLineCustomInfoBox(chartData: data, numberFormat: numberFormat, boxFrame: $size)
     }
     private func setBoxLocation(_ touchLocation: CGPoint, _ chartSize: CGRect) -> CGPoint {
         CGPoint(x: data.setBoxLocation(touchLocation: touchLocation.x,
@@ -49,6 +49,20 @@ struct RangedLineChartDemoView: View {
                                        chartSize: chartSize),
                 y: 35)
     }
+    
+    private var numberFormat: NumberFormatter = {
+        let formatter = NumberFormatter()
+        
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "€"
+        formatter.locale = Locale.current
+        
+        formatter.usesGroupingSeparator = true
+        formatter.generatesDecimalNumbers = true
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
 }
 
 
@@ -57,17 +71,17 @@ extension RangedLineChartDemoView {
     static func weekOfData() -> RangedLineChartData {
 
         let data = RangedLineDataSet(dataPoints: [
-            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_0000, lowerValue: 10_0000, xAxisLabel: "2016", description: "2016"),
-            RangedLineChartDataPoint(value: 13_5000, upperValue: 13_5000, lowerValue: 11_5000, xAxisLabel: "2017", description: "2017"),
-            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_3000, lowerValue: 10_3000, xAxisLabel: "2018", description: "2018"),
-            RangedLineChartDataPoint(value: 12_4000, upperValue: 13_4000, lowerValue: 11_4000, xAxisLabel: "2019", description: "2019"),
-            RangedLineChartDataPoint(value: 12_8000, upperValue: 14_6000, lowerValue: 12_6000, xAxisLabel: "2020", description: "2020")
+            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_0000, lowerValue: 10_0000, xAxisLabel: "2016", description: "2016", ignore: true),
+            RangedLineChartDataPoint(value: 13_5000, upperValue: 13_5000, lowerValue: 11_5000, xAxisLabel: "2017", description: "2017", ignore: false),
+            RangedLineChartDataPoint(value: 11_0000, upperValue: 12_3000, lowerValue: 10_3000, xAxisLabel: "2018", description: "2018", ignore: false),
+            RangedLineChartDataPoint(value: 12_4000, upperValue: 13_4000, lowerValue: 11_4000, xAxisLabel: "2019", description: "2019", ignore: true),
+            RangedLineChartDataPoint(value: 12_8000, upperValue: 14_6000, lowerValue: 12_6000, xAxisLabel: "2020", description: "2020", ignore: true)
         ],
         legendTitle: "Profits",
         legendFillTitle: "Expected",
         pointStyle: PointStyle(),
-        style: RangedLineStyle(lineColour: ColourStyle(colour: .red),
-                               fillColour: ColourStyle(colour: Color(.blue).opacity(0.25)),
+        style: RangedLineStyle(lineColour: .colour(colour: .red),
+                               fillColour: .colour(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))
                         
         let gridStyle   = GridStyle(numberOfLines: 7,
@@ -106,25 +120,32 @@ struct RangedLineChartDemoView_Previews: PreviewProvider {
 }
 
 struct RangedLineCustomInfoBox: InfoDisplayable {
+
+    @ObservedObject internal var chartData: RangedLineChartData
+    private var numberFormat: NumberFormatter
     
-    @ObservedObject var chartData: RangedLineChartData
-    @Binding var boxFrame: CGRect
+    @Binding private var boxFrame: CGRect
+    
+    internal init(
+        chartData: RangedLineChartData,
+        numberFormat: NumberFormatter,
+        boxFrame: Binding<CGRect>
+    ) {
+        self.chartData = chartData
+        self._boxFrame = boxFrame
+        self.numberFormat = numberFormat
+    }
     
     @ViewBuilder
     var content: some View {
         if chartData.infoView.isTouchCurrent {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(chartData.touchPointData, id: \.id) { point in
-                    chartData.infoDescription(info: point)
+                    Text(point.wrappedDescription)
                         .font(.headline)
                         .foregroundColor(.primary)
-                    chartData.infoMainValue(info: point)
+                    Text(point.formattedValue(from: numberFormat))
                         .font(.body)
-                        .foregroundColor(.primary)
-                    chartData.infoValueUnit(info: point)
-                        .font(.body)
-                        .foregroundColor(.primary)
-                    chartData.infoLegend(info: point)
                         .foregroundColor(.primary)
                 }
             }

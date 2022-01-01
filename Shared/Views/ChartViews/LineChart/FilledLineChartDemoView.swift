@@ -10,14 +10,11 @@ import SwiftUICharts
 
 struct FilledLineChartDemoView: View {
     
-    @State var data : LineChartData = weekOfData()
+    @State var data : FilledLineChartData = weekOfData()
     
     var body: some View {
         VStack {
             FilledLineChart(chartData: data)
-                .filledTopLine(chartData: data,
-                               lineColour: ColourStyle(colour: .red),
-                               strokeStyle: StrokeStyle(lineWidth: 3))
                 .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
                 .pointMarkers(chartData: data)
                 .yAxisPOI(chartData: data,
@@ -42,7 +39,7 @@ struct FilledLineChartDemoView: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
-                .infoDisplay(.horizontal(chartData: data), style: .bordered)
+                .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Some Data"),
                           subtitle: HeaderBoxText(text: "A Week"))
@@ -54,29 +51,25 @@ struct FilledLineChartDemoView: View {
         .navigationTitle("Filled Line")
     }
     
-    static func weekOfData() -> LineChartData {
-        let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
-            LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"),
-            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
-            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
-            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
-            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
+    static func weekOfData() -> FilledLineChartData {
+        let data = FilledLineDataSet(dataPoints: [
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"     , ignore: true),
+            LineChartDataPoint(value: 13000, xAxisLabel: "T", description: "Tuesday"    , ignore: true),
+            LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"  , ignore: false),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"   , ignore: true),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"     , ignore: false),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"   , ignore: true),
+            LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday"     , ignore: true)
         ],
         legendTitle: "Test One",
         pointStyle: PointStyle(),
-        style: LineStyle(lineColour: ColourStyle(colours: [Color.red.opacity(0.50),
-                                                           Color.red.opacity(0.00)],
-                                                 startPoint: .top,
-                                                 endPoint: .bottom),
-                         lineType: .line))
+        style: FilledLineStyle())
         
-        return LineChartData(dataSets: data,
-                             xAxisLabels: ["Monday", "Thursday", "Sunday"],
-                             chartStyle: LineChartStyle(markerType: .full(attachment: .point),
-                                                        xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
-                                                        baseline: .minimumWithMaximum(of: 5000)))
+        return FilledLineChartData(dataSets: data,
+                                   xAxisLabels: ["Monday", "Thursday", "Sunday"],
+                                   chartStyle: LineChartStyle(markerType: .full(attachment: .point),
+                                                              xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
+                                                              baseline: .minimumWithMaximum(of: 5000)))
     }
 }
 
