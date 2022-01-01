@@ -41,7 +41,7 @@ struct RangedLineChartDemoView: View {
     }
     
     private var customInfoBox: some InfoDisplayable {
-        RangedLineCustomInfoBox(chartData: data, boxFrame: $size)
+        RangedLineCustomInfoBox(chartData: data, numberFormat: numberFormat, boxFrame: $size)
     }
     private func setBoxLocation(_ touchLocation: CGPoint, _ chartSize: CGRect) -> CGPoint {
         CGPoint(x: data.setBoxLocation(touchLocation: touchLocation.x,
@@ -49,6 +49,20 @@ struct RangedLineChartDemoView: View {
                                        chartSize: chartSize),
                 y: 35)
     }
+    
+    private var numberFormat: NumberFormatter = {
+        let formatter = NumberFormatter()
+        
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "€"
+        formatter.locale = Locale.current
+        
+        formatter.usesGroupingSeparator = true
+        formatter.generatesDecimalNumbers = true
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
 }
 
 
@@ -106,25 +120,32 @@ struct RangedLineChartDemoView_Previews: PreviewProvider {
 }
 
 struct RangedLineCustomInfoBox: InfoDisplayable {
+
+    @ObservedObject internal var chartData: RangedLineChartData
+    private var numberFormat: NumberFormatter
     
-    @ObservedObject var chartData: RangedLineChartData
-    @Binding var boxFrame: CGRect
+    @Binding private var boxFrame: CGRect
+    
+    internal init(
+        chartData: RangedLineChartData,
+        numberFormat: NumberFormatter,
+        boxFrame: Binding<CGRect>
+    ) {
+        self.chartData = chartData
+        self._boxFrame = boxFrame
+        self.numberFormat = numberFormat
+    }
     
     @ViewBuilder
     var content: some View {
         if chartData.infoView.isTouchCurrent {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(chartData.touchPointData, id: \.id) { point in
-                    chartData.infoDescription(info: point)
+                    Text(point.wrappedDescription)
                         .font(.headline)
                         .foregroundColor(.primary)
-                    chartData.infoMainValue(info: point)
+                    Text(point.formattedValue(from: numberFormat))
                         .font(.body)
-                        .foregroundColor(.primary)
-                    chartData.infoValueUnit(info: point)
-                        .font(.body)
-                        .foregroundColor(.primary)
-                    chartData.infoLegend(info: point)
                         .foregroundColor(.primary)
                 }
             }

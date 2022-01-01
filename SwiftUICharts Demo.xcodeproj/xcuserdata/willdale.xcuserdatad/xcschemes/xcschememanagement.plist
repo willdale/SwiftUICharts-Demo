@@ -27,12 +27,12 @@
 		<key>SwiftUICharts Demo (macOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>SwiftUICharts Demo (tvOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>SwiftUICharts Demo.xcscheme_^#shared#^_</key>
 		<dict>
