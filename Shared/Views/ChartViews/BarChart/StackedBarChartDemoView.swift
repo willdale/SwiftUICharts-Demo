@@ -82,19 +82,9 @@ extension StackedBarChartDemoView {
                  StackedBarDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
             ], setTitle: "Q4")
         ])
-
         
         return StackedBarChartData(dataSets: data,
                                    groups: groups,
-                                   xAxisLabels: ["One", "Two", "Three"],
-                                   barStyle: BarStyle(barWidth: 0.5, cornerRadius: CornerRadius(top: 50, bottom: 0)),
-                                   chartStyle: BarChartStyle(xAxisGridStyle: GridStyle(numberOfLines: 5,
-                                                                                       lineColour: Color.gray.opacity(0.25)),
-                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                                             yAxisGridStyle: GridStyle(numberOfLines: 5,
-                                                                                       lineColour: Color.gray.opacity(0.25)),
-                                                             yAxisNumberOfLabels: 5,
-                                                             baseline: .zero,
-                                                             topLine: .maximum(of: 1600)))
+                                   xAxisLabels: ["One", "Two", "Three"])
     }
 }

@@ -60,8 +60,7 @@ struct BarChartDemoView: View {
     }
     
     static func weekOfData() -> BarChartData {
-        let data: BarDataSet =
-            BarDataSet(dataPoints: [
+        let data: BarDataSet = BarDataSet(dataPoints: [
                 BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: .colour(colour: .purple)),
                 BarChartDataPoint(value: 90 , xAxisLabel: "Desktops"  , description: "Desktops"  , colour: .colour(colour: .blue)),
                 BarChartDataPoint(value: 700, xAxisLabel: "Phones"    , description: "Phones"    , colour: .colour(colour: .green)),
@@ -71,30 +70,15 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: .colour(colour: .red))
             ],
             legendTitle: "Data")
-                
-        let gridStyle  = GridStyle(numberOfLines: 7,
-                                   lineColour   : Color(.lightGray).opacity(0.25),
-                                   lineWidth    : 1)
         
-        let chartStyle = BarChartStyle(markerType         : .bottomLeading(),
-                                       xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(-90)),
-                                       xAxisTitle         : "Categories",
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
-                                       yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Units sold (x 1000)",
-                                       baseline           : .zero,
-                                       topLine            : .maximumValue)
+        let barStyle = BarStyle(barWidth: 0.5,
+                                cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                colourFrom: .dataPoints,
+                                colour: .colour(colour: .blue))
         
         return BarChartData(dataSets: data,
                             xAxisLabels: ["One", "Two", "Three"],
-                            barStyle: BarStyle(barWidth: 0.5,
-                                               cornerRadius: CornerRadius(top: 50, bottom: 0),
-                                               colourFrom: .dataPoints,
-                                               colour: .colour(colour: .blue)),
-                            chartStyle: chartStyle)
+                            barStyle: barStyle)
     }
 }
 

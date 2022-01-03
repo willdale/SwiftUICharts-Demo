@@ -65,37 +65,7 @@ struct LineChartWithExtraLineDemoView: View {
         pointStyle: PointStyle(),
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
-        let gridStyle = GridStyle(numberOfLines: 7,
-                                   lineColour: Color(.lightGray).opacity(0.5),
-                                   lineWidth: 1,
-                                   dash: [8],
-                                   dashPhase: 0)
-        
-        let chartStyle = LineChartStyle(markerType: .vertical(attachment: .line(dot: .style(DotStyle()))),
-                                        
-                                        xAxisGridStyle: gridStyle,
-                                        xAxisLabelPosition: .bottom,
-                                        xAxisLabelColour: Color.primary,
-                                        xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                        xAxisTitle: "xAxisTitle",
-                                        
-                                        yAxisGridStyle: gridStyle,
-                                        yAxisLabelPosition: .leading,
-                                        yAxisLabelColour: Color.primary,
-                                        yAxisNumberOfLabels: 7,
-                                        
-                                        baseline: .minimumWithMaximum(of: 5000),
-                                        topLine: .maximum(of: 20000),
-                                        
-                                        globalAnimation: .easeOut(duration: 1))
-        
-        
-        
-        let chartData = LineChartData(dataSets: data,
-                                      chartStyle: chartStyle)
-        
-        return chartData
-        
+        return LineChartData(dataSets: data)
     }
 
 }

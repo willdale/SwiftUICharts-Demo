@@ -76,19 +76,6 @@ struct RangedBarChartDemoView: View {
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , xAxisLabel: "23:00 - 24:00", description: "23:00 - 24:00")
             ],
             legendTitle: "BPM")
-                        
-        let gridStyle  = GridStyle(numberOfLines: 11,
-                                   lineColour  : Color(.lightGray).opacity(0.25),
-                                   lineWidth   : 1)
-        
-        let chartStyle = BarChartStyle(xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(90)),
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
-                                       yAxisNumberOfLabels: 11,
-                                       baseline: .minimumWithMaximum(of: 30),
-                                       topLine: .maximum(of: 160))
         
         return RangedBarChartData(dataSets: data,
                                   xAxisLabels: ["00:00", "12:00", "00:00"],
@@ -96,9 +83,8 @@ struct RangedBarChartDemoView: View {
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,
                                                      colour: .gradient(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
-                                                                                   Color.init(red: 1, green: 0.5, blue: 0.5)],
-                                                                         startPoint: .bottom, endPoint: .top)),
-                                  chartStyle: chartStyle)
+                                                                                 Color.init(red: 1, green: 0.5, blue: 0.5)],
+                                                                       startPoint: .bottom, endPoint: .top)))
     }
 }
 

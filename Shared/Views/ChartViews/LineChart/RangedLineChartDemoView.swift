@@ -69,7 +69,6 @@ struct RangedLineChartDemoView: View {
 extension RangedLineChartDemoView {
     
     static func weekOfData() -> RangedLineChartData {
-
         let data = RangedLineDataSet(dataPoints: [
             RangedLineChartDataPoint(value: 11_0000, upperValue: 12_0000, lowerValue: 10_0000, xAxisLabel: "2016", description: "2016", ignore: true),
             RangedLineChartDataPoint(value: 13_5000, upperValue: 13_5000, lowerValue: 11_5000, xAxisLabel: "2017", description: "2017", ignore: false),
@@ -83,33 +82,8 @@ extension RangedLineChartDemoView {
         style: RangedLineStyle(lineColour: .colour(colour: .red),
                                fillColour: .colour(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))
-                        
-        let gridStyle   = GridStyle(numberOfLines: 7,
-                                    lineColour   : Color(.lightGray).opacity(0.5),
-                                    lineWidth    : 1,
-                                    dash         : [8],
-                                    dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
-                                        
-                                        xAxisGridStyle      : gridStyle,
-                                        xAxisLabelPosition  : .bottom,
-                                        xAxisLabelColour    : Color.primary,
-                                        xAxisLabelsFrom     : .dataPoint(rotation: .degrees(0)),
-                                       
-                                        yAxisGridStyle      : gridStyle,
-                                        yAxisLabelPosition  : .leading,
-                                        yAxisLabelColour    : Color.primary,
-                                        yAxisNumberOfLabels : 7,
-                                        
-                                        baseline: .minimumValue,
-                                        topLine: .maximumValue,
-                                        
-                                        globalAnimation     : .easeOut(duration: 1))
-        
-        return RangedLineChartData(dataSets: data,
-                                   chartStyle: chartStyle)
-        
+        return RangedLineChartData(dataSets: data)
     }
 }
 

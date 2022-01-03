@@ -64,29 +64,12 @@ struct HorizontalBarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: .colour(colour: .red))
             ],
             legendTitle: "Data")
-                
-        let gridStyle  = GridStyle(numberOfLines: 7,
-                                   lineColour   : Color(.lightGray).opacity(0.25),
-                                   lineWidth    : 1)
-        
-        let chartStyle = BarChartStyle(markerType         : .full(),
-                                       xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .top,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
-                                       xAxisTitle         : "Units sold (x 1000)",
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
-                                       yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Categories",
-                                       baseline           : .zero,
-                                       topLine            : .maximumValue)
         
         return HorizontalBarChartData(dataSets  : data,
                                       barStyle  : BarStyle(barWidth: 0.5,
                                                            cornerRadius: CornerRadius(leading: 0, trailing: 50),
                                                            colourFrom: .dataPoints,
-                                                           colour: .colour(colour: .blue)),
-                                      chartStyle: chartStyle)
+                                                           colour: .colour(colour: .blue)))
     }
 }
 

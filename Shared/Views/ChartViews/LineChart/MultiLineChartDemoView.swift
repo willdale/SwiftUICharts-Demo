@@ -111,15 +111,7 @@ struct MultiLineChartDemoView: View {
         ])
         
         return MultiLineChartData(dataSets: data,
-                                  xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(markerType: .full(attachment: .line(dot: .style(DotStyle()))),
-                                                             xAxisGridStyle: GridStyle(numberOfLines: 12),
-                                                             xAxisTitle: "Month",
-                                                             yAxisGridStyle: GridStyle(numberOfLines: 5),
-                                                             yAxisNumberOfLabels: 5,
-                                                             yAxisTitle: "Temperature (ºc)",
-                                                             baseline: .minimumValue,
-                                                             topLine: .maximumValue))
+                                  xAxisLabels: ["January", "December"])
     }
 }
 

@@ -76,7 +76,6 @@ struct FilterView: View {
     }
     
     init(startDate: Date, title: String, subtitle: String) {
-        
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         
@@ -88,15 +87,7 @@ struct FilterView: View {
             LineChartDataPoint(value: myData.value, xAxisLabel: myData.xAxisLabel, description: myData.description)
         }
         
-        let baseline = chartDataPoints.min(by: { $0.value < $1.value })?.value ?? 1
-        let topline  = chartDataPoints.max(by: { $0.value < $1.value })?.value ?? 1
-        
-        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"),
-                                  chartStyle: LineChartStyle(markerType: .vertical(attachment: .point),
-                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                                             yAxisNumberOfLabels: 3,
-                                                             baseline: .minimumWithMaximum(of: baseline - 20),
-                                                             topLine: .maximum(of: topline + 20)))
+        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"))
         self.title = HeaderBoxText(text: title)
         self.subtitle = HeaderBoxText(text: subtitle)
     }

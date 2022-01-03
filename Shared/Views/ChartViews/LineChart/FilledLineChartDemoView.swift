@@ -66,10 +66,7 @@ struct FilledLineChartDemoView: View {
         style: FilledLineStyle())
         
         return FilledLineChartData(dataSets: data,
-                                   xAxisLabels: ["Monday", "Thursday", "Sunday"],
-                                   chartStyle: LineChartStyle(markerType: .full(attachment: .point),
-                                                              xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
-                                                              baseline: .minimumWithMaximum(of: 5000)))
+                                   xAxisLabels: ["Monday", "Thursday", "Sunday"])
     }
 }
 
