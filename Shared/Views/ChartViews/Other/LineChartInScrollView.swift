@@ -18,7 +18,7 @@ struct LineChartInScrollView: View {
         ScrollView {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f", minDistance: 10)
+                .touch(chartData: data)
                 .yAxisPOI(chartData: data,
                           markerName: "Step Count Aim",
                           markerValue: 15_000,

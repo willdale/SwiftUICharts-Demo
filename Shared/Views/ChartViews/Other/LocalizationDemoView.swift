@@ -20,7 +20,7 @@ struct LocalizationDemoView: View {
                 extraLineStyle
             }
             .pointMarkers(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
+            .touch(chartData: data)
             .yAxisPOI(chartData: data,
                       markerName: "Local_StepCountAim",
                       markerValue: 15_000,

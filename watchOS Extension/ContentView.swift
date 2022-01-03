@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         BarChart(chartData: data)
-            .touchOverlay(chartData: data)
+            .touch(chartData: data)
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)

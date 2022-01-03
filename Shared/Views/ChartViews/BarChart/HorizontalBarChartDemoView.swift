@@ -14,7 +14,7 @@ struct HorizontalBarChartDemoView: View {
     
     var body: some View {
         HorizontalBarChart(chartData: data)
-            .touchOverlay(chartData: data)
+            .touch(chartData: data)
             .yAxisPOI(chartData: data,
                       markerName: "Step Count Aim",
                       markerValue: 600,

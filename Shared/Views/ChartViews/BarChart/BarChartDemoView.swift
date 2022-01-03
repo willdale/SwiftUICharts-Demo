@@ -15,7 +15,7 @@ struct BarChartDemoView: View {
     var body: some View {
         VStack {
         BarChart(chartData: data)
-            .touchOverlay(chartData: data)
+            .touch(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard)
             .yAxisLabels(chartData: data)

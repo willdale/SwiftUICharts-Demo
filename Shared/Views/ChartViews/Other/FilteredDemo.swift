@@ -42,7 +42,7 @@ struct FilterView: View {
     var body: some View {
         LineChart(chartData: data)
             .pointMarkers(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
+            .touch(chartData: data)
             .yAxisPOI(chartData: data,
                       markerName: "Step Count Aim",
                       markerValue: 150,

@@ -15,7 +15,7 @@ struct FilledLineChartDemoView: View {
     var body: some View {
         VStack {
             FilledLineChart(chartData: data)
-                .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
+                .touch(chartData: data)
                 .pointMarkers(chartData: data)
                 .yAxisPOI(chartData: data,
                           markerName: "Step Count Aim",

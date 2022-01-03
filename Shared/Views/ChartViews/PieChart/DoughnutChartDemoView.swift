@@ -15,7 +15,7 @@ struct DoughnutChartDemoView: View {
     var body: some View {
         VStack {
             DoughnutChart(chartData: data)
-                .touchOverlay(chartData: data)
+                .touch(chartData: data)
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Doughnut"),

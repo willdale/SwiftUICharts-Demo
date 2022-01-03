@@ -14,7 +14,7 @@ struct StackedBarChartDemoView: View {
     
     var body: some View {
         StackedBarChart(chartData: data)
-            .touchOverlay(chartData: data)
+            .touch(chartData: data)
             .xAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard)
             .yAxisLabels(chartData: data)

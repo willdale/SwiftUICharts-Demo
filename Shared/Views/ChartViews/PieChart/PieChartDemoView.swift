@@ -15,7 +15,7 @@ struct PieChartDemoView: View {
     var body: some View {
         VStack {
             PieChart(chartData: data)
-                .touchOverlay(chartData: data)
+                .touch(chartData: data)
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Pie"),

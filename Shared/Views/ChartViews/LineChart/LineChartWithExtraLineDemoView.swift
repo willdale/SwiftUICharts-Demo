@@ -19,7 +19,7 @@ struct LineChartWithExtraLineDemoView: View {
                        datapoints: extraLineData,
                        style: extraLineStyle)
             .pointMarkers(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
+            .touch(chartData: data)
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)

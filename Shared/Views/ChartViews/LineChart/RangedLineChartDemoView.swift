@@ -18,8 +18,8 @@ struct RangedLineChartDemoView: View {
         VStack {
             
             RangedLineChart(chartData: data)
+                .touch(chartData: data)
                 .pointMarkers(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.0f", unit: .prefix(of: "$"))
                 .averageLine(chartData: data,
                              labelPosition: .center(specifier: "%.0f"),
                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
