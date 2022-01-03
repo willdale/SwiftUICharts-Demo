@@ -25,7 +25,7 @@ struct RangedLineChartDemoView: View {
                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
+                .xAxisLabels(chartData: data, style: .standard)
                 .yAxisLabels(chartData: data)
 
                 .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }

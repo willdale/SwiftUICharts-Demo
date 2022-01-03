@@ -46,9 +46,8 @@ struct LocalizationDemoView: View {
                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+            .xAxisLabels(chartData: data, style: .standard)
+            .extraYAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Local_Title"),

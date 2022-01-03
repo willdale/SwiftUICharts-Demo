@@ -40,7 +40,7 @@ struct HorizontalBarChartDemoView: View {
                       labelPosition: .yAxis(specifier: ""))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
+            .xAxisLabels(chartData: data, style: .standard)
             .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,

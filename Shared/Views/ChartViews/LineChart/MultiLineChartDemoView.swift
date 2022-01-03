@@ -20,10 +20,10 @@ struct MultiLineChartDemoView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data, specifier: "%.01f")
-            
-                .infoDisplay(.verticle(chartData: data), style: .bordered, shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
-            
+                .yAxisLabels(chartData: data)
+                .infoDisplay(.verticle(chartData: data),
+                             style: .bordered,
+                             shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Average Temperature"),
                           subtitle: HeaderBoxText(text: "Monthly"))

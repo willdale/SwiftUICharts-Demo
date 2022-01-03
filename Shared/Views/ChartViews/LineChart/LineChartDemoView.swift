@@ -17,33 +17,39 @@ struct LineChartDemoView: View {
         LineChart(chartData: data)
             .pointMarkers(chartData: data)
             .touchOverlay(chartData: data, specifier: "%.0f")
-//            .yAxisPOI(chartData: data,
-//                      markerName: "Step Count Aim",
-//                      markerValue: 15_000,
-//                      labelPosition: .center(specifier: "%.0f"),
-//                      labelColour: Color.black,
-//                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-//                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-//            .yAxisPOI(chartData: data,
-//                      markerName: "Minimum Recommended",
-//                      markerValue: 10_000,
-//                      labelPosition: .center(specifier: "%.0f"),
-//                      labelColour: Color.white,
-//                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-//                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-//            .xAxisPOI(chartData: data,
-//                      markerName: "Worst",
-//                      markerValue: 2,
-//                      dataPointCount: data.dataSets.dataPoints.count,
-//                      lineColour: .red)
-//            .averageLine(chartData: data,
-//                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+        
+            .yAxisPOI(chartData: data,
+                      markerName: "Step Count Aim",
+                      markerValue: 15_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.black,
+                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .yAxisPOI(chartData: data,
+                      markerName: "Minimum Recommended",
+                      markerValue: 10_000,
+                      labelPosition: .center(specifier: "%.0f"),
+                      labelColour: Color.white,
+                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .xAxisPOI(chartData: data,
+                      markerName: "Worst",
+                      markerValue: 2,
+                      dataPointCount: data.dataSets.dataPoints.count,
+                      lineColour: .red)
+            .averageLine(chartData: data,
+                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+        
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+        
+            .axisBorder(chartData: data, side: .leading, style: .lightGray)
+            .axisBorder(chartData: data, side: .bottom, style: .lightGray)
+        
+            .xAxisLabels(chartData: data, style: .standard)
+            .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data))
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Step Count"),

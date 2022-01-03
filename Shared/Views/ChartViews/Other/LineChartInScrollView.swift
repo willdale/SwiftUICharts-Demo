@@ -32,7 +32,7 @@ struct LineChartInScrollView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+                .yAxisLabels(chartData: data)
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Step Count"),

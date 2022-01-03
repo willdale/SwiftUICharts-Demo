@@ -16,7 +16,7 @@ struct StackedBarChartDemoView: View {
         StackedBarChart(chartData: data)
             .touchOverlay(chartData: data)
             .xAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
+            .xAxisLabels(chartData: data, style: .standard)
             .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,

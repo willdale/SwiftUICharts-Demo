@@ -17,9 +17,8 @@ struct BarChartDemoView: View {
         BarChart(chartData: data)
             .touchOverlay(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data,
-                         colourIndicator: .custom(colour: .colour(colour: .red), size: 12))
+            .xAxisLabels(chartData: data, style: .standard)
+            .yAxisLabels(chartData: data)
             .infoDisplaySpacer(height: 75)
             .infoDisplay(.verticle(chartData: data),
                          style: .bordered,
