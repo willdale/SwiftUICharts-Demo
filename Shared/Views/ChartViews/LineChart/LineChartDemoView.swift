@@ -50,6 +50,10 @@ struct LineChartDemoView: View {
         
             .xAxisLabels(chartData: data, style: .standard)
             .yAxisLabels(chartData: data)
+        
+            .axisTitle(chartData: data, text: "bottom", style: .bottom)
+            .axisTitle(chartData: data, text: "leading", style: .leading)
+        
             .infoDisplay(.verticle(chartData: data))
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Step Count"),
