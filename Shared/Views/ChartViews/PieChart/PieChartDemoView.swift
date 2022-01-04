@@ -47,7 +47,6 @@ extension PieChartDemoView {
             ],
             legendTitle: "Data")
         
-        return PieChartData(dataSets: data,
-                            chartStyle: PieChartStyle())
+        return PieChartData(dataSets: data)
     }
 }

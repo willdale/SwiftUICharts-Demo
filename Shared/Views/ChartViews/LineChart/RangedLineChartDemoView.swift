@@ -20,9 +20,9 @@ struct RangedLineChartDemoView: View {
             RangedLineChart(chartData: data)
                 .touch(chartData: data)
                 .pointMarkers(chartData: data)
-                .averageLine(chartData: data,
-                             labelPosition: .center(specifier: "%.0f"),
-                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//                .averageLine(chartData: data,
+//                             labelPosition: .center(specifier: "%.0f"),
+//                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data, style: .standard)

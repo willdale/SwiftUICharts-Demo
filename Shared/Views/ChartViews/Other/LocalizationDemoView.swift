@@ -21,29 +21,16 @@ struct LocalizationDemoView: View {
             }
             .pointMarkers(chartData: data)
             .touch(chartData: data)
-            .yAxisPOI(chartData: data,
-                      markerName: "Local_StepCountAim",
-                      markerValue: 15_000,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Local_MinimumRecommended",
-                      markerValue: 10_000,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+        
+            .yAxisPOI(chartData: data, label: "Local_StepCountAim", value: 15_000, position: .leading, style: .red)
+        
             .xAxisPOI(chartData: data,
                       markerName: "Local_Worst",
                       markerValue: 2,
                       dataPointCount: data.dataSets.dataPoints.count,
                       lineColour: .red)
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .averageLine(chartData: data, label: "Average", position: .leading, style: .red)
+        
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard)

@@ -15,29 +15,16 @@ struct HorizontalBarChartDemoView: View {
     var body: some View {
         HorizontalBarChart(chartData: data)
             .touch(chartData: data)
-            .yAxisPOI(chartData: data,
-                      markerName: "Step Count Aim",
-                      markerValue: 600,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Minimum Recommended",
-                      markerValue: 100,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisPOI(chartData: data,
-                      markerName: "Bob",
-                      markerValue: 2,
-                      dataPointCount: data.dataSets.dataPoints.count,
-                      labelPosition: .yAxis(specifier: ""))
+        
+            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .center, style: .red)
+//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .red)
+//            .averageLine(chartData: data, label: "Average", position: .leading, style: .red)
+        
+//            .xAxisPOI(chartData: data,
+//                      markerName: "Bob",
+//                      markerValue: 2,
+//                      dataPointCount: data.dataSets.dataPoints.count,
+//                      labelPosition: .yAxis(specifier: ""))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard)

@@ -43,24 +43,24 @@ struct FilterView: View {
         LineChart(chartData: data)
             .pointMarkers(chartData: data)
             .touch(chartData: data)
-            .yAxisPOI(chartData: data,
-                      markerName: "Step Count Aim",
-                      markerValue: 150,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Minimum Recommended",
-                      markerValue: 100,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .yAxisPOI(chartData: data,
+//                      markerName: "Step Count Aim",
+//                      markerValue: 150,
+//                      labelPosition: .center(specifier: "%.0f"),
+//                      labelColour: Color.black,
+//                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .yAxisPOI(chartData: data,
+//                      markerName: "Minimum Recommended",
+//                      markerValue: 100,
+//                      labelPosition: .center(specifier: "%.0f"),
+//                      labelColour: Color.white,
+//                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .averageLine(chartData: data,
+//                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)

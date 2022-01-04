@@ -17,30 +17,16 @@ struct LineChartDemoView: View {
         LineChart(chartData: data)
             .pointMarkers(chartData: data)
             .touch(chartData: data)
+            
+            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .red)
+//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
+//            .xAxisPOI(chartData: data,
+//                      markerName: "Worst",
+//                      markerValue: 2,
+//                      dataPointCount: data.dataSets.dataPoints.count,
+//                      lineColour: .red)
         
-            .yAxisPOI(chartData: data,
-                      markerName: "Step Count Aim",
-                      markerValue: 15_000,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Minimum Recommended",
-                      markerValue: 10_000,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisPOI(chartData: data,
-                      markerName: "Worst",
-                      markerValue: 2,
-                      dataPointCount: data.dataSets.dataPoints.count,
-                      lineColour: .red)
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
         
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
@@ -68,13 +54,13 @@ struct LineChartDemoView: View {
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"   , ignore: true),
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"   , ignore: false),
             LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"  , ignore: false),
-            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday", ignore: true),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday" , ignore: true),
+            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday", ignore: false),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday" , ignore: false),
             LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"   , ignore: false),
             LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , ignore: false),
-            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: true),
+            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
         ],
         legendTitle: "Steps",
         pointStyle: PointStyle(),

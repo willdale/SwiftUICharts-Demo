@@ -46,7 +46,6 @@ extension DoughnutChartDemoView {
             legendTitle: "Data")
         
         return DoughnutChartData(dataSets: data,
-                                 chartStyle: DoughnutChartStyle(),
                                  noDataText: Text("hello"))
     }
 }
