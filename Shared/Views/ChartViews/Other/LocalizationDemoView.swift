@@ -22,14 +22,16 @@ struct LocalizationDemoView: View {
             .pointMarkers(chartData: data)
             .touch(chartData: data)
         
-            .yAxisPOI(chartData: data, label: "Local_StepCountAim", value: 15_000, position: .leading, style: .red)
+            .yAxisPOI(chartData: data, label: "Local_StepCountAim", value: 15_000, position: .leading, style: .amber)
         
             .xAxisPOI(chartData: data,
-                      markerName: "Local_Worst",
-                      markerValue: 2,
-                      dataPointCount: data.dataSets.dataPoints.count,
-                      lineColour: .red)
-            .averageLine(chartData: data, label: "Average", position: .leading, style: .red)
+                      label: "Local_Worst",
+                      value: 2,
+                      total: data.dataSets.dataPoints.count,
+                      position: .center,
+                      style: .amber)
+
+            .averageLine(chartData: data, label: "Average", position: .leading, style: .amber)
         
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)

@@ -16,15 +16,16 @@ struct HorizontalBarChartDemoView: View {
         HorizontalBarChart(chartData: data)
             .touch(chartData: data)
         
-            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .center, style: .red)
+            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
 //            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .red)
 //            .averageLine(chartData: data, label: "Average", position: .leading, style: .red)
         
-//            .xAxisPOI(chartData: data,
-//                      markerName: "Bob",
-//                      markerValue: 2,
-//                      dataPointCount: data.dataSets.dataPoints.count,
-//                      labelPosition: .yAxis(specifier: ""))
+            .xAxisPOI(chartData: data,
+                      label: "Worst",
+                      value: 2,
+                      total: data.dataSets.dataPoints.count,
+                      position: .leading,
+                      style: .amber)
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard)

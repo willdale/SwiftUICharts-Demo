@@ -18,7 +18,15 @@ struct LineChartDemoView: View {
             .pointMarkers(chartData: data)
             .touch(chartData: data)
             
-            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .red)
+            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
+        
+            .xAxisPOI(chartData: data,
+                      label: "Local_Worst",
+                      value: 2,
+                      total: data.dataSets.dataPoints.count,
+                      position: .top,
+                      style: .amber)
+        
 //            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
 //            .xAxisPOI(chartData: data,
 //                      markerName: "Worst",
