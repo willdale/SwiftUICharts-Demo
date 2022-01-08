@@ -17,7 +17,7 @@ struct BarChartDemoView: View {
         BarChart(chartData: data)
             .touch(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data, style: .standard)
+            .xAxisLabels(chartData: data, style: .standard90)
             .yAxisLabels(chartData: data)
             .infoDisplaySpacer(height: 75)
             .infoDisplay(.verticle(chartData: data),

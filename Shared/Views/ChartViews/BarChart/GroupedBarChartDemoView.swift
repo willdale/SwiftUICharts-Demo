@@ -85,7 +85,6 @@ extension GroupedBarChartDemoView {
         
         return GroupedBarChartData(dataSets: data,
                                    groups: groups,
-                                   xAxisLabels: ["One", "Two", "Three"],
                                    barStyle: BarStyle(cornerRadius: CornerRadius(top: 5, bottom: 0)))
     }
 }

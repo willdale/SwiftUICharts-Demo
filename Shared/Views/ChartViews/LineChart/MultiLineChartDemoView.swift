@@ -19,7 +19,7 @@ struct MultiLineChartDemoView: View {
                 .pointMarkers(chartData: data)
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
+                .xAxisLabels(chartData: data, data: .custom(labels: ["January", "December"]))
                 .yAxisLabels(chartData: data)
                 .infoDisplay(.verticle(chartData: data),
                              style: .bordered,
@@ -110,8 +110,8 @@ struct MultiLineChartDemoView: View {
             style: LineStyle(lineColour: .colour(colour: .primary), lineType: .line)),
         ])
         
-        return MultiLineChartData(dataSets: data,
-                                  xAxisLabels: ["January", "December"])
+        return MultiLineChartData(dataSets: data/*,
+                                  xAxisLabels: ["January", "December"]*/)
     }
 }
 

@@ -35,7 +35,7 @@ struct RangedBarChartDemoView: View {
 //                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
+            .xAxisLabels(chartData: data, style: xAxisLabelStyle)
             .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
@@ -46,6 +46,10 @@ struct RangedBarChartDemoView: View {
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
             .navigationTitle("Week of Data")
+    }
+    
+    var xAxisLabelStyle: XAxisLabelStyle {
+        XAxisLabelStyle(rotation: .degrees(90))
     }
     
     static func weekOfData() -> RangedBarChartData {

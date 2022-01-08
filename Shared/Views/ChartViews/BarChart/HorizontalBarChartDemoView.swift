@@ -28,7 +28,7 @@ struct HorizontalBarChartDemoView: View {
                       style: .amber)
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data, style: .standard)
+            .xAxisLabels(chartData: data, /*data: .custom(labels: ["One", "Two"]),*/ style: .standard)
             .yAxisLabels(chartData: data)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,

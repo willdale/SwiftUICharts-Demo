@@ -85,6 +85,6 @@ extension StackedBarChartDemoView {
         
         return StackedBarChartData(dataSets: data,
                                    groups: groups,
-                                   xAxisLabels: ["One", "Two", "Three"])
+                                   barStyle: BarStyle(barWidth: 0.5))
     }
 }
