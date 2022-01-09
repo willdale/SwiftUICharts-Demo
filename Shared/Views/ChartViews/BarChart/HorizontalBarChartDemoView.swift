@@ -17,8 +17,8 @@ struct HorizontalBarChartDemoView: View {
             .touch(chartData: data)
         
             .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
-//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .red)
-//            .averageLine(chartData: data, label: "Average", position: .leading, style: .red)
+            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .amber)
+            .averageLine(chartData: data, label: "Average", position: .bottom, style: .amber)
         
             .xAxisPOI(chartData: data,
                       label: "Worst",
