@@ -18,7 +18,7 @@ struct ContentView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
+//            .yAxisLabels(chartData: data)
             .padding()
     }
     

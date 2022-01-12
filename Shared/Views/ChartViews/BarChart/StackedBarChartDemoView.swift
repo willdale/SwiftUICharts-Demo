@@ -17,7 +17,7 @@ struct StackedBarChartDemoView: View {
             .touch(chartData: data)
             .xAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data, position: .leading, data: .generated)
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Haggis Sales"),

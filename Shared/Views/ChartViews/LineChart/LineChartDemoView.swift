@@ -28,6 +28,7 @@ struct LineChartDemoView: View {
                       style: .amber)
         
 //            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
+            
 //            .xAxisPOI(chartData: data,
 //                      markerName: "Worst",
 //                      markerValue: 2,
@@ -43,7 +44,7 @@ struct LineChartDemoView: View {
             .axisBorder(chartData: data, side: .bottom, style: .lightGray)
         
             .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data, position: .leading, data: .generated, style: .standard)
         
             .axisTitle(chartData: data, text: "bottom", style: .bottom)
             .axisTitle(chartData: data, text: "leading", style: .leading)

@@ -26,17 +26,28 @@ struct HorizontalBarChartDemoView: View {
                       total: data.dataSets.dataPoints.count,
                       position: .leading,
                       style: .amber)
+        
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data, /*data: .custom(labels: ["One", "Two"]),*/ style: .standard)
-            .yAxisLabels(chartData: data)
+        
+            .xAxisLabels(chartData: data, style: .standard)
+            .yAxisLabels(chartData: data, position: .bottom, data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
+        
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Units Sold"),
                       subtitle: HeaderBoxText(text: "Last year"))
+            .coordinateSpace(name: "Custom")
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
+            
+    }
+    
+    var numberFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 0
+        return formatter
     }
     
     static func weekOfData() -> HorizontalBarChartData {

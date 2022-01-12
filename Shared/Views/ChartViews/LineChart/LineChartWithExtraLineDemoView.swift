@@ -23,7 +23,8 @@ struct LineChartWithExtraLineDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
+            .yAxisLabels(chartData: data, position: .leading, data: .generated)
+        
             .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,

@@ -26,7 +26,7 @@ struct RangedLineChartDemoView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data, style: .standard)
-                .yAxisLabels(chartData: data)
+                .yAxisLabels(chartData: data, position: .leading, data: .generated)
 
                 .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
                 .titleBox(chartData: data,

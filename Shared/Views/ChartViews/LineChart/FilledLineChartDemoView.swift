@@ -38,7 +38,8 @@ struct FilledLineChartDemoView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data)
+                .yAxisLabels(chartData: data, position: .leading, data: .generated)
+            
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Some Data"),
