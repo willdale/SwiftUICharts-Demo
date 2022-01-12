@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C09CC49278F639300C238C1 /* LineChartWatchDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09CC48278F639300C238C1 /* LineChartWatchDemo.swift */; };
+		6C09CC4B278F63D700C238C1 /* BarChartWatchDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09CC4A278F63D700C238C1 /* BarChartWatchDemo.swift */; };
+		6C09CC4D278F679900C238C1 /* MultiLineChartWatchDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09CC4C278F679900C238C1 /* MultiLineChartWatchDemo.swift */; };
 		6C17FF2E25F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C17FF2D25F0DCE100E8F11D /* RangedBarChartDemoView.swift */; };
 		6C17FF2F25F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C17FF2D25F0DCE100E8F11D /* RangedBarChartDemoView.swift */; };
 		6C17FF3025F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C17FF2D25F0DCE100E8F11D /* RangedBarChartDemoView.swift */; };
@@ -129,6 +132,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C09CC48278F639300C238C1 /* LineChartWatchDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWatchDemo.swift; sourceTree = "<group>"; };
+		6C09CC4A278F63D700C238C1 /* BarChartWatchDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartWatchDemo.swift; sourceTree = "<group>"; };
+		6C09CC4C278F679900C238C1 /* MultiLineChartWatchDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineChartWatchDemo.swift; sourceTree = "<group>"; };
 		6C17FF2D25F0DCE100E8F11D /* RangedBarChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangedBarChartDemoView.swift; sourceTree = "<group>"; };
 		6C18541A25AEF3BE00F2FAE0 /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
 		6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +216,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C09CC47278F637800C238C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6CDF288A25B30C9100ADA785 /* ContentView.swift */,
+				6C09CC4A278F63D700C238C1 /* BarChartWatchDemo.swift */,
+				6C09CC48278F639300C238C1 /* LineChartWatchDemo.swift */,
+				6C09CC4C278F679900C238C1 /* MultiLineChartWatchDemo.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6C18542425AEF47400F2FAE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				6CDF288825B30C9100ADA785 /* SwiftUICharts_DemoApp.swift */,
-				6CDF288A25B30C9100ADA785 /* ContentView.swift */,
+				6C09CC47278F637800C238C1 /* Views */,
 				6CDF288C25B30C9100ADA785 /* NotificationController.swift */,
 				6CDF288E25B30C9100ADA785 /* NotificationView.swift */,
 				6CDF289025B30C9100ADA785 /* ComplicationController.swift */,
@@ -679,7 +696,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CDF288D25B30C9100ADA785 /* NotificationController.swift in Sources */,
+				6C09CC4D278F679900C238C1 /* MultiLineChartWatchDemo.swift in Sources */,
 				6CDF288B25B30C9100ADA785 /* ContentView.swift in Sources */,
+				6C09CC4B278F63D700C238C1 /* BarChartWatchDemo.swift in Sources */,
+				6C09CC49278F639300C238C1 /* LineChartWatchDemo.swift in Sources */,
 				6CDF289125B30C9100ADA785 /* ComplicationController.swift in Sources */,
 				6CDF288925B30C9100ADA785 /* SwiftUICharts_DemoApp.swift in Sources */,
 				6CDF288F25B30C9100ADA785 /* NotificationView.swift in Sources */,

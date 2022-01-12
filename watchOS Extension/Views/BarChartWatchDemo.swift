@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
-//  watchOS Extension
+//  BarChartWatchDemo.swift
+//  SwiftUICharts Demo (watchOS) Extension
 //
-//  Created by Will Dale on 16/01/2021.
+//  Created by Will Dale on 12/01/2022.
 //
 
 import SwiftUI
 import SwiftUICharts
 
-struct ContentView: View {
+struct BarChartWatchDemo: View {
     
     let data = makeData()
     
@@ -33,7 +33,6 @@ struct ContentView: View {
         legendTitle: "Data")
         
         let metadata = ChartMetadata(title: "Something", subtitle: "Some data")
-
         let xAxisLabels = [""]
 
         let chartStyle = BarChartStyle(infoBoxPlacement: .floating,
@@ -55,8 +54,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+
+struct BarChartDemoView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        BarChartWatchDemo()
     }
 }
