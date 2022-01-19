@@ -14,51 +14,75 @@ struct LineChartDemoView: View {
     let data: LineChartData = weekOfData()
     
     var body: some View {
-        LineChart(chartData: data)
-            .pointMarkers(chartData: data)
-            .touch(chartData: data)
-            
-            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
         
-            .xAxisPOI(chartData: data,
-                      label: "Local_Worst",
-                      value: 2,
-                      total: data.dataSets.dataPoints.count,
-                      position: .top,
-                      style: .amber)
+        Chart(chartData: data) {
+//            ZStack {
+//                HGrid(numberOfLines: 5, ignoreEdges: true)
+//                    .stroke(.blue, style: StrokeStyle(lineWidth: 1))
+//                VGrid(numberOfLines: 3, ignoreEdges: true)
+//                    .stroke(.blue, style: StrokeStyle(lineWidth: 1))
+                
+            HStack(spacing: 0) {
+                    TestYAxisLabels<LineChartData>(data: .generated,
+                                                   style: .standard)
+                    
+                    TestLineChart()
+                        .pointMarkers(chartData: data)
+                        .touch(chartData: data)
+                        .border(width: 1,
+                                edges: [.leading, .bottom],
+                                color: .primary)
+                }
+                
+//            }
+//            .padding()
+        }
         
-//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
-            
+//        LineChart(chartData: data)
+//            .pointMarkers(chartData: data)
+//            .touch(chartData: data)
+//
+//            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
+//
 //            .xAxisPOI(chartData: data,
-//                      markerName: "Worst",
-//                      markerValue: 2,
-//                      dataPointCount: data.dataSets.dataPoints.count,
-//                      lineColour: .red)
-        
-//            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
-        
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-        
-            .axisBorder(chartData: data, side: .leading, style: .lightGray)
-            .axisBorder(chartData: data, side: .bottom, style: .lightGray)
-        
-            .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data, position: .leading, data: .generated, style: .standard)
-        
-            .axisTitle(chartData: data, text: "bottom", style: .bottom)
-            .axisTitle(chartData: data, text: "leading", style: .leading)
-        
-            .infoDisplay(.verticle(chartData: data))
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Step Count"),
-                      subtitle: HeaderBoxText(text: "Over a Week"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .animation(.none, value: data.id)
-            .id(data.id)
-            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
-            .padding(.horizontal)
-            .navigationTitle("Week of Data")
+//                      label: "Local_Worst",
+//                      value: 2,
+//                      total: data.dataSets.dataPoints.count,
+//                      position: .top,
+//                      style: .amber)
+//
+////            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
+//
+////            .xAxisPOI(chartData: data,
+////                      markerName: "Worst",
+////                      markerValue: 2,
+////                      dataPointCount: data.dataSets.dataPoints.count,
+////                      lineColour: .red)
+//
+////            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
+//
+//            .xAxisGrid(chartData: data)
+//            .yAxisGrid(chartData: data)
+//
+//            .axisBorder(chartData: data, side: .leading, style: .lightGray)
+//            .axisBorder(chartData: data, side: .bottom, style: .lightGray)
+//
+//            .xAxisLabels(chartData: data, style: .standard)
+//            .yAxisLabels(chartData: data, position: .leading, data: .generated, style: .standard)
+//
+//            .axisTitle(chartData: data, text: "bottom", style: .bottom)
+//            .axisTitle(chartData: data, text: "leading", style: .leading)
+//
+//            .infoDisplay(.verticle(chartData: data))
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Step Count"),
+//                      subtitle: HeaderBoxText(text: "Over a Week"))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .animation(.none, value: data.id)
+//            .id(data.id)
+//            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+//            .padding(.horizontal)
+//            .navigationTitle("Week of Data")
     }
     
     static func weekOfData() -> LineChartData {
