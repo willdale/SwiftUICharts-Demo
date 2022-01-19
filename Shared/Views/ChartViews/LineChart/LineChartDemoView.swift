@@ -16,16 +16,13 @@ struct LineChartDemoView: View {
     var body: some View {
         
         Chart(chartData: data) {
-//            ZStack {
-//                HGrid(numberOfLines: 5, ignoreEdges: true)
-//                    .stroke(.blue, style: StrokeStyle(lineWidth: 1))
-//                VGrid(numberOfLines: 3, ignoreEdges: true)
-//                    .stroke(.blue, style: StrokeStyle(lineWidth: 1))
-                
-            HStack(spacing: 0) {
-                    TestYAxisLabels<LineChartData>(data: .generated,
-                                                   style: .standard)
-                    
+            HStack {
+                TestYAxisLabels(chartData: data, data: .generated, style: .standard)
+                ZStack {
+                    Grid(orientation: .horizontal, numberOfLines: 5, ignoreEdges: true)
+                        .stroke(.blue, style: StrokeStyle(lineWidth: 1))
+                    Grid(orientation: .vertical, numberOfLines: 3, ignoreEdges: true)
+                        .stroke(.blue, style: StrokeStyle(lineWidth: 1))
                     TestLineChart()
                         .pointMarkers(chartData: data)
                         .touch(chartData: data)
@@ -33,9 +30,7 @@ struct LineChartDemoView: View {
                                 edges: [.leading, .bottom],
                                 color: .primary)
                 }
-                
-//            }
-//            .padding()
+            }
         }
         
 //        LineChart(chartData: data)
