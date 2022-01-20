@@ -11,24 +11,27 @@ import Combine
 
 struct LineChartDemoView: View {
     
-    let data: LineChartData = weekOfData()
+    let chartData: LineChartData = weekOfData()
     
     var body: some View {
         
-        Chart(chartData: data) {
+        Chart(chartData: chartData) {
             HStack {
-                TestYAxisLabels(chartData: data, data: .generated, style: .standard)
-                ZStack {
-                    Grid(orientation: .horizontal, numberOfLines: 5, ignoreEdges: true)
-                        .stroke(.blue, style: StrokeStyle(lineWidth: 1))
-                    Grid(orientation: .vertical, numberOfLines: 3, ignoreEdges: true)
-                        .stroke(.blue, style: StrokeStyle(lineWidth: 1))
-                    TestLineChart()
-                        .pointMarkers(chartData: data)
-                        .touch(chartData: data)
-                        .border(width: 1,
-                                edges: [.leading, .bottom],
-                                color: .primary)
+                TestYAxisLabels(chartData, data: .generated, style: .standard)
+                VStack {
+                    ZStack {
+                        Grid(orientation: .horizontal, numberOfLines: 5, ignoreEdges: true)
+                            .stroke(.blue, style: StrokeStyle(lineWidth: 1))
+                        Grid(orientation: .vertical, numberOfLines: 3, ignoreEdges: true)
+                            .stroke(.blue, style: StrokeStyle(lineWidth: 1))
+                        TestLineChart()
+                            .pointMarkers(chartData: chartData)
+                            .touch(chartData: chartData)
+                            .border(width: 1,
+                                    edges: [.leading, .bottom],
+                                    color: .primary)
+                    }
+                    TestXAxisLabels(chartData, data: .datapoints, style: .standard)
                 }
             }
         }
