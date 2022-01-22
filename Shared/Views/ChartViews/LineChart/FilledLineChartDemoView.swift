@@ -10,12 +10,13 @@ import SwiftUICharts
 
 struct FilledLineChartDemoView: View {
     
-    @State var data : FilledLineChartData = weekOfData()
+    @State var data: FilledLineChartData = weekOfData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         VStack {
             FilledLineChart(chartData: data)
-                .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
                 .pointMarkers(chartData: data)
 //                .yAxisPOI(chartData: data,
 //                          markerName: "Step Count Aim",
@@ -38,7 +39,7 @@ struct FilledLineChartDemoView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data, position: .leading, data: .generated)
+                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
             
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,

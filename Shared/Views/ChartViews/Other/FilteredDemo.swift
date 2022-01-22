@@ -39,10 +39,12 @@ struct FilterView: View {
     let title: HeaderBoxText
     let subtitle: HeaderBoxText
         
+    @State private var touchLocation: CGPoint?
+    
     var body: some View {
         LineChart(chartData: data)
             .pointMarkers(chartData: data)
-            .touch(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
 //            .yAxisPOI(chartData: data,
 //                      markerName: "Step Count Aim",
 //                      markerValue: 150,

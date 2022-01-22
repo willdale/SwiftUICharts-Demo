@@ -11,10 +11,11 @@ import SwiftUICharts
 struct HorizontalBarChartDemoView: View {
     
     let data: HorizontalBarChartData = weekOfData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         HorizontalBarChart(chartData: data)
-            .touch(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
         
             .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
             .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .amber)
@@ -31,7 +32,7 @@ struct HorizontalBarChartDemoView: View {
             .yAxisGrid(chartData: data)
         
             .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data, position: .bottom, data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
+            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
         
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,

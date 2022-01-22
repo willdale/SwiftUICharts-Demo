@@ -14,11 +14,13 @@ struct LineChartInScrollView: View {
     
     let data: LineChartData = weekOfData()
     
+    @State private var touchLocation: CGPoint?
+    
     var body: some View {
         ScrollView {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
-                .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
 //                .yAxisPOI(chartData: data,
 //                          markerName: "Step Count Aim",
 //                          markerValue: 15_000,

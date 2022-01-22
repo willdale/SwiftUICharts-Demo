@@ -10,11 +10,13 @@ import SwiftUICharts
 
 struct RangedBarChartDemoView: View {
     
-    let data : RangedBarChartData = weekOfData()
+    let data: RangedBarChartData = weekOfData()
+    
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         RangedBarChart(chartData: data)
-            .touch(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
 //            .yAxisPOI(chartData: data,
 //                      markerName: "Upper Limit",
 //                      markerValue: 100,
@@ -36,7 +38,7 @@ struct RangedBarChartDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: xAxisLabelStyle)
-            .yAxisLabels(chartData: data, position: .leading, data: .generated)
+            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
             .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,

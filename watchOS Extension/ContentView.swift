@@ -11,10 +11,11 @@ import SwiftUICharts
 struct ContentView: View {
     
     let data = makeData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         BarChart(chartData: data)
-            .touch(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)

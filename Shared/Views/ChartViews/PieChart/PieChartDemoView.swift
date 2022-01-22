@@ -11,11 +11,12 @@ import SwiftUICharts
 struct PieChartDemoView: View {
     
     var data: PieChartData = makeData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         VStack {
             PieChart(chartData: data)
-                .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Pie"),

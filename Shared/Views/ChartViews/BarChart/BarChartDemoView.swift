@@ -12,13 +12,15 @@ struct BarChartDemoView: View {
     
     let data: BarChartData = weekOfData()
     
+    @State private var touchLocation: CGPoint?
+    
     var body: some View {
         VStack {
         BarChart(chartData: data)
-            .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard90)
-            .yAxisLabels(chartData: data, position: .leading, data: .generated)
+            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
             .infoDisplaySpacer(height: 75)
             .infoDisplay(.verticle(chartData: data),
                          style: .bordered,

@@ -12,6 +12,8 @@ struct LineChartWithExtraLineDemoView: View {
     
     let data: LineChartData = weekOfData()
     
+    @State private var touchLocation: CGPoint?
+    
     var body: some View {
         LineChart(chartData: data)
             .extraLine(chartData: data,
@@ -19,11 +21,11 @@ struct LineChartWithExtraLineDemoView: View {
                        datapoints: extraLineData,
                        style: extraLineStyle)
             .pointMarkers(chartData: data)
-            .touch(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, position: .leading, data: .generated)
+            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
             .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
             .infoDisplay(.verticle(chartData: data), style: .bordered)

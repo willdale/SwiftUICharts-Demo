@@ -13,48 +13,49 @@ struct LineChartDemoView: View {
     
     let data: LineChartData = weekOfData()
     
+    @State private var touchLocation: Touch = .off
+    
     var body: some View {
         LineChart(chartData: data)
             .pointMarkers(chartData: data)
-            .touch(chartData: data)
+            .touch(chartData: data) { touchLocation = $0 }
             
-            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
-        
-            .xAxisPOI(chartData: data,
-                      label: "Local_Worst",
-                      value: 2,
-                      total: data.dataSets.dataPoints.count,
-                      position: .top,
-                      style: .amber)
+//            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
+//
+//            .xAxisPOI(chartData: data,
+//                      label: "Local_Worst",
+//                      value: 2,
+//                      total: data.dataSets.dataPoints.count,
+//                      position: .top,
+//                      style: .amber)
         
 //            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
-            
 //            .xAxisPOI(chartData: data,
 //                      markerName: "Worst",
 //                      markerValue: 2,
 //                      dataPointCount: data.dataSets.dataPoints.count,
 //                      lineColour: .red)
-        
 //            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
         
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
+//            .xAxisGrid(chartData: data)
+//            .yAxisGrid(chartData: data)
         
-            .axisBorder(chartData: data, side: .leading, style: .lightGray)
-            .axisBorder(chartData: data, side: .bottom, style: .lightGray)
+//            .axisBorder(chartData: data, side: .leading, style: .lightGray)
+//            .axisBorder(chartData: data, side: .bottom, style: .lightGray)
         
-            .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data, position: .leading, data: .generated, style: .standard)
+//            .xAxisLabels(chartData: data, style: .standard)
+            .yAxisLabels(chartData: data, position: [.leading], data: .generated, style: .standard)
+//            .yAxisLabels(chartData: data, position: [.trailing], data: .generated, style: .standard)
         
-            .axisTitle(chartData: data, text: "bottom", style: .bottom)
-            .axisTitle(chartData: data, text: "leading", style: .leading)
+//            .axisTitle(chartData: data, text: "bottom", style: .bottom)
+//            .axisTitle(chartData: data, text: "leading", style: .leading)
         
             .infoDisplay(.verticle(chartData: data))
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Step Count"),
-                      subtitle: HeaderBoxText(text: "Over a Week"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .animation(.none, value: data.id)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Step Count"),
+//                      subtitle: HeaderBoxText(text: "Over a Week"))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .drawingGroup()
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)

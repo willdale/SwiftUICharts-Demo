@@ -12,13 +12,14 @@ struct RangedLineChartDemoView: View {
     
     let data: RangedLineChartData = weekOfData()
     
+    @State private var touchLocation: CGPoint?
     @State var size: CGRect = .zero
     
     var body: some View {
         VStack {
             
             RangedLineChart(chartData: data)
-                .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
                 .pointMarkers(chartData: data)
 //                .averageLine(chartData: data,
 //                             labelPosition: .center(specifier: "%.0f"),
@@ -26,7 +27,7 @@ struct RangedLineChartDemoView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data, style: .standard)
-                .yAxisLabels(chartData: data, position: .leading, data: .generated)
+                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
 
                 .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
                 .titleBox(chartData: data,

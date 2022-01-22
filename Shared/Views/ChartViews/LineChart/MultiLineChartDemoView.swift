@@ -10,17 +10,18 @@ import SwiftUICharts
 
 struct MultiLineChartDemoView: View {
     
-    let data : MultiLineChartData = weekOfData()
-        
+    let data: MultiLineChartData = weekOfData()
+    @State private var touchLocation: CGPoint?
+    
     var body: some View {
         VStack {
             MultiLineChart(chartData: data)
-                .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
                 .pointMarkers(chartData: data)
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data, data: .custom(labels: ["January", "December"]))
-                .yAxisLabels(chartData: data, position: .leading, data: .generated)
+                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
             
                 .infoDisplay(.verticle(chartData: data),
                              style: .bordered,

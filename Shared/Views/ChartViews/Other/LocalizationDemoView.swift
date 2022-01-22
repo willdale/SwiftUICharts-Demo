@@ -12,6 +12,8 @@ struct LocalizationDemoView: View {
     
     let data: LineChartData = weekOfData()
     
+    @State private var touchLocation: CGPoint?
+    
     var body: some View {
         LineChart(chartData: data)
             .extraLine(chartData: data, legendTitle: "Local_SecondLine") {
@@ -20,7 +22,7 @@ struct LocalizationDemoView: View {
                 extraLineStyle
             }
             .pointMarkers(chartData: data)
-            .touch(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
         
             .yAxisPOI(chartData: data, label: "Local_StepCountAim", value: 15_000, position: .leading, style: .amber)
         

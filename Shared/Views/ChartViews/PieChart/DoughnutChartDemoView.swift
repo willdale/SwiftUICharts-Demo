@@ -11,11 +11,12 @@ import SwiftUICharts
 struct DoughnutChartDemoView: View {
     
     var data: DoughnutChartData = makeData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         VStack {
             DoughnutChart(chartData: data)
-                .touch(chartData: data)
+//                .touch(chartData: data) { touchLocation = $0 }
                 .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Doughnut"),
