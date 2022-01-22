@@ -44,14 +44,13 @@ struct LineChartDemoView: View {
         
 //            .xAxisLabels(chartData: data, style: .standard)
         
-            .yAxisLabels(stateObject: stateObject, chartData: chartData, position: [.leading], data: .generated, style: .standard)
+            .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
         
 //            .yAxisLabels(chartData: data, position: [.trailing], data: .generated, style: .standard)
         
 //            .axisTitle(chartData: data, text: "bottom", style: .bottom)
 //            .axisTitle(chartData: data, text: "leading", style: .leading)
         
-//            .infoDisplay(stateObject: stateObject, infoView: Test()) { boxSize in
             .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
             }
