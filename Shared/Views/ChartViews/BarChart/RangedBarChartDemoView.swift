@@ -38,9 +38,9 @@ struct RangedBarChartDemoView: View {
             .xAxisGrid(chartData: data)
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: xAxisLabelStyle)
-            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Heart Rate"),
                       subtitle: HeaderBoxText(text: "Over 24 Hours"))

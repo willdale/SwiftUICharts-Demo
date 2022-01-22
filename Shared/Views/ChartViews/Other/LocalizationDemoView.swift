@@ -13,42 +13,43 @@ struct LocalizationDemoView: View {
     let data: LineChartData = weekOfData()
     
     @State private var touchLocation: CGPoint?
+    @State private var chartSize: CGRect = .zero
     
-    var body: some View {
-        LineChart(chartData: data)
-            .extraLine(chartData: data, legendTitle: "Local_SecondLine") {
-                extraLineData
-            } style: {
-                extraLineStyle
-            }
-            .pointMarkers(chartData: data)
-//            .touch(chartData: data) { touchLocation = $0 }
-        
-            .yAxisPOI(chartData: data, label: "Local_StepCountAim", value: 15_000, position: .leading, style: .amber)
-        
-            .xAxisPOI(chartData: data,
-                      label: "Local_Worst",
-                      value: 2,
-                      total: data.dataSets.dataPoints.count,
-                      position: .center,
-                      style: .amber)
-
-            .averageLine(chartData: data, label: "Average", position: .leading, style: .amber)
-        
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data, style: .standard)
-            .extraYAxisLabels(chartData: data)
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Local_Title"),
-                      subtitle: HeaderBoxText(text: "Local_Subtitle"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .id(data.id)
-            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
-            .padding(.horizontal)
-            
-            .navigationTitle("Week of Data")
+    var body: some View { EmptyView()
+//        LineChart(chartData: data) { chartSize = $0 }
+//            .extraLine(chartData: data, legendTitle: "Local_SecondLine") {
+//                extraLineData
+//            } style: {
+//                extraLineStyle
+//            }
+//            .pointMarkers(chartData: data)
+////            .touch(chartData: data) { touchLocation = $0 }
+//        
+//            .yAxisPOI(chartData: data, label: "Local_StepCountAim", value: 15_000, position: .leading, style: .amber)
+//        
+//            .xAxisPOI(chartData: data,
+//                      label: "Local_Worst",
+//                      value: 2,
+//                      total: data.dataSets.dataPoints.count,
+//                      position: .center,
+//                      style: .amber)
+//
+//            .averageLine(chartData: data, label: "Average", position: .leading, style: .amber)
+//        
+//            .xAxisGrid(chartData: data)
+//            .yAxisGrid(chartData: data)
+//            .xAxisLabels(chartData: data, style: .standard)
+//            .extraYAxisLabels(chartData: data)
+////            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Local_Title"),
+//                      subtitle: HeaderBoxText(text: "Local_Subtitle"))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .id(data.id)
+//            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+//            .padding(.horizontal)
+//            
+//            .navigationTitle("Week of Data")
     }
     
     

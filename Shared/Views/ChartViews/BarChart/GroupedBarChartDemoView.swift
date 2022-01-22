@@ -18,9 +18,9 @@ struct GroupedBarChartDemoView: View {
 //            .touch(chartData: data) { touchLocation = $0 }
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
                        title: HeaderBoxText(text: "Haggis Sales", font: .title),
                        subtitle: HeaderBoxText(text: "Per Quarter", font: .body))

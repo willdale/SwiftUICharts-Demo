@@ -32,9 +32,9 @@ struct HorizontalBarChartDemoView: View {
             .yAxisGrid(chartData: data)
         
             .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
+//            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
         
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
             .titleBox(chartData: data,
                       title: HeaderBoxText(text: "Units Sold"),
                       subtitle: HeaderBoxText(text: "Last year"))

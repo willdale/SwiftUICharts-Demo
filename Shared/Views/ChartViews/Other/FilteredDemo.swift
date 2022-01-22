@@ -40,10 +40,11 @@ struct FilterView: View {
     let subtitle: HeaderBoxText
         
     @State private var touchLocation: CGPoint?
+    @State private var chartSize: CGRect = .zero
     
-    var body: some View {
-        LineChart(chartData: data)
-            .pointMarkers(chartData: data)
+    var body: some View { EmptyView()
+//        LineChart(chartData: data) //{ chartSize = $0 }
+//            .pointMarkers(chartData: data)
 //            .touch(chartData: data) { touchLocation = $0 }
 //            .yAxisPOI(chartData: data,
 //                      markerName: "Step Count Aim",
@@ -63,16 +64,16 @@ struct FilterView: View {
 //                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
 //            .averageLine(chartData: data,
 //                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
+//            .xAxisGrid(chartData: data)
+//            .yAxisGrid(chartData: data)
+//            .xAxisLabels(chartData: data)
 //            .yAxisLabels(chartData: data)
         
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: title,
-                      subtitle: subtitle)
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: title,
+//                      subtitle: subtitle)
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
             .id(data.id)

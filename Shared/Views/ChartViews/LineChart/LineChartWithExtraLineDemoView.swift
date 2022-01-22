@@ -13,26 +13,27 @@ struct LineChartWithExtraLineDemoView: View {
     let data: LineChartData = weekOfData()
     
     @State private var touchLocation: CGPoint?
+    @State private var chartSize: CGRect = .zero
     
-    var body: some View {
-        LineChart(chartData: data)
-            .extraLine(chartData: data,
-                       legendTitle: "Test",
-                       datapoints: extraLineData,
-                       style: extraLineStyle)
-            .pointMarkers(chartData: data)
-//            .touch(chartData: data) { touchLocation = $0 }
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
-        
-            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Step Count"),
-                      subtitle: HeaderBoxText(text: "Over a Week"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+    var body: some View { EmptyView()
+//        LineChart(chartData: data) { chartSize = $0 }
+//            .extraLine(chartData: data,
+//                       legendTitle: "Test",
+//                       datapoints: extraLineData,
+//                       style: extraLineStyle)
+//            .pointMarkers(chartData: data)
+////            .touch(chartData: data) { touchLocation = $0 }
+//            .xAxisGrid(chartData: data)
+//            .yAxisGrid(chartData: data)
+//            .xAxisLabels(chartData: data)
+////            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//        
+//            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+////            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Step Count"),
+//                      subtitle: HeaderBoxText(text: "Over a Week"))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)

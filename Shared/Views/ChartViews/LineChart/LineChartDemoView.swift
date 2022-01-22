@@ -11,15 +11,14 @@ import Combine
 
 struct LineChartDemoView: View {
     
-    let data: LineChartData = weekOfData()
-    
-    @State private var touchLocation: Touch = .off
-    
+    @StateObject private var chartData = weekOfData()
+    @StateObject private var stateObject = TestStateObject()
+        
     var body: some View {
-        LineChart(chartData: data)
-            .pointMarkers(chartData: data)
-            .touch(chartData: data) { touchLocation = $0 }
-            
+        LineChart()
+            .pointMarkers(chartData: chartData)
+            .touch(stateObject: stateObject, chartData: chartData)
+                    
 //            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
 //
 //            .xAxisPOI(chartData: data,
@@ -40,26 +39,47 @@ struct LineChartDemoView: View {
 //            .xAxisGrid(chartData: data)
 //            .yAxisGrid(chartData: data)
         
-//            .axisBorder(chartData: data, side: .leading, style: .lightGray)
-//            .axisBorder(chartData: data, side: .bottom, style: .lightGray)
+            .axisBorder(chartData: chartData, side: .leading, style: .lightGray)
+            .axisBorder(chartData: chartData, side: .bottom, style: .lightGray)
         
 //            .xAxisLabels(chartData: data, style: .standard)
-            .yAxisLabels(chartData: data, position: [.leading], data: .generated, style: .standard)
+        
+            .yAxisLabels(stateObject: stateObject, chartData: chartData, position: [.leading], data: .generated, style: .standard)
+        
 //            .yAxisLabels(chartData: data, position: [.trailing], data: .generated, style: .standard)
         
 //            .axisTitle(chartData: data, text: "bottom", style: .bottom)
 //            .axisTitle(chartData: data, text: "leading", style: .leading)
         
-            .infoDisplay(.verticle(chartData: data))
+//            .infoDisplay(stateObject: stateObject, infoView: Test()) { boxSize in
+            .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
+                boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
+            }
+        
 //            .titleBox(chartData: data,
 //                      title: HeaderBoxText(text: "Step Count"),
 //                      subtitle: HeaderBoxText(text: "Over a Week"))
 //            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
 //            .drawingGroup()
-            .id(data.id)
+            .environmentObject(stateObject)
+            .environmentObject(chartData)
+            .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
             .navigationTitle("Week of Data")
+    }
+    
+    private func boxLocation(touchLocation: CGPoint, boxFrame: CGRect, chartSize: CGRect) -> CGPoint {
+        let returnPoint: CGFloat
+        if touchLocation.x < chartSize.minX + (boxFrame.width / 2) {
+            returnPoint = chartSize.minX + (boxFrame.width / 2)
+        } else if touchLocation.x > chartSize.maxX - (boxFrame.width / 2) {
+            returnPoint = chartSize.maxX - (boxFrame.width / 2)
+        } else {
+            returnPoint = touchLocation.x
+        }
+        return CGPoint(x: returnPoint,
+                       y: boxFrame.midY)
     }
     
     static func weekOfData() -> LineChartData {
@@ -89,12 +109,12 @@ struct LineChartView_Previews: PreviewProvider {
 
 extension Color {
     public static var myBackground: Color {
-        #if os(iOS)
+#if os(iOS)
         return Color(.systemBackground)
-        #elseif os(tvOS)
+#elseif os(tvOS)
         return Color(.darkGray)
-        #elseif os(macOS)
+#elseif os(macOS)
         return Color(.windowBackgroundColor)
-        #endif
+#endif
     }
 }

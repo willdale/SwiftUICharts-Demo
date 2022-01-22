@@ -17,7 +17,7 @@ struct DoughnutChartDemoView: View {
         VStack {
             DoughnutChart(chartData: data)
 //                .touch(chartData: data) { touchLocation = $0 }
-                .infoDisplay(.verticle(chartData: data), style: .bordered)
+//                .infoDisplay(.verticle(chartData: data), style: .bordered)
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Doughnut"),
                           subtitle: HeaderBoxText(text: "mmm doughnuts"))

@@ -21,11 +21,11 @@ struct MultiLineChartDemoView: View {
                 .xAxisGrid(chartData: data)
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data, data: .custom(labels: ["January", "December"]))
-                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
             
-                .infoDisplay(.verticle(chartData: data),
-                             style: .bordered,
-                             shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
+//                .infoDisplay(.verticle(chartData: data),
+//                             style: .bordered,
+//                             shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
                 .titleBox(chartData: data,
                           title: HeaderBoxText(text: "Average Temperature"),
                           subtitle: HeaderBoxText(text: "Monthly"))

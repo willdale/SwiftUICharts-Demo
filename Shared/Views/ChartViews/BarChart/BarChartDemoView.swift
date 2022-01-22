@@ -20,11 +20,10 @@ struct BarChartDemoView: View {
 //                .touch(chartData: data) { touchLocation = $0 }
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data, style: .standard90)
-            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
-            .infoDisplaySpacer(height: 75)
-            .infoDisplay(.verticle(chartData: data),
-                         style: .bordered,
-                         shape: Rectangle())
+//            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//            .infoDisplay(.verticle(chartData: data),
+//                         style: .bordered,
+//                         shape: Rectangle())
             .titleBox(chartData: data,
                        title: HeaderBoxText(text: "Units Sold", font: .title),
                        subtitle: HeaderBoxText(text: "Last year", font: .body))
