@@ -39,8 +39,11 @@ struct LineChartDemoView: View {
 //            .xAxisGrid(chartData: data)
 //            .yAxisGrid(chartData: data)
         
-            .axisBorder(chartData: chartData, side: .leading, style: .lightGray)
-            .axisBorder(chartData: chartData, side: .bottom, style: .lightGray)
+//            .grid(vLines: 7, hLines: 10, style: .gray)
+            .hGrid(lines: 5, style: .gray)
+        
+//            .axisBorder(chartData: chartData, side: .leading, style: .lightGray)
+//            .axisBorder(chartData: chartData, side: .bottom, style: .lightGray)
         
 //            .xAxisLabels(chartData: data, style: .standard)
         
