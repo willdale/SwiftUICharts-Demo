@@ -39,14 +39,12 @@ struct LineChartDemoView: View {
 //            .xAxisGrid(chartData: data)
 //            .yAxisGrid(chartData: data)
         
-//            .grid(vLines: 7, hLines: 10, style: .gray)
-            .hGrid(lines: 5, style: .gray)
+            .grid(vLines: 7, hLines: 10, style: .gray)
         
 //            .axisBorder(chartData: chartData, side: .leading, style: .lightGray)
 //            .axisBorder(chartData: chartData, side: .bottom, style: .lightGray)
         
-//            .xAxisLabels(chartData: data, style: .standard)
-        
+            .xAxisLabels(labels: ["12345667890", "World", "One"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
             .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
         
 //            .yAxisLabels(chartData: data, position: [.trailing], data: .generated, style: .standard)
@@ -66,7 +64,7 @@ struct LineChartDemoView: View {
             .environmentObject(stateObject)
             .environmentObject(chartData)
             .id(chartData.id)
-            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 400, maxHeight: 400, alignment: .center)
             .padding(.horizontal)
             .navigationTitle("Week of Data")
     }

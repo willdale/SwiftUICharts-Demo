@@ -28,10 +28,9 @@ struct HorizontalBarChartDemoView: View {
                       position: .leading,
                       style: .amber)
         
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
+            .grid()
         
-            .xAxisLabels(chartData: data, style: .standard)
+//            .xAxisLabels(chartData: data, style: .standard)
 //            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
         
 //            .infoDisplay(.verticle(chartData: data), style: .bordered)

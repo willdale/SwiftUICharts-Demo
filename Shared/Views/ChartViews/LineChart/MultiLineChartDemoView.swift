@@ -10,27 +10,29 @@ import SwiftUICharts
 
 struct MultiLineChartDemoView: View {
     
-    let data: MultiLineChartData = weekOfData()
-    @State private var touchLocation: CGPoint?
+    @StateObject private var chartData = weekOfData()
+    @StateObject private var stateObject = TestStateObject()
     
     var body: some View {
         VStack {
-            MultiLineChart(chartData: data)
-//                .touch(chartData: data) { touchLocation = $0 }
-                .pointMarkers(chartData: data)
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data, data: .custom(labels: ["January", "December"]))
-//                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+            MultiLineChart()
+                .touch(stateObject: stateObject, chartData: chartData)
+                .pointMarkers(chartData: chartData)
+                .grid()
+                .xAxisLabels(labels: ["January", "December"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
+                .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
             
 //                .infoDisplay(.verticle(chartData: data),
 //                             style: .bordered,
 //                             shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
-                .titleBox(chartData: data,
+                .titleBox(chartData: chartData,
                           title: HeaderBoxText(text: "Average Temperature"),
                           subtitle: HeaderBoxText(text: "Monthly"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
-                .id(data.id)
+//                .legends(chartData: chartData, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
+            
+                .environmentObject(stateObject)
+                .environmentObject(chartData)
+                .id(chartData.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)
         }

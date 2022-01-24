@@ -16,9 +16,8 @@ struct ContentView: View {
     var body: some View {
         BarChart(chartData: data)
 //            .touch(chartData: data) { touchLocation = $0 }
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
+            .grid()
+//            .xAxisLabels(chartData: data)
 //            .yAxisLabels(chartData: data)
             .padding()
     }

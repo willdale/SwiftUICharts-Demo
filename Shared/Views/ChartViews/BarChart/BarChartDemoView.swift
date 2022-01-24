@@ -18,8 +18,8 @@ struct BarChartDemoView: View {
         VStack {
         BarChart(chartData: data)
 //                .touch(chartData: data) { touchLocation = $0 }
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data, style: .standard90)
+            .hGrid()
+//            .xAxisLabels(chartData: data, style: .standard90)
 //            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
 //            .infoDisplay(.verticle(chartData: data),
 //                         style: .bordered,

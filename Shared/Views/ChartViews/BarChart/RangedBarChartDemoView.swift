@@ -35,9 +35,8 @@ struct RangedBarChartDemoView: View {
 //                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
 //            .averageLine(chartData: data,
 //                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data, style: xAxisLabelStyle)
+            .grid()
+//            .xAxisLabels(chartData: data, style: xAxisLabelStyle)
 //            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
 //            .infoDisplay(.verticle(chartData: data), style: .bordered)

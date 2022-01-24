@@ -24,9 +24,8 @@ struct RangedLineChartDemoView: View {
 //                .averageLine(chartData: data,
 //                             labelPosition: .center(specifier: "%.0f"),
 //                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data, style: .standard)
+                .grid()
+//                .xAxisLabels(chartData: data, style: .standard)
 //                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
 
 //                .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
