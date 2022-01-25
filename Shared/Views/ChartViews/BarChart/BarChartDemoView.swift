@@ -77,9 +77,7 @@ struct BarChartDemoView: View {
                                 colourFrom: .dataPoints,
                                 colour: .colour(colour: .blue))
         
-        return BarChartData(dataSets: data,
-                            xAxisLabels: ["One", "Two", "Three"],
-                            barStyle: barStyle)
+        return BarChartData(dataSets: data, barStyle: barStyle)
     }
 }
 

@@ -23,8 +23,6 @@ struct LineChartWithExtraLineDemoView: View {
 //                       style: extraLineStyle)
 //            .pointMarkers(chartData: data)
 ////            .touch(chartData: data) { touchLocation = $0 }
-//            .xAxisGrid(chartData: data)
-//            .yAxisGrid(chartData: data)
 //            .xAxisLabels(chartData: data)
 ////            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
 //        

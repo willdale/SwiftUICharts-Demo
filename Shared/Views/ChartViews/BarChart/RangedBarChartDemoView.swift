@@ -84,7 +84,6 @@ struct RangedBarChartDemoView: View {
             legendTitle: "BPM")
         
         return RangedBarChartData(dataSets: data,
-                                  xAxisLabels: ["00:00", "12:00", "00:00"],
                                   barStyle: BarStyle(barWidth: 0.75,
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,

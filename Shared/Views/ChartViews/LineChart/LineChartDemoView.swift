@@ -12,7 +12,7 @@ import Combine
 struct LineChartDemoView: View {
     
     @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = TestStateObject()
+    @StateObject private var stateObject = ChartStateObject()
         
     var body: some View {
         LineChart()
@@ -36,21 +36,16 @@ struct LineChartDemoView: View {
 //                      lineColour: .red)
 //            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
         
-//            .xAxisGrid(chartData: data)
-//            .yAxisGrid(chartData: data)
-        
             .grid(vLines: 7, hLines: 10, style: .gray)
         
 //            .axisBorder(chartData: chartData, side: .leading, style: .lightGray)
 //            .axisBorder(chartData: chartData, side: .bottom, style: .lightGray)
         
-            .xAxisLabels(labels: ["12345667890", "World", "One"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
+            .xAxisLabels(labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard, data: chartData.xAxisData)
             .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
         
-//            .yAxisLabels(chartData: data, position: [.trailing], data: .generated, style: .standard)
+            .axisTitles(edges: [.top(text: "Top"), .leading(text: "Leading"), .bottom(text: "Bottom"), .trailing(text: "Trailing")], style: .standard)
         
-//            .axisTitle(chartData: data, text: "bottom", style: .bottom)
-//            .axisTitle(chartData: data, text: "leading", style: .leading)
         
             .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)

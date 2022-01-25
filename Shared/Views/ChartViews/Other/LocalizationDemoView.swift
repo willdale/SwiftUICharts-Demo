@@ -36,8 +36,6 @@ struct LocalizationDemoView: View {
 //
 //            .averageLine(chartData: data, label: "Average", position: .leading, style: .amber)
 //        
-//            .xAxisGrid(chartData: data)
-//            .yAxisGrid(chartData: data)
 //            .xAxisLabels(chartData: data, style: .standard)
 //            .extraYAxisLabels(chartData: data)
 ////            .infoDisplay(.verticle(chartData: data), style: .bordered)

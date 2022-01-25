@@ -11,7 +11,7 @@ import SwiftUICharts
 struct MultiLineChartDemoView: View {
     
     @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = TestStateObject()
+    @StateObject private var stateObject = ChartStateObject()
     
     var body: some View {
         VStack {

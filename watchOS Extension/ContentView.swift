@@ -31,8 +31,7 @@ struct ContentView: View {
             BarChartDataPoint(value: 60, xAxisLabel: "D")
         ],legendTitle: "Data")
         
-        return BarChartData(dataSets: data,
-                            xAxisLabels: [""])
+        return BarChartData(dataSets: data)
     }
 }
 

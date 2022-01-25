@@ -36,8 +36,6 @@ struct FilledLineChartDemoView: View {
 //                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
 //                .averageLine(chartData: data,
 //                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-//                .xAxisGrid(chartData: data)
-//                .yAxisGrid(chartData: data)
 //                .xAxisLabels(chartData: data)
 //                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
             
@@ -67,8 +65,7 @@ struct FilledLineChartDemoView: View {
         pointStyle: PointStyle(),
         style: FilledLineStyle())
         
-        return FilledLineChartData(dataSets: data,
-                                   xAxisLabels: ["Monday", "Thursday", "Sunday"])
+        return FilledLineChartData(dataSets: data)
     }
 }
 
