@@ -16,8 +16,10 @@ struct LineChartDemoView: View {
         
     var body: some View {
         LineChart()
-            .pointMarkers(chartData: chartData)
+            .axisBorder(edges: edges)
+            .grid(vLines: 7, hLines: 10, style: .lightGreyNoEdges)
             .touch(stateObject: stateObject, chartData: chartData)
+//            .pointMarkers(chartData: chartData)
                     
 //            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
 //
@@ -36,17 +38,14 @@ struct LineChartDemoView: View {
 //                      lineColour: .red)
 //            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
         
-            .grid(vLines: 7, hLines: 10, style: .gray)
-        
-//            .axisBorder(chartData: chartData, side: .leading, style: .lightGray)
-//            .axisBorder(chartData: chartData, side: .bottom, style: .lightGray)
         
             .xAxisLabels(labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard, data: chartData.xAxisData)
             .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
         
             .axisTitles(edges: [.top(text: "Top"), .leading(text: "Leading"), .bottom(text: "Bottom"), .trailing(text: "Trailing")], style: .standard)
         
-        
+            
+
             .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
             }
@@ -55,7 +54,7 @@ struct LineChartDemoView: View {
 //                      title: HeaderBoxText(text: "Step Count"),
 //                      subtitle: HeaderBoxText(text: "Over a Week"))
 //            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-//            .drawingGroup()
+            .drawingGroup()
             .environmentObject(stateObject)
             .environmentObject(chartData)
             .id(chartData.id)
@@ -76,6 +75,24 @@ struct LineChartDemoView: View {
         return CGPoint(x: returnPoint,
                        y: boxFrame.midY)
     }
+    
+//    var edges: BorderSet = [
+//        .leading(direction: .up, style: .gray),
+//        .top(direction: .trailing, style: .gray),
+//        .trailing(direction: .down, style: .gray),
+//        .bottom(direction: .leading, style: .gray),
+//    ]
+    
+    static func edgeStyle(_ delay: Double) -> BorderStyle {
+        BorderStyle(colour: .gray, style: StrokeStyle(lineWidth: 1), animation: .linear(duration: 1).delay(delay))
+    }
+    
+    var edges: BorderSet = [
+        .leading(direction: .up, style: Self.edgeStyle(0)),
+        .top(direction: .trailing, style: Self.edgeStyle(1)),
+        .trailing(direction: .down, style: Self.edgeStyle(2)),
+        .bottom(direction: .leading, style: Self.edgeStyle(3)),
+    ]
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
