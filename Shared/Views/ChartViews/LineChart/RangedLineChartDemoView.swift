@@ -20,7 +20,7 @@ struct RangedLineChartDemoView: View {
             
             RangedLineChart(chartData: data)
 //                .touch(chartData: data) { touchLocation = $0 }
-                .pointMarkers(chartData: data)
+//                .pointMarkers(chartData: data)
 //                .averageLine(chartData: data,
 //                             labelPosition: .center(specifier: "%.0f"),
 //                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
@@ -78,7 +78,6 @@ extension RangedLineChartDemoView {
         ],
         legendTitle: "Profits",
         legendFillTitle: "Expected",
-        pointStyle: PointStyle(),
         style: RangedLineStyle(lineColour: .colour(colour: .red),
                                fillColour: .colour(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))

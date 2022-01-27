@@ -51,17 +51,17 @@ struct LocalizationDemoView: View {
     }
     
     
-    private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 8000),
-         ExtraLineDataPoint(value: 10000),
-         ExtraLineDataPoint(value: 15000),
-         ExtraLineDataPoint(value: 9000)]
-    }
-    private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: .colour(colour: .blue),
-                       lineType: .line,
-                       yAxisTitle: "Local_extraYAxisTitle")
-    }
+//    private var extraLineData: [ExtraLineDataPoint] {
+//        [ExtraLineDataPoint(value: 8000),
+//         ExtraLineDataPoint(value: 10000),
+//         ExtraLineDataPoint(value: 15000),
+//         ExtraLineDataPoint(value: 9000)]
+//    }
+//    private var extraLineStyle: ExtraLineStyle {
+//        ExtraLineStyle(lineColour: .colour(colour: .blue),
+//                       lineType: .line,
+//                       yAxisTitle: "Local_extraYAxisTitle")
+//    }
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
@@ -74,7 +74,6 @@ struct LocalizationDemoView: View {
             LineChartDataPoint(value: 9000 , xAxisLabel: "Local_Su", description: "Local_Sunday"   ),
         ],
         legendTitle: "Local_LegendTitle",
-        pointStyle: PointStyle(),
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         return LineChartData(dataSets: data)

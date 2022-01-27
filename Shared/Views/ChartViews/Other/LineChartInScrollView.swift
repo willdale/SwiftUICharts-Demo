@@ -85,7 +85,6 @@ struct LineChartInScrollView: View {
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   ),
         ],
         legendTitle: "Steps",
-        pointStyle: PointStyle(),
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         return LineChartData(dataSets: data)

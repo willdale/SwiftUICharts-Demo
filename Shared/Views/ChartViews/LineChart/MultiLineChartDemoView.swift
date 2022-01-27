@@ -17,7 +17,7 @@ struct MultiLineChartDemoView: View {
         VStack {
             MultiLineChart()
                 .touch(stateObject: stateObject, chartData: chartData)
-                .pointMarkers(chartData: chartData)
+//                .pointMarkers(chartData: chartData)
                 .grid()
                 .xAxisLabels(labels: ["January", "December"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
                 .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
@@ -56,7 +56,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 4.7,  xAxisLabel: "D", description: "December")
             ],
             legendTitle: "London",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .circle),
             style: LineStyle(lineColour: .colour(colour: .red), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -74,7 +73,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 15.4, xAxisLabel: "D", description: "December")
             ],
             legendTitle: "Wellington",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .square),
             style: LineStyle(lineColour: .colour(colour: .blue), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -92,7 +90,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 15.0, xAxisLabel: "D", description: "December")
             ],
             legendTitle: "Mexico City",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
             style: LineStyle(lineColour: .colour(colour: .green), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -110,12 +107,10 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: -1.5, xAxisLabel: "D", description: "December")
             ],
             legendTitle: "St. John's",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
             style: LineStyle(lineColour: .colour(colour: .primary), lineType: .line)),
         ])
         
-        return MultiLineChartData(dataSets: data/*,
-                                  xAxisLabels: ["January", "December"]*/)
+        return MultiLineChartData(dataSets: data)
     }
 }
 

@@ -17,7 +17,7 @@ struct FilledLineChartDemoView: View {
         VStack {
             FilledLineChart(chartData: data)
 //                .touch(chartData: data) { touchLocation = $0 }
-                .pointMarkers(chartData: data)
+//                .pointMarkers(chartData: data)
 //                .yAxisPOI(chartData: data,
 //                          markerName: "Step Count Aim",
 //                          markerValue: 15_000,
@@ -62,7 +62,6 @@ struct FilledLineChartDemoView: View {
             LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday"     , ignore: true)
         ],
         legendTitle: "Test One",
-        pointStyle: PointStyle(),
         style: FilledLineStyle())
         
         return FilledLineChartData(dataSets: data)

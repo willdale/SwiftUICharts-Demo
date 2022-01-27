@@ -17,9 +17,12 @@ struct LineChartDemoView: View {
     var body: some View {
         LineChart()
             .axisBorder(edges: edges)
-            .grid(vLines: 7, hLines: 10, style: .lightGreyNoEdges)
+            .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
             .touch(stateObject: stateObject, chartData: chartData)
-//            .pointMarkers(chartData: chartData)
+            .pointMarkers(datapoints: chartData.dataSets.dataPoints,
+                          dataSetInfo: chartData.dataSetInfo,
+                          animation: pointMarkerAnimation,
+                          pointMaker: pointMaker)
                     
 //            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
 //
@@ -54,7 +57,6 @@ struct LineChartDemoView: View {
 //                      title: HeaderBoxText(text: "Step Count"),
 //                      subtitle: HeaderBoxText(text: "Over a Week"))
 //            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .drawingGroup()
             .environmentObject(stateObject)
             .environmentObject(chartData)
             .id(chartData.id)
@@ -76,13 +78,22 @@ struct LineChartDemoView: View {
                        y: boxFrame.midY)
     }
     
-//    var edges: BorderSet = [
-//        .leading(direction: .up, style: .gray),
-//        .top(direction: .trailing, style: .gray),
-//        .trailing(direction: .down, style: .gray),
-//        .bottom(direction: .leading, style: .gray),
-//    ]
+    private func pointMaker(_ index: Int) -> some View {
+        ZStack {
+            Circle()
+                .stroke(Color.primary, style: StrokeStyle(lineWidth: 1))
+                .frame(width: 8, height: 8)
+            Text("\(chartData.dataSets.dataPoints[index].value, specifier: "%.0f")")
+                .font(.caption)
+                .padding(4)
+                .background(Color.systemsBackground.opacity(0.5))
+        }
+    }
     
+    private func pointMarkerAnimation(_ index: Int) -> Animation {
+        .linear(duration: 1).delay(Double(0.2 * Double(index)))
+    }
+
     static func edgeStyle(_ delay: Double) -> BorderStyle {
         BorderStyle(colour: .gray, style: StrokeStyle(lineWidth: 1), animation: .linear(duration: 1).delay(delay))
     }
@@ -105,7 +116,6 @@ struct LineChartDemoView: View {
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
         ],
         legendTitle: "Steps",
-        pointStyle: PointStyle(),
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         return LineChartData(dataSets: data)

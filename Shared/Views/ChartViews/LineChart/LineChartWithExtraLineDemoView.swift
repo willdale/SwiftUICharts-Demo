@@ -40,18 +40,18 @@ struct LineChartWithExtraLineDemoView: View {
     }
     
     
-    private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 8000, description: "Something 1"),
-         ExtraLineDataPoint(value: 10000, description: "Something 2"),
-         ExtraLineDataPoint(value: 15000, description: "Something 3"),
-         ExtraLineDataPoint(value: 9000, description: "Something 4")]
-    }
-    
-    private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: .colour(colour: .blue),
-                       lineType: .line,
-                       yAxisTitle: "Another Axis")
-    }
+//    private var extraLineData: [ExtraLineDataPoint] {
+//        [ExtraLineDataPoint(value: 8000, description: "Something 1"),
+//         ExtraLineDataPoint(value: 10000, description: "Something 2"),
+//         ExtraLineDataPoint(value: 15000, description: "Something 3"),
+//         ExtraLineDataPoint(value: 9000, description: "Something 4")]
+//    }
+//    
+//    private var extraLineStyle: ExtraLineStyle {
+//        ExtraLineStyle(lineColour: .colour(colour: .blue),
+//                       lineType: .line,
+//                       yAxisTitle: "Another Axis")
+//    }
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
@@ -64,7 +64,6 @@ struct LineChartWithExtraLineDemoView: View {
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   ),
         ],
         legendTitle: "Steps",
-        pointStyle: PointStyle(),
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         return LineChartData(dataSets: data)
