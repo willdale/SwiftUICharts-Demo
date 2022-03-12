@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var touchLocation: CGPoint?
     
     var body: some View {
-        BarChart(chartData: data)
+        BarChart()
 //            .touch(chartData: data) { touchLocation = $0 }
             .grid()
 //            .xAxisLabels(chartData: data)

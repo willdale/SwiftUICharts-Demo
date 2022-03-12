@@ -9,6 +9,10 @@ import SwiftUI
 import SwiftUICharts
 import Combine
 
+final class ChartModels {
+    
+}
+
 struct LineChartDemoView: View {
     
     @StateObject private var chartData = weekOfData()
@@ -18,14 +22,15 @@ struct LineChartDemoView: View {
         LineChart()
             .axisBorder(edges: edges)
             .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
-            .touch(stateObject: stateObject, chartData: chartData)
+            .yAxisMarker(value: 16_000, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo, label: yAxisPOIText)
+        
             .pointMarkers(datapoints: chartData.dataSets.dataPoints,
                           dataSetInfo: chartData.dataSetInfo,
                           animation: pointMarkerAnimation,
                           pointMaker: pointMaker)
+            .touch(stateObject: stateObject, chartData: chartData)
                     
-//            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 16_000, position: .leading, style: .amber)
-//
+
 //            .xAxisPOI(chartData: data,
 //                      label: "Local_Worst",
 //                      value: 2,
@@ -57,6 +62,7 @@ struct LineChartDemoView: View {
 //                      title: HeaderBoxText(text: "Step Count"),
 //                      subtitle: HeaderBoxText(text: "Over a Week"))
 //            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+        
             .environmentObject(stateObject)
             .environmentObject(chartData)
             .id(chartData.id)
@@ -94,16 +100,32 @@ struct LineChartDemoView: View {
         .linear(duration: 1).delay(Double(0.2 * Double(index)))
     }
 
-    static func edgeStyle(_ delay: Double) -> BorderStyle {
+    private static func edgeStyle(_ delay: Double) -> BorderStyle {
         BorderStyle(colour: .gray, style: StrokeStyle(lineWidth: 1), animation: .linear(duration: 1).delay(delay))
     }
     
-    var edges: BorderSet = [
+    private var edges: BorderSet = [
         .leading(direction: .up, style: Self.edgeStyle(0)),
         .top(direction: .trailing, style: Self.edgeStyle(1)),
         .trailing(direction: .down, style: Self.edgeStyle(2)),
         .bottom(direction: .leading, style: Self.edgeStyle(3)),
     ]
+    
+    var yAxisPOIText: some View {
+        Text(LocalizedStringKey("Step Count Aim"))
+            .font(.caption)
+            .foregroundColor(.primary)
+            .padding([.leading, .top, .bottom], 2)
+            .padding(.trailing, 12)
+            .background(Color.systemsBackground)
+        
+            .clipShape(LeadingLabelShape())
+            .overlay(LeadingLabelShape().stroke(Color(red: 1.0, green: 0.75, blue: 0.25)))
+        
+            .accessibilityLabel(LocalizedStringKey("P-O-I-Marker"))
+            .accessibilityValue(LocalizedStringKey(String(format: NSLocalizedString("Step Count",
+                                                                                    comment: "Shows the number of of steps the user should aim to do in a day"))))
+    }
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
@@ -120,7 +142,6 @@ struct LineChartDemoView: View {
         
         return LineChartData(dataSets: data)
     }
-    
 }
 
 struct LineChartView_Previews: PreviewProvider {

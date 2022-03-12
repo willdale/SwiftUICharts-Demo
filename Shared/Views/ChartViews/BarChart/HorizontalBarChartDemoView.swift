@@ -10,23 +10,26 @@ import SwiftUICharts
 
 struct HorizontalBarChartDemoView: View {
     
-    let data: HorizontalBarChartData = weekOfData()
-    @State private var touchLocation: CGPoint?
+    @StateObject private var chartData = weekOfData()
+    @StateObject private var stateObject = ChartStateObject()
     
     var body: some View {
-        HorizontalBarChart(chartData: data)
+        HorizontalBarChart()
 //            .touch(chartData: data) { touchLocation = $0 }
         
-            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
-            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .amber)
-            .averageLine(chartData: data, label: "Average", position: .bottom, style: .amber)
+            .yAxisMarker(value: 100, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo) {
+                Text("Hello")
+            }
+//            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
+//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .amber)
+//            .averageLine(chartData: data, label: "Average", position: .bottom, style: .amber)
         
-            .xAxisPOI(chartData: data,
-                      label: "Worst",
-                      value: 2,
-                      total: data.dataSets.dataPoints.count,
-                      position: .leading,
-                      style: .amber)
+//            .xAxisPOI(chartData: chartData,
+//                      label: "Worst",
+//                      value: 2,
+//                      total: data.dataSets.dataPoints.count,
+//                      position: .leading,
+//                      style: .amber)
         
             .grid()
         
@@ -34,11 +37,12 @@ struct HorizontalBarChartDemoView: View {
 //            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
         
 //            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Units Sold"),
-                      subtitle: HeaderBoxText(text: "Last year"))
-            .coordinateSpace(name: "Custom")
-            .id(data.id)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Units Sold"),
+//                      subtitle: HeaderBoxText(text: "Last year"))
+            .environmentObject(stateObject)
+            .environmentObject(chartData)
+            .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
             
