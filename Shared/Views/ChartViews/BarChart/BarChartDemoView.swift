@@ -20,7 +20,10 @@ struct BarChartDemoView: View {
             .hGrid()
             
             .yAxisMarker(value: 200, position: .leading, style: .amber, dataSetInfo: chartData.dataSetInfo) {
-                Text("Hello")
+                Text("Y Axis")
+            }
+            .xAxisMarker(value: 1, total: chartData.dataSets.dataWidth, position: .bottom, style: .amber, chartName: chartData.chartName) {
+                Text("X Axis")
             }
             
 //            .xAxisLabels(chartData: data, style: .standard90)

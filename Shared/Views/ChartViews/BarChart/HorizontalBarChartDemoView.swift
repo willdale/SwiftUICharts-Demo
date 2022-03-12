@@ -16,10 +16,14 @@ struct HorizontalBarChartDemoView: View {
     var body: some View {
         HorizontalBarChart()
 //            .touch(chartData: data) { touchLocation = $0 }
-        
-            .yAxisMarker(value: 100, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo) {
-                Text("Hello")
+            .grid()
+            .yAxisMarker(value: 200, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo) {
+                Text("Y Axis")
             }
+            .xAxisMarker(value: 1, total: chartData.dataSets.dataWidth, position: .leading, style: .amber, chartName: chartData.chartName) {
+                Text("X Axis")
+            }
+        
 //            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
 //            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .amber)
 //            .averageLine(chartData: data, label: "Average", position: .bottom, style: .amber)
@@ -31,7 +35,7 @@ struct HorizontalBarChartDemoView: View {
 //                      position: .leading,
 //                      style: .amber)
         
-            .grid()
+
         
 //            .xAxisLabels(chartData: data, style: .standard)
 //            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))

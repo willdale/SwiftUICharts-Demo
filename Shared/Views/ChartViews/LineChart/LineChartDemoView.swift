@@ -9,10 +9,6 @@ import SwiftUI
 import SwiftUICharts
 import Combine
 
-final class ChartModels {
-    
-}
-
 struct LineChartDemoView: View {
     
     @StateObject private var chartData = weekOfData()
@@ -22,37 +18,20 @@ struct LineChartDemoView: View {
         LineChart()
             .axisBorder(edges: edges)
             .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
-            .yAxisMarker(value: 16_000, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo, label: yAxisPOIText)
+        
+            .yAxisMarker(value: 16_000, position: .leading, style: .amber, dataSetInfo: chartData.dataSetInfo, label: yAxisPOIText)
+            .xAxisMarker(value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, chartName: chartData.chartName, label: xAxisPOIText)
         
             .pointMarkers(datapoints: chartData.dataSets.dataPoints,
                           dataSetInfo: chartData.dataSetInfo,
                           animation: pointMarkerAnimation,
                           pointMaker: pointMaker)
             .touch(stateObject: stateObject, chartData: chartData)
-                    
-
-//            .xAxisPOI(chartData: data,
-//                      label: "Local_Worst",
-//                      value: 2,
-//                      total: data.dataSets.dataPoints.count,
-//                      position: .top,
-//                      style: .amber)
-        
-//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 10_000, position: .center, style: .red)
-//            .xAxisPOI(chartData: data,
-//                      markerName: "Worst",
-//                      markerValue: 2,
-//                      dataPointCount: data.dataSets.dataPoints.count,
-//                      lineColour: .red)
-//            .averageLine(chartData: data, label: "Average", position: .center, style: .red)
-        
         
             .xAxisLabels(labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard, data: chartData.xAxisData)
             .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
         
-            .axisTitles(edges: [.top(text: "Top"), .leading(text: "Leading"), .bottom(text: "Bottom"), .trailing(text: "Trailing")], style: .standard)
-        
-            
+            .axisTitles(edges: axisTitles, style: .standard)
 
             .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
@@ -111,6 +90,13 @@ struct LineChartDemoView: View {
         .bottom(direction: .leading, style: Self.edgeStyle(3)),
     ]
     
+    private var axisTitles: Set<AxisTitleStyle.Edge> = [
+        .top(text: "Top"),
+        .leading(text: "Leading"),
+        .bottom(text: "Bottom"),
+        .trailing(text: "Trailing"),
+    ]
+    
     var yAxisPOIText: some View {
         Text(LocalizedStringKey("Step Count Aim"))
             .font(.caption)
@@ -125,6 +111,22 @@ struct LineChartDemoView: View {
             .accessibilityLabel(LocalizedStringKey("P-O-I-Marker"))
             .accessibilityValue(LocalizedStringKey(String(format: NSLocalizedString("Step Count",
                                                                                     comment: "Shows the number of of steps the user should aim to do in a day"))))
+    }
+    
+    var xAxisPOIText: some View {
+        Text(LocalizedStringKey("Rest Day"))
+            .font(.caption)
+            .foregroundColor(.primary)
+            .padding([.leading, .top, .trailing], 2)
+            .padding(.bottom, 12)
+            .background(Color.systemsBackground)
+        
+            .clipShape(TopLabelShape())
+            .overlay(TopLabelShape().stroke(Color(red: 1.0, green: 0.75, blue: 0.25)))
+        
+            .accessibilityLabel(LocalizedStringKey("P-O-I-Marker"))
+            .accessibilityValue(LocalizedStringKey(String(format: NSLocalizedString("Rest Day",
+                                                                                    comment: "The day of the week the user should rest"))))
     }
     
     static func weekOfData() -> LineChartData {
