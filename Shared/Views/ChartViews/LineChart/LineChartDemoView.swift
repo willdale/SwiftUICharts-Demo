@@ -37,9 +37,8 @@ struct LineChartDemoView: View {
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
             }
         
-//            .titleBox(chartData: data,
-//                      title: HeaderBoxText(text: "Step Count"),
-//                      subtitle: HeaderBoxText(text: "Over a Week"))
+            .titleBox(title: "A Title", subtitle: "A subtitle")
+        
 //            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
         
             .environmentObject(stateObject)

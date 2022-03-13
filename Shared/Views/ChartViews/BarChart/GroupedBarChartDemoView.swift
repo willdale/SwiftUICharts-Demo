@@ -21,9 +21,9 @@ struct GroupedBarChartDemoView: View {
 //            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
 //            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                       title: HeaderBoxText(text: "Haggis Sales", font: .title),
-                       subtitle: HeaderBoxText(text: "Per Quarter", font: .body))
+//            .titleBox(chartData: data,
+//                       title: HeaderBoxText(text: "Haggis Sales", font: .title),
+//                       subtitle: HeaderBoxText(text: "Per Quarter", font: .body))
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)

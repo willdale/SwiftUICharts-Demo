@@ -36,8 +36,8 @@ struct FilteredDemo: View {
 struct FilterView: View {
     
     let data: LineChartData
-    let title: HeaderBoxText
-    let subtitle: HeaderBoxText
+//    let title: HeaderBoxText
+//    let subtitle: HeaderBoxText
         
     @State private var touchLocation: CGPoint?
     @State private var chartSize: CGRect = .zero
@@ -90,8 +90,8 @@ struct FilterView: View {
         }
         
         self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"))
-        self.title = HeaderBoxText(text: title)
-        self.subtitle = HeaderBoxText(text: subtitle)
+//        self.title = HeaderBoxText(text: title)
+//        self.subtitle = HeaderBoxText(text: subtitle)
     }
 }
 

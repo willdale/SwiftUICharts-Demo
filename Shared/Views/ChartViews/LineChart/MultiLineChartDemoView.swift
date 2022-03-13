@@ -25,9 +25,9 @@ struct MultiLineChartDemoView: View {
 //                .infoDisplay(.verticle(chartData: data),
 //                             style: .bordered,
 //                             shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
-                .titleBox(chartData: chartData,
-                          title: HeaderBoxText(text: "Average Temperature"),
-                          subtitle: HeaderBoxText(text: "Monthly"))
+//                .titleBox(chartData: chartData,
+//                          title: HeaderBoxText(text: "Average Temperature"),
+//                          subtitle: HeaderBoxText(text: "Monthly"))
 //                .legends(chartData: chartData, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
             
                 .environmentObject(stateObject)

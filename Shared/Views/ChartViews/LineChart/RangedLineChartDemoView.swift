@@ -29,9 +29,9 @@ struct RangedLineChartDemoView: View {
 //                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
 
 //                .infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
-                .titleBox(chartData: data,
-                          title: HeaderBoxText(text: "Profits"),
-                          subtitle: HeaderBoxText(text: "with Expected"))
+//                .titleBox(chartData: data,
+//                          title: HeaderBoxText(text: "Profits"),
+//                          subtitle: HeaderBoxText(text: "with Expected"))
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
