@@ -56,7 +56,7 @@ struct LineChartDemoView: View {
                          formatter: numberFormatter,
                          colourIndicator: .style(size: 12))
             .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .infoBox(chartData: data)
+            .infoBox(chartData: data, height: 140)
             .headerBox(chartData: data)
             .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
