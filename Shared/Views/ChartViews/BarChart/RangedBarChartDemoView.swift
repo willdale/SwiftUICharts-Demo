@@ -43,7 +43,7 @@ struct RangedBarChartDemoView: View {
 //            .titleBox(chartData: data,
 //                      title: HeaderBoxText(text: "Heart Rate"),
 //                      subtitle: HeaderBoxText(text: "Over 24 Hours"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)

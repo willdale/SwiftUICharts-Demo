@@ -43,7 +43,7 @@ struct FilledLineChartDemoView: View {
 //                .titleBox(chartData: data,
 //                          title: HeaderBoxText(text: "Some Data"),
 //                          subtitle: HeaderBoxText(text: "A Week"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)

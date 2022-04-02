@@ -38,8 +38,7 @@ struct LineChartDemoView: View {
             }
         
             .titleBox(title: "A Title", subtitle: "A subtitle")
-        
-//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+            .legends(legends: [Legend(chartType: .line, text: "One"), Legend(chartType: .line, text: "Two", shapeColour: .colour(colour: .blue))], style: .standard)
         
             .environmentObject(stateObject)
             .environmentObject(chartData)
@@ -153,12 +152,12 @@ struct LineChartView_Previews: PreviewProvider {
 
 extension Color {
     public static var myBackground: Color {
-#if os(iOS)
+        #if os(iOS)
         return Color(.systemBackground)
-#elseif os(tvOS)
+        #elseif os(tvOS)
         return Color(.darkGray)
-#elseif os(macOS)
+        #elseif os(macOS)
         return Color(.windowBackgroundColor)
-#endif
+        #endif
     }
 }

@@ -32,7 +32,7 @@ struct RangedLineChartDemoView: View {
 //                .titleBox(chartData: data,
 //                          title: HeaderBoxText(text: "Profits"),
 //                          subtitle: HeaderBoxText(text: "with Expected"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)

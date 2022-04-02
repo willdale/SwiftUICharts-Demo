@@ -21,7 +21,7 @@ struct PieChartDemoView: View {
 //                .titleBox(chartData: data,
 //                          title: HeaderBoxText(text: "Pie"),
 //                          subtitle: HeaderBoxText(text: "mmm pie"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
+//                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .id(data.id)
                 .padding(.horizontal)

@@ -24,7 +24,7 @@ struct GroupedBarChartDemoView: View {
 //            .titleBox(chartData: data,
 //                       title: HeaderBoxText(text: "Haggis Sales", font: .title),
 //                       subtitle: HeaderBoxText(text: "Per Quarter", font: .body))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
