@@ -78,8 +78,7 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 60 , xAxisLabel: "Watches"   , description: "Watches"   , colour: .colour(colour: .yellow)),
                 BarChartDataPoint(value: 100, xAxisLabel: "Monitors"  , description: "Monitors"  , colour: .colour(colour: .orange)),
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: .colour(colour: .red))
-            ],
-            legendTitle: "Data")
+            ])
         
         let barStyle = BarStyle(barWidth: 0.5,
                                 cornerRadius: CornerRadius(top: 50, bottom: 0),

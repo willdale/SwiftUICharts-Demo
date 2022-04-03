@@ -76,8 +76,6 @@ extension RangedLineChartDemoView {
             RangedLineChartDataPoint(value: 12_4000, upperValue: 13_4000, lowerValue: 11_4000, xAxisLabel: "2019", description: "2019", ignore: true),
             RangedLineChartDataPoint(value: 12_8000, upperValue: 14_6000, lowerValue: 12_6000, xAxisLabel: "2020", description: "2020", ignore: true)
         ],
-        legendTitle: "Profits",
-        legendFillTitle: "Expected",
         style: RangedLineStyle(lineColour: .colour(colour: .red),
                                fillColour: .colour(colour: Color(.blue).opacity(0.25)),
                                lineType: .curvedLine))

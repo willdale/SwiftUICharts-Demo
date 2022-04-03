@@ -10,12 +10,13 @@ import SwiftUICharts
 import Combine
 
 struct LineChartDemoView: View {
-    
-    @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = ChartStateObject()
+        
+    private var chartData = weekOfData()
+    private var stateObject = ChartStateObject()
         
     var body: some View {
         LineChart()
+            .touch(chartData: chartData)
             .axisBorder(edges: edges)
             .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
         
@@ -26,14 +27,15 @@ struct LineChartDemoView: View {
                           dataSetInfo: chartData.dataSetInfo,
                           animation: pointMarkerAnimation,
                           pointMaker: pointMaker)
-            .touch(stateObject: stateObject, chartData: chartData)
+        
+            .touchMarker(chartData: chartData, indicator: .none)
         
             .xAxisLabels(labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard, data: chartData.xAxisData)
             .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
         
             .axisTitles(edges: axisTitles, style: .standard)
 
-            .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
+            .infoDisplay(chartData: chartData, infoView: .vertical(style: .bordered)) { boxSize in
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
             }
         
@@ -137,8 +139,9 @@ struct LineChartDemoView: View {
             LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , ignore: false),
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
         ],
-        legendTitle: "Steps",
-        style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
+        marketType: .topTrailing(attachment: .line),
+        style: LineStyle(lineColour: .colour(colour: .red),
+        lineType: .curvedLine))
         
         return LineChartData(dataSets: data)
     }

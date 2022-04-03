@@ -45,8 +45,8 @@ extension PieChartDemoView {
                 PieChartDataPoint(value: 9, description: "Three", colour: .purple, label: .icon(systemName: "3.square", colour: .white, size: 30)),
                 PieChartDataPoint(value: 6, description: "Four",  colour: .green , label: .icon(systemName: "4.square", colour: .white, size: 30)),
                 PieChartDataPoint(value: 4, description: "Five",  colour: .orange, label: .icon(systemName: "5.square", colour: .white, size: 30))
-            ],
-            legendTitle: "Data")
+            ]
+        )
         
         return PieChartData(dataSets: data)
     }

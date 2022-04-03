@@ -73,7 +73,6 @@ struct LocalizationDemoView: View {
             LineChartDataPoint(value: 11000, xAxisLabel: "Local_Sa", description: "Local_Saturday" ),
             LineChartDataPoint(value: 9000 , xAxisLabel: "Local_Su", description: "Local_Sunday"   ),
         ],
-        legendTitle: "Local_LegendTitle",
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         return LineChartData(dataSets: data)

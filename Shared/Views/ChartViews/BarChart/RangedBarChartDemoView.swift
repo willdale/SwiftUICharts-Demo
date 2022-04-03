@@ -56,7 +56,7 @@ struct RangedBarChartDemoView: View {
     
     static func weekOfData() -> RangedBarChartData {
         
-        let data : RangedBarDataSet =
+        let data: RangedBarDataSet =
             RangedBarDataSet(dataPoints: [
                 RangedBarDataPoint(lowerValue: 66, upperValue: 75 , xAxisLabel: "00:00 - 01:00", description: "00:00 - 01:00"),
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , xAxisLabel: "01:00 - 02:00", description: "01:00 - 02:00"),
@@ -80,8 +80,8 @@ struct RangedBarChartDemoView: View {
                 RangedBarDataPoint(lowerValue: 57, upperValue: 98 , xAxisLabel: "20:00 - 21:00", description: "20:00 - 21:00"),
                 RangedBarDataPoint(lowerValue: 66, upperValue: 75 , xAxisLabel: "22:00 - 23:00", description: "22:00 - 23:00"),
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , xAxisLabel: "23:00 - 24:00", description: "23:00 - 24:00")
-            ],
-            legendTitle: "BPM")
+            ]
+        )
         
         return RangedBarChartData(dataSets: data,
                                   barStyle: BarStyle(barWidth: 0.75,

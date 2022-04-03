@@ -69,8 +69,7 @@ struct HorizontalBarChartDemoView: View {
                 BarChartDataPoint(value: 60,  xAxisLabel: "Watches"   , description: "Watches"   , colour: .colour(colour: .yellow)),
                 BarChartDataPoint(value: 100, xAxisLabel: "Monitors"  , description: "Monitors"  , colour: .colour(colour: .orange)),
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: .colour(colour: .red))
-            ],
-            legendTitle: "Data")
+            ])
         
         return HorizontalBarChartData(dataSets  : data,
                                       barStyle  : BarStyle(barWidth: 0.5,

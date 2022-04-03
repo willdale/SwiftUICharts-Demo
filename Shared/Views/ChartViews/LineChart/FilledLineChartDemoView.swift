@@ -60,9 +60,7 @@ struct FilledLineChartDemoView: View {
             LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"     , ignore: false),
             LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"   , ignore: true),
             LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday"     , ignore: true)
-        ],
-        legendTitle: "Test One",
-        style: FilledLineStyle())
+        ])
         
         return FilledLineChartData(dataSets: data)
     }

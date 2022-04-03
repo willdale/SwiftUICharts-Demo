@@ -16,7 +16,7 @@ struct MultiLineChartDemoView: View {
     var body: some View {
         VStack {
             MultiLineChart()
-                .touch(stateObject: stateObject, chartData: chartData)
+                .touch(chartData: chartData)
 //                .pointMarkers(chartData: chartData)
                 .grid()
                 .xAxisLabels(labels: ["January", "December"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
@@ -55,7 +55,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 7.2,  xAxisLabel: "N", description: "November"),
                 LineChartDataPoint(value: 4.7,  xAxisLabel: "D", description: "December")
             ],
-            legendTitle: "London",
             style: LineStyle(lineColour: .colour(colour: .red), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -72,7 +71,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 13.5, xAxisLabel: "N", description: "November"),
                 LineChartDataPoint(value: 15.4, xAxisLabel: "D", description: "December")
             ],
-            legendTitle: "Wellington",
             style: LineStyle(lineColour: .colour(colour: .blue), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -89,7 +87,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 16.3, xAxisLabel: "N", description: "November"),
                 LineChartDataPoint(value: 15.0, xAxisLabel: "D", description: "December")
             ],
-            legendTitle: "Mexico City",
             style: LineStyle(lineColour: .colour(colour: .green), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -106,7 +103,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 3.0,  xAxisLabel: "N", description: "November"),
                 LineChartDataPoint(value: -1.5, xAxisLabel: "D", description: "December")
             ],
-            legendTitle: "St. John's",
             style: LineStyle(lineColour: .colour(colour: .primary), lineType: .line)),
         ])
         
