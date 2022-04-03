@@ -10,9 +10,9 @@ import SwiftUICharts
 import Combine
 
 struct LineChartDemoView: View {
-    
-    @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = ChartStateObject()
+        
+    private var chartData = weekOfData()
+    private var stateObject = ChartStateObject()
         
     var body: some View {
         LineChart()
@@ -33,7 +33,7 @@ struct LineChartDemoView: View {
         
             .axisTitles(edges: axisTitles, style: .standard)
 
-            .infoDisplay(datapoints: chartData.touchPointData, infoView: .vertical(style: .bordered)) { boxSize in
+            .infoDisplay(chartData: chartData, infoView: .vertical(style: .bordered)) { boxSize in
                 boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
             }
         
