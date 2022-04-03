@@ -11,16 +11,17 @@ import SwiftUICharts
 struct PieChartDemoView: View {
     
     var data: PieChartData = makeData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         VStack {
             PieChart(chartData: data)
-                .touchOverlay(chartData: data)
-                .infoDisplay(.verticle(chartData: data), style: .bordered)
-                .titleBox(chartData: data,
-                          title: HeaderBoxText(text: "Pie"),
-                          subtitle: HeaderBoxText(text: "mmm pie"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
+//                .touch(chartData: data) { touchLocation = $0 }
+//                .infoDisplay(.verticle(chartData: data), style: .bordered)
+//                .titleBox(chartData: data,
+//                          title: HeaderBoxText(text: "Pie"),
+//                          subtitle: HeaderBoxText(text: "mmm pie"))
+//                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .id(data.id)
                 .padding(.horizontal)
@@ -47,7 +48,6 @@ extension PieChartDemoView {
             ],
             legendTitle: "Data")
         
-        return PieChartData(dataSets: data,
-                            chartStyle: PieChartStyle())
+        return PieChartData(dataSets: data)
     }
 }

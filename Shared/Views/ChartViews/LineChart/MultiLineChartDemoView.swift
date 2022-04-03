@@ -10,25 +10,29 @@ import SwiftUICharts
 
 struct MultiLineChartDemoView: View {
     
-    let data : MultiLineChartData = weekOfData()
-        
+    @StateObject private var chartData = weekOfData()
+    @StateObject private var stateObject = ChartStateObject()
+    
     var body: some View {
         VStack {
-            MultiLineChart(chartData: data)
-                .touchOverlay(chartData: data, specifier: "%.01f", unit: .suffix(of: "ºC"))
-                .pointMarkers(chartData: data)
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data, specifier: "%.01f")
+            MultiLineChart()
+                .touch(stateObject: stateObject, chartData: chartData)
+//                .pointMarkers(chartData: chartData)
+                .grid()
+                .xAxisLabels(labels: ["January", "December"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
+                .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
             
-                .infoDisplay(.verticle(chartData: data), style: .bordered, shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
+//                .infoDisplay(.verticle(chartData: data),
+//                             style: .bordered,
+//                             shape: RoundedRectangle(cornerRadius: 5, style: .continuous))
+//                .titleBox(chartData: chartData,
+//                          title: HeaderBoxText(text: "Average Temperature"),
+//                          subtitle: HeaderBoxText(text: "Monthly"))
+//                .legends(chartData: chartData, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
             
-                .titleBox(chartData: data,
-                          title: HeaderBoxText(text: "Average Temperature"),
-                          subtitle: HeaderBoxText(text: "Monthly"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
-                .id(data.id)
+                .environmentObject(stateObject)
+                .environmentObject(chartData)
+                .id(chartData.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)
         }
@@ -52,7 +56,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 4.7,  xAxisLabel: "D", description: "December")
             ],
             legendTitle: "London",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .circle),
             style: LineStyle(lineColour: .colour(colour: .red), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -70,7 +73,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 15.4, xAxisLabel: "D", description: "December")
             ],
             legendTitle: "Wellington",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .square),
             style: LineStyle(lineColour: .colour(colour: .blue), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -88,7 +90,6 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: 15.0, xAxisLabel: "D", description: "December")
             ],
             legendTitle: "Mexico City",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
             style: LineStyle(lineColour: .colour(colour: .green), lineType: .line)),
             
             LineDataSet(dataPoints: [
@@ -106,20 +107,10 @@ struct MultiLineChartDemoView: View {
                 LineChartDataPoint(value: -1.5, xAxisLabel: "D", description: "December")
             ],
             legendTitle: "St. John's",
-            pointStyle: PointStyle(pointType: .outline, pointShape: .roundSquare),
             style: LineStyle(lineColour: .colour(colour: .primary), lineType: .line)),
         ])
         
-        return MultiLineChartData(dataSets: data,
-                                  xAxisLabels: ["January", "December"],
-                                  chartStyle: LineChartStyle(markerType: .full(attachment: .line(dot: .style(DotStyle()))),
-                                                             xAxisGridStyle: GridStyle(numberOfLines: 12),
-                                                             xAxisTitle: "Month",
-                                                             yAxisGridStyle: GridStyle(numberOfLines: 5),
-                                                             yAxisNumberOfLabels: 5,
-                                                             yAxisTitle: "Temperature (ºc)",
-                                                             baseline: .minimumValue,
-                                                             topLine: .maximumValue))
+        return MultiLineChartData(dataSets: data)
     }
 }
 

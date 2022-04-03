@@ -11,18 +11,20 @@ import SwiftUICharts
 struct GroupedBarChartDemoView: View {
     
     let data = makeData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         GroupedBarChart(chartData: data, groupSpacing: 25)
-            .touchOverlay(chartData: data, unit: .suffix(of: "kg"))
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                       title: HeaderBoxText(text: "Haggis Sales", font: .title),
-                       subtitle: HeaderBoxText(text: "Per Quarter", font: .body))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .touch(chartData: data) { touchLocation = $0 }
+            .hGrid()
+//            .xAxisLabels(chartData: data)
+//            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+        
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                       title: HeaderBoxText(text: "Haggis Sales", font: .title),
+//                       subtitle: HeaderBoxText(text: "Per Quarter", font: .body))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
@@ -85,12 +87,6 @@ extension GroupedBarChartDemoView {
         
         return GroupedBarChartData(dataSets: data,
                                    groups: groups,
-                                   xAxisLabels: ["One", "Two", "Three"],
-                                   barStyle: BarStyle(cornerRadius: CornerRadius(top: 5, bottom: 0)),
-                                   chartStyle: BarChartStyle(xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                                             yAxisGridStyle: GridStyle(numberOfLines: 7),
-                                                             yAxisNumberOfLabels: 7,
-                                                             baseline: .zero,
-                                                             topLine: .maximumValue))
+                                   barStyle: BarStyle(cornerRadius: CornerRadius(top: 5, bottom: 0)))
     }
 }

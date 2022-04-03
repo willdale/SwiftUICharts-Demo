@@ -10,45 +10,52 @@ import SwiftUICharts
 
 struct HorizontalBarChartDemoView: View {
     
-    let data: HorizontalBarChartData = weekOfData()
+    @StateObject private var chartData = weekOfData()
+    @StateObject private var stateObject = ChartStateObject()
     
     var body: some View {
-        HorizontalBarChart(chartData: data)
-            .touchOverlay(chartData: data)
-            .yAxisPOI(chartData: data,
-                      markerName: "Step Count Aim",
-                      markerValue: 600,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Minimum Recommended",
-                      markerValue: 100,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisPOI(chartData: data,
-                      markerName: "Bob",
-                      markerValue: 2,
-                      dataPointCount: data.dataSets.dataPoints.count,
-                      labelPosition: .yAxis(specifier: ""))
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Units Sold"),
-                      subtitle: HeaderBoxText(text: "Last year"))
-            .id(data.id)
+        HorizontalBarChart()
+//            .touch(chartData: data) { touchLocation = $0 }
+            .grid()
+            .yAxisMarker(value: 200, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo) {
+                Text("Y Axis")
+            }
+            .xAxisMarker(value: 1, total: chartData.dataSets.dataWidth, position: .leading, style: .amber, chartName: chartData.chartName) {
+                Text("X Axis")
+            }
+        
+//            .yAxisPOI(chartData: data, label: "Step Count Aim", value: 600, position: .top, style: .amber)
+//            .yAxisPOI(chartData: data, label: "Minimum Recommended", value: 100, position: .trailing, style: .amber)
+//            .averageLine(chartData: data, label: "Average", position: .bottom, style: .amber)
+        
+//            .xAxisPOI(chartData: chartData,
+//                      label: "Worst",
+//                      value: 2,
+//                      total: data.dataSets.dataPoints.count,
+//                      position: .leading,
+//                      style: .amber)
+        
+
+        
+//            .xAxisLabels(chartData: data, style: .standard)
+//            .yAxisLabels(chartData: data, position: [.bottom], data: .generated, style: YAxisLabelStyle(formatter: numberFormatter))
+        
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Units Sold"),
+//                      subtitle: HeaderBoxText(text: "Last year"))
+            .environmentObject(stateObject)
+            .environmentObject(chartData)
+            .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
+            
+    }
+    
+    var numberFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 0
+        return formatter
     }
     
     static func weekOfData() -> HorizontalBarChartData {
@@ -64,29 +71,12 @@ struct HorizontalBarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: .colour(colour: .red))
             ],
             legendTitle: "Data")
-                
-        let gridStyle  = GridStyle(numberOfLines: 7,
-                                   lineColour   : Color(.lightGray).opacity(0.25),
-                                   lineWidth    : 1)
-        
-        let chartStyle = BarChartStyle(markerType         : .full(),
-                                       xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .top,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
-                                       xAxisTitle         : "Units sold (x 1000)",
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
-                                       yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Categories",
-                                       baseline           : .zero,
-                                       topLine            : .maximumValue)
         
         return HorizontalBarChartData(dataSets  : data,
                                       barStyle  : BarStyle(barWidth: 0.5,
                                                            cornerRadius: CornerRadius(leading: 0, trailing: 50),
                                                            colourFrom: .dataPoints,
-                                                           colour: .colour(colour: .blue)),
-                                      chartStyle: chartStyle)
+                                                           colour: .colour(colour: .blue)))
     }
 }
 

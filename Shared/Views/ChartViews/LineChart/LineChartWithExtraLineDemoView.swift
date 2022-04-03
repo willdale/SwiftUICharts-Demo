@@ -12,24 +12,26 @@ struct LineChartWithExtraLineDemoView: View {
     
     let data: LineChartData = weekOfData()
     
-    var body: some View {
-        LineChart(chartData: data)
-            .extraLine(chartData: data,
-                       legendTitle: "Test",
-                       datapoints: extraLineData,
-                       style: extraLineStyle)
-            .pointMarkers(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Step Count"),
-                      subtitle: HeaderBoxText(text: "Over a Week"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+    @State private var touchLocation: CGPoint?
+    @State private var chartSize: CGRect = .zero
+    
+    var body: some View { EmptyView()
+//        LineChart(chartData: data) { chartSize = $0 }
+//            .extraLine(chartData: data,
+//                       legendTitle: "Test",
+//                       datapoints: extraLineData,
+//                       style: extraLineStyle)
+//            .pointMarkers(chartData: data)
+////            .touch(chartData: data) { touchLocation = $0 }
+//            .xAxisLabels(chartData: data)
+////            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//        
+//            .extraYAxisLabels(chartData: data, colourIndicator: .style(size: 12))
+////            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Step Count"),
+//                      subtitle: HeaderBoxText(text: "Over a Week"))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
@@ -38,18 +40,18 @@ struct LineChartWithExtraLineDemoView: View {
     }
     
     
-    private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 8000, description: "Something 1"),
-         ExtraLineDataPoint(value: 10000, description: "Something 2"),
-         ExtraLineDataPoint(value: 15000, description: "Something 3"),
-         ExtraLineDataPoint(value: 9000, description: "Something 4")]
-    }
-    
-    private var extraLineStyle: ExtraLineStyle {
-        ExtraLineStyle(lineColour: .colour(colour: .blue),
-                       lineType: .line,
-                       yAxisTitle: "Another Axis")
-    }
+//    private var extraLineData: [ExtraLineDataPoint] {
+//        [ExtraLineDataPoint(value: 8000, description: "Something 1"),
+//         ExtraLineDataPoint(value: 10000, description: "Something 2"),
+//         ExtraLineDataPoint(value: 15000, description: "Something 3"),
+//         ExtraLineDataPoint(value: 9000, description: "Something 4")]
+//    }
+//    
+//    private var extraLineStyle: ExtraLineStyle {
+//        ExtraLineStyle(lineColour: .colour(colour: .blue),
+//                       lineType: .line,
+//                       yAxisTitle: "Another Axis")
+//    }
     
     static func weekOfData() -> LineChartData {
         let data = LineDataSet(dataPoints: [
@@ -62,40 +64,9 @@ struct LineChartWithExtraLineDemoView: View {
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   ),
         ],
         legendTitle: "Steps",
-        pointStyle: PointStyle(),
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
-        let gridStyle = GridStyle(numberOfLines: 7,
-                                   lineColour: Color(.lightGray).opacity(0.5),
-                                   lineWidth: 1,
-                                   dash: [8],
-                                   dashPhase: 0)
-        
-        let chartStyle = LineChartStyle(markerType: .vertical(attachment: .line(dot: .style(DotStyle()))),
-                                        
-                                        xAxisGridStyle: gridStyle,
-                                        xAxisLabelPosition: .bottom,
-                                        xAxisLabelColour: Color.primary,
-                                        xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                        xAxisTitle: "xAxisTitle",
-                                        
-                                        yAxisGridStyle: gridStyle,
-                                        yAxisLabelPosition: .leading,
-                                        yAxisLabelColour: Color.primary,
-                                        yAxisNumberOfLabels: 7,
-                                        
-                                        baseline: .minimumWithMaximum(of: 5000),
-                                        topLine: .maximum(of: 20000),
-                                        
-                                        globalAnimation: .easeOut(duration: 1))
-        
-        
-        
-        let chartData = LineChartData(dataSets: data,
-                                      chartStyle: chartStyle)
-        
-        return chartData
-        
+        return LineChartData(dataSets: data)
     }
 
 }

@@ -10,42 +10,48 @@ import SwiftUICharts
 
 struct RangedBarChartDemoView: View {
     
-    let data : RangedBarChartData = weekOfData()
+    let data: RangedBarChartData = weekOfData()
+    
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         RangedBarChart(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f", unit: .suffix(of: "BPM"))
-            .yAxisPOI(chartData: data,
-                      markerName: "Upper Limit",
-                      markerValue: 100,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Lower Limit",
-                      markerValue: 50,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: HeaderBoxText(text: "Heart Rate"),
-                      subtitle: HeaderBoxText(text: "Over 24 Hours"))
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//            .touch(chartData: data) { touchLocation = $0 }
+//            .yAxisPOI(chartData: data,
+//                      markerName: "Upper Limit",
+//                      markerValue: 100,
+//                      labelPosition: .center(specifier: "%.0f"),
+//                      labelColour: Color.black,
+//                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .yAxisPOI(chartData: data,
+//                      markerName: "Lower Limit",
+//                      markerValue: 50,
+//                      labelPosition: .center(specifier: "%.0f"),
+//                      labelColour: Color.white,
+//                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .averageLine(chartData: data,
+//                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+            .grid()
+//            .xAxisLabels(chartData: data, style: xAxisLabelStyle)
+//            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+        
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: HeaderBoxText(text: "Heart Rate"),
+//                      subtitle: HeaderBoxText(text: "Over 24 Hours"))
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .id(data.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
             .navigationTitle("Week of Data")
+    }
+    
+    var xAxisLabelStyle: XAxisLabelStyle {
+        XAxisLabelStyle(rotation: .degrees(90))
     }
     
     static func weekOfData() -> RangedBarChartData {
@@ -76,29 +82,14 @@ struct RangedBarChartDemoView: View {
                 RangedBarDataPoint(lowerValue: 60, upperValue: 90 , xAxisLabel: "23:00 - 24:00", description: "23:00 - 24:00")
             ],
             legendTitle: "BPM")
-                        
-        let gridStyle  = GridStyle(numberOfLines: 11,
-                                   lineColour  : Color(.lightGray).opacity(0.25),
-                                   lineWidth   : 1)
-        
-        let chartStyle = BarChartStyle(xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(90)),
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
-                                       yAxisNumberOfLabels: 11,
-                                       baseline: .minimumWithMaximum(of: 30),
-                                       topLine: .maximum(of: 160))
         
         return RangedBarChartData(dataSets: data,
-                                  xAxisLabels: ["00:00", "12:00", "00:00"],
                                   barStyle: BarStyle(barWidth: 0.75,
                                                      cornerRadius: CornerRadius(top: 10, bottom: 10),
                                                      colourFrom: .barStyle,
                                                      colour: .gradient(colours: [Color.init(red: 1, green: 0.25, blue: 0.25),
-                                                                                   Color.init(red: 1, green: 0.5, blue: 0.5)],
-                                                                         startPoint: .bottom, endPoint: .top)),
-                                  chartStyle: chartStyle)
+                                                                                 Color.init(red: 1, green: 0.5, blue: 0.5)],
+                                                                       startPoint: .bottom, endPoint: .top)))
     }
 }
 

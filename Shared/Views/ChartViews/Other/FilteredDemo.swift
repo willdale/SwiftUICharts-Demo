@@ -36,47 +36,48 @@ struct FilteredDemo: View {
 struct FilterView: View {
     
     let data: LineChartData
-    let title: HeaderBoxText
-    let subtitle: HeaderBoxText
+//    let title: HeaderBoxText
+//    let subtitle: HeaderBoxText
         
-    var body: some View {
-        LineChart(chartData: data)
-            .pointMarkers(chartData: data)
-            .touchOverlay(chartData: data, specifier: "%.0f")
-            .yAxisPOI(chartData: data,
-                      markerName: "Step Count Aim",
-                      markerValue: 150,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.black,
-                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .yAxisPOI(chartData: data,
-                      markerName: "Minimum Recommended",
-                      markerValue: 100,
-                      labelPosition: .center(specifier: "%.0f"),
-                      labelColour: Color.white,
-                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .averageLine(chartData: data,
-                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
-            .infoDisplay(.verticle(chartData: data), style: .bordered)
-            .titleBox(chartData: data,
-                      title: title,
-                      subtitle: subtitle)
-            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+    @State private var touchLocation: CGPoint?
+    @State private var chartSize: CGRect = .zero
+    
+    var body: some View { EmptyView()
+//        LineChart(chartData: data) //{ chartSize = $0 }
+//            .pointMarkers(chartData: data)
+//            .touch(chartData: data) { touchLocation = $0 }
+//            .yAxisPOI(chartData: data,
+//                      markerName: "Step Count Aim",
+//                      markerValue: 150,
+//                      labelPosition: .center(specifier: "%.0f"),
+//                      labelColour: Color.black,
+//                      labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                      lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .yAxisPOI(chartData: data,
+//                      markerName: "Minimum Recommended",
+//                      markerValue: 100,
+//                      labelPosition: .center(specifier: "%.0f"),
+//                      labelColour: Color.white,
+//                      labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                      lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .averageLine(chartData: data,
+//                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//            .xAxisLabels(chartData: data)
+//            .yAxisLabels(chartData: data)
+        
+//            .infoDisplay(.verticle(chartData: data), style: .bordered)
+//            .titleBox(chartData: data,
+//                      title: title,
+//                      subtitle: subtitle)
+//            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.all, 24)
             .id(data.id)
     }
     
     init(startDate: Date, title: String, subtitle: String) {
-        
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         
@@ -88,17 +89,9 @@ struct FilterView: View {
             LineChartDataPoint(value: myData.value, xAxisLabel: myData.xAxisLabel, description: myData.description)
         }
         
-        let baseline = chartDataPoints.min(by: { $0.value < $1.value })?.value ?? 1
-        let topline  = chartDataPoints.max(by: { $0.value < $1.value })?.value ?? 1
-        
-        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"),
-                                  chartStyle: LineChartStyle(markerType: .vertical(attachment: .point),
-                                                             xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                                             yAxisNumberOfLabels: 3,
-                                                             baseline: .minimumWithMaximum(of: baseline - 20),
-                                                             topLine: .maximum(of: topline + 20)))
-        self.title = HeaderBoxText(text: title)
-        self.subtitle = HeaderBoxText(text: subtitle)
+        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"))
+//        self.title = HeaderBoxText(text: title)
+//        self.subtitle = HeaderBoxText(text: subtitle)
     }
 }
 

@@ -10,40 +10,40 @@ import SwiftUICharts
 
 struct FilledLineChartDemoView: View {
     
-    @State var data : FilledLineChartData = weekOfData()
+    @State var data: FilledLineChartData = weekOfData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
         VStack {
             FilledLineChart(chartData: data)
-                .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
-                .pointMarkers(chartData: data)
-                .yAxisPOI(chartData: data,
-                          markerName: "Step Count Aim",
-                          markerValue: 15_000,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelColour: Color.black,
-                          labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                          lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .yAxisPOI(chartData: data,
-                          markerName: "Minimum Recommended",
-                          markerValue: 10_000,
-                          labelPosition: .center(specifier: "%.0f"),
-                          labelColour: Color.white,
-                          labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                          lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .averageLine(chartData: data,
-                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .xAxisGrid(chartData: data)
-                .yAxisGrid(chartData: data)
-                .xAxisLabels(chartData: data)
-                .yAxisLabels(chartData: data)
-                .infoDisplay(.verticle(chartData: data), style: .bordered)
-                .titleBox(chartData: data,
-                          title: HeaderBoxText(text: "Some Data"),
-                          subtitle: HeaderBoxText(text: "A Week"))
-                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
+//                .touch(chartData: data) { touchLocation = $0 }
+//                .pointMarkers(chartData: data)
+//                .yAxisPOI(chartData: data,
+//                          markerName: "Step Count Aim",
+//                          markerValue: 15_000,
+//                          labelPosition: .center(specifier: "%.0f"),
+//                          labelColour: Color.black,
+//                          labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                          lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
+//                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//                .yAxisPOI(chartData: data,
+//                          markerName: "Minimum Recommended",
+//                          markerValue: 10_000,
+//                          labelPosition: .center(specifier: "%.0f"),
+//                          labelColour: Color.white,
+//                          labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                          lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
+//                          strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//                .averageLine(chartData: data,
+//                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
+//                .xAxisLabels(chartData: data)
+//                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+            
+//                .infoDisplay(.verticle(chartData: data), style: .bordered)
+//                .titleBox(chartData: data,
+//                          title: HeaderBoxText(text: "Some Data"),
+//                          subtitle: HeaderBoxText(text: "A Week"))
+//                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)
@@ -62,14 +62,9 @@ struct FilledLineChartDemoView: View {
             LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday"     , ignore: true)
         ],
         legendTitle: "Test One",
-        pointStyle: PointStyle(),
         style: FilledLineStyle())
         
-        return FilledLineChartData(dataSets: data,
-                                   xAxisLabels: ["Monday", "Thursday", "Sunday"],
-                                   chartStyle: LineChartStyle(markerType: .full(attachment: .point),
-                                                              xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
-                                                              baseline: .minimumWithMaximum(of: 5000)))
+        return FilledLineChartData(dataSets: data)
     }
 }
 

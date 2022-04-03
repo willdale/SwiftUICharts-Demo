@@ -11,42 +11,27 @@ import SwiftUICharts
 struct ContentView: View {
     
     let data = makeData()
+    @State private var touchLocation: CGPoint?
     
     var body: some View {
-        BarChart(chartData: data)
-            .touchOverlay(chartData: data)
-            .xAxisGrid(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data)
+        BarChart()
+//            .touch(chartData: data) { touchLocation = $0 }
+            .grid()
+//            .xAxisLabels(chartData: data)
+//            .yAxisLabels(chartData: data)
             .padding()
     }
     
     static func makeData() -> BarChartData {
         
-        let data : BarDataSet = BarDataSet(dataPoints: [
+        let data: BarDataSet = BarDataSet(dataPoints: [
             BarChartDataPoint(value: 10, xAxisLabel: "A"),
             BarChartDataPoint(value: 50, xAxisLabel: "B"),
             BarChartDataPoint(value: 30, xAxisLabel: "C"),
             BarChartDataPoint(value: 60, xAxisLabel: "D")
         ],legendTitle: "Data")
-                
-        let xAxisLabels = [""]
         
-        let grid = GridStyle(numberOfLines: 3,
-                             lineColour: Color(.lightGray).opacity(0.5),
-                             lineWidth: 1)
-        
-        let chartStyle = BarChartStyle(xAxisGridStyle: grid,
-                                       xAxisLabelPosition: .bottom,
-                                       xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
-                                       yAxisGridStyle: grid,
-                                       yAxisLabelPosition: .leading,
-                                       yAxisNumberOfLabels: 3)
-
-        return BarChartData(dataSets: data,
-                            xAxisLabels: xAxisLabels,
-                            chartStyle: chartStyle)
+        return BarChartData(dataSets: data)
     }
 }
 

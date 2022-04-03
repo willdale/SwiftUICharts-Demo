@@ -10,59 +10,67 @@ import SwiftUICharts
 
 struct BarChartDemoView: View {
     
-    let data: BarChartData = weekOfData()
-    
+    @StateObject private var chartData = weekOfData()
+    @StateObject private var stateObject = ChartStateObject()
+        
     var body: some View {
         VStack {
-        BarChart(chartData: data)
-            .touchOverlay(chartData: data)
-            .yAxisGrid(chartData: data)
-            .xAxisLabels(chartData: data)
-            .yAxisLabels(chartData: data,
-                         colourIndicator: .custom(colour: .colour(colour: .red), size: 12))
-            .infoDisplaySpacer(height: 75)
-            .infoDisplay(.verticle(chartData: data),
-                         style: .bordered,
-                         shape: Rectangle())
-            .titleBox(chartData: data,
-                       title: HeaderBoxText(text: "Units Sold", font: .title),
-                       subtitle: HeaderBoxText(text: "Last year", font: .body))
-            .id(data.id)
+        BarChart()
+//                .touch(chartData: data) { touchLocation = $0 }
+            .hGrid()
+            
+            .yAxisMarker(value: 200, position: .leading, style: .amber, dataSetInfo: chartData.dataSetInfo) {
+                Text("Y Axis")
+            }
+            .xAxisMarker(value: 1, total: chartData.dataSets.dataWidth, position: .bottom, style: .amber, chartName: chartData.chartName) {
+                Text("X Axis")
+            }
+            
+//            .xAxisLabels(chartData: data, style: .standard90)
+//            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
+//            .infoDisplay(.verticle(chartData: data),
+//                         style: .bordered,
+//                         shape: Rectangle())
+//            .titleBox(chartData: data,
+//                       title: HeaderBoxText(text: "Units Sold", font: .title),
+//                       subtitle: HeaderBoxText(text: "Last year", font: .body))
+            .environmentObject(stateObject)
+            .environmentObject(chartData)
+            .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
             
-            Button("Values") {
-                let newData: [BarChartDataPoint] = data.dataSets.dataPoints.enumerated().map {
-                    let value = $0.element.value + Double.random(in: 100...200)
-                    var dp = data.dataSets.dataPoints[$0.offset]
-                    dp.value = value
-                    return dp
-                }
-                
-                self.data.dataSets.dataPoints = newData
-            }
-            
-            Button("Width") {
-                self.data.barStyle.barWidth += 0.1
-            }
-            
-            Button("Colour") {
-                let newData: [BarChartDataPoint] = data.dataSets.dataPoints.enumerated().map {
-                    let colours: [Color] = [.purple, .blue, .green, .yellow, .yellow, .orange, .red]
-                    var dp = data.dataSets.dataPoints[$0.offset]
-                    dp.colour = .colour(colour: colours[Int.random(in: 0...colours.count-1)])
-                    return dp
-                }
-                
-                self.data.dataSets.dataPoints = newData
-            }
+//            Button("Values") {
+//                let newData: [BarChartDataPoint] = data.dataSets.dataPoints.enumerated().map {
+//                    let value = $0.element.value + Double.random(in: 100...200)
+//                    var dp = data.dataSets.dataPoints[$0.offset]
+//                    dp.value = value
+//                    return dp
+//                }
+//                
+//                self.data.dataSets.dataPoints = newData
+//            }
+//            
+//            Button("Width") {
+//                self.data.barStyle.barWidth += 0.1
+//            }
+//            
+//            Button("Colour") {
+//                let newData: [BarChartDataPoint] = data.dataSets.dataPoints.enumerated().map {
+//                    let colours: [Color] = [.purple, .blue, .green, .yellow, .yellow, .orange, .red]
+//                    var dp = data.dataSets.dataPoints[$0.offset]
+//                    dp.colour = .colour(colour: colours[Int.random(in: 0...colours.count-1)])
+//                    return dp
+//                }
+//                
+//                self.data.dataSets.dataPoints = newData
+//            }
 
         }
     }
     
     static func weekOfData() -> BarChartData {
-        let data: BarDataSet =
-            BarDataSet(dataPoints: [
+        let data: BarDataSet = BarDataSet(dataPoints: [
                 BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: .colour(colour: .purple)),
                 BarChartDataPoint(value: 90 , xAxisLabel: "Desktops"  , description: "Desktops"  , colour: .colour(colour: .blue)),
                 BarChartDataPoint(value: 700, xAxisLabel: "Phones"    , description: "Phones"    , colour: .colour(colour: .green)),
@@ -72,30 +80,13 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: .colour(colour: .red))
             ],
             legendTitle: "Data")
-                
-        let gridStyle  = GridStyle(numberOfLines: 7,
-                                   lineColour   : Color(.lightGray).opacity(0.25),
-                                   lineWidth    : 1)
         
-        let chartStyle = BarChartStyle(markerType         : .bottomLeading(),
-                                       xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(-90)),
-                                       xAxisTitle         : "Categories",
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
-                                       yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Units sold (x 1000)",
-                                       baseline           : .zero,
-                                       topLine            : .maximumValue)
+        let barStyle = BarStyle(barWidth: 0.5,
+                                cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                colourFrom: .dataPoints,
+                                colour: .colour(colour: .blue))
         
-        return BarChartData(dataSets: data,
-                            xAxisLabels: ["One", "Two", "Three"],
-                            barStyle: BarStyle(barWidth: 0.5,
-                                               cornerRadius: CornerRadius(top: 50, bottom: 0),
-                                               colourFrom: .dataPoints,
-                                               colour: .colour(colour: .blue)),
-                            chartStyle: chartStyle)
+        return BarChartData(dataSets: data, barStyle: barStyle)
     }
 }
 
