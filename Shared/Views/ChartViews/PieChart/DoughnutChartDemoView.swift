@@ -43,8 +43,9 @@ extension DoughnutChartDemoView {
                 PieChartDataPoint(value: 2, description: "Two"  , colour: .red   , label: .label(text: "Two"  , rFactor: 0.8)),
                 PieChartDataPoint(value: 9, description: "Three", colour: .purple, label: .label(text: "Three", rFactor: 0.8)),
                 PieChartDataPoint(value: 6, description: "Four" , colour: .green , label: .label(text: "Four" , rFactor: 0.8)),
-                PieChartDataPoint(value: 4, description: "Five" , colour: .orange, label: .label(text: "Five" , rFactor: 0.8))],
-            legendTitle: "Data")
+                PieChartDataPoint(value: 4, description: "Five" , colour: .orange, label: .label(text: "Five" , rFactor: 0.8))
+            ]
+        )
         
         return DoughnutChartData(dataSets: data,
                                  noDataText: Text("hello"))

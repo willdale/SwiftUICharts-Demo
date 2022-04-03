@@ -89,7 +89,7 @@ struct FilterView: View {
             LineChartDataPoint(value: myData.value, xAxisLabel: myData.xAxisLabel, description: myData.description)
         }
         
-        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints, legendTitle: "Steps"))
+        self.data = LineChartData(dataSets: LineDataSet(dataPoints: chartDataPoints))
 //        self.title = HeaderBoxText(text: title)
 //        self.subtitle = HeaderBoxText(text: subtitle)
     }

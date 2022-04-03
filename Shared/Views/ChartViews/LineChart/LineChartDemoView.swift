@@ -16,6 +16,7 @@ struct LineChartDemoView: View {
         
     var body: some View {
         LineChart()
+            .touch(chartData: chartData)
             .axisBorder(edges: edges)
             .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
         
@@ -26,7 +27,8 @@ struct LineChartDemoView: View {
                           dataSetInfo: chartData.dataSetInfo,
                           animation: pointMarkerAnimation,
                           pointMaker: pointMaker)
-            .touch(stateObject: stateObject, chartData: chartData)
+        
+            .touchMarker(chartData: chartData)
         
             .xAxisLabels(labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard, data: chartData.xAxisData)
             .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
@@ -137,7 +139,6 @@ struct LineChartDemoView: View {
             LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , ignore: false),
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
         ],
-        legendTitle: "Steps",
         style: LineStyle(lineColour: .colour(colour: .red), lineType: .curvedLine))
         
         return LineChartData(dataSets: data)
