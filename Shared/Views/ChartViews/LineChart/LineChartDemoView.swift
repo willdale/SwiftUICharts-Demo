@@ -139,7 +139,7 @@ struct LineChartDemoView: View {
             LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , ignore: false),
             LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
         ],
-        marketType: .topTrailing(attachment: .line),
+        markerType: .full(attachment: .line),
         style: LineStyle(lineColour: .colour(colour: .red),
         lineType: .curvedLine))
         
