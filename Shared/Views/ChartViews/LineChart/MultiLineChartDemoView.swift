@@ -10,17 +10,22 @@ import SwiftUICharts
 
 struct MultiLineChartDemoView: View {
     
-    @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = ChartStateObject()
+    private var chartData = weekOfData()
+    private var stateObject = ChartStateObject()
+    private var touchObject = ChartTouchObject()
     
     var body: some View {
         VStack {
-            MultiLineChart()
-                .touch(chartData: chartData)
-//                .pointMarkers(chartData: chartData)
+            MultiLineChart(chartData: chartData, stateObject: stateObject)
+                .touch(chartData: chartData, stateObject: stateObject, touchObject: touchObject)
+            
+                .pointMarkers(chartData: chartData,
+                              stateObject: stateObject,
+                              animation: pointMarkerAnimation,
+                              pointMaker: pointMaker)
                 .grid()
-                .xAxisLabels(labels: ["January", "December"], positions: [.bottom], style: .standard, data: chartData.xAxisData)
-                .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
+                .xAxisLabels(chartData: chartData, stateObject: stateObject, labels: ["January", "December"], positions: [.bottom], style: .standard)
+                .yAxisLabels(chartData: chartData, stateObject: stateObject, position: [.leading], data: .generated, style: .standard)
             
 //                .infoDisplay(.verticle(chartData: data),
 //                             style: .bordered,
@@ -37,6 +42,18 @@ struct MultiLineChartDemoView: View {
                 .padding(.horizontal)
         }
         .navigationTitle("Week of Data")
+    }
+    
+    private func pointMaker(_ dataSetIndex: Int, _ dataPointIndex: Int) -> some View {
+        ZStack {
+            Text("\(chartData.dataSets.dataSets[dataSetIndex].dataPoints[dataPointIndex].value, specifier: "%.0f")")
+                .font(.caption)
+        }
+    }
+    
+    private func pointMarkerAnimation(_ dataSetIndex: Int, _ dataPointIndex: Int) -> Animation {
+        let delayFactor = 0.2
+        return .linear(duration: 1).delay(Double(delayFactor * Double(dataSetIndex)) * (delayFactor * Double(dataPointIndex)))
     }
 
     static func weekOfData() -> MultiLineChartData {

@@ -13,37 +13,36 @@ struct LineChartDemoView: View {
         
     private var chartData = weekOfData()
     private var stateObject = ChartStateObject()
+    private var touchObject = ChartTouchObject()
         
     var body: some View {
-        LineChart()
-            .touch(chartData: chartData)
+        LineChart(chartData: chartData, stateObject: stateObject)
+            .touch(chartData: chartData, stateObject: stateObject, touchObject: touchObject)
             .axisBorder(edges: edges)
             .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
         
-            .yAxisMarker(value: 16_000, position: .leading, style: .amber, dataSetInfo: chartData.dataSetInfo, label: yAxisPOIText)
-            .xAxisMarker(value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, chartName: chartData.chartName, label: xAxisPOIText)
+            .yAxisMarker(chartData: chartData, stateObject: stateObject, value: 16_000, position: .leading, style: .amber, label: yAxisPOIText)
+            .xAxisMarker(chartData: chartData, stateObject: stateObject, value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, label: xAxisPOIText)
         
-            .pointMarkers(datapoints: chartData.dataSets.dataPoints,
-                          dataSetInfo: chartData.dataSetInfo,
+            .pointMarkers(chartData: chartData,
+                          stateObject: stateObject,
                           animation: pointMarkerAnimation,
                           pointMaker: pointMaker)
         
-            .touchMarker(chartData: chartData, indicator: .none)
+            .touchMarker(chartData: chartData, stateObject: stateObject, touchObject: touchObject, indicator: .none)
         
-            .xAxisLabels(labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard, data: chartData.xAxisData)
-            .yAxisLabels(position: [.leading], data: .generated, style: .standard, dataSetInfo: chartData.dataSetInfo)
+            .xAxisLabels(chartData: chartData, stateObject: stateObject, labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard)
+            .yAxisLabels(chartData: chartData, stateObject: stateObject, position: [.leading], data: .generated, style: .standard)
         
-            .axisTitles(edges: axisTitles, style: .standard)
+            .axisTitles(stateObject: stateObject, edges: axisTitles, style: .standard)
 
-            .infoDisplay(chartData: chartData, infoView: .vertical(style: .bordered)) { boxSize in
-                boxLocation(touchLocation: stateObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
+            .infoDisplay(chartData: chartData, stateObject: stateObject, touchObject: touchObject, infoView: .vertical(style: .bordered)) { boxSize in
+                boxLocation(touchLocation: touchObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
             }
         
             .titleBox(title: "A Title", subtitle: "A subtitle")
             .legends(legends: [Legend(chartType: .line, text: "One"), Legend(chartType: .line, text: "Two", shapeColour: .colour(colour: .blue))], style: .standard)
-        
-            .environmentObject(stateObject)
-            .environmentObject(chartData)
+
             .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 400, maxHeight: 400, alignment: .center)
             .padding(.horizontal)

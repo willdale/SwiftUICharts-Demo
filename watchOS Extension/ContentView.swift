@@ -14,12 +14,13 @@ struct ContentView: View {
     @State private var touchLocation: CGPoint?
     
     var body: some View {
-        BarChart()
+        Text("")
+//        BarChart()
 //            .touch(chartData: data) { touchLocation = $0 }
-            .grid()
+//            .grid()
 //            .xAxisLabels(chartData: data)
 //            .yAxisLabels(chartData: data)
-            .padding()
+//            .padding()
     }
     
     static func makeData() -> BarChartData {

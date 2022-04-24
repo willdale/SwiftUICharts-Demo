@@ -10,19 +10,19 @@ import SwiftUICharts
 
 struct BarChartDemoView: View {
     
-    @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = ChartStateObject()
+    private var chartData = weekOfData()
+    private var stateObject = ChartStateObject()
         
     var body: some View {
         VStack {
-        BarChart()
+            BarChart(chartData: chartData, stateObject: stateObject)
 //                .touch(chartData: data) { touchLocation = $0 }
             .hGrid()
             
-            .yAxisMarker(value: 200, position: .leading, style: .amber, dataSetInfo: chartData.dataSetInfo) {
+            .yAxisMarker(chartData: chartData, stateObject: stateObject, value: 200, position: .leading, style: .amber) {
                 Text("Y Axis")
             }
-            .xAxisMarker(value: 1, total: chartData.dataSets.dataWidth, position: .bottom, style: .amber, chartName: chartData.chartName) {
+            .xAxisMarker(chartData: chartData, stateObject: stateObject, value: 1, total: chartData.dataSets.dataWidth, position: .bottom, style: .amber) {
                 Text("X Axis")
             }
             
@@ -94,45 +94,3 @@ struct BarChartView_Previews: PreviewProvider {
         BarChartDemoView()
     }
 }
-
-/*
-.infoDisplay(chartData: data, infoView: customInfoBox) { setBoxLocation($0, $1) }
-private var customInfoBox: some InfoDisplayable {
-    CustomInfoBox(chartData: data, boxFrame: $size)
-}
-private func setBoxLocation(_ touchLocation: CGPoint, _ chartSize: CGRect) -> CGPoint {
-    CGPoint(x: data.setBoxLocation(touchLocation: touchLocation.x,
-                                   boxFrame: size,
-                                   chartSize: chartSize),
-            y: 35)
-}
-struct CustomInfoBox<ChartData>: InfoDisplayable where ChartData: InfoData {
-
-    @ObservedObject var chartData: ChartData
-    @Binding var boxFrame: CGRect
-    
-    var content: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            ForEach(chartData.touchPointData, id: \.id) { point in
-                chartData.infoDescription(info: point)
-                    .font(chartData.chartStyle.infoBoxDescriptionFont)
-                    .foregroundColor(chartData.chartStyle.infoBoxDescriptionColour)
-                chartData.infoValueUnit(info: point)
-                    .font(chartData.chartStyle.infoBoxValueFont)
-                    .foregroundColor(chartData.chartStyle.infoBoxValueColour)
-                chartData.infoLegend(info: point)
-                    .foregroundColor(chartData.chartStyle.infoBoxDescriptionColour)
-            }
-        }
-        .border(Color.accentColor, width: 1)
-        .background(
-            GeometryReader { geo in
-                EmptyView()
-                    .onChange(of: geo.frame(in: .local)) { frame in
-                        self.boxFrame = frame
-                    }
-            }
-        )
-    }
-}
-*/

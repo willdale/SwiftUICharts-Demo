@@ -64,8 +64,10 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/SwiftUICharts Demo">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6CDF287925B30C9000ADA785"
@@ -73,7 +75,7 @@
             BlueprintName = "SwiftUICharts Demo (watchOS)"
             ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -81,8 +83,10 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/SwiftUICharts Demo">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6CDF287925B30C9000ADA785"
@@ -90,7 +94,16 @@
             BlueprintName = "SwiftUICharts Demo (watchOS)"
             ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6CDF287925B30C9000ADA785"
+            BuildableName = "SwiftUICharts Demo (watchOS).app"
+            BlueprintName = "SwiftUICharts Demo (watchOS)"
+            ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
