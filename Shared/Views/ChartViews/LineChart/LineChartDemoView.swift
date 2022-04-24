@@ -79,16 +79,18 @@ struct LineChartDemoView: View {
         .linear(duration: 1).delay(Double(0.2 * Double(index)))
     }
 
-    private static func edgeStyle(_ delay: Double) -> BorderStyle {
-        BorderStyle(colour: .gray, style: StrokeStyle(lineWidth: 1), animation: .linear(duration: 1).delay(delay))
+    private func edgeStyle(_ delay: Double) -> BorderStyle {
+        BorderStyle(colour: .gray, style: StrokeStyle(lineWidth: 1), animation: .linear(duration: 0.5).delay(delay))
     }
     
-    private var edges: BorderSet = [
-        .leading(direction: .up, style: Self.edgeStyle(0)),
-        .top(direction: .trailing, style: Self.edgeStyle(1)),
-        .trailing(direction: .down, style: Self.edgeStyle(2)),
-        .bottom(direction: .leading, style: Self.edgeStyle(3)),
-    ]
+    private var edges: BorderSet {
+        [
+            .leading(direction: .up, style: edgeStyle(0)),
+            .top(direction: .trailing, style: edgeStyle(0.5)),
+            .trailing(direction: .down, style: edgeStyle(0)),
+            .bottom(direction: .leading, style: edgeStyle(0.5)),
+        ]
+    }
     
     private var axisTitles: Set<AxisTitleStyle.Edge> = [
         .top(text: "Top"),
