@@ -17,10 +17,10 @@ struct HorizontalBarChartDemoView: View {
         HorizontalBarChart(chartData: chartData, stateObject: stateObject)
 //            .touch(chartData: data) { touchLocation = $0 }
             .grid()
-            .yAxisMarker(chartData: chartData, stateObject: stateObject, value: 200, position: .bottom, style: .amber) {
+            .yAxisMarker(chartData: chartData, value: 200, position: .bottom, style: .amber) {
                 Text("Y Axis")
             }
-            .xAxisMarker(chartData: chartData, stateObject: stateObject, value: 1, total: chartData.dataSets.dataWidth, position: .leading, style: .amber) {
+            .xAxisMarker(chartData: chartData, value: 1, total: chartData.dataSets.dataWidth, position: .leading, style: .amber) {
                 Text("X Axis")
             }
         

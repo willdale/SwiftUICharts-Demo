@@ -17,15 +17,14 @@ struct MultiLineChartDemoView: View {
     var body: some View {
         VStack {
             MultiLineChart(chartData: chartData, stateObject: stateObject)
-                .touch(chartData: chartData, stateObject: stateObject, touchObject: touchObject)
+                .touch(chartData: chartData)
             
                 .pointMarkers(chartData: chartData,
-                              stateObject: stateObject,
                               animation: pointMarkerAnimation,
                               pointMaker: pointMaker)
                 .grid()
-                .xAxisLabels(chartData: chartData, stateObject: stateObject, labels: ["January", "December"], positions: [.bottom], style: .standard)
-                .yAxisLabels(chartData: chartData, stateObject: stateObject, position: [.leading], data: .generated, style: .standard)
+                .xAxisLabels(chartData: chartData, labels: ["January", "December"], positions: [.bottom], style: .standard)
+                .yAxisLabels(chartData: chartData, position: [.leading], data: .generated, style: .standard)
             
 //                .infoDisplay(.verticle(chartData: data),
 //                             style: .bordered,

@@ -11,33 +11,42 @@ import Combine
 
 struct LineChartDemoView: View {
         
-    private var chartData = weekOfData()
-    private var stateObject = ChartStateObject()
-    private var touchObject = ChartTouchObject()
+    private var chartData: LineChartData = {
+        let data = LineDataSet(dataPoints: [
+            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"   , ignore: false),
+            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"  , ignore: false),
+            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday", ignore: false),
+            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday" , ignore: false),
+            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"   , ignore: false),
+            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , ignore: false),
+            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
+        ],
+        markerType: .full(attachment: .line),
+        style: LineStyle(lineColour: .colour(colour: .red),
+        lineType: .curvedLine))
         
+        return LineChartData(dataSets: data)
+    }()
+    
     var body: some View {
-        LineChart(chartData: chartData, stateObject: stateObject)
-            .touch(chartData: chartData, stateObject: stateObject, touchObject: touchObject)
+        LineChart(chartData: chartData)
+            .touch(chartData: chartData)
             .axisBorder(edges: edges)
             .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
         
-            .yAxisMarker(chartData: chartData, stateObject: stateObject, value: 16_000, position: .leading, style: .amber, label: yAxisPOIText)
-            .xAxisMarker(chartData: chartData, stateObject: stateObject, value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, label: xAxisPOIText)
+            .yAxisMarker(chartData: chartData, value: 16_000, position: .leading, style: .amber, label: yAxisPOIText)
+            .xAxisMarker(chartData: chartData, value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, label: xAxisPOIText)
         
-            .pointMarkers(chartData: chartData,
-                          stateObject: stateObject,
-                          animation: pointMarkerAnimation,
-                          pointMaker: pointMaker)
+            .pointMarkers(chartData: chartData, animation: pointMarkerAnimation, pointMaker: pointMaker)
+            .touchMarker(chartData: chartData, indicator: .none)
         
-            .touchMarker(chartData: chartData, stateObject: stateObject, touchObject: touchObject, indicator: .none)
+            .xAxisLabels(chartData: chartData, labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard)
+            .yAxisLabels(chartData: chartData, position: [.leading], data: .generated, style: .standard)
         
-            .xAxisLabels(chartData: chartData, stateObject: stateObject, labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard)
-            .yAxisLabels(chartData: chartData, stateObject: stateObject, position: [.leading], data: .generated, style: .standard)
-        
-            .axisTitles(stateObject: stateObject, edges: axisTitles, style: .standard)
+            .axisTitles(chartData: chartData, edges: axisTitles, style: .standard)
 
-            .infoDisplay(chartData: chartData, stateObject: stateObject, touchObject: touchObject, infoView: .vertical(style: .bordered)) { boxSize in
-                boxLocation(touchLocation: touchObject.touchLocation, boxFrame: boxSize, chartSize: stateObject.chartSize)
+            .infoDisplay(chartData: chartData, infoView: .vertical(style: .bordered)) { touchLocation, chartSize, boxSize in
+                boxLocation(touchLocation: touchLocation, chartSize: chartSize, boxSize: boxSize)
             }
         
             .titleBox(title: "A Title", subtitle: "A subtitle")
@@ -49,29 +58,24 @@ struct LineChartDemoView: View {
             .navigationTitle("Week of Data")
     }
     
-    private func boxLocation(touchLocation: CGPoint, boxFrame: CGRect, chartSize: CGRect) -> CGPoint {
+    private func boxLocation(touchLocation: CGPoint, chartSize: CGRect, boxSize: CGRect) -> CGPoint {
         let returnPoint: CGFloat
-        if touchLocation.x < chartSize.minX + (boxFrame.width / 2) {
-            returnPoint = chartSize.minX + (boxFrame.width / 2)
-        } else if touchLocation.x > chartSize.maxX - (boxFrame.width / 2) {
-            returnPoint = chartSize.maxX - (boxFrame.width / 2)
+        if touchLocation.x < chartSize.minX + (boxSize.width / 2) {
+            returnPoint = chartSize.minX + (boxSize.width / 2)
+        } else if touchLocation.x > chartSize.maxX - (boxSize.width / 2) {
+            returnPoint = chartSize.maxX - (boxSize.width / 2)
         } else {
             returnPoint = touchLocation.x
         }
         return CGPoint(x: returnPoint,
-                       y: boxFrame.midY)
+                       y: boxSize.midY)
     }
     
     private func pointMaker(_ index: Int) -> some View {
-        ZStack {
-            Circle()
-                .stroke(Color.primary, style: StrokeStyle(lineWidth: 1))
-                .frame(width: 8, height: 8)
-            Text("\(chartData.dataSets.dataPoints[index].value, specifier: "%.0f")")
-                .font(.caption)
-                .padding(4)
-                .background(Color.systemsBackground.opacity(0.5))
-        }
+        Text("\(chartData.dataSets.dataPoints[index].value, specifier: "%.0f")")
+            .font(.caption)
+            .padding(4)
+            .background(Color.systemsBackground.opacity(0.5))
     }
     
     private func pointMarkerAnimation(_ index: Int) -> Animation {
@@ -128,23 +132,6 @@ struct LineChartDemoView: View {
             .accessibilityLabel(LocalizedStringKey("P-O-I-Marker"))
             .accessibilityValue(LocalizedStringKey(String(format: NSLocalizedString("Rest Day",
                                                                                     comment: "The day of the week the user should rest"))))
-    }
-    
-    static func weekOfData() -> LineChartData {
-        let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"   , ignore: false),
-            LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"  , ignore: false),
-            LineChartDataPoint(value: 8000 , xAxisLabel: "W", description: "Wednesday", ignore: false),
-            LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday" , ignore: false),
-            LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"   , ignore: false),
-            LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday" , ignore: false),
-            LineChartDataPoint(value: 9000 , xAxisLabel: "S", description: "Sunday"   , ignore: false),
-        ],
-        markerType: .full(attachment: .line),
-        style: LineStyle(lineColour: .colour(colour: .red),
-        lineType: .curvedLine))
-        
-        return LineChartData(dataSets: data)
     }
 }
 

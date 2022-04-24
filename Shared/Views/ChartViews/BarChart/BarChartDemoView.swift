@@ -19,10 +19,10 @@ struct BarChartDemoView: View {
 //                .touch(chartData: data) { touchLocation = $0 }
             .hGrid()
             
-            .yAxisMarker(chartData: chartData, stateObject: stateObject, value: 200, position: .leading, style: .amber) {
+            .yAxisMarker(chartData: chartData, value: 200, position: .leading, style: .amber) {
                 Text("Y Axis")
             }
-            .xAxisMarker(chartData: chartData, stateObject: stateObject, value: 1, total: chartData.dataSets.dataWidth, position: .bottom, style: .amber) {
+            .xAxisMarker(chartData: chartData, value: 1, total: chartData.dataSets.dataWidth, position: .bottom, style: .amber) {
                 Text("X Axis")
             }
             
