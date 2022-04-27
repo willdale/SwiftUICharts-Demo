@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftUICharts
 
 struct BarChartDemoView: View {
-    
-    let data : BarChartData = weekOfData()
-    
+
+    let data: BarChartData = weekOfData()
+
     var body: some View {
         BarChart(chartData: data)
             .extraLine(chartData: data,
@@ -51,16 +51,19 @@ struct BarChartDemoView: View {
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
     }
-    
+
     private var extraLineData: [ExtraLineDataPoint] {
-        [ExtraLineDataPoint(value: 200),
-         ExtraLineDataPoint(value: 90),
-         ExtraLineDataPoint(value: 700),
-         ExtraLineDataPoint(value: 175),
-         ExtraLineDataPoint(value: 60),
-         ExtraLineDataPoint(value: 100),
-         ExtraLineDataPoint(value: 600)]
+        [
+            ExtraLineDataPoint(value: 200),
+            ExtraLineDataPoint(value: 90),
+            ExtraLineDataPoint(value: 700),
+            ExtraLineDataPoint(value: 175),
+            ExtraLineDataPoint(value: 60),
+            ExtraLineDataPoint(value: 100),
+            ExtraLineDataPoint(value: 600)
+        ]
     }
+
     private var extraLineStyle: ExtraLineStyle {
         ExtraLineStyle(lineColour: ColourStyle(colour: .blue),
                        lineType: .curvedLine,
@@ -70,10 +73,9 @@ struct BarChartDemoView: View {
                        animationType: .raise,
                        baseline: .zero)
     }
-    
+
     static func weekOfData() -> BarChartData {
-                
-        let data : BarDataSet =
+        let data: BarDataSet =
             BarDataSet(dataPoints: [
                 BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: ColourStyle(colour: .purple)),
                 BarChartDataPoint(value: 90 , xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
@@ -84,33 +86,33 @@ struct BarChartDemoView: View {
                 BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
             ],
             legendTitle: "Data")
-        
-        let metadata   = ChartMetadata(title: "Units Sold", subtitle: "Last year")
-        
-        let gridStyle  = GridStyle(numberOfLines: 7,
-                                   lineColour   : Color(.lightGray).opacity(0.25),
-                                   lineWidth    : 1)
-        
-        let chartStyle = BarChartStyle(infoBoxPlacement   : .header,
-                                       markerType         : .bottomLeading(),
-                                       xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .bottom,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(-90)),
-                                       xAxisTitle         : "Categories",
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
+
+        let metadata = ChartMetadata(title: "Units Sold", subtitle: "Last year")
+
+        let gridStyle = GridStyle(numberOfLines: 7,
+                                   lineColour: Color(.lightGray).opacity(0.25),
+                                   lineWidth: 1)
+
+        let chartStyle = BarChartStyle(infoBoxPlacement: .header,
+                                       markerType: .bottomLeading(),
+                                       xAxisGridStyle: gridStyle,
+                                       xAxisLabelPosition: .bottom,
+                                       xAxisLabelsFrom: .dataPoint(rotation: .degrees(-90)),
+                                       xAxisTitle: "Categories",
+                                       yAxisGridStyle: gridStyle,
+                                       yAxisLabelPosition: .leading,
                                        yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Units sold (x 1000)",
-                                       baseline           : .zero,
-                                       topLine            : .maximumValue)
-        
-        return BarChartData(dataSets  : data,
-                            metadata  : metadata,
+                                       yAxisTitle: "Units sold (x 1000)",
+                                       baseline: .zero,
+                                       topLine: .maximumValue)
+
+        return BarChartData(dataSets: data,
+                            metadata: metadata,
                             xAxisLabels: ["One", "Two", "Three"],
-                            barStyle  : BarStyle(barWidth: 0.5,
-                                                 cornerRadius: CornerRadius(top: 50, bottom: 0),
-                                                 colourFrom: .dataPoints,
-                                                 colour: ColourStyle(colour: .blue)),
+                            barStyle: BarStyle(barWidth: 0.5,
+                                               cornerRadius: CornerRadius(top: 50, bottom: 0),
+                                               colourFrom: .dataPoints,
+                                               colour: ColourStyle(colour: .blue)),
                             chartStyle: chartStyle)
     }
 }

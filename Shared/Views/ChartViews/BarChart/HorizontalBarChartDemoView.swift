@@ -47,46 +47,44 @@ struct HorizontalBarChartDemoView: View {
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
     }
-    
+
     static func weekOfData() -> HorizontalBarChartData {
-                
-        let data : BarDataSet =
-            BarDataSet(dataPoints: [
-                BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: ColourStyle(colour: .purple)),
-                BarChartDataPoint(value: 90,  xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
-                BarChartDataPoint(value: 700, xAxisLabel: "Phones"    , description: "Phones"    , colour: ColourStyle(colour: .green)),
-                BarChartDataPoint(value: 175, xAxisLabel: "Tablets"   , description: "Tablets"   , colour: ColourStyle(colour: .yellow)),
-                BarChartDataPoint(value: 60,  xAxisLabel: "Watches"   , description: "Watches"   , colour: ColourStyle(colour: .yellow)),
-                BarChartDataPoint(value: 100, xAxisLabel: "Monitors"  , description: "Monitors"  , colour: ColourStyle(colour: .orange)),
-                BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
-            ],
-            legendTitle: "Data")
-        
-        let metadata   = ChartMetadata(title: "Units Sold", subtitle: "Last year")
-        
-        let gridStyle  = GridStyle(numberOfLines: 7,
-                                   lineColour   : Color(.lightGray).opacity(0.25),
-                                   lineWidth    : 1)
-        
-        let chartStyle = BarChartStyle(infoBoxPlacement   : .header,
-                                       markerType         : .full(),
-                                       xAxisGridStyle     : gridStyle,
-                                       xAxisLabelPosition : .top,
-                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(0)),
-                                       xAxisTitle         : "Units sold (x 1000)",
-                                       yAxisGridStyle     : gridStyle,
-                                       yAxisLabelPosition : .leading,
+        let data: BarDataSet =
+        BarDataSet(dataPoints: [
+            BarChartDataPoint(value: 200, xAxisLabel: "Laptops"   , description: "Laptops"   , colour: ColourStyle(colour: .purple)),
+            BarChartDataPoint(value: 90,  xAxisLabel: "Desktops"  , description: "Desktops"  , colour: ColourStyle(colour: .blue)),
+            BarChartDataPoint(value: 700, xAxisLabel: "Phones"    , description: "Phones"    , colour: ColourStyle(colour: .green)),
+            BarChartDataPoint(value: 175, xAxisLabel: "Tablets"   , description: "Tablets"   , colour: ColourStyle(colour: .yellow)),
+            BarChartDataPoint(value: 60,  xAxisLabel: "Watches"   , description: "Watches"   , colour: ColourStyle(colour: .yellow)),
+            BarChartDataPoint(value: 100, xAxisLabel: "Monitors"  , description: "Monitors"  , colour: ColourStyle(colour: .orange)),
+            BarChartDataPoint(value: 600, xAxisLabel: "Headphones", description: "Headphones", colour: ColourStyle(colour: .red))
+        ], legendTitle: "Data")
+
+        let metadata = ChartMetadata(title: "Units Sold", subtitle: "Last year")
+
+        let gridStyle = GridStyle(numberOfLines: 7,
+                                   lineColour: Color(.lightGray).opacity(0.25),
+                                   lineWidth: 1)
+
+        let chartStyle = BarChartStyle(infoBoxPlacement: .header,
+                                       markerType: .full(),
+                                       xAxisGridStyle: gridStyle,
+                                       xAxisLabelPosition: .top,
+                                       xAxisLabelsFrom: .dataPoint(rotation: .degrees(0)),
+                                       xAxisTitle: "Units sold (x 1000)",
+                                       yAxisGridStyle: gridStyle,
+                                       yAxisLabelPosition: .leading,
                                        yAxisNumberOfLabels: 5,
-                                       yAxisTitle         : "Categories",
-                                       baseline           : .zero,
-                                       topLine            : .maximumValue)
-        
-        return HorizontalBarChartData(dataSets  : data,
-                                      metadata  : metadata,
-                                      barStyle  : BarStyle(barWidth: 0.5,
-                                                           cornerRadius: CornerRadius(top: 50, bottom: 0),
-                                                           colourFrom: .dataPoints,
-                                                           colour: ColourStyle(colour: .blue)),
+                                       yAxisTitle: "Categories",
+                                       baseline: .zero,
+                                       topLine: .maximumValue)
+
+        return HorizontalBarChartData(dataSets: data,
+                                      metadata: metadata,
+                                      barStyle: BarStyle(barWidth: 0.5,
+                                                         cornerRadius: CornerRadius(left: 0, right: 50),
+                                                         colourFrom: .dataPoints,
+                                                         colour: ColourStyle(colour: .blue)),
                                       chartStyle: chartStyle)
     }
 }

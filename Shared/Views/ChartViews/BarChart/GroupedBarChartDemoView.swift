@@ -34,13 +34,12 @@ struct GroupedBarChartDemoView_Previews: PreviewProvider {
 
 extension GroupedBarChartDemoView {
     static func makeData() -> GroupedBarChartData {
-
         enum Group {
             case england
             case scotland
             case wales
             
-            var data : GroupingData {
+            var data: GroupingData {
                 switch self {
                 case .england:
                     return GroupingData(title: "England" , colour: ColourStyle(colour: .red))
@@ -51,8 +50,8 @@ extension GroupedBarChartDemoView {
                 }
             }
         }
-        
-        let groups : [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
+
+        let groups: [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
 
         let data = GroupedBarDataSets(dataSets: [
             GroupedBarDataSet(dataPoints: [
@@ -60,26 +59,26 @@ extension GroupedBarChartDemoView {
                 GroupedBarDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
                 GroupedBarDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
             ], setTitle: "Q1"),
-            
+
             GroupedBarDataSet(dataPoints: [
                 GroupedBarDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
                 GroupedBarDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
                 GroupedBarDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
             ], setTitle: "Q2"),
-            
+
             GroupedBarDataSet(dataPoints: [
                 GroupedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
                 GroupedBarDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
                 GroupedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
             ], setTitle: "Q3"),
-            
+
             GroupedBarDataSet(dataPoints: [
                 GroupedBarDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
                 GroupedBarDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
                 GroupedBarDataPoint(value: 200, description: "Q4 Sales", group: Group.wales.data),
             ], setTitle: "Q4")
         ])
-        
+
         return GroupedBarChartData(dataSets: data,
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
