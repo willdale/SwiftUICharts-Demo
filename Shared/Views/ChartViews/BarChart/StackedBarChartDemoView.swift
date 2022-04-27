@@ -13,7 +13,6 @@ struct StackedBarChartDemoView: View {
     let data = makeData()
     
     var body: some View {
-            
         StackedBarChart(chartData: data)
             .touchOverlay(chartData: data)
             .xAxisGrid(chartData: data)
@@ -35,7 +34,6 @@ struct StackedBarChartDemoView_Previews: PreviewProvider {
 
 extension StackedBarChartDemoView {
     static func makeData() -> StackedBarChartData {
-        
         enum Group {
             case england
             case scotland
@@ -52,8 +50,8 @@ extension StackedBarChartDemoView {
                 }
             }
         }
-        
-        let groups : [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
+
+        let groups: [GroupingData] = [Group.england.data, Group.scotland.data, Group.wales.data]
 
         let data = StackedBarDataSets(dataSets: [
             StackedBarDataSet(dataPoints: [
@@ -61,19 +59,19 @@ extension StackedBarChartDemoView {
                 StackedBarDataPoint(value: 500, description: "Q1 Sales", group: Group.scotland.data),
                 StackedBarDataPoint(value: 300, description: "Q1 Sales", group: Group.wales.data),
             ], setTitle: "Q1"),
-            
+
             StackedBarDataSet(dataPoints: [
                 StackedBarDataPoint(value: 200, description: "Q2 Sales", group: Group.england.data),
                 StackedBarDataPoint(value: 600, description: "Q2 Sales", group: Group.scotland.data),
                 StackedBarDataPoint(value: 400, description: "Q2 Sales", group: Group.wales.data),
             ], setTitle: "Q2"),
-            
+
             StackedBarDataSet(dataPoints: [
                 StackedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.england.data),
                 StackedBarDataPoint(value: 700, description: "Q3 Sales", group: Group.scotland.data),
                 StackedBarDataPoint(value: 300, description: "Q3 Sales", group: Group.wales.data),
             ], setTitle: "Q3"),
-            
+
             StackedBarDataSet(dataPoints: [
                  StackedBarDataPoint(value: 400, description: "Q4 Sales", group: Group.england.data),
                  StackedBarDataPoint(value: 800, description: "Q4 Sales", group: Group.scotland.data),
@@ -81,7 +79,6 @@ extension StackedBarChartDemoView {
             ], setTitle: "Q4")
         ])
 
-        
         return StackedBarChartData(dataSets: data,
                                    groups: groups,
                                    metadata: ChartMetadata(title: "Haggis Sales", subtitle: "Per Quarter"),
