@@ -23,8 +23,8 @@ struct MultiLineChartDemoView: View {
                               animation: pointMarkerAnimation,
                               pointMaker: pointMaker)
                 .grid()
-                .xAxisLabels(chartData: chartData, labels: ["January", "December"], positions: [.bottom], style: .standard)
-                .yAxisLabels(chartData: chartData, position: [.leading], data: .generated, style: .standard)
+                .xAxisLabels(chartData: chartData, labels: ["January", "December"], position: .bottom, style: .standard)
+                .yAxisLabels(chartData: chartData, position: .leading, data: .generated, style: .standard)
             
 //                .infoDisplay(.verticle(chartData: data),
 //                             style: .bordered,

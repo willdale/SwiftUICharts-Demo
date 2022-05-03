@@ -17,7 +17,7 @@ struct BarChartDemoView: View {
         VStack {
             BarChart(chartData: chartData, stateObject: stateObject)
 //                .touch(chartData: data) { touchLocation = $0 }
-            .hGrid()
+//            .hGrid()
             
             .yAxisMarker(chartData: chartData, value: 200, position: .leading, style: .amber) {
                 Text("Y Axis")

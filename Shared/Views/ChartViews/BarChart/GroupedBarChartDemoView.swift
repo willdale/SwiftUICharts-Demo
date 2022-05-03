@@ -16,7 +16,7 @@ struct GroupedBarChartDemoView: View {
     var body: some View {
         GroupedBarChart(chartData: data, groupSpacing: 25)
 //            .touch(chartData: data) { touchLocation = $0 }
-            .hGrid()
+//            .hGrid()
 //            .xAxisLabels(chartData: data)
 //            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         

@@ -24,15 +24,16 @@ struct LineChartDemoView: View {
         markerType: .full(attachment: .line),
         style: LineStyle(lineColour: .colour(colour: .red),
         lineType: .curvedLine))
-        
         return LineChartData(dataSets: data)
     }()
     
     var body: some View {
         LineChart(chartData: chartData)
             .touch(chartData: chartData)
-            .axisBorder(edges: edges)
-            .grid(vLines: 5, hLines: 10, style: .lightGreyNoEdges)
+            .grid(vLines: 3, hLines: 3, style: .lightGreyNoEdges) { index in
+                .linear(duration: 1).delay(0.2 * Double(index))
+            }
+//            .axisBorder(edges: edges)
         
             .yAxisMarker(chartData: chartData, value: 16_000, position: .leading, style: .amber, label: yAxisPOIText)
             .xAxisMarker(chartData: chartData, value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, label: xAxisPOIText)
@@ -40,8 +41,8 @@ struct LineChartDemoView: View {
             .pointMarkers(chartData: chartData, animation: pointMarkerAnimation, pointMaker: pointMaker)
             .touchMarker(chartData: chartData, indicator: .none)
         
-            .xAxisLabels(chartData: chartData, labels: chartData.dataSets.dataLabels, positions: [.bottom], style: .standard)
-            .yAxisLabels(chartData: chartData, position: [.leading], data: .generated, style: .standard)
+            .xAxisLabels(chartData: chartData, labels: chartData.dataSets.dataLabels, position: .bottom, style: .standard)
+            .yAxisLabels(chartData: chartData, position: .leading, data: .generated, style: .standard)
         
             .axisTitles(chartData: chartData, edges: axisTitles, style: .standard)
 
@@ -50,12 +51,13 @@ struct LineChartDemoView: View {
             }
         
             .titleBox(title: "A Title", subtitle: "A subtitle")
-            .legends(legends: [Legend(chartType: .line, text: "One"), Legend(chartType: .line, text: "Two", shapeColour: .colour(colour: .blue))], style: .standard)
+            .legends(legends: legends, style: .standard)
 
             .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 400, maxHeight: 400, alignment: .center)
             .padding(.horizontal)
             .navigationTitle("Week of Data")
+            .drawingGroup()
     }
     
     private func boxLocation(touchLocation: CGPoint, chartSize: CGRect, boxSize: CGRect) -> CGPoint {
@@ -132,6 +134,13 @@ struct LineChartDemoView: View {
             .accessibilityLabel(LocalizedStringKey("P-O-I-Marker"))
             .accessibilityValue(LocalizedStringKey(String(format: NSLocalizedString("Rest Day",
                                                                                     comment: "The day of the week the user should rest"))))
+    }
+    
+    var legends: [Legend] {
+        [
+            Legend(chartType: .line, text: "One", shapeColour: .colour(colour: .red)),
+            Legend(chartType: .line, text: "Two", shapeColour: .colour(colour: .blue))
+        ]
     }
 }
 
