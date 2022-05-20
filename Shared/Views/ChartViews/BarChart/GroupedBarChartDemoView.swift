@@ -14,6 +14,7 @@ struct GroupedBarChartDemoView: View {
     
     var body: some View {
         GroupedBarChart(chartData: data, groupSpacing: 25)
+            .disableAnimation(chartData: data, true)
             .touchOverlay(chartData: data, unit: .suffix(of: "kg"))
             .yAxisGrid(chartData: data)
             .xAxisLabels(chartData: data)

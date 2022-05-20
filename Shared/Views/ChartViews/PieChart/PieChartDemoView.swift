@@ -15,6 +15,7 @@ struct PieChartDemoView: View {
     var body: some View {
         VStack {
             PieChart(chartData: data)
+                .disableAnimation(chartData: data, true)
                 .touchOverlay(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])
