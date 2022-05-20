@@ -14,6 +14,7 @@ struct BarChartDemoView: View {
 
     var body: some View {
         BarChart(chartData: data)
+            .disableAnimation(chartData: data, true)
             .extraLine(chartData: data,
                        legendTitle: "Test",
                        datapoints: extraLineData,

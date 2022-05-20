@@ -15,6 +15,7 @@ struct DoughnutChartDemoView: View {
     var body: some View {
         VStack {
             DoughnutChart(chartData: data)
+                .disableAnimation(chartData: data, true)
                 .touchOverlay(chartData: data)
                 .headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())])

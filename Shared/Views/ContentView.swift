@@ -15,7 +15,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 Section(header: Text("Line Chart")) {
-                    NavigationLink(destination: LineChartDemoView()) {
+                    NavigationLink(destination: ShareHomeView()) {
                         Text("Line Chart")
                     }
                     NavigationLink(destination: FilledLineChartDemoView()) {
