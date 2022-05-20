@@ -18,7 +18,6 @@ struct FilledLineChartDemoView: View {
                 .filledTopLine(chartData: data,
                                lineColour: ColourStyle(colour: .red),
                                strokeStyle: StrokeStyle(lineWidth: 3))
-                .disableAnimation(chartData: data, true)
                 .touchOverlay(chartData: data, unit: .suffix(of: "Steps"))
                 .pointMarkers(chartData: data)
                 .yAxisPOI(chartData: data,

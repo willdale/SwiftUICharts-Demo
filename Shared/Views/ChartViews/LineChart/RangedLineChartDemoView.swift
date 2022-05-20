@@ -15,7 +15,6 @@ struct RangedLineChartDemoView: View {
         VStack {
 
             RangedLineChart(chartData: data)
-                .disableAnimation(chartData: data, true)
                 .extraLine(chartData: data, legendTitle: "Test", datapoints: {
                     extraLineData
                 }, style: {
