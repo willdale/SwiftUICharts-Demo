@@ -15,7 +15,6 @@ struct LineChartDemoView: View {
     
     var body: some View {
         LineChart(chartData: data)
-            .disableAnimation(chartData: data, true)
             .extraLine(chartData: data,
                        legendTitle: "Test",
                        datapoints: extraLineData,

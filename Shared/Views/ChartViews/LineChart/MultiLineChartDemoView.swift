@@ -15,7 +15,6 @@ struct MultiLineChartDemoView: View {
     var body: some View {
         VStack {
             MultiLineChart(chartData: data)
-                .disableAnimation(chartData: data, true)
                 .touchOverlay(chartData: data, specifier: "%.01f", unit: .suffix(of: "ºC"))
                 .pointMarkers(chartData: data)
                 .xAxisGrid(chartData: data)
