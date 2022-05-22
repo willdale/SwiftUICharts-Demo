@@ -10,17 +10,17 @@ import SwiftUICharts
 
 struct HorizontalBarChartDemoView: View {
     
-    @StateObject private var chartData = weekOfData()
-    @StateObject private var stateObject = ChartStateObject()
+    private var chartData = weekOfData()
+    private var stateObject = ChartStateObject()
     
     var body: some View {
-        HorizontalBarChart()
+        HorizontalBarChart(chartData: chartData, stateObject: stateObject)
 //            .touch(chartData: data) { touchLocation = $0 }
-            .grid()
-            .yAxisMarker(value: 200, position: .bottom, style: .amber, dataSetInfo: chartData.dataSetInfo) {
+            .grid(chartData: chartData)
+            .yAxisMarker(chartData: chartData, value: 200, position: .bottom, style: .amber) {
                 Text("Y Axis")
             }
-            .xAxisMarker(value: 1, total: chartData.dataSets.dataWidth, position: .leading, style: .amber, chartName: chartData.chartName) {
+            .xAxisMarker(chartData: chartData, value: 1, total: chartData.dataSets.dataWidth, position: .leading, style: .amber) {
                 Text("X Axis")
             }
         

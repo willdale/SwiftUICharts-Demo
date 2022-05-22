@@ -57,6 +57,11 @@ struct ContentView: View {
                     }
                 }
                 Section(header: Text("Other")) {
+                    #if canImport(UIKit)
+                    NavigationLink(destination: ShareHomeView()) {
+                        Text("Share Demo")
+                    }
+                    #endif
                     NavigationLink(destination: LocalizationDemoView()) {
                         Text("Localization View")
                     }
