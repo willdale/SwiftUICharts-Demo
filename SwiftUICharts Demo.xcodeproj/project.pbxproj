@@ -21,6 +21,9 @@
 		6C23A47B25B1FAE700BD364E /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
 		6C23A48125B1FAE700BD364E /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
+		6C244A03283A2A770022B935 /* ShareHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C244A02283A2A770022B935 /* ShareHomeView.swift */; };
+		6C244A04283A2A770022B935 /* ShareHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C244A02283A2A770022B935 /* ShareHomeView.swift */; };
+		6C244A05283A2A770022B935 /* ShareHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C244A02283A2A770022B935 /* ShareHomeView.swift */; };
 		6C3B65BD26A2DB9F008EA7BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C3B65C326A2DB9F008EA7BD /* Localizable.strings */; };
 		6C3B65BE26A2DB9F008EA7BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C3B65C326A2DB9F008EA7BD /* Localizable.strings */; };
 		6C3B65BF26A2DB9F008EA7BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C3B65C326A2DB9F008EA7BD /* Localizable.strings */; };
@@ -139,6 +142,7 @@
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C244A02283A2A770022B935 /* ShareHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareHomeView.swift; sourceTree = "<group>"; };
 		6C3B65C226A2DB9F008EA7BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C3B65C926A2E1AF008EA7BD /* LocalizationDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationDemoView.swift; sourceTree = "<group>"; };
 		6C4A82B925EC0650008BD233 /* FilteredDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDemo.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */,
+				6C244A02283A2A770022B935 /* ShareHomeView.swift */,
 				6C4A82B925EC0650008BD233 /* FilteredDemo.swift */,
 				6C3B65C926A2E1AF008EA7BD /* LocalizationDemoView.swift */,
 			);
@@ -617,6 +622,7 @@
 				6C4A82BC25EC0650008BD233 /* FilteredDemo.swift in Sources */,
 				6C17FF3025F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */,
 				6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */,
+				6C244A05283A2A770022B935 /* ShareHomeView.swift in Sources */,
 				6C8C40672636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */,
 				6C5E42CC25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A325C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,
@@ -643,6 +649,7 @@
 				6C4A82BA25EC0650008BD233 /* FilteredDemo.swift in Sources */,
 				6C17FF2E25F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */,
 				6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */,
+				6C244A03283A2A770022B935 /* ShareHomeView.swift in Sources */,
 				6C8C40652636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */,
 				6C5E42CA25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A125C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,
@@ -669,6 +676,7 @@
 				6C4A82BB25EC0650008BD233 /* FilteredDemo.swift in Sources */,
 				6C17FF2F25F0DCE100E8F11D /* RangedBarChartDemoView.swift in Sources */,
 				6CC59B8A25AB0D7C009D405A /* ContentView.swift in Sources */,
+				6C244A04283A2A770022B935 /* ShareHomeView.swift in Sources */,
 				6C8C40662636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */,
 				6C5E42CB25C1FF5900FAB3D8 /* LineChartDemoView.swift in Sources */,
 				6CCE39A225C7F9BB00148163 /* DoughnutChartDemoView.swift in Sources */,
