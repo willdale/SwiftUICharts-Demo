@@ -29,10 +29,11 @@ struct LineChartDemoView: View {
     
     var body: some View {
         LineChart(chartData: chartData)
+            .disableAnimation(chartData: chartData, true)
             .touch(chartData: chartData)
-            .grid(vLines: 7, hLines: 8, style: .greyNoEdges, vAnimation: gridAnimation, hAnimation: gridAnimation)
+            .grid(chartData: chartData, vLines: 7, hLines: 8, style: .greyNoEdges, vAnimation: gridAnimation, hAnimation: gridAnimation)
         
-//            .axisBorder(edges: edges)
+            .axisBorder(chartData: chartData, edges: edges)
         
             .yAxisMarker(chartData: chartData, value: 16_000, position: .leading, style: .amber, label: yAxisPOIText)
             .xAxisMarker(chartData: chartData, value: 2, total: chartData.dataSets.dataWidth, position: .top, style: .amber, label: xAxisPOIText)

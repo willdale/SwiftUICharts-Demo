@@ -10,12 +10,12 @@ import SwiftUICharts
 
 struct RangedBarChartDemoView: View {
     
-    let data: RangedBarChartData = weekOfData()
+    let chartData: RangedBarChartData = weekOfData()
     
     @State private var touchLocation: CGPoint?
     
     var body: some View {
-        RangedBarChart(chartData: data)
+        RangedBarChart(chartData: chartData)
 //            .touch(chartData: data) { touchLocation = $0 }
 //            .yAxisPOI(chartData: data,
 //                      markerName: "Upper Limit",
@@ -35,7 +35,7 @@ struct RangedBarChartDemoView: View {
 //                      strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
 //            .averageLine(chartData: data,
 //                         strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-            .grid()
+            .grid(chartData: chartData)
 //            .xAxisLabels(chartData: data, style: xAxisLabelStyle)
 //            .yAxisLabels(chartData: data, position: [.leading], data: .generated)
         
@@ -44,7 +44,7 @@ struct RangedBarChartDemoView: View {
 //                      title: HeaderBoxText(text: "Heart Rate"),
 //                      subtitle: HeaderBoxText(text: "Over 24 Hours"))
 //            .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-            .id(data.id)
+            .id(chartData.id)
             .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
             .padding(.horizontal)
             .navigationTitle("Week of Data")

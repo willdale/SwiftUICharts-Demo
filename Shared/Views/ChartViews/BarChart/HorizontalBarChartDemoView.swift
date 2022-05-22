@@ -16,7 +16,7 @@ struct HorizontalBarChartDemoView: View {
     var body: some View {
         HorizontalBarChart(chartData: chartData, stateObject: stateObject)
 //            .touch(chartData: data) { touchLocation = $0 }
-            .grid()
+            .grid(chartData: chartData)
             .yAxisMarker(chartData: chartData, value: 200, position: .bottom, style: .amber) {
                 Text("Y Axis")
             }

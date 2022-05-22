@@ -10,7 +10,7 @@ import SwiftUICharts
 
 struct RangedLineChartDemoView: View {
     
-    let data: RangedLineChartData = weekOfData()
+    let chartData: RangedLineChartData = weekOfData()
     
     @State private var touchLocation: CGPoint?
     @State var size: CGRect = .zero
@@ -18,13 +18,13 @@ struct RangedLineChartDemoView: View {
     var body: some View {
         VStack {
             
-            RangedLineChart(chartData: data)
+            RangedLineChart(chartData: chartData)
 //                .touch(chartData: data) { touchLocation = $0 }
 //                .pointMarkers(chartData: data)
 //                .averageLine(chartData: data,
 //                             labelPosition: .center(specifier: "%.0f"),
 //                             strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                .grid()
+                .grid(chartData: chartData)
 //                .xAxisLabels(chartData: data, style: .standard)
 //                .yAxisLabels(chartData: data, position: [.leading], data: .generated)
 
@@ -33,7 +33,7 @@ struct RangedLineChartDemoView: View {
 //                          title: HeaderBoxText(text: "Profits"),
 //                          subtitle: HeaderBoxText(text: "with Expected"))
 //                .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
-                .id(data.id)
+                .id(chartData.id)
                 .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
                 .padding(.horizontal)
         }
