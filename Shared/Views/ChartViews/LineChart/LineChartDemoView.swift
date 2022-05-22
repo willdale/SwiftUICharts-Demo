@@ -30,9 +30,8 @@ struct LineChartDemoView: View {
     var body: some View {
         LineChart(chartData: chartData)
             .touch(chartData: chartData)
-            .grid(vLines: 3, hLines: 3, style: .lightGreyNoEdges) { index in
-                .linear(duration: 1).delay(0.2 * Double(index))
-            }
+            .grid(vLines: 7, hLines: 8, style: .greyNoEdges, vAnimation: gridAnimation, hAnimation: gridAnimation)
+        
 //            .axisBorder(edges: edges)
         
             .yAxisMarker(chartData: chartData, value: 16_000, position: .leading, style: .amber, label: yAxisPOIText)
@@ -58,6 +57,10 @@ struct LineChartDemoView: View {
             .padding(.horizontal)
             .navigationTitle("Week of Data")
             .drawingGroup()
+    }
+    
+    private func gridAnimation(_ index: Int) -> Animation {
+        .linear(duration: 1).delay(0.2 * Double(index))
     }
     
     private func boxLocation(touchLocation: CGPoint, chartSize: CGRect, boxSize: CGRect) -> CGPoint {
