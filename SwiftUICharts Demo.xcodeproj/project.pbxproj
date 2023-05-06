@@ -143,6 +143,8 @@
 		6CC59B8525AB0D7C009D405A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC59B8625AB0D7C009D405A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		6CCE39A025C7F9BB00148163 /* DoughnutChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughnutChartDemoView.swift; sourceTree = "<group>"; };
+		6CCE56322A06AF8700F5793A /* SwiftUIChartsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUIChartsTests; path = ../SwiftUICharts/Tests/SwiftUIChartsTests; sourceTree = "<group>"; };
+		6CCE56342A06B0B100F5793A /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
 		6CD59BD125D6879E007D79D1 /* StackedBarChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedBarChartDemoView.swift; sourceTree = "<group>"; };
 		6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo (watchOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDF287C25B30C9100ADA785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +257,8 @@
 		6CC59B6E25AB0D7B009D405A = {
 			isa = PBXGroup;
 			children = (
+				6CCE56332A06B0B100F5793A /* Packages */,
+				6CCE56322A06AF8700F5793A /* SwiftUIChartsTests */,
 				6CC59B7325AB0D7B009D405A /* Shared */,
 				6CC59B7D25AB0D7C009D405A /* iOS */,
 				6CC59B8425AB0D7C009D405A /* macOS */,
@@ -311,6 +315,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CCE56332A06B0B100F5793A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6CCE56342A06B0B100F5793A /* SwiftUICharts */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 		6CDC4C6025AEF57D00E1FF40 /* ChartViews */ = {
