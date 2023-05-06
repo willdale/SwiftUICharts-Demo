@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 struct RangedLineChartDemoView: View {
+    
     let data : RangedLineChartData = weekOfData()
 
     var body: some View {
