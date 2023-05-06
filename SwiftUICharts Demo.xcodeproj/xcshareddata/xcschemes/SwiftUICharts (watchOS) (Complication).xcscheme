@@ -20,20 +20,6 @@
                ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6CC59B7A25AB0D7C009D405A"
-               BuildableName = "SwiftUICharts Demo.app"
-               BlueprintName = "SwiftUICharts Demo (iOS)"
-               ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
