@@ -42,16 +42,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C23833625E80DB10001B310"
-               BuildableName = "SwiftUIChartsDemoUITests.xctest"
-               BlueprintName = "SwiftUIChartsDemoUITests"
-               ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

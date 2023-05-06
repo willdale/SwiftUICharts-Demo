@@ -55,14 +55,13 @@
 		6C5E42D725C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
 		6C5E42D825C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
 		6C5E42D925C1FF6300FAB3D8 /* PieChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */; };
-		6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296725B1D27900F9A126 /* SwiftUICharts */; };
-		6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C75296B25B1D2F200F9A126 /* SwiftUICharts */; };
 		6C8C40652636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */; };
 		6C8C40662636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */; };
 		6C8C40672636CDF6005F2E08 /* HorizontalBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */; };
 		6C92DBC02680718D000115E1 /* LineChartInScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */; };
 		6C92DBC12680718D000115E1 /* LineChartInScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */; };
 		6C92DBC22680718D000115E1 /* LineChartInScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */; };
+		6CA5ED152A06A1D1009B7721 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6CA5ED142A06A1D1009B7721 /* SwiftUICharts */; };
 		6CC59B8725AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6CC59B8825AB0D7C009D405A /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6CC59B8925AB0D7C009D405A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
@@ -170,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C75296825B1D27900F9A126 /* SwiftUICharts in Frameworks */,
+				6CA5ED152A06A1D1009B7721 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +177,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C75296C25B1D2F200F9A126 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +423,7 @@
 			);
 			name = "SwiftUICharts Demo (iOS)";
 			packageProductDependencies = (
-				6C75296725B1D27900F9A126 /* SwiftUICharts */,
+				6CA5ED142A06A1D1009B7721 /* SwiftUICharts */,
 			);
 			productName = "SwiftUICharts Demo (iOS)";
 			productReference = 6CC59B7B25AB0D7C009D405A /* SwiftUICharts Demo.app */;
@@ -445,7 +443,6 @@
 			);
 			name = "SwiftUICharts Demo (macOS)";
 			packageProductDependencies = (
-				6C75296B25B1D2F200F9A126 /* SwiftUICharts */,
 			);
 			productName = "SwiftUICharts Demo (macOS)";
 			productReference = 6CC59B8325AB0D7C009D405A /* SwiftUICharts Demo.app */;
@@ -504,7 +501,7 @@
 			);
 			mainGroup = 6CC59B6E25AB0D7B009D405A;
 			packageReferences = (
-				6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				6CA5ED132A06A1D1009B7721 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 6CC59B7C25AB0D7C009D405A /* Products */;
 			projectDirPath = "";
@@ -554,7 +551,6 @@
 				6CDF287D25B30C9100ADA785 /* Assets.xcassets in Resources */,
 				6C3B65C126A2DB9F008EA7BD /* Localizable.strings in Resources */,
 				6CDF289625B30C9200ADA785 /* Preview Assets.xcassets in Resources */,
-				6C3B65C026A2DB9F008EA7BD /* Localizable.strings in Resources */,
 				6CDF289325B30C9200ADA785 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1039,9 +1035,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+		6CA5ED132A06A1D1009B7721 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			repositoryURL = "https://github.com/willdale/SwiftUICharts";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
@@ -1050,14 +1046,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6C75296725B1D27900F9A126 /* SwiftUICharts */ = {
+		6CA5ED142A06A1D1009B7721 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
-			productName = SwiftUICharts;
-		};
-		6C75296B25B1D2F200F9A126 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			package = 6CA5ED132A06A1D1009B7721 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
 			productName = SwiftUICharts;
 		};
 		6CDF28AD25B30CCC00ADA785 /* SwiftUICharts */ = {

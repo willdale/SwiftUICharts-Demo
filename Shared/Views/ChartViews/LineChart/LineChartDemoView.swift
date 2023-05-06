@@ -179,7 +179,7 @@ extension Color {
     }
 }
 
-#if canImport(UIKit)
+#if os(iOS)
 enum ActiveSheet: String, Identifiable {
     case photoLibrary, shareSheet
     var id: String {
@@ -250,8 +250,6 @@ struct RecoveryShareHomeView_Previews: PreviewProvider {
         ShareHomeView().preferredColorScheme(.light)
     }
 }
-#endif
-
 
 import LinkPresentation
 
@@ -271,3 +269,4 @@ struct ShareSheet: UIViewControllerRepresentable {
         
     }
 }
+#endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1430"
-   version = "2.0">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6CDF287925B30C9000ADA785"
-               BuildableName = "SwiftUICharts Demo (watchOS).app"
-               BlueprintName = "SwiftUICharts Demo (watchOS)"
-               ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6CC59B7A25AB0D7C009D405A"
-               BuildableName = "SwiftUICharts Demo.app"
-               BlueprintName = "SwiftUICharts Demo (iOS)"
+               BlueprintIdentifier = "6C23A45925B1FA4700BD364E"
+               BuildableName = "SwiftUICharts Demo (tvOS).app"
+               BlueprintName = "SwiftUICharts Demo (tvOS)"
                ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,9 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -53,16 +38,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      launchAutomaticallySubstyle = "32"
-      notificationPayloadFile = "watchOS Extension/PushNotificationPayload.apns">
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6CDF287925B30C9000ADA785"
-            BuildableName = "SwiftUICharts Demo (watchOS).app"
-            BlueprintName = "SwiftUICharts Demo (watchOS)"
+            BlueprintIdentifier = "6C23A45925B1FA4700BD364E"
+            BuildableName = "SwiftUICharts Demo (tvOS).app"
+            BlueprintName = "SwiftUICharts Demo (tvOS)"
             ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -72,15 +55,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES"
-      launchAutomaticallySubstyle = "32">
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6CDF287925B30C9000ADA785"
-            BuildableName = "SwiftUICharts Demo (watchOS).app"
-            BlueprintName = "SwiftUICharts Demo (watchOS)"
+            BlueprintIdentifier = "6C23A45925B1FA4700BD364E"
+            BuildableName = "SwiftUICharts Demo (tvOS).app"
+            BlueprintName = "SwiftUICharts Demo (tvOS)"
             ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
