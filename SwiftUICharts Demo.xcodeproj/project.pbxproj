@@ -17,7 +17,6 @@
 		6C18541C25AEF3BE00F2FAE0 /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
 		6C23A46125B1FA4800BD364E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C23A46025B1FA4800BD364E /* Assets.xcassets */; };
 		6C23A46425B1FA4800BD364E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */; };
-		6C23A46D25B1FA6D00BD364E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6C23A46C25B1FA6D00BD364E /* SwiftUICharts */; };
 		6C23A47B25B1FAE700BD364E /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18541A25AEF3BE00F2FAE0 /* Extra.swift */; };
 		6C23A48125B1FAE700BD364E /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */; };
 		6C23A48425B1FAE700BD364E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC59B7525AB0D7B009D405A /* ContentView.swift */; };
@@ -122,7 +121,6 @@
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C3553F12A06915500D8FEA9 /* SwiftUIChartsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUIChartsTests; path = ../SwiftUICharts/Tests/SwiftUIChartsTests; sourceTree = "<group>"; };
 		6C3B65C226A2DB9F008EA7BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C3B65C926A2E1AF008EA7BD /* LocalizationDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationDemoView.swift; sourceTree = "<group>"; };
 		6C4A82B925EC0650008BD233 /* FilteredDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDemo.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		6C5E42C525C1FF5900FAB3D8 /* LineChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42C625C1FF5900FAB3D8 /* MultiLineChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineChartDemoView.swift; sourceTree = "<group>"; };
 		6C5E42D625C1FF6300FAB3D8 /* PieChartDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartDemoView.swift; sourceTree = "<group>"; };
-		6C7529A525B1F41100F9A126 /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICharts; path = ../SwiftUICharts; sourceTree = "<group>"; };
 		6C8C40642636CDF6005F2E08 /* HorizontalBarChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBarChartDemoView.swift; sourceTree = "<group>"; };
 		6C92DBBF2680718D000115E1 /* LineChartInScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartInScrollView.swift; sourceTree = "<group>"; };
 		6CC59B7425AB0D7B009D405A /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
@@ -166,7 +163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C23A46D25B1FA6D00BD364E /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +254,6 @@
 		6CC59B6E25AB0D7B009D405A = {
 			isa = PBXGroup;
 			children = (
-				6C3553F12A06915500D8FEA9 /* SwiftUIChartsTests */,
-				6C7529A525B1F41100F9A126 /* SwiftUICharts */,
 				6CC59B7325AB0D7B009D405A /* Shared */,
 				6CC59B7D25AB0D7C009D405A /* iOS */,
 				6CC59B8425AB0D7C009D405A /* macOS */,
@@ -410,7 +404,6 @@
 			);
 			name = "SwiftUICharts Demo (tvOS)";
 			packageProductDependencies = (
-				6C23A46C25B1FA6D00BD364E /* SwiftUICharts */,
 			);
 			productName = "SwiftUICharts Demo";
 			productReference = 6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */;
@@ -472,7 +465,6 @@
 			);
 			name = "SwiftUICharts Demo (watchOS)";
 			packageProductDependencies = (
-				6C3553F22A0691E800D8FEA9 /* SwiftUICharts */,
 			);
 			productName = watchOS;
 			productReference = 6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */;
@@ -1058,14 +1050,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6C23A46C25B1FA6D00BD364E /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftUICharts;
-		};
-		6C3553F22A0691E800D8FEA9 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftUICharts;
-		};
 		6C75296725B1D27900F9A126 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6C75296625B1D27900F9A126 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
