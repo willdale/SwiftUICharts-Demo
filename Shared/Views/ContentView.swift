@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftUICharts
 
 struct ContentView: View {
-    @Environment(\.scenePhase) var scenePhase
     var body: some View {
         NavigationView {
             List {

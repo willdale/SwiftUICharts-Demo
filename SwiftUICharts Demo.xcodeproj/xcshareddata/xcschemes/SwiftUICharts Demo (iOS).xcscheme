@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -37,21 +37,6 @@
                BlueprintName = "SwiftUIChartsTests"
                ReferencedContainer = "container:../SwiftUICharts">
             </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C23833625E80DB10001B310"
-               BuildableName = "SwiftUIChartsDemoUITests.xctest"
-               BlueprintName = "SwiftUIChartsDemoUITests"
-               ReferencedContainer = "container:SwiftUICharts Demo.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "SwiftUIChartsDemoUITests/testLaunchPerformance()">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

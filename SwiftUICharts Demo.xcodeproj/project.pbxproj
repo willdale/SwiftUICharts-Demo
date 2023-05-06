@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -77,7 +77,6 @@
 		6CD59BD325D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD59BD125D6879E007D79D1 /* StackedBarChartDemoView.swift */; };
 		6CD59BD425D6879E007D79D1 /* StackedBarChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD59BD125D6879E007D79D1 /* StackedBarChartDemoView.swift */; };
 		6CDF287D25B30C9100ADA785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CDF287C25B30C9100ADA785 /* Assets.xcassets */; };
-		6CDF288425B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6CDF288325B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6CDF288925B30C9100ADA785 /* SwiftUICharts_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDF288825B30C9100ADA785 /* SwiftUICharts_DemoApp.swift */; };
 		6CDF288B25B30C9100ADA785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDF288A25B30C9100ADA785 /* ContentView.swift */; };
 		6CDF288D25B30C9100ADA785 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDF288C25B30C9100ADA785 /* NotificationController.swift */; };
@@ -90,13 +89,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6CDF288525B30C9100ADA785 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6CC59B6F25AB0D7B009D405A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6CDF288225B30C9100ADA785;
-			remoteInfo = "watchOS Extension";
-		};
 		6CDF289925B30C9200ADA785 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6CC59B6F25AB0D7B009D405A /* Project object */;
@@ -118,17 +110,6 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6CDF289E25B30C9200ADA785 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				6CDF288425B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +122,7 @@
 		6C23A46025B1FA4800BD364E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C23A46325B1FA4800BD364E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C23A46525B1FA4800BD364E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C3553F12A06915500D8FEA9 /* SwiftUIChartsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUIChartsTests; path = ../SwiftUICharts/Tests/SwiftUIChartsTests; sourceTree = "<group>"; };
 		6C3B65C226A2DB9F008EA7BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C3B65C926A2E1AF008EA7BD /* LocalizationDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationDemoView.swift; sourceTree = "<group>"; };
 		6C4A82B925EC0650008BD233 /* FilteredDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDemo.swift; sourceTree = "<group>"; };
@@ -168,7 +150,6 @@
 		6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUICharts Demo (watchOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDF287C25B30C9100ADA785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CDF287E25B30C9100ADA785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6CDF288325B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SwiftUICharts Demo (watchOS) Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDF288825B30C9100ADA785 /* SwiftUICharts_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICharts_DemoApp.swift; sourceTree = "<group>"; };
 		6CDF288A25B30C9100ADA785 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CDF288C25B30C9100ADA785 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -277,6 +258,7 @@
 		6CC59B6E25AB0D7B009D405A = {
 			isa = PBXGroup;
 			children = (
+				6C3553F12A06915500D8FEA9 /* SwiftUIChartsTests */,
 				6C7529A525B1F41100F9A126 /* SwiftUICharts */,
 				6CC59B7325AB0D7B009D405A /* Shared */,
 				6CC59B7D25AB0D7C009D405A /* iOS */,
@@ -308,7 +290,6 @@
 				6CC59B8325AB0D7C009D405A /* SwiftUICharts Demo.app */,
 				6C23A45A25B1FA4700BD364E /* SwiftUICharts Demo (tvOS).app */,
 				6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */,
-				6CDF288325B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -482,37 +463,20 @@
 			buildConfigurationList = 6CDF28A225B30C9200ADA785 /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (watchOS)" */;
 			buildPhases = (
 				6CDF287825B30C9000ADA785 /* Resources */,
-				6CDF289E25B30C9200ADA785 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6CDF288625B30C9100ADA785 /* PBXTargetDependency */,
-			);
-			name = "SwiftUICharts Demo (watchOS)";
-			productName = watchOS;
-			productReference = 6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		6CDF288225B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6CDF28A125B30C9200ADA785 /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (watchOS) Extension" */;
-			buildPhases = (
 				6CDF287F25B30C9100ADA785 /* Sources */,
 				6CDF288025B30C9100ADA785 /* Frameworks */,
-				6CDF288125B30C9100ADA785 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "SwiftUICharts Demo (watchOS) Extension";
+			name = "SwiftUICharts Demo (watchOS)";
 			packageProductDependencies = (
-				6CDF28AD25B30CCC00ADA785 /* SwiftUICharts */,
+				6C3553F22A0691E800D8FEA9 /* SwiftUICharts */,
 			);
-			productName = "watchOS Extension";
-			productReference = 6CDF288325B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			productName = watchOS;
+			productReference = 6CDF287A25B30C9000ADA785 /* SwiftUICharts Demo (watchOS).app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -520,8 +484,9 @@
 		6CC59B6F25AB0D7B009D405A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					6C23A45925B1FA4700BD364E = {
 						CreatedOnToolsVersion = 12.3;
@@ -533,9 +498,6 @@
 						CreatedOnToolsVersion = 12.3;
 					};
 					6CDF287925B30C9000ADA785 = {
-						CreatedOnToolsVersion = 12.3;
-					};
-					6CDF288225B30C9100ADA785 = {
 						CreatedOnToolsVersion = 12.3;
 					};
 				};
@@ -560,7 +522,6 @@
 				6CC59B8225AB0D7C009D405A /* SwiftUICharts Demo (macOS) */,
 				6C23A45925B1FA4700BD364E /* SwiftUICharts Demo (tvOS) */,
 				6CDF287925B30C9000ADA785 /* SwiftUICharts Demo (watchOS) */,
-				6CDF288225B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -599,16 +560,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CDF287D25B30C9100ADA785 /* Assets.xcassets in Resources */,
-				6C3B65C026A2DB9F008EA7BD /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6CDF288125B30C9100ADA785 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6CDF289625B30C9200ADA785 /* Preview Assets.xcassets in Resources */,
 				6C3B65C126A2DB9F008EA7BD /* Localizable.strings in Resources */,
+				6CDF289625B30C9200ADA785 /* Preview Assets.xcassets in Resources */,
+				6C3B65C026A2DB9F008EA7BD /* Localizable.strings in Resources */,
 				6CDF289325B30C9200ADA785 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,11 +663,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6CDF288625B30C9100ADA785 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6CDF288225B30C9100ADA785 /* SwiftUICharts Demo (watchOS) Extension */;
-			targetProxy = 6CDF288525B30C9100ADA785 /* PBXContainerItemProxy */;
-		};
 		6CDF289A25B30C9200ADA785 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6CDF287925B30C9000ADA785 /* SwiftUICharts Demo (watchOS) */;
@@ -814,6 +763,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -875,6 +825,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -953,6 +904,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = EGJ7GMEH64;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -978,6 +930,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = EGJ7GMEH64;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -999,11 +952,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EGJ7GMEH64;
-				IBSC_MODULE = watchOS_Extension;
 				INFOPLIST_FILE = watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.willdale.SwiftUICharts-Demo.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1019,66 +976,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EGJ7GMEH64;
-				IBSC_MODULE = watchOS_Extension;
 				INFOPLIST_FILE = watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.willdale.SwiftUICharts-Demo.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Release;
-		};
-		6CDF289F25B30C9200ADA785 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"watchOS Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = EGJ7GMEH64;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "watchOS Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.willdale.SwiftUICharts-Demo.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Debug;
-		};
-		6CDF28A025B30C9200ADA785 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"watchOS Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = EGJ7GMEH64;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "watchOS Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.willdale.SwiftUICharts-Demo.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1127,15 +1035,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6CDF28A125B30C9200ADA785 /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (watchOS) Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6CDF289F25B30C9200ADA785 /* Debug */,
-				6CDF28A025B30C9200ADA785 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6CDF28A225B30C9200ADA785 /* Build configuration list for PBXNativeTarget "SwiftUICharts Demo (watchOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1160,6 +1059,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		6C23A46C25B1FA6D00BD364E /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUICharts;
+		};
+		6C3553F22A0691E800D8FEA9 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftUICharts;
 		};
